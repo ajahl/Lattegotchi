@@ -26,6 +26,9 @@
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
+		59EFA43C18B2583600343C13 /* WishTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EFA43B18B2583600343C13 /* WishTableViewController.m */; };
+		59EFA43F18B2586500343C13 /* BackpackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EFA43E18B2586500343C13 /* BackpackViewController.m */; };
+		59EFA44218B2588300343C13 /* StoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EFA44118B2588300343C13 /* StoreTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,12 @@
 		42F729EB18B2398F00F15B1F /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
 		42F729ED18B239A700F15B1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
 		42F729EE18B239A700F15B1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		59EFA43A18B2583600343C13 /* WishTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishTableViewController.h; path = Controller/WishTableViewController.h; sourceTree = "<group>"; };
+		59EFA43B18B2583600343C13 /* WishTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishTableViewController.m; path = Controller/WishTableViewController.m; sourceTree = "<group>"; };
+		59EFA43D18B2586500343C13 /* BackpackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackpackViewController.h; path = Controller/BackpackViewController.h; sourceTree = "<group>"; };
+		59EFA43E18B2586500343C13 /* BackpackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackpackViewController.m; path = Controller/BackpackViewController.m; sourceTree = "<group>"; };
+		59EFA44018B2588300343C13 /* StoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTableViewController.h; path = Controller/StoreTableViewController.h; sourceTree = "<group>"; };
+		59EFA44118B2588300343C13 /* StoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreTableViewController.m; path = Controller/StoreTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +144,7 @@
 				4279B5BB18B217A300051796 /* ViewController.m */,
 				4279B5BD18B217A300051796 /* Images.xcassets */,
 				4279B5A918B217A300051796 /* Supporting Files */,
+				59EFA44318B2589200343C13 /* Controller */,
 			);
 			path = LAttegotchi;
 			sourceTree = "<group>";
@@ -181,6 +191,19 @@
 				42F729EE18B239A700F15B1F /* Item.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		59EFA44318B2589200343C13 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				59EFA43A18B2583600343C13 /* WishTableViewController.h */,
+				59EFA43B18B2583600343C13 /* WishTableViewController.m */,
+				59EFA43D18B2586500343C13 /* BackpackViewController.h */,
+				59EFA43E18B2586500343C13 /* BackpackViewController.m */,
+				59EFA44018B2588300343C13 /* StoreTableViewController.h */,
+				59EFA44118B2588300343C13 /* StoreTableViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +305,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
+				59EFA43F18B2586500343C13 /* BackpackViewController.m in Sources */,
 				4279B5BC18B217A300051796 /* ViewController.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
+				59EFA44218B2588300343C13 /* StoreTableViewController.m in Sources */,
+				59EFA43C18B2583600343C13 /* WishTableViewController.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

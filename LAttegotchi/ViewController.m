@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
+#import "BackpackViewController.h"
+#import "WishTableViewController.h"
+#import "StoreTableViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -15,6 +19,16 @@
 @implementation ViewController
 
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        backpackController = [[BackpackViewController alloc] init];
+        wishController = [[WishTableViewController alloc]init];
+        storeController = [[StoreTableViewController alloc]init];
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,32 +45,37 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
-//    switch (selectedSegment) {
-//        case 0:
+    switch (selectedSegment) {
+        case 0:
             //Whish
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        {
+            UITableView *view =  [[UITableView alloc] init];
             
-            [button setTitle:@"Show View" forState:UIControlStateNormal];
-            button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-    
-            [self.scrollView addSubview:button];
+            [wishController setView:view];
             
-//            
-//            break;
-//        case 1:
-//            //Backpack
-//            
-//            break;
-//        
-//        case 2:
-//            //Store
-//            
-//            break;
-//            
-//        default:
-//            // bloed
-//            break;
-//    }
+            [_scrollView addSubview:view];
+
+            break;
+        }
+        case 1:
+            //Backpack
+        {
+            
+        
+            break;
+        }
+        case 2:
+            //Store
+            
+        {
+            
+            
+            break;
+        }
+        default:
+            // bloed
+            break;
+    }
     
 }
 

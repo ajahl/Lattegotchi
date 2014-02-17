@@ -32,7 +32,7 @@
                                     <action selector="menueSelector:" destination="vXZ-lx-hvc" eventType="valueChanged" id="13S-AM-3iG"/>
                                 </connections>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWY-id-RcO">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="blabla" translatesAutoresizingMaskIntoConstraints="NO" id="xWY-id-RcO">
                                 <rect key="frame" x="0.0" y="325" width="320" height="243"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
