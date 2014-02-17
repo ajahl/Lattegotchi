@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Player : NSObject
+@interface Player : NSObject <NSCoding>
 
 @property NSString * name;
 @property long money;
 @property long level;
 
-@property (nonatomic, retain) NSArray * lattegotchies;
-@property (nonatomic, retain) NSArray * items;
+@property (nonatomic, retain) NSMutableArray * lattegotchies;
+@property (nonatomic, retain) NSMutableArray * items;
 
 @end

@@ -7,13 +7,49 @@
 //
 
 #import "AppDelegate.h"
+#import "LAttegotchi.h"
+#import "Wish.h"
+#import "Item.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // TestComment
     // Override point for customization after application launch.
+    player = [[Player alloc] init];
+    player.name = @"thePlayer";
+    player.money = 100;
+    player.level = 0;
+    
+    LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
+    [[player lattegotchies] addObject: lattegotchi];
+    lattegotchi.name = @"theLAttegotchi";
+    lattegotchi.happiness = 50;
+    lattegotchi.health = 50;
+    
+    Wish* wish1 = [[Wish alloc] init];
+    [lattegotchi.wishes addObject:wish1];
+    wish1.name = @"Wish 1";
+    wish1.discription = @"Wish 1 Description";
+    wish1.happiness = 5;
+    wish1.health = 10;
+    wish1.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*5];
+    
+    Wish* wish2 = [[Wish alloc] init];
+    [lattegotchi.wishes addObject:wish2];
+    wish2.name = @"Wish 2";
+    wish2.discription = @"Wish 2 Description";
+    wish2.happiness = 15;
+    wish2.health = 20;
+    wish2.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*3];
+    
+    Item* item1 = [[Item alloc] init];
+    [wish2.items addObject:item1];
+    item1.name = @"Item 1";
+    item1.happiness = 0;
+    item1.health = 5;
+    item1.value = 35;
+    
     return YES;
 }
 							
@@ -42,6 +78,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (Player *) getPlayer
+{
+    return player;
 }
 
 @end

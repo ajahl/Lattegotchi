@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "Player.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    Player* player;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+
+- (Player*) getPlayer;
 
 @end

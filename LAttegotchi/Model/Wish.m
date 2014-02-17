@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        _items = [NSArray arrayWithObject:0];
+        _items = [[NSMutableArray alloc] init];
     }
     return self;
 }

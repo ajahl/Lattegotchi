@@ -15,6 +15,6 @@
 @property NSString * name;
 @property NSDate * birthday;
 
-@property (nonatomic, retain) NSArray * wishes;
+@property (nonatomic, retain) NSMutableArray * wishes;
 
 @end

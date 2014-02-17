@@ -13,5 +13,6 @@
 @property NSString * name;
 @property long health;
 @property long happiness;
+@property long value;
 
 @end

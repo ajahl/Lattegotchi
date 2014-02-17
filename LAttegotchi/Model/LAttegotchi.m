@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        _wishes = [NSArray arrayWithObject:0];
+        _wishes = [[NSMutableArray alloc] init];
     }
     return self;
 }
