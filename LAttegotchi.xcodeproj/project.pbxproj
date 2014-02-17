@@ -15,20 +15,19 @@
 		4279B5B318B217A300051796 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4279B5B218B217A300051796 /* AppDelegate.m */; };
 		4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4279B5B418B217A300051796 /* Main_iPhone.storyboard */; };
 		4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4279B5B718B217A300051796 /* Main_iPad.storyboard */; };
-		4279B5BC18B217A300051796 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4279B5BB18B217A300051796 /* ViewController.m */; };
 		4279B5BE18B217A300051796 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4279B5BD18B217A300051796 /* Images.xcassets */; };
 		4279B5C518B217A300051796 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5C418B217A300051796 /* XCTest.framework */; };
 		4279B5C618B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5C718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
 		4279B5CF18B217A300051796 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4279B5CD18B217A300051796 /* InfoPlist.strings */; };
 		4279B5D118B217A300051796 /* LAttegotchiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4279B5D018B217A300051796 /* LAttegotchiTests.m */; };
+		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
+		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
+		42A7586718B2749F00ECC5ED /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A7586518B2749F00ECC5ED /* TableViewController.xib */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
-		59EFA43C18B2583600343C13 /* WishTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EFA43B18B2583600343C13 /* WishTableViewController.m */; };
-		59EFA43F18B2586500343C13 /* BackpackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EFA43E18B2586500343C13 /* BackpackViewController.m */; };
-		59EFA44218B2588300343C13 /* StoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EFA44118B2588300343C13 /* StoreTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +53,17 @@
 		4279B5B218B217A300051796 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4279B5B518B217A300051796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		4279B5B818B217A300051796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		4279B5BA18B217A300051796 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4279B5BB18B217A300051796 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4279B5BD18B217A300051796 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4279B5C318B217A300051796 /* LAttegotchiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LAttegotchiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5C418B217A300051796 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4279B5CC18B217A300051796 /* LAttegotchiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LAttegotchiTests-Info.plist"; sourceTree = "<group>"; };
 		4279B5CE18B217A300051796 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4279B5D018B217A300051796 /* LAttegotchiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAttegotchiTests.m; sourceTree = "<group>"; };
+		42A7586018B2748A00ECC5ED /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
+		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
+		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
+		42A7586418B2749F00ECC5ED /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
+		42A7586518B2749F00ECC5ED /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewController.xib; path = Controller/TableViewController.xib; sourceTree = "<group>"; };
 		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
 		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
 		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
@@ -70,12 +72,6 @@
 		42F729EB18B2398F00F15B1F /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
 		42F729ED18B239A700F15B1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
 		42F729EE18B239A700F15B1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
-		59EFA43A18B2583600343C13 /* WishTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishTableViewController.h; path = Controller/WishTableViewController.h; sourceTree = "<group>"; };
-		59EFA43B18B2583600343C13 /* WishTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishTableViewController.m; path = Controller/WishTableViewController.m; sourceTree = "<group>"; };
-		59EFA43D18B2586500343C13 /* BackpackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackpackViewController.h; path = Controller/BackpackViewController.h; sourceTree = "<group>"; };
-		59EFA43E18B2586500343C13 /* BackpackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackpackViewController.m; path = Controller/BackpackViewController.m; sourceTree = "<group>"; };
-		59EFA44018B2588300343C13 /* StoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTableViewController.h; path = Controller/StoreTableViewController.h; sourceTree = "<group>"; };
-		59EFA44118B2588300343C13 /* StoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreTableViewController.m; path = Controller/StoreTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,16 +131,14 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				59EFA44318B2589200343C13 /* Controller */,
 				42F729E318B238C600F15B1F /* Model */,
 				4279B5B118B217A300051796 /* AppDelegate.h */,
 				4279B5B218B217A300051796 /* AppDelegate.m */,
 				4279B5B418B217A300051796 /* Main_iPhone.storyboard */,
 				4279B5B718B217A300051796 /* Main_iPad.storyboard */,
-				4279B5BA18B217A300051796 /* ViewController.h */,
-				4279B5BB18B217A300051796 /* ViewController.m */,
 				4279B5BD18B217A300051796 /* Images.xcassets */,
 				4279B5A918B217A300051796 /* Supporting Files */,
-				59EFA44318B2589200343C13 /* Controller */,
 			);
 			path = LAttegotchi;
 			sourceTree = "<group>";
@@ -196,12 +190,11 @@
 		59EFA44318B2589200343C13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				59EFA43A18B2583600343C13 /* WishTableViewController.h */,
-				59EFA43B18B2583600343C13 /* WishTableViewController.m */,
-				59EFA43D18B2586500343C13 /* BackpackViewController.h */,
-				59EFA43E18B2586500343C13 /* BackpackViewController.m */,
-				59EFA44018B2588300343C13 /* StoreTableViewController.h */,
-				59EFA44118B2588300343C13 /* StoreTableViewController.m */,
+				42A7586018B2748A00ECC5ED /* ViewController.m */,
+				42A7586118B2748A00ECC5ED /* ViewController.h */,
+				42A7586318B2749F00ECC5ED /* TableViewController.h */,
+				42A7586418B2749F00ECC5ED /* TableViewController.m */,
+				42A7586518B2749F00ECC5ED /* TableViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -285,6 +278,7 @@
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
+				42A7586718B2749F00ECC5ED /* TableViewController.xib in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,16 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
-				59EFA43F18B2586500343C13 /* BackpackViewController.m in Sources */,
-				4279B5BC18B217A300051796 /* ViewController.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
-				59EFA44218B2588300343C13 /* StoreTableViewController.m in Sources */,
-				59EFA43C18B2583600343C13 /* WishTableViewController.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
+				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

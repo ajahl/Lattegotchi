@@ -1,21 +1,18 @@
 //
-//  WishTableViewController.m
+//  TableViewController.m
 //  LAttegotchi
 //
-//  Created by Christoph Eickhoff on 17.02.14.
+//  Created by Alex Jahl on 17.02.14.
 //  Copyright (c) 2014 Alex Jahl. All rights reserved.
 //
 
-#import "WishTableViewController.h"
-#import "AppDelegate.h"
-#import "LAttegotchi.h"
-#import "Wish.h"
+#import "TableViewController.h"
 
-@interface WishTableViewController ()
+@interface TableViewController ()
 
 @end
 
-@implementation WishTableViewController
+@implementation TableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,49 +46,39 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    AppDelegate * app = [[UIApplication sharedApplication] delegate];
-    LAttegotchi * latte = [[[app getPlayer] lattegotchies] objectAtIndex:0];
-     return  [[latte wishes] count];
-    
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    AppDelegate * app = [[UIApplication sharedApplication] delegate];
-    LAttegotchi * latte = [[[app getPlayer] lattegotchies] objectAtIndex:0];
-    return  [[latte wishes] count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] init] ;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
-      AppDelegate * app = [[UIApplication sharedApplication] delegate];
-    LAttegotchi * latte = [[[app getPlayer] lattegotchies] objectAtIndex:0];
-    Wish * wish = [[latte wishes] objectAtIndex:[indexPath row]];
-    [[cell textLabel]setText: [wish name]];
     
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -103,34 +90,40 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
 }
-*/
 
-/*
+
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
+
 
 /*
-#pragma mark - Navigation
+#pragma mark - Table view delegate
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
 
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+ 
  */
 
 @end

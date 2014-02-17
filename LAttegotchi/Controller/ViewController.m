@@ -8,9 +8,7 @@
 
 #import "ViewController.h"
 
-#import "BackpackViewController.h"
-#import "WishTableViewController.h"
-#import "StoreTableViewController.h"
+#import "TableViewController.h"
 
 @interface ViewController ()
 
@@ -23,9 +21,7 @@
 {
     self = [super init];
     if (self) {
-        backpackController = [[BackpackViewController alloc] init];
-        wishController = [[WishTableViewController alloc]init];
-        storeController = [[StoreTableViewController alloc]init];
+
     }
     return self;
 }
@@ -49,11 +45,20 @@
         case 0:
             //Whish
         {
-            UITableView *view =  [[UITableView alloc] init];
+            UITableView *tv =  self.tableView;
+            TableViewController  * controller = [[TableViewController alloc] init];
             
-            [wishController setView:view];
-            
-            [_scrollView addSubview:view];
+            tv.dataSource = controller;
+            tv.delegate = controller;
+            controller.view = tv;
+            controller.tableView = tv;
+
+////            [wishController setView:view];
+//
+//            [_scrollView addSubview:view];
+//            
+//            [super viewWillAppear:YES];
+//            [view reloadData];
 
             break;
         }

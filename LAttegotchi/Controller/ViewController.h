@@ -14,13 +14,11 @@
 
 
 @interface ViewController : UIViewController{
-    WishTableViewController * wishController;
-    BackpackViewController * backpackController;
-    StoreTableViewController * storeController;
     
 }
 
 @property IBOutlet UIScrollView * scrollView;
+@property IBOutlet UITableView * tableView;
 
 - (IBAction)menueSelector:(id)sender;
 
