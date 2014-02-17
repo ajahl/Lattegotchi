@@ -14,6 +14,7 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +25,33 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)menueSelector:(id)sender{
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    
+    switch (selectedSegment) {
+        case 0:
+            //Whish
+            
+            
+            
+            break;
+        case 1:
+            //Backpack
+            
+            break;
+        
+        case 2:
+            //Store
+            
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 @end

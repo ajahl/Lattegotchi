@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)menueSelector:(id)sender;
+
+
 @end
