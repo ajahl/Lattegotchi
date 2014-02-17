@@ -10,8 +10,8 @@
 
 @interface LAttegotchi : NSObject
 
-@property long  happiness;
-@property long  health;
+@property int happiness;
+@property int health;
 @property NSString * name;
 @property NSDate * birthday;
 

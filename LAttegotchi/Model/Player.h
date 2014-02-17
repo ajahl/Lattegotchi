@@ -11,8 +11,8 @@
 @interface Player : NSObject <NSCoding>
 
 @property NSString * name;
-@property long money;
-@property long level;
+@property int money;
+@property int level;
 
 @property (nonatomic, retain) NSMutableArray * lattegotchies;
 @property (nonatomic, retain) NSMutableArray * items;

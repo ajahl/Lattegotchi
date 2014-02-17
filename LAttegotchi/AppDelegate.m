@@ -16,11 +16,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    player = [[Player alloc] init];
-    player.name = @"thePlayer";
-    player.money = 100;
-    player.level = 0;
-    
+    NSString *dataFile = [self getDataFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:dataFile]) {
+        NSLog(@"exists");
+        NSData *playerData = [[NSFileManager defaultManager] contentsAtPath:dataFile];
+        player = [NSKeyedUnarchiver unarchiveObjectWithData:playerData];
+    } else {
+        NSLog(@"not exists");
+        player = [[Player alloc] init];
+        player.name = @"thePlayer";
+        player.money = 100;
+        player.level = 0;
+    }
+
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
     [[player lattegotchies] addObject: lattegotchi];
     lattegotchi.name = @"theLAttegotchi";
@@ -78,11 +86,19 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSData *playerData = [NSKeyedArchiver archivedDataWithRootObject:player];
+    [playerData writeToFile:[self getDataFilePath] atomically:YES];
 }
 
 - (Player *) getPlayer
 {
     return player;
+}
+
+- (NSString*) getDataFilePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"data"];
 }
 
 @end

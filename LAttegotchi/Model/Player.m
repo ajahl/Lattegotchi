@@ -29,8 +29,8 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.name forKey:ASCPlayerName];
-    [aCoder encodeInt64:self.money forKey:ASCPlayerMoney];
-    [aCoder encodeInt64:self.level forKey:ASCPlayerLevel];
+    [aCoder encodeInt:self.money forKey:ASCPlayerMoney];
+    [aCoder encodeInt:self.level forKey:ASCPlayerLevel];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -38,8 +38,8 @@
     self = [super init];
     if (self) {
         _name = [aDecoder decodeObjectForKey:ASCPlayerName];
-        _money = [aDecoder decodeInt64ForKey:ASCPlayerMoney];
-        _level = [aDecoder decodeInt64ForKey:ASCPlayerLevel];
+        _money = [aDecoder decodeIntForKey:ASCPlayerMoney];
+        _level = [aDecoder decodeIntForKey:ASCPlayerLevel];
     }
     return self;
 }

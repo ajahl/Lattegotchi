@@ -17,5 +17,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 - (Player*) getPlayer;
+- (NSString*) getDataFilePath;
 
 @end

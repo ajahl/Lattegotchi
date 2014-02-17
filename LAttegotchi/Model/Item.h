@@ -11,8 +11,8 @@
 @interface Item : NSObject
 
 @property NSString * name;
-@property long health;
-@property long happiness;
-@property long value;
+@property int health;
+@property int happiness;
+@property int value;
 
 @end

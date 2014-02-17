@@ -12,8 +12,8 @@
 
 @property NSString * name;
 @property NSString * discription;
-@property long happiness;
-@property long health;
+@property int happiness;
+@property int health;
 @property NSDate * deadline;
 
 @property (nonatomic, retain) NSMutableArray * items;
