@@ -31,26 +31,32 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
-    switch (selectedSegment) {
-        case 0:
+//    switch (selectedSegment) {
+//        case 0:
             //Whish
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             
+            [button setTitle:@"Show View" forState:UIControlStateNormal];
+            button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+    
+            [self.scrollView addSubview:button];
             
-            
-            break;
-        case 1:
-            //Backpack
-            
-            break;
-        
-        case 2:
-            //Store
-            
-            break;
-            
-        default:
-            break;
-    }
+//            
+//            break;
+//        case 1:
+//            //Backpack
+//            
+//            break;
+//        
+//        case 2:
+//            //Store
+//            
+//            break;
+//            
+//        default:
+//            // bloed
+//            break;
+//    }
     
 }
 

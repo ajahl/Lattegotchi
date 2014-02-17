@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property IBOutlet UIScrollView * scrollView;
+
 - (IBAction)menueSelector:(id)sender;
 
 
