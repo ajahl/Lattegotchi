@@ -22,6 +22,10 @@
 		4279B5C718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
 		4279B5CF18B217A300051796 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4279B5CD18B217A300051796 /* InfoPlist.strings */; };
 		4279B5D118B217A300051796 /* LAttegotchiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4279B5D018B217A300051796 /* LAttegotchiTests.m */; };
+		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
+		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
+		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
+		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		4279B5CC18B217A300051796 /* LAttegotchiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LAttegotchiTests-Info.plist"; sourceTree = "<group>"; };
 		4279B5CE18B217A300051796 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4279B5D018B217A300051796 /* LAttegotchiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAttegotchiTests.m; sourceTree = "<group>"; };
+		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
+		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
+		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
+		42F729E818B2397500F15B1F /* LAttegotchi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LAttegotchi.m; path = Model/LAttegotchi.m; sourceTree = "<group>"; };
+		42F729EA18B2398F00F15B1F /* Wish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wish.h; path = Model/Wish.h; sourceTree = "<group>"; };
+		42F729EB18B2398F00F15B1F /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
+		42F729ED18B239A700F15B1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
+		42F729EE18B239A700F15B1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +126,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				42F729E318B238C600F15B1F /* Model */,
 				4279B5B118B217A300051796 /* AppDelegate.h */,
 				4279B5B218B217A300051796 /* AppDelegate.m */,
 				4279B5B418B217A300051796 /* Main_iPhone.storyboard */,
@@ -153,6 +166,21 @@
 				4279B5CD18B217A300051796 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42F729E318B238C600F15B1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42F729E418B2395300F15B1F /* Player.h */,
+				42F729E518B2395300F15B1F /* Player.m */,
+				42F729E718B2397500F15B1F /* LAttegotchi.h */,
+				42F729E818B2397500F15B1F /* LAttegotchi.m */,
+				42F729EA18B2398F00F15B1F /* Wish.h */,
+				42F729EB18B2398F00F15B1F /* Wish.m */,
+				42F729ED18B239A700F15B1F /* Item.h */,
+				42F729EE18B239A700F15B1F /* Item.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F729E618B2395300F15B1F /* Player.m in Sources */,
 				4279B5BC18B217A300051796 /* ViewController.m in Sources */,
+				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
+				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
+				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +506,7 @@
 				4279B5D618B217A300051796 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4279B5D718B217A300051796 /* Build configuration list for PBXNativeTarget "LAttegotchiTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +515,7 @@
 				4279B5D918B217A300051796 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
