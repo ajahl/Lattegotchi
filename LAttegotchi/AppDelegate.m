@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Player.h"
 #import "LAttegotchi.h"
 #import "Wish.h"
 #import "Item.h"
