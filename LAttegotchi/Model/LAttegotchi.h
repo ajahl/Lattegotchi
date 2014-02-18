@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LAttegotchi : NSObject
+@interface LAttegotchi : NSObject <NSCoding>
 
+@property NSString * name;
 @property int happiness;
 @property int health;
-@property NSString * name;
 @property NSDate * birthday;
 
 @property (nonatomic, retain) NSMutableArray * wishes;

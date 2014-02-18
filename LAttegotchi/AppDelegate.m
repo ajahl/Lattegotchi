@@ -16,47 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSString *dataFile = [self getDataFilePath];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:dataFile]) {
-        NSLog(@"exists");
-        NSData *playerData = [[NSFileManager defaultManager] contentsAtPath:dataFile];
-        player = [NSKeyedUnarchiver unarchiveObjectWithData:playerData];
-    } else {
-        NSLog(@"not exists");
-        player = [[Player alloc] init];
-        player.name = @"thePlayer";
-        player.money = 100;
-        player.level = 0;
-    }
-
-    LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
-    [[player lattegotchies] addObject: lattegotchi];
-    lattegotchi.name = @"theLAttegotchi";
-    lattegotchi.happiness = 50;
-    lattegotchi.health = 50;
-    
-    Wish* wish1 = [[Wish alloc] init];
-    [lattegotchi.wishes addObject:wish1];
-    wish1.name = @"Wish 1";
-    wish1.discription = @"Wish 1 Description";
-    wish1.happiness = 5;
-    wish1.health = 10;
-    wish1.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*5];
-    
-    Wish* wish2 = [[Wish alloc] init];
-    [lattegotchi.wishes addObject:wish2];
-    wish2.name = @"Wish 2";
-    wish2.discription = @"Wish 2 Description";
-    wish2.happiness = 15;
-    wish2.health = 20;
-    wish2.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*3];
-    
-    Item* item1 = [[Item alloc] init];
-    [wish2.items addObject:item1];
-    item1.name = @"Item 1";
-    item1.happiness = 0;
-    item1.health = 5;
-    item1.value = 35;
+    [self loadOrInitModel];
     
     return YES;
 }
@@ -71,11 +31,14 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSData *playerData = [NSKeyedArchiver archivedDataWithRootObject:player];
+    [playerData writeToFile:[self getDataFilePath] atomically:YES];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [self loadOrInitModel];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -86,8 +49,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    NSData *playerData = [NSKeyedArchiver archivedDataWithRootObject:player];
-    [playerData writeToFile:[self getDataFilePath] atomically:YES];
 }
 
 - (Player *) getPlayer
@@ -99,6 +60,52 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:@"data"];
+}
+
+- (void) loadOrInitModel {
+    NSString *dataFile = [self getDataFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:dataFile]) {
+        NSLog(@"loaded");
+        NSData *playerData = [[NSFileManager defaultManager] contentsAtPath:dataFile];
+        player = [NSKeyedUnarchiver unarchiveObjectWithData:playerData];
+    } else {
+        NSLog(@"init");
+        player = [[Player alloc] init];
+        player.name = @"thePlayer";
+        player.money = 100;
+        player.level = 0;
+        
+        LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
+        [[player lattegotchies] addObject: lattegotchi];
+        lattegotchi.name = @"theLAttegotchi";
+        lattegotchi.happiness = 50;
+        lattegotchi.health = 50;
+        lattegotchi.birthday = [NSDate date];
+        
+        Wish* wish1 = [[Wish alloc] init];
+        [lattegotchi.wishes addObject:wish1];
+        wish1.name = @"Wish 1";
+        wish1.discription = @"Wish 1 Description";
+        wish1.happiness = 5;
+        wish1.health = 10;
+        wish1.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*5];
+        
+        Wish* wish2 = [[Wish alloc] init];
+        [lattegotchi.wishes addObject:wish2];
+        wish2.name = @"Wish 2";
+        wish2.discription = @"Wish 2 Description";
+        wish2.happiness = 15;
+        wish2.health = 20;
+        wish2.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*3];
+        
+        Item* item1 = [[Item alloc] init];
+        [player.items addObject:item1];
+        [wish2.items addObject:item1];
+        item1.name = @"Item 1";
+        item1.happiness = 0;
+        item1.health = 5;
+        item1.value = 35;
+    }
 }
 
 @end
