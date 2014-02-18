@@ -28,6 +28,10 @@
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
+		59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */; };
+		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
+		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
+		59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		42F729EB18B2398F00F15B1F /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
 		42F729ED18B239A700F15B1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
 		42F729EE18B239A700F15B1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1.png; path = Resources/tamatama_nomal1.png; sourceTree = "<group>"; };
+		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
+		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
+		59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4.png; path = Resources/tamatama_nomal4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +187,10 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */,
+				59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */,
+				59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */,
+				59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -295,9 +307,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */,
+				59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */,
+				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
+				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

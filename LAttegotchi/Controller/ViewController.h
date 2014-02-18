@@ -8,16 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@class TableViewController, LAttegotchi;
+@class TableViewController, LAttegotchi, DotImageView;
 
 
 @interface ViewController : UIViewController{
     TableViewController  * tableViewController;
+    DotImageView * dotView;
+    bool toggle;
 }
 
 @property IBOutlet UIScrollView * scrollView;
 @property IBOutlet UITableView * tableView;
 @property IBOutlet UIImageView * imageView;
+@property NSArray * images ;
+@property int animationIndex;
+
+
 
 -(LAttegotchi *) getLAtte;
 
