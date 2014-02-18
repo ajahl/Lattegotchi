@@ -35,6 +35,7 @@
 		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
 		9661655618B3A1FE0018B3C1 /* WishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661655418B3A1FE0018B3C1 /* WishViewController.m */; };
 		9661655718B3A1FE0018B3C1 /* WishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9661655518B3A1FE0018B3C1 /* WishViewController.xib */; };
+		96679CD218B3B649004C2E51 /* PushWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96679CD118B3B649004C2E51 /* PushWish.m */; };
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,8 @@
 		9661655318B3A1FE0018B3C1 /* WishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishViewController.h; path = Controller/WishViewController.h; sourceTree = "<group>"; };
 		9661655418B3A1FE0018B3C1 /* WishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishViewController.m; path = Controller/WishViewController.m; sourceTree = "<group>"; };
 		9661655518B3A1FE0018B3C1 /* WishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishViewController.xib; path = Controller/WishViewController.xib; sourceTree = "<group>"; };
+		96679CD018B3B649004C2E51 /* PushWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushWish.h; path = Wishes/PushWish.h; sourceTree = "<group>"; };
+		96679CD118B3B649004C2E51 /* PushWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushWish.m; path = Wishes/PushWish.m; sourceTree = "<group>"; };
 		96CF23F518B35644005D3CEB /* InitModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModelViewController.h; sourceTree = "<group>"; };
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 			children = (
 				9661654A18B39BA70018B3C1 /* GPSWish.h */,
 				9661654B18B39BA70018B3C1 /* GPSWish.m */,
+				96679CD018B3B649004C2E51 /* PushWish.h */,
+				96679CD118B3B649004C2E51 /* PushWish.m */,
 			);
 			name = Wishes;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				9661655618B3A1FE0018B3C1 /* WishViewController.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,

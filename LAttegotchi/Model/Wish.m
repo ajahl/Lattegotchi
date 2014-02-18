@@ -26,6 +26,15 @@
     return self;
 }
 
+- (id)initViewController:(UIViewController *) controller
+{
+    self = [super init];
+    if (self) {
+        _viewController = controller;
+    }
+    return self;
+}
+
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.name forKey:ASCWishName];
@@ -56,6 +65,15 @@
 
 -(NSString *)getDiscription {
     return _discription;
+}
+
+-(UIViewController *)getViewController {
+    return _viewController;
+}
+
+
+-(void)execute {
+    
 }
 
 @end

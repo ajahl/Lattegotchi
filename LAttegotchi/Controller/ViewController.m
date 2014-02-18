@@ -21,7 +21,6 @@
 {
     self = [super init];
     if (self) {
-       
         
     }
     return self;
@@ -30,6 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
     
     UITableView *tv =  self.tableView;
     tableViewController = [[TableViewController alloc] init];
