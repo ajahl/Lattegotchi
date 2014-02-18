@@ -10,7 +10,7 @@
 
 @interface DotImageView : UIView {
     UIImage * image;
-    UIImage * hearth;
+    UIImage * heart;
     UIImage * emotion;
 }
 

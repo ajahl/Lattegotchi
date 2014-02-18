@@ -57,7 +57,7 @@ int START_Y = 25;
         
         for (int x = 0; x<DOT_MATRIX; x++) {
             
-            if( [self isPixelSet:x :y]) {
+            if( [self isPixelSet:image :x :y]) {
                 CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
                 
             }
@@ -94,7 +94,24 @@ int START_Y = 25;
     }
     
     // draw smily -------------------------------------------------------
-    
+    CGSize emoSize = emotion.size;
+    for (int y = 0; y<emoSize.height; y++ ) {
+        for (int x = 0; x<emoSize.height; x++) {
+            if( [self isPixelSet:emotion :x :y]) {
+                CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
+            }
+            else {
+                CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
+            }
+            
+            int currentX = START_X + (padding)*x;
+            int currentY = START_Y + (padding)*(y + happiness-emoSize.height);
+            
+            //            CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
+            CGContextAddRect(context, CGRectMake( currentX, currentY, radius*2.2f, radius*2.2f));
+            CGContextFillPath(context);
+        }
+    }
     
     
     // draw health ------------------------------------------------------
@@ -116,7 +133,24 @@ int START_Y = 25;
     }
     
     // draw heart ------------------------------------------------------
-    
+    CGSize heartSize = heart.size;
+    for (int y = 0; y<heartSize.height; y++ ) {
+        for (int x = 0; x<heartSize.height; x++) {
+            if( [self isPixelSet:heart :x :y]) {
+                CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
+            }
+            else {
+                CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
+            }
+            
+            int currentX = START_X + (padding)*(DOT_MATRIX -heartSize.height + x);
+            int currentY = START_Y + (padding)*(y + health-heartSize.height);
+            
+            //            CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
+            CGContextAddRect(context, CGRectMake( currentX, currentY, radius*2.2f, radius*2.2f));
+            CGContextFillPath(context);
+        }
+    }
 }
 
 
@@ -137,24 +171,27 @@ int START_Y = 25;
 }
 
 - (void) setHeart : (UIImage *) img {
-    hearth = img;
+    heart = img;
     [self setNeedsDisplay];
 }
 
-- (BOOL)isPixelSet: (int) x :(int) y {
+- (BOOL)isPixelSet:(UIImage *) img : (int) x :(int) y {
     
-    if ( !image )
+    if ( !img )
         return NO;
     
-    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(image.CGImage));
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(img.CGImage));
     const UInt8* data = CFDataGetBytePtr(pixelData);
     
-    int pixelInfo = ((image.size.width  * y) + x ) * 4;
-
+    int pixelInfo = ((img.size.width  * y) + x ) * 4;
+    
+    UInt8 red = data[pixelInfo];
+    UInt8 green = data[(pixelInfo + 1)];
+    UInt8 blue = data[pixelInfo + 2];
     UInt8 alpha = data[pixelInfo + 3];
     CFRelease(pixelData);
 
-    if (alpha)
+    if (alpha && red != 255 && blue != 255 && green != 255)
         return NO;
     else
         return YES;

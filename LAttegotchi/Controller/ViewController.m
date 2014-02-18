@@ -61,9 +61,6 @@
      _images = [NSArray arrayWithObjects:  @"tamatama_nomal1.png",@"tamatama_nomal2.png",@"tamatama_nomal3.png",@"tamatama_nomal4.png",  nil];
     
     [self startTimer];
-    
-
-    
 }
 
 - (void)didReceiveMemoryWarning
