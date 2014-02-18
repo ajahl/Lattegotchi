@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@class WishTableViewController ;
+@class BackpackViewController;
+@class StoreTableViewController;
+
+
+@interface ViewController : UIViewController{
+    
+}
 
 @property IBOutlet UIScrollView * scrollView;
+@property IBOutlet UITableView * tableView;
 
 - (IBAction)menueSelector:(id)sender;
 
