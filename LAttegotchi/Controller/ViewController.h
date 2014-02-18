@@ -13,10 +13,17 @@
 
 @interface ViewController : UIViewController{
     TableViewController  * tableViewController;
+    
+    bool toggle;
 }
 
 @property IBOutlet UIScrollView * scrollView;
 @property IBOutlet UITableView * tableView;
+@property IBOutlet UIImageView * imageView;
+@property NSArray * images ;
+@property int animationIndex;
+
+
 
 - (IBAction)menueSelector:(id)sender;
 
