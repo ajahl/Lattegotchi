@@ -8,12 +8,10 @@
 
 #import "InitModelAlertViewController.h"
 
-#define OK_BUTTON_TAG       888
-#define CANCEL_BUTTON_TAG   999
 #define ANIMATION_DURATION  0.25
 
 @interface InitModelAlertViewController ()
--(void)addOrRemoveButtonWithTag:(int)tag andActionToPerform:(BOOL)shouldRemove;
+
 @end
 
 @implementation InitModelAlertViewController
@@ -22,8 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [_btnOK setTag:OK_BUTTON_TAG];
-        [_btnCancel setTag:CANCEL_BUTTON_TAG];
+        
     }
     return self;
 }
@@ -123,58 +120,6 @@
 
 -(void)removeCustomAlertFromViewInstantly {
     [self.view removeFromSuperview];
-}
-
--(void)removeOkayButton:(BOOL)shouldRemove{
-    if ([self isOkayButtonRemoved] != shouldRemove) {
-        [self addOrRemoveButtonWithTag:OK_BUTTON_TAG andActionToPerform:shouldRemove];
-    }
-}
-
-
--(void)removeCancelButton:(BOOL)shouldRemove {
-    if ([self isCancelButtonRemoved] != shouldRemove) {
-        [self addOrRemoveButtonWithTag:CANCEL_BUTTON_TAG andActionToPerform:shouldRemove];
-    }
-}
-
--(BOOL)isOkayButtonRemoved {
-    if ([[_toolbar items] indexOfObject:_btnOK] == NSNotFound) {
-        return YES;
-    }
-    else{
-        return NO;
-    }
-}
-
--(BOOL)isCancelButtonRemoved {
-    if ([[_toolbar items] indexOfObject:_btnCancel] == NSNotFound) {
-        return YES;
-    }
-    else{
-        return NO;
-    }
-}
-
--(void)addOrRemoveButtonWithTag:(int)tag andActionToPerform:(BOOL)shouldRemove{
-    NSMutableArray *items = [[_toolbar items] mutableCopy];
-    
-    int flexSpaceIndex = [items indexOfObject:_flexSpace];
-    int btnIndex = (tag == OK_BUTTON_TAG) ? flexSpaceIndex + 1 : 0;
-    
-    if (shouldRemove) {
-        [items removeObjectAtIndex:btnIndex];
-    }
-    else{
-        if (tag == OK_BUTTON_TAG) {
-            [items insertObject:_btnOK atIndex:btnIndex];
-        }
-        else{
-            [items insertObject:_btnCancel atIndex:btnIndex];
-        }
-    }
-    
-    [_toolbar setItems:(NSArray *)items];
 }
 
 - (IBAction) btnOkayTap:(id)sender {
