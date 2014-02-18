@@ -111,6 +111,52 @@
 }
 
 
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = selectedCell.textLabel.text;
+    
+    
+    switch (self.currentTableView) {
+        case 0:
+            //Whish
+        {
+            
+            
+            
+            break;
+        }
+            
+        case 1:
+            //Backpack
+        {
+            
+           
+            
+            break;
+        }
+            
+        case 2:
+            //Store
+            
+        {
+            
+            
+            break;
+        }
+            
+        default:
+            // bloed
+            break;
+    }
+    
+    
+    
+}
+
+
+
+
 /*
 #pragma mark - Table view delegate
 
@@ -119,7 +165,7 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+      *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
 
     // Pass the selected object to the new view controller.
     

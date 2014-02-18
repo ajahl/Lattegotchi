@@ -74,6 +74,7 @@
         {
             
             tableViewController.data = [latte wishes];
+            tableViewController.currentTableView = 0;
 
             break;
         }
@@ -82,13 +83,16 @@
         {
             
             tableViewController.data = [[app getPlayer] items];
+            tableViewController.currentTableView = 1;
+            
             break;
         }
         case 2:
             //Store
             
         {
-             tableViewController.data = [[app getPlayer] items];
+            tableViewController.data = [[app getPlayer] items];
+            tableViewController.currentTableView = 2;
             
             break;
         }

@@ -12,4 +12,6 @@
 
 @property NSMutableArray * data;
 
+@property int currentTableView;
+
 @end
