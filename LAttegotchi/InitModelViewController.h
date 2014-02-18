@@ -18,7 +18,6 @@
 - (id)initWithDelegate:(id<InitModelAlertViewControllerDelegate>)delegate;
 
 - (IBAction) btnOkayTap:(id)sender;
-- (IBAction) btnCancelTap:(id)sender;
 
 @property (nonatomic, retain) id<InitModelAlertViewControllerDelegate> delegate;
 

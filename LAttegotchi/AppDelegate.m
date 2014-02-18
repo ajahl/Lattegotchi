@@ -7,11 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import "LAttegotchi.h"
 #import "Wish.h"
 #import "Item.h"
 
 #import "InitModelViewController.h"
+
+#define MAXWISHTIME         10 /* SECONDS */
+#define MINWISHTIME          5 /* SECONDS */
+#define MAXWISHHAPPINESS    10
+#define MINWISHHAPPINESS     5
+#define MAXWISHHEALTH       10
+#define MINWISHHEALTH        5
+#define MAXWISHDEADLINE     15 /* MINUTE */
+#define MINWISHDEADLINE      5 /* MINUTE */
 
 @implementation AppDelegate
 
@@ -52,6 +62,8 @@
             // Put your code here
             [self initModel];
         });
+    } else {
+        [self startGame];
     }
 }
 
@@ -91,6 +103,66 @@
     [_window.rootViewController presentViewController:alertView animated:YES completion:NULL];
 }
 
+- (void) startGame {
+    int nextWish = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
+    [NSTimer scheduledTimerWithTimeInterval:nextWish
+                                     target:self
+                                   selector:@selector(wishTick:)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+- (void) updateUI {
+    ViewController* viewController = (ViewController*) _window.rootViewController;
+    [viewController.tableView reloadData];
+}
+
+- (BOOL) generateNewWish:(LAttegotchi*) lattegotchi; {
+    // TODO: check for happiness to die
+    BOOL lattegotchiWouldDie = NO;
+    
+    int maxHappinessLost = 0;
+    int maxHealthLost = 0;
+    for (Wish* wish in lattegotchi.wishes) {
+        maxHappinessLost += wish.happiness;
+        maxHealthLost += wish.health;
+    }
+    if (maxHappinessLost >= lattegotchi.happiness || maxHealthLost >= lattegotchi.health) {
+        lattegotchiWouldDie = YES;
+    }
+    
+    if (!lattegotchiWouldDie) {
+        Wish* wish = [[Wish alloc] init];
+        wish.name = @"Wish";
+        wish.discription = @"Wish Description";
+        wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;
+        wish.health = rand() % (MAXWISHHEALTH - MINWISHHEALTH) + MINWISHHEALTH;
+        int deadline = rand() % (MAXWISHDEADLINE - MINWISHDEADLINE) + MINWISHDEADLINE;
+        wish.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*deadline];
+        [lattegotchi.wishes addObject:wish];
+        
+        [self updateUI];
+        return YES;
+    }
+    return NO;
+}
+
+- (void) wishTick:(NSTimer *) timer {
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    if ([self generateNewWish:lattegotchi]) {
+        NSLog(@"new wish");
+    } else {
+        NSLog(@"no new wish");
+    }
+    
+    int nextWish = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
+    [NSTimer scheduledTimerWithTimeInterval:nextWish
+                                     target:self
+                                   selector:@selector(wishTick:)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
 - (void)finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
     player = [[Player alloc] init];
     player.name = playername;
@@ -98,31 +170,14 @@
     player.level = 0;
     
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
-    [[player lattegotchies] addObject: lattegotchi];
+    [player.lattegotchies addObject: lattegotchi];
     lattegotchi.name = lattegotchiname;
     lattegotchi.happiness = 50;
     lattegotchi.health = 50;
     lattegotchi.birthday = [NSDate date];
     
-//    Wish* wish1 = [[Wish alloc] init];
-//    [lattegotchi.wishes addObject:wish1];
-//    wish1.name = @"Wish 1";
-//    wish1.discription = @"Wish 1 Description";
-//    wish1.happiness = 5;
-//    wish1.health = 10;
-//    wish1.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*5];
-//    
-//    Wish* wish2 = [[Wish alloc] init];
-//    [lattegotchi.wishes addObject:wish2];
-//    wish2.name = @"Wish 2";
-//    wish2.discription = @"Wish 2 Description";
-//    wish2.happiness = 15;
-//    wish2.health = 20;
-//    wish2.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*3];
-    
     Item* item1 = [[Item alloc] init];
     [player.items addObject:item1];
-//    [wish2.items addObject:item1];
     item1.name = @"Item 1";
     item1.happiness = 0;
     item1.health = 5;
@@ -135,7 +190,9 @@
     item2.health = 10;
     item2.value = 50;
     
+    [self generateNewWish:lattegotchi];
     [self saveModel];
+    [self startGame];
 }
 
 @end

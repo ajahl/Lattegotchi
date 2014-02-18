@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Player.h"
+#import "LAttegotchi.h";
 
 #import "InitModelViewController.h"
 
@@ -23,5 +24,9 @@
 - (void) saveModel;
 - (void) loadModel;
 - (void) initModel;
+- (void) startGame;
+- (void) updateUI;
+- (BOOL) generateNewWish:(LAttegotchi*) lattegotchi;
+- (void) wishTick:(NSTimer *) timer;
 
 @end
