@@ -29,7 +29,6 @@
 {
     // Override point for customization after application launch.
     [self loadModel];
-    
     return YES;
 }
 							
@@ -176,21 +175,19 @@
     lattegotchi.health = 50;
     lattegotchi.birthday = [NSDate date];
     
-    Item* item1 = [[Item alloc] init];
-    [player.items addObject:item1];
-    item1.name = @"Item 1";
-    item1.happiness = 0;
-    item1.health = 5;
-    item1.value = 35;
-    
-    Item* item2 = [[Item alloc] init];
-    [player.items addObject:item2];
-    item2.name = @"Item 2";
-    item2.happiness = 20;
-    item2.health = 10;
-    item2.value = 50;
+    NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
+    for (NSDictionary *itemDict in [dict objectForKey:@"items"]) {
+        Item* item1 = [[Item alloc] init];
+        item1.name = [itemDict objectForKey:@"name"];
+        item1.happiness = [[itemDict objectForKey:@"happiness"] intValue];
+        item1.health = [[itemDict objectForKey:@"health"] intValue];
+        item1.value = [[itemDict objectForKey:@"value"] intValue];
+        [player.items addObject:item1];
+    }
     
     [self generateNewWish:lattegotchi];
+    [self updateUI];
     [self saveModel];
     [self startGame];
 }

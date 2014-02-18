@@ -37,6 +37,7 @@
 		9661655718B3A1FE0018B3C1 /* WishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9661655518B3A1FE0018B3C1 /* WishViewController.xib */; };
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
+		96CF23FB18B3B586005D3CEB /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23FA18B3B586005D3CEB /* data.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		96CF23F518B35644005D3CEB /* InitModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModelViewController.h; sourceTree = "<group>"; };
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
+		96CF23FA18B3B586005D3CEB /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */,
 				59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */,
 				59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */,
+				96CF23FA18B3B586005D3CEB /* data.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */,
+				96CF23FB18B3B586005D3CEB /* data.plist in Resources */,
 				59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */,
 				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
