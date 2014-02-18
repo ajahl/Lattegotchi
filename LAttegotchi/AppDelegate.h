@@ -16,6 +16,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate> {
     Player* player;
 }
+//test
 
 @property (strong, nonatomic) UIWindow *window;
 

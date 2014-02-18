@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface TableViewController : UITableViewController
 
 @property NSMutableArray * data;
+
+@property int currentTableView;
 
 @end

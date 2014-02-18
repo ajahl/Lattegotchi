@@ -32,6 +32,9 @@
 		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
 		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
 		59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */; };
+		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
+		9661655618B3A1FE0018B3C1 /* WishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661655418B3A1FE0018B3C1 /* WishViewController.m */; };
+		9661655718B3A1FE0018B3C1 /* WishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9661655518B3A1FE0018B3C1 /* WishViewController.xib */; };
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
 /* End PBXBuildFile section */
@@ -84,6 +87,11 @@
 		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
 		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
 		59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4.png; path = Resources/tamatama_nomal4.png; sourceTree = "<group>"; };
+		9661654A18B39BA70018B3C1 /* GPSWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPSWish.h; path = Wishes/GPSWish.h; sourceTree = "<group>"; };
+		9661654B18B39BA70018B3C1 /* GPSWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPSWish.m; path = Wishes/GPSWish.m; sourceTree = "<group>"; };
+		9661655318B3A1FE0018B3C1 /* WishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishViewController.h; path = Controller/WishViewController.h; sourceTree = "<group>"; };
+		9661655418B3A1FE0018B3C1 /* WishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishViewController.m; path = Controller/WishViewController.m; sourceTree = "<group>"; };
+		9661655518B3A1FE0018B3C1 /* WishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishViewController.xib; path = Controller/WishViewController.xib; sourceTree = "<group>"; };
 		96CF23F518B35644005D3CEB /* InitModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModelViewController.h; sourceTree = "<group>"; };
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
 				59EFA44318B2589200343C13 /* Controller */,
 				42F729E318B238C600F15B1F /* Model */,
@@ -228,6 +237,9 @@
 		59EFA44318B2589200343C13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9661655318B3A1FE0018B3C1 /* WishViewController.h */,
+				9661655418B3A1FE0018B3C1 /* WishViewController.m */,
+				9661655518B3A1FE0018B3C1 /* WishViewController.xib */,
 				42A7586118B2748A00ECC5ED /* ViewController.h */,
 				42A7586018B2748A00ECC5ED /* ViewController.m */,
 				42A7586318B2749F00ECC5ED /* TableViewController.h */,
@@ -237,6 +249,15 @@
 				96CF23F718B35644005D3CEB /* InitModelViewController.xib */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		9661654D18B39C0E0018B3C1 /* Wishes */ = {
+			isa = PBXGroup;
+			children = (
+				9661654A18B39BA70018B3C1 /* GPSWish.h */,
+				9661654B18B39BA70018B3C1 /* GPSWish.m */,
+			);
+			name = Wishes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +345,7 @@
 				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
+				9661655718B3A1FE0018B3C1 /* WishViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
+				9661655618B3A1FE0018B3C1 /* WishViewController.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
@@ -352,6 +375,7 @@
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
+				9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
