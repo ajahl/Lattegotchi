@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DotImageView : UIView
-- (void) setImage:(UIImage *) image;
+@interface DotImageView : UIView {
+    UIImage * image;
+}
+
+- (void) setImage:(UIImage *) img;
+
 @end
