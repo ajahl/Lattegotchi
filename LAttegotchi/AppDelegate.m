@@ -104,29 +104,36 @@
     lattegotchi.health = 50;
     lattegotchi.birthday = [NSDate date];
     
-    Wish* wish1 = [[Wish alloc] init];
-    [lattegotchi.wishes addObject:wish1];
-    wish1.name = @"Wish 1";
-    wish1.discription = @"Wish 1 Description";
-    wish1.happiness = 5;
-    wish1.health = 10;
-    wish1.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*5];
-    
-    Wish* wish2 = [[Wish alloc] init];
-    [lattegotchi.wishes addObject:wish2];
-    wish2.name = @"Wish 2";
-    wish2.discription = @"Wish 2 Description";
-    wish2.happiness = 15;
-    wish2.health = 20;
-    wish2.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*3];
+//    Wish* wish1 = [[Wish alloc] init];
+//    [lattegotchi.wishes addObject:wish1];
+//    wish1.name = @"Wish 1";
+//    wish1.discription = @"Wish 1 Description";
+//    wish1.happiness = 5;
+//    wish1.health = 10;
+//    wish1.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*5];
+//    
+//    Wish* wish2 = [[Wish alloc] init];
+//    [lattegotchi.wishes addObject:wish2];
+//    wish2.name = @"Wish 2";
+//    wish2.discription = @"Wish 2 Description";
+//    wish2.happiness = 15;
+//    wish2.health = 20;
+//    wish2.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*3];
     
     Item* item1 = [[Item alloc] init];
     [player.items addObject:item1];
-    [wish2.items addObject:item1];
+//    [wish2.items addObject:item1];
     item1.name = @"Item 1";
     item1.happiness = 0;
     item1.health = 5;
     item1.value = 35;
+    
+    Item* item2 = [[Item alloc] init];
+    [player.items addObject:item2];
+    item2.name = @"Item 2";
+    item2.happiness = 20;
+    item2.health = 10;
+    item2.value = 50;
     
     [self saveModel];
 }
