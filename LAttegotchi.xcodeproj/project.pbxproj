@@ -58,7 +58,7 @@
 		4279B5CC18B217A300051796 /* LAttegotchiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LAttegotchiTests-Info.plist"; sourceTree = "<group>"; };
 		4279B5CE18B217A300051796 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4279B5D018B217A300051796 /* LAttegotchiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAttegotchiTests.m; sourceTree = "<group>"; };
-		429A8BCF18B3568000A1DF52 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
+		429A8BCF18B3568000A1DF52 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Model/ListItem.h; sourceTree = "<group>"; };
 		42A7586018B2748A00ECC5ED /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				429A8BD218B35EED00A1DF52 /* Resources */,
 				59EFA44318B2589200343C13 /* Controller */,
 				42F729E318B238C600F15B1F /* Model */,
 				4279B5B118B217A300051796 /* AppDelegate.h */,
@@ -169,6 +170,13 @@
 				4279B5CD18B217A300051796 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		429A8BD218B35EED00A1DF52 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		42F729E318B238C600F15B1F /* Model */ = {

@@ -40,6 +40,11 @@
     tv.delegate = tableViewController;
     tableViewController.view = tv;
     tableViewController.tableView = tv;
+    
+    tableViewController.data = [[self getLAtte] wishes];
+    [(UITableView*)[tableViewController view] reloadData];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,16 +53,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(LAttegotchi *) getLAtte {
+    AppDelegate * app = [[UIApplication sharedApplication]delegate];
+    LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
+    return latte;
+}
+
 - (IBAction)menueSelector:(id)sender{
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     AppDelegate * app = [[UIApplication sharedApplication]delegate];
-    LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
+    LAttegotchi * latte  = [self getLAtte];
     switch (selectedSegment) {
         case 0:
             //Whish
         {
-            
             
             tableViewController.data = [latte wishes];
 
