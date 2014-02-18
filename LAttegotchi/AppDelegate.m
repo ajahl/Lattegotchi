@@ -106,8 +106,6 @@
         item1.health = 5;
         item1.value = 35;
     }
-    
-    NSLog(@"finished loading");
 }
 
 @end
