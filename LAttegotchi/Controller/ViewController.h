@@ -11,7 +11,7 @@
 @class TableViewController, LAttegotchi, DotImageView;
 
 
-@interface ViewController : UIViewController{
+@interface ViewController : UIViewController {
     TableViewController  * tableViewController;
     DotImageView * dotView;
     bool toggle;

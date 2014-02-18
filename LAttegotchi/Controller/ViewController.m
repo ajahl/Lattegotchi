@@ -14,9 +14,6 @@
 #import "DotImageView.h"
 
 
-
-
-
 @implementation ViewController
 
 
@@ -138,5 +135,15 @@
         _animationIndex = 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 @end

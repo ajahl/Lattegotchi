@@ -123,34 +123,48 @@
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
     
-    
     switch (self.currentTableView) {
         case 0:
-            //Whish
+        //Whish
         {
-              // hello
+            
+            if ([cellText  isEqual: @"Wish 1"]) {
+                
+                
+            
+            
+                
+                CGRect bounds = self.view.bounds;
+                
+                UIView *subView= [[UIView alloc] initWithFrame:bounds];
+                [subView setBackgroundColor: [UIColor yellowColor]];
+                [self.view addSubview:subView];
+            }
+            
             
             
             break;
         }
+        
             
         case 1:
-            //Backpack
+        //Backpack
         {
             
            
             
             break;
         }
+        
             
         case 2:
-            //Store
-            
+        //Store
         {
             
             
             break;
         }
+        
             
         default:
             // bloed

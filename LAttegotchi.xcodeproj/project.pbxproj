@@ -32,6 +32,7 @@
 		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
 		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
 		59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */; };
+		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
 		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
 		59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4.png; path = Resources/tamatama_nomal4.png; sourceTree = "<group>"; };
+		9661654A18B39BA70018B3C1 /* GPSWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPSWish.h; path = Wishes/GPSWish.h; sourceTree = "<group>"; };
+		9661654B18B39BA70018B3C1 /* GPSWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPSWish.m; path = Wishes/GPSWish.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
 				59EFA44318B2589200343C13 /* Controller */,
 				42F729E318B238C600F15B1F /* Model */,
@@ -229,6 +233,15 @@
 				42A7586418B2749F00ECC5ED /* TableViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		9661654D18B39C0E0018B3C1 /* Wishes */ = {
+			isa = PBXGroup;
+			children = (
+				9661654A18B39BA70018B3C1 /* GPSWish.h */,
+				9661654B18B39BA70018B3C1 /* GPSWish.m */,
+			);
+			name = Wishes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +355,7 @@
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
+				9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
