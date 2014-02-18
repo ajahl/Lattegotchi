@@ -227,10 +227,13 @@
 		59EFA44318B2589200343C13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				42A7586018B2748A00ECC5ED /* ViewController.m */,
 				42A7586118B2748A00ECC5ED /* ViewController.h */,
+				42A7586018B2748A00ECC5ED /* ViewController.m */,
 				42A7586318B2749F00ECC5ED /* TableViewController.h */,
 				42A7586418B2749F00ECC5ED /* TableViewController.m */,
+				96CF23F518B35644005D3CEB /* InitModelViewController.h */,
+				96CF23F618B35644005D3CEB /* InitModelViewController.m */,
+				96CF23F718B35644005D3CEB /* InitModelViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
 				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
+				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,

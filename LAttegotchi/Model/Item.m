@@ -12,8 +12,17 @@
 #define ASCItemHappiness @"itemHappiness"
 #define ASCItemHealth @"itemHealth"
 #define ASCItemValue @"itemValue"
+#define ASCItemAmount @"ASCItemAmount"
 
 @implementation Item
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _amount = 0;
+    }
+    return self;
+}
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
@@ -21,6 +30,7 @@
     [aCoder encodeInt:self.happiness forKey:ASCItemHappiness];
     [aCoder encodeInt:self.health forKey:ASCItemHealth];
     [aCoder encodeInt:self.value forKey:ASCItemValue];
+    [aCoder encodeInt:self.amount forKey:ASCItemAmount];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -31,6 +41,7 @@
         _happiness = [aDecoder decodeIntForKey:ASCItemHappiness];
         _health = [aDecoder decodeIntForKey:ASCItemHealth];
         _value = [aDecoder decodeIntForKey:ASCItemValue];
+        _amount = [aDecoder decodeIntForKey:ASCItemAmount];
     }
     return self;
 }
