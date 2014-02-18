@@ -59,6 +59,8 @@
     [self startTimer];
     
     
+//    _imageView
+    
 }
 
 - (void)didReceiveMemoryWarning

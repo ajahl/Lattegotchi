@@ -21,6 +21,7 @@
 		4279B5C718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
 		4279B5CF18B217A300051796 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4279B5CD18B217A300051796 /* InfoPlist.strings */; };
 		4279B5D118B217A300051796 /* LAttegotchiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4279B5D018B217A300051796 /* LAttegotchiTests.m */; };
+		429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A8BD618B3649A00A1DF52 /* DotImageView.m */; };
 		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
 		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
@@ -63,6 +64,8 @@
 		4279B5CE18B217A300051796 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4279B5D018B217A300051796 /* LAttegotchiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAttegotchiTests.m; sourceTree = "<group>"; };
 		429A8BCF18B3568000A1DF52 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Model/ListItem.h; sourceTree = "<group>"; };
+		429A8BD518B3649A00A1DF52 /* DotImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DotImageView.h; path = Views/DotImageView.h; sourceTree = "<group>"; };
+		429A8BD618B3649A00A1DF52 /* DotImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DotImageView.m; path = Views/DotImageView.m; sourceTree = "<group>"; };
 		42A7586018B2748A00ECC5ED /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
@@ -138,7 +141,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
-				429A8BD218B35EED00A1DF52 /* Resources */,
+				429A8BD418B3642D00A1DF52 /* Views */,
 				59EFA44318B2589200343C13 /* Controller */,
 				42F729E318B238C600F15B1F /* Model */,
 				4279B5B118B217A300051796 /* AppDelegate.h */,
@@ -146,6 +149,7 @@
 				4279B5B418B217A300051796 /* Main_iPhone.storyboard */,
 				4279B5B718B217A300051796 /* Main_iPad.storyboard */,
 				4279B5BD18B217A300051796 /* Images.xcassets */,
+				429A8BD218B35EED00A1DF52 /* Resources */,
 				4279B5A918B217A300051796 /* Supporting Files */,
 			);
 			path = LAttegotchi;
@@ -189,6 +193,15 @@
 				59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		429A8BD418B3642D00A1DF52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				429A8BD518B3649A00A1DF52 /* DotImageView.h */,
+				429A8BD618B3649A00A1DF52 /* DotImageView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		42F729E318B238C600F15B1F /* Model */ = {
@@ -324,6 +337,7 @@
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
+				429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
