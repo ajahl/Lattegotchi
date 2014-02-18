@@ -47,6 +47,7 @@
         {
             UITableView *tv =  self.tableView;
             TableViewController  * controller = [[TableViewController alloc] init];
+            [self addChildViewController:controller];
             
             tv.dataSource = controller;
             tv.delegate = controller;
