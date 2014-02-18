@@ -45,6 +45,8 @@
     [(UITableView*)[tableViewController view] reloadData];
     
     
+//    _imageView
+    
 }
 
 - (void)didReceiveMemoryWarning

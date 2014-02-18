@@ -17,6 +17,7 @@
 
 @property IBOutlet UIScrollView * scrollView;
 @property IBOutlet UITableView * tableView;
+@property IBOutlet UIImageView * imageView;
 
 - (IBAction)menueSelector:(id)sender;
 
