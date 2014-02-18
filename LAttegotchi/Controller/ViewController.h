@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class TableViewController, LAttegotchi;
+@class TableViewController, LAttegotchi, DotImageView;
 
 
 @interface ViewController : UIViewController{
     TableViewController  * tableViewController;
-    
+    DotImageView * dotView;
     bool toggle;
 }
 

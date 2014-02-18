@@ -13,10 +13,6 @@
 #import "LAttegotchi.h"
 #import "DotImageView.h"
 
-@interface ViewController ()
-
-@end
-
 
 
 
@@ -49,18 +45,19 @@
     
     tableViewController.data = [[self getLAtte] wishes];
     [(UITableView*)[tableViewController view] reloadData];
-   
+    
+    dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
+    [_imageView addSubview:dotView];
     
     UIImage *image = [UIImage imageNamed: @"tamatama_normal1.png"];
 
-    [_imageView setImage:image ];
+    [dotView setImage:image ];
     
      _images = [NSArray arrayWithObjects:  @"tamatama_nomal1.png",@"tamatama_nomal2.png",@"tamatama_nomal3.png",@"tamatama_nomal4.png",  nil];
     
     [self startTimer];
     
-    DotImageView * dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
-    [_imageView addSubview:dotView];
+
     
 }
 

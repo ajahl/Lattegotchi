@@ -88,5 +88,7 @@ int START_Y = 25;
     return latte;
 }
 
-
+- (void) setImage:(UIImage*)image {
+    
+}
 @end
