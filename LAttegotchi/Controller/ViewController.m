@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 #import "TableViewController.h"
+#import "AppDelegate.h"
+#import "LAttegotchi.h"
 
 @interface ViewController ()
 
@@ -29,6 +31,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    UITableView *tv =  self.tableView;
+    tableViewController = [[TableViewController alloc] init];
+    [self addChildViewController:tableViewController];
+    
+    tv.dataSource = tableViewController;
+    tv.delegate = tableViewController;
+    tableViewController.view = tv;
+    tableViewController.tableView = tv;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,26 +51,15 @@
 - (IBAction)menueSelector:(id)sender{
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    
+    AppDelegate * app = [[UIApplication sharedApplication]delegate];
+    LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     switch (selectedSegment) {
         case 0:
             //Whish
         {
-            UITableView *tv =  self.tableView;
-            TableViewController  * controller = [[TableViewController alloc] init];
-            [self addChildViewController:controller];
             
-            tv.dataSource = controller;
-            tv.delegate = controller;
-            controller.view = tv;
-            controller.tableView = tv;
-
-////            [wishController setView:view];
-//
-//            [_scrollView addSubview:view];
-//            
-//            [super viewWillAppear:YES];
-//            [view reloadData];
+            
+            tableViewController.data = [latte wishes];
 
             break;
         }
@@ -67,14 +67,14 @@
             //Backpack
         {
             
-        
+            tableViewController.data = [[app getPlayer] items];
             break;
         }
         case 2:
             //Store
             
         {
-            
+             tableViewController.data = [[app getPlayer] items];
             
             break;
         }
@@ -82,6 +82,9 @@
             // bloed
             break;
     }
+    
+    UITableView * t = (UITableView*)[tableViewController view];
+    [t reloadData];
     
 }
 
