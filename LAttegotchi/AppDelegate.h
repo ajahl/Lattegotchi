@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Player.h"
-#import "LAttegotchi.h";
+#import "LAttegotchi.h"
 
 #import "InitModelViewController.h"
 
