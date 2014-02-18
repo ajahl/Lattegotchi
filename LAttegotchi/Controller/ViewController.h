@@ -11,7 +11,7 @@
 @class TableViewController;
 
 
-@interface ViewController : UIViewController{
+@interface ViewController : UIViewController {
     TableViewController  * tableViewController;
 }
 
@@ -20,6 +20,7 @@
 @property IBOutlet UIImageView * imageView;
 
 - (IBAction)menueSelector:(id)sender;
+-(IBAction)button:(id)sender;
 
 
 @end

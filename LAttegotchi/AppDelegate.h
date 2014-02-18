@@ -10,7 +10,9 @@
 
 #import "Player.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+#import "InitModelViewController.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate> {
     Player* player;
 }
 
@@ -19,6 +21,7 @@
 - (Player*) getPlayer;
 - (NSString*) getDataFilePath;
 - (void) saveModel;
-- (void) loadOrInitModel;
+- (void) loadModel;
+- (void) initModel;
 
 @end

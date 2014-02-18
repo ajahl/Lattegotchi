@@ -8,16 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol InitModelAlertViewControllerDelegate <NSObject>
+- (void)finishedWithPlayername:(NSString*)playername withLAttegotchiName:(NSString*)lattegotchiname;
+@end
+
 @interface InitModelAlertViewController : UIViewController
 
--(void)showCustomAlertInView:(UIView *)targetView;
--(void)removeCustomAlertFromView;
--(void)removeCustomAlertFromViewInstantly;
+
+- (id)initWithDelegate:(id<InitModelAlertViewControllerDelegate>)delegate;
 
 - (IBAction) btnOkayTap:(id)sender;
 - (IBAction) btnCancelTap:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIView *viewContent;
+@property (nonatomic, retain) id<InitModelAlertViewControllerDelegate> delegate;
+
 @property (weak, nonatomic) IBOutlet UITextField* txtFieldPlayerName;
 @property (weak, nonatomic) IBOutlet UITextField* txtFieldLAttegotchiName;
 
