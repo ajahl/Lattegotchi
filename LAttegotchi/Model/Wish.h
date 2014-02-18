@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Wish : NSObject
+@interface Wish : NSObject <NSCoding>
 
 @property NSString * name;
 @property NSString * discription;

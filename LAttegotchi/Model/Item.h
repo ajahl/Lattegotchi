@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Item : NSObject
+@interface Item : NSObject <NSCoding>
 
 @property NSString * name;
-@property int health;
 @property int happiness;
+@property int health;
 @property int value;
 
 @end
