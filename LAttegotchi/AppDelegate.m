@@ -8,12 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "Player.h"
 #import "LAttegotchi.h"
 #import "Wish.h"
 #import "Item.h"
-
-#import "InitModelViewController.h"
 
 #define MAXWISHTIME         10 /* SECONDS */
 #define MINWISHTIME          5 /* SECONDS */

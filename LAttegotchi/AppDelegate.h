@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Player.h"
+
 #import "InitModelViewController.h"
 
-@class Player;
 @class LAttegotchi;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate> {
