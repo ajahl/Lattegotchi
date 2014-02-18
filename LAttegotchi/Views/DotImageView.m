@@ -118,7 +118,7 @@ int START_Y = 25;
 
 
 -(LAttegotchi *) getLAtte {
-    AppDelegate * app = [[UIApplication sharedApplication]delegate];
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     return latte;
 }
