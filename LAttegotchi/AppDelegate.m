@@ -31,8 +31,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    NSData *playerData = [NSKeyedArchiver archivedDataWithRootObject:player];
-    [playerData writeToFile:[self getDataFilePath] atomically:YES];
+    [self saveModel];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -60,6 +59,11 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:@"data"];
+}
+
+- (void) saveModel {
+    NSData *playerData = [NSKeyedArchiver archivedDataWithRootObject:player];
+    [playerData writeToFile:[self getDataFilePath] atomically:YES];
 }
 
 - (void) loadOrInitModel {

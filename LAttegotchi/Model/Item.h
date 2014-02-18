@@ -14,5 +14,6 @@
 @property int happiness;
 @property int health;
 @property int value;
+@property int amount;
 
 @end

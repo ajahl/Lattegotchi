@@ -28,6 +28,8 @@
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
+		96CF23F818B35644005D3CEB /* InitModelAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelAlertViewController.m */; };
+		96CF23F918B35644005D3CEB /* InitModelAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelAlertViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,9 @@
 		42F729EB18B2398F00F15B1F /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
 		42F729ED18B239A700F15B1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
 		42F729EE18B239A700F15B1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		96CF23F518B35644005D3CEB /* InitModelAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModelAlertViewController.h; sourceTree = "<group>"; };
+		96CF23F618B35644005D3CEB /* InitModelAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelAlertViewController.m; sourceTree = "<group>"; };
+		96CF23F718B35644005D3CEB /* InitModelAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelAlertViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +200,9 @@
 				42A7586318B2749F00ECC5ED /* TableViewController.h */,
 				42A7586418B2749F00ECC5ED /* TableViewController.m */,
 				42A7586518B2749F00ECC5ED /* TableViewController.xib */,
+				96CF23F518B35644005D3CEB /* InitModelAlertViewController.h */,
+				96CF23F618B35644005D3CEB /* InitModelAlertViewController.m */,
+				96CF23F718B35644005D3CEB /* InitModelAlertViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
 				42A7586718B2749F00ECC5ED /* TableViewController.xib in Resources */,
+				96CF23F918B35644005D3CEB /* InitModelAlertViewController.xib in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CF23F818B35644005D3CEB /* InitModelAlertViewController.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,

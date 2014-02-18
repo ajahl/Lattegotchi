@@ -18,6 +18,7 @@
 
 - (Player*) getPlayer;
 - (NSString*) getDataFilePath;
+- (void) saveModel;
 - (void) loadOrInitModel;
 
 @end
