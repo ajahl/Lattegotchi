@@ -24,6 +24,10 @@
 		429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A8BD618B3649A00A1DF52 /* DotImageView.m */; };
 		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
 		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
+		42E5516D18B3A308007CDF27 /* happy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E5516918B3A308007CDF27 /* happy_smile.png */; };
+		42E5516E18B3A308007CDF27 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E5516A18B3A308007CDF27 /* heart.png */; };
+		42E5516F18B3A308007CDF27 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E5516B18B3A308007CDF27 /* neutral_smile.png */; };
+		42E5517018B3A308007CDF27 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E5516C18B3A308007CDF27 /* unhappy_smile.png */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
@@ -72,6 +76,10 @@
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
 		42A7586418B2749F00ECC5ED /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
+		42E5516918B3A308007CDF27 /* happy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = happy_smile.png; path = Resources/happy_smile.png; sourceTree = "<group>"; };
+		42E5516A18B3A308007CDF27 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = Resources/heart.png; sourceTree = "<group>"; };
+		42E5516B18B3A308007CDF27 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
+		42E5516C18B3A308007CDF27 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
 		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
 		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				42E5516918B3A308007CDF27 /* happy_smile.png */,
+				42E5516A18B3A308007CDF27 /* heart.png */,
+				42E5516B18B3A308007CDF27 /* neutral_smile.png */,
+				42E5516C18B3A308007CDF27 /* unhappy_smile.png */,
 				59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */,
 				59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */,
 				59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */,
@@ -315,15 +327,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E5516F18B3A308007CDF27 /* neutral_smile.png in Resources */,
 				59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */,
+				42E5516E18B3A308007CDF27 /* heart.png in Resources */,
 				59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */,
 				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
+				42E5517018B3A308007CDF27 /* unhappy_smile.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
 				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
+				42E5516D18B3A308007CDF27 /* happy_smile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

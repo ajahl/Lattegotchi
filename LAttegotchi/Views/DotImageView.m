@@ -93,13 +93,14 @@ int START_Y = 25;
          }
     }
     
+    // draw smily -------------------------------------------------------
+    
+    
+    
     // draw health ------------------------------------------------------
     CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
-    
     int health = [[self getLAtte] health];
-    
     health = health* DOT_MATRIX / 100;
-    
     
     for (int y = DOT_MATRIX-1; y>DOT_MATRIX-health; y-- ) {
         
@@ -107,12 +108,14 @@ int START_Y = 25;
             
             int currentX = START_X + (padding) * x;//(DOT_MATRIX-1);
             int currentY = START_Y + (padding) * y;
-            
+
             //        CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
             CGContextAddRect(context, CGRectMake( currentX, currentY, radius*2.2f, radius*2.2f));
             CGContextFillPath(context);
         }
     }
+    
+    // draw heart ------------------------------------------------------
     
 }
 
@@ -125,6 +128,16 @@ int START_Y = 25;
 
 - (void) setImage:(UIImage*) img {
     image = img;
+    [self setNeedsDisplay];
+}
+
+-(void) setEmotion : (UIImage *) img {
+    emotion = img;
+    [self setNeedsDisplay];
+}
+
+- (void) setHeart : (UIImage *) img {
+    hearth = img;
     [self setNeedsDisplay];
 }
 
