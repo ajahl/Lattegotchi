@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DotImageView : UIImageView
+@interface DotImageView : UIView
 
 @end

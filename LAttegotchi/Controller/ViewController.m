@@ -11,6 +11,7 @@
 #import "TableViewController.h"
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
+#import "DotImageView.h"
 
 @interface ViewController ()
 
@@ -44,8 +45,8 @@
     tableViewController.data = [[self getLAtte] wishes];
     [(UITableView*)[tableViewController view] reloadData];
     
-    
-//    _imageView
+    DotImageView * dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
+    [_imageView addSubview:dotView];
     
 }
 

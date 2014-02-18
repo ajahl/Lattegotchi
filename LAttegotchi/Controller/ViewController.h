@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TableViewController;
+@class TableViewController, LAttegotchi;
 
 
 @interface ViewController : UIViewController{
@@ -18,6 +18,8 @@
 @property IBOutlet UIScrollView * scrollView;
 @property IBOutlet UITableView * tableView;
 @property IBOutlet UIImageView * imageView;
+
+-(LAttegotchi *) getLAtte;
 
 - (IBAction)menueSelector:(id)sender;
 
