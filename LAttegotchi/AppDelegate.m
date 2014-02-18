@@ -178,12 +178,12 @@
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
     for (NSDictionary *itemDict in [dict objectForKey:@"items"]) {
-        Item* item1 = [[Item alloc] init];
-        item1.name = [itemDict objectForKey:@"name"];
-        item1.happiness = [[itemDict objectForKey:@"happiness"] intValue];
-        item1.health = [[itemDict objectForKey:@"health"] intValue];
-        item1.value = [[itemDict objectForKey:@"value"] intValue];
-        [player.items addObject:item1];
+        Item* item = [[Item alloc] init];
+        item.name = [itemDict objectForKey:@"name"];
+        item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
+        item.health = [[itemDict objectForKey:@"health"] intValue];
+        item.value = [[itemDict objectForKey:@"value"] intValue];
+        [player.items addObject:item];
     }
     
     [self generateNewWish:lattegotchi];
