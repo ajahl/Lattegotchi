@@ -55,7 +55,7 @@
 }
 
 -(NSString *)getDiscription {
-    return @"";
+    return _discription;
 }
 
 @end
