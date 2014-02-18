@@ -46,4 +46,13 @@
     return self;
 }
 
+-(NSString *)getName {
+    return _name;
+}
+
+-(NSString *)getDiscription {
+    return @"";
+}
+
+
 @end

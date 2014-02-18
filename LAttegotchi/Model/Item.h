@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ListItem.h"
 
-@interface Item : NSObject <NSCoding>
+@interface Item : NSObject <NSCoding, ListItem>
 
 @property NSString * name;
 @property int happiness;

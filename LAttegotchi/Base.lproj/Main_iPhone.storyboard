@@ -47,6 +47,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="z2U-Jm-xS3" id="Rhm-Z5-6xA"/>
                         <outlet property="scrollView" destination="xWY-id-RcO" id="IqX-AS-9oZ"/>
                         <outlet property="tableView" destination="Leb-1y-Tds" id="26d-NS-oHb"/>
                     </connections>
