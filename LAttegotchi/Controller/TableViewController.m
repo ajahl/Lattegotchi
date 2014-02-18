@@ -7,8 +7,9 @@
 //
 
 #import "TableViewController.h"
-
+#import "AppDelegate.h"
 #import "ListItem.h"
+#import "WishViewController.h"
 
 
 @interface TableViewController ()
@@ -130,15 +131,12 @@
             
             if ([cellText  isEqual: @"Wish 1"]) {
                 
+                AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+                WishViewController *wishViewController = [[WishViewController alloc] initWithNibName:@"WishViewController" bundle:nil];
                 
-            
-            
+                [app.window.rootViewController presentViewController:wishViewController animated:YES completion:NULL];
                 
-                CGRect bounds = self.view.bounds;
                 
-                UIView *subView= [[UIView alloc] initWithFrame:bounds];
-                [subView setBackgroundColor: [UIColor yellowColor]];
-                [self.view addSubview:subView];
             }
             
             
