@@ -12,7 +12,7 @@
 - (void)finishedWithPlayername:(NSString*)playername withLAttegotchiName:(NSString*)lattegotchiname;
 @end
 
-@interface InitModelAlertViewController : UIViewController
+@interface InitModelAlertViewController : UIViewController <UITextFieldDelegate>
 
 
 - (id)initWithDelegate:(id<InitModelAlertViewControllerDelegate>)delegate;

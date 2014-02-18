@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.,
+    [_txtFieldPlayerName becomeFirstResponder];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -70,6 +71,15 @@
 
 - (IBAction) btnCancelTap:(id)sender {
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:_txtFieldPlayerName]) {
+        [_txtFieldLAttegotchiName becomeFirstResponder];
+    } else if ([textField isEqual:_txtFieldLAttegotchiName]) {
+        [self btnOkayTap:nil];
+    }
+    return YES;
 }
 
 @end
