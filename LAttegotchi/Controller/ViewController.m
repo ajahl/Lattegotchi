@@ -67,7 +67,7 @@
 
 
 -(LAttegotchi *) getLAtte {
-    AppDelegate * app = [[UIApplication sharedApplication]delegate];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     return latte;
 }
@@ -75,7 +75,7 @@
 - (IBAction)menueSelector:(id)sender{
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    AppDelegate * app = [[UIApplication sharedApplication]delegate];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [self getLAtte];
     switch (selectedSegment) {
         case 0:
