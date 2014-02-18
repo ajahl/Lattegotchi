@@ -26,6 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithWhite: alpha:0];
+
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, 20, self.view.frame.size.height);
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
