@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class WishTableViewController ;
-@class BackpackViewController;
-@class StoreTableViewController;
+@class TableViewController;
 
 
 @interface ViewController : UIViewController{
-    
+    TableViewController  * tableViewController;
 }
 
 @property IBOutlet UIScrollView * scrollView;

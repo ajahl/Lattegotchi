@@ -23,7 +23,6 @@
 		4279B5D118B217A300051796 /* LAttegotchiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4279B5D018B217A300051796 /* LAttegotchiTests.m */; };
 		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
 		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
-		42A7586718B2749F00ECC5ED /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A7586518B2749F00ECC5ED /* TableViewController.xib */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
@@ -63,7 +62,6 @@
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
 		42A7586418B2749F00ECC5ED /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
-		42A7586518B2749F00ECC5ED /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewController.xib; path = Controller/TableViewController.xib; sourceTree = "<group>"; };
 		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
 		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
 		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				42A7586118B2748A00ECC5ED /* ViewController.h */,
 				42A7586318B2749F00ECC5ED /* TableViewController.h */,
 				42A7586418B2749F00ECC5ED /* TableViewController.m */,
-				42A7586518B2749F00ECC5ED /* TableViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -278,7 +275,6 @@
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
-				42A7586718B2749F00ECC5ED /* TableViewController.xib in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
