@@ -8,6 +8,8 @@
 
 #import "TableViewController.h"
 
+#import "ListItem.h"
+
 @interface TableViewController ()
 
 @end
@@ -65,9 +67,8 @@
     
     // Configure the cell...
     
-    [_data objectAtIndex:[indexPath row]];
-    
-    [[cell textLabel] setText:@"<#string#>"];
+    id <ListItem> listItem = [_data objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[listItem getName]];
     return cell;
 }
 

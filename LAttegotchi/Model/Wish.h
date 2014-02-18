@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ListItem.h"
 
-@interface Wish : NSObject <NSCoding>
+@interface Wish : NSObject <NSCoding, ListItem>
 
 @property NSString * name;
 @property NSString * discription;

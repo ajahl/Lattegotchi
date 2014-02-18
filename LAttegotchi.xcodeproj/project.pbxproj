@@ -58,6 +58,7 @@
 		4279B5CC18B217A300051796 /* LAttegotchiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LAttegotchiTests-Info.plist"; sourceTree = "<group>"; };
 		4279B5CE18B217A300051796 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4279B5D018B217A300051796 /* LAttegotchiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAttegotchiTests.m; sourceTree = "<group>"; };
+		429A8BCF18B3568000A1DF52 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
 		42A7586018B2748A00ECC5ED /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 				42F729EB18B2398F00F15B1F /* Wish.m */,
 				42F729ED18B239A700F15B1F /* Item.h */,
 				42F729EE18B239A700F15B1F /* Item.m */,
+				429A8BCF18B3568000A1DF52 /* ListItem.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
