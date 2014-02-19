@@ -189,12 +189,12 @@
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
-    Wish *wish =  [latte.wishes objectAtIndex:selectedCell.tag];
-    
     switch (self.currentTableView) {
         case 0:
         //Whish
         {
+            Wish *wish =  [latte.wishes objectAtIndex:selectedCell.tag];
+            
             if ([wish isKindOfClass:[GPSWish class]]) {
                 
                 GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
