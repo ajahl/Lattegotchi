@@ -12,6 +12,8 @@
 
 #import "InitModelViewController.h"
 
+@class LAttegotchi;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate> {
     Player* player;
 }
@@ -24,5 +26,9 @@
 - (void) saveModel;
 - (void) loadModel;
 - (void) initModel;
+- (void) startGame;
+- (void) updateUI;
+- (BOOL) generateNewWish:(LAttegotchi*) lattegotchi;
+- (void) wishTick:(NSTimer *) timer;
 
 @end

@@ -38,7 +38,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.name forKey:ASCWishName];
-    [aCoder encodeObject:self.description forKey:ASCWishDescription];
+    [aCoder encodeObject:self.discription forKey:ASCWishDescription];
     [aCoder encodeInt:self.happiness forKey:ASCWishHappiness];
     [aCoder encodeInt:self.health forKey:ASCWishHealth];
     [aCoder encodeObject:self.deadline forKey:ASCWishDeadline];

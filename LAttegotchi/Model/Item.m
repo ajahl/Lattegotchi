@@ -12,7 +12,7 @@
 #define ASCItemHappiness @"itemHappiness"
 #define ASCItemHealth @"itemHealth"
 #define ASCItemValue @"itemValue"
-#define ASCItemAmount @"ASCItemAmount"
+#define ASCItemAmount @"itemAmount"
 
 @implementation Item
 

@@ -69,10 +69,6 @@
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction) btnCancelTap:(id)sender {
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField isEqual:_txtFieldPlayerName]) {
         [_txtFieldLAttegotchiName becomeFirstResponder];
