@@ -12,6 +12,7 @@
 #define ASCWishDescription @"wishDescription"
 #define ASCWishHappiness @"wishHappiness"
 #define ASCWishHealth @"wishHealth"
+#define ASCWishStarttime @"wishStarttime"
 #define ASCWishDeadline @"wishDeadline"
 #define ASCWishItems @"wishItems"
 
@@ -41,6 +42,7 @@
     [aCoder encodeObject:self.discription forKey:ASCWishDescription];
     [aCoder encodeInt:self.happiness forKey:ASCWishHappiness];
     [aCoder encodeInt:self.health forKey:ASCWishHealth];
+    [aCoder encodeObject:self.starttime forKey:ASCWishStarttime];
     [aCoder encodeObject:self.deadline forKey:ASCWishDeadline];
     [aCoder encodeObject:self.items forKey:ASCWishItems];
 }
@@ -53,6 +55,7 @@
         _discription = [aDecoder decodeObjectForKey:ASCWishDescription];
         _happiness = [aDecoder decodeIntForKey:ASCWishHappiness];
         _health = [aDecoder decodeIntForKey:ASCWishHealth];
+        _starttime = [aDecoder decodeObjectForKey:ASCWishStarttime];
         _deadline = [aDecoder decodeObjectForKey:ASCWishDeadline];
         _items = [aDecoder decodeObjectForKey:ASCWishItems];
     }
@@ -64,7 +67,23 @@
 }
 
 -(NSString *)getSubText {
-    return _discription;
+    return [self getSubText:-1];
+}
+
+-(NSString *) getSubText:(int)usage {
+    unichar heart = 0x2665;
+    unichar smiley = 0x263A;
+    
+    NSString *subText = @"";
+    subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
+    subText = [subText stringByAppendingFormat:@"\t%C ±%d", smiley, _happiness];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *deadline = [dateFormat stringFromDate:_deadline];
+    subText = [subText stringByAppendingFormat:@"\t%@", deadline];
+    
+    return subText;
 }
 
 -(UIViewController *)getViewController {

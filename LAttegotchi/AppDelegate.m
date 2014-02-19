@@ -12,14 +12,14 @@
 #import "Wish.h"
 #import "Item.h"
 
-#define MAXWISHTIME         10 /* SECONDS */
-#define MINWISHTIME          5 /* SECONDS */
+#define MAXWISHTIME         60*5     /* SECONDS */
+#define MINWISHTIME         60*1     /* SECONDS */
 #define MAXWISHHAPPINESS    10
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
 #define MINWISHHEALTH        5
-#define MAXWISHDEADLINE     15 /* MINUTE */
-#define MINWISHDEADLINE      5 /* MINUTE */
+#define MAXWISHDEADLINE     60*15    /* SECONDS */
+#define MINWISHDEADLINE     60*5     /* SECONDS */
 
 @implementation AppDelegate
 
@@ -101,12 +101,12 @@
 }
 
 - (void) startGame {
-    int nextWish = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
-    [NSTimer scheduledTimerWithTimeInterval:nextWish
+    NSLog(@"startGame");
+    [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
                                    selector:@selector(wishTick:)
                                    userInfo:nil
-                                    repeats:NO];
+                                    repeats:YES];
 }
 
 - (void) updateUI {
@@ -120,11 +120,16 @@
     
     int maxHappinessLost = 0;
     int maxHealthLost = 0;
+    NSDate *latestBegin = [NSDate date];
     for (Wish* wish in lattegotchi.wishes) {
         maxHappinessLost += wish.happiness;
         maxHealthLost += wish.health;
+        if ([wish.starttime compare:latestBegin] == NSOrderedDescending) {
+            latestBegin = wish.starttime;
+        }
     }
-    if (maxHappinessLost >= lattegotchi.happiness || maxHealthLost >= lattegotchi.health) {
+    if (maxHappinessLost >= lattegotchi.happiness
+            || maxHealthLost >= lattegotchi.health) {
         lattegotchiWouldDie = YES;
     }
     
@@ -134,8 +139,11 @@
         wish.discription = @"Wish Description";
         wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;
         wish.health = rand() % (MAXWISHHEALTH - MINWISHHEALTH) + MINWISHHEALTH;
+        
+        int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
+        wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
         int deadline = rand() % (MAXWISHDEADLINE - MINWISHDEADLINE) + MINWISHDEADLINE;
-        wish.deadline = [NSDate dateWithTimeIntervalSinceNow: 60*60*deadline];
+        wish.deadline = [wish.starttime dateByAddingTimeInterval:deadline];
         [lattegotchi.wishes addObject:wish];
         
         [self updateUI];
@@ -151,13 +159,6 @@
     } else {
         NSLog(@"no new wish");
     }
-    
-    int nextWish = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
-    [NSTimer scheduledTimerWithTimeInterval:nextWish
-                                     target:self
-                                   selector:@selector(wishTick:)
-                                   userInfo:nil
-                                    repeats:NO];
 }
 
 - (void)finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {

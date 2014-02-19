@@ -12,5 +12,6 @@
 
 -(NSString *) getName;
 -(NSString *) getSubText;
+-(NSString *) getSubText:(int)usage;
 
 @end
