@@ -13,9 +13,9 @@
 
 @implementation DotImageView
 
-int DOT_MATRIX = 64;
-int START_X = 0;
-int START_Y = 0;
+#define DOT_MATRIX  64
+#define START_X  0
+#define START_Y  0
 
 float dotSize = 1;
 int padding = 1;
