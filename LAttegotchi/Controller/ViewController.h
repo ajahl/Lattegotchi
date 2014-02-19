@@ -23,8 +23,6 @@
 @property Animation * animation;
 @property int animationIndex;
 
-
-
 -(LAttegotchi *) getLAtte;
 -(DotImageView *) getDotView;
 

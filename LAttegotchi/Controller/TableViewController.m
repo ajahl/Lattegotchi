@@ -13,6 +13,12 @@
 #import "LAttegotchi.h"
 #import "PushWish.h"
 #import "GPSWish.h"
+#import "MysteryLetterWish.h"
+#import "MysteryMathWish.h"
+#import "Item.h"
+#import "Player.h"
+#import "PushWish.h"
+#import "GPSWish.h"
 #import "Item.h"
 
 
@@ -28,7 +34,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _data = [[NSMutableArray alloc] init];
+        data = [[NSArray alloc] init];
     }
     return self;
 }
@@ -61,7 +67,35 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_data count];
+    switch (self.currentTableView) {
+        case 0:
+            //Wish
+        {
+            LAttegotchi *latte = [self getLAttegotchi];
+            data = [latte getActiveWishes];
+            break;
+        }
+        case 1:
+            //Backpack
+        {
+            Player *player = [self getPlayer];
+            data = [player getOwnedItems];
+            break;
+        }
+        case 2:
+            //Store
+        {
+            Player *player = [self getPlayer];
+            data = player.items;
+            break;
+        }
+        default:
+        {
+            data = [[NSArray alloc] init];
+            break;
+        }
+    }
+    return [data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,34 +108,33 @@
     
     // Configure the cell...
     
-    id <ListItem> listItem = [_data objectAtIndex:[indexPath row]];
+    id <ListItem> listItem = [data objectAtIndex:[indexPath row]];
     
-    [[cell textLabel] setText:[listItem getName]];
-    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
-    
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    Player *player = [app getPlayer];
-    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     switch (self.currentTableView) {
         case 0:
             //Wish
         {
+            LAttegotchi *latte = [self getLAttegotchi];
             cell.tag = [latte.wishes indexOfObject:listItem];
             break;
         }
         case 1:
             //Backpack
         {
+            Player *player = [self getPlayer];
             cell.tag = [player.items indexOfObject:listItem];
             break;
         }
         case 2:
             //Store
         {
+            Player *player = [self getPlayer];
             cell.tag = [player.items indexOfObject:listItem];
             break;
         }
     }
+    [[cell textLabel] setText:[listItem getName]];
+    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
     
     return cell;
 }
@@ -151,7 +184,6 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = selectedCell.textLabel.text;
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
@@ -163,17 +195,21 @@
         case 0:
         //Whish
         {
-            if ([wish isKindOfClass:[GPSWish class]]) {
+            if ([wish isKindOfClass:[Wish class]]) {
                 
-//                GPSWish *gpsWish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
-                GPSWish *gpsWish = [[GPSWish alloc] initViewController:app.window.rootViewController];
-                [gpsWish setDistance:25];
-                [gpsWish execute];
+                GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish setDistance:25];
+                [wish execute];
             
-            } else if ([wish isKindOfClass:[Wish class]]) {
+            } else if ([wish isKindOfClass:[PushWish class]]) {
+                PushWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish execute];
                 
-                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
-                [_pushWish execute];
+//                PushWish *pushWish = [gotchi.wishes objectAtIndex:selectedCell.tag];
+                
+//                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
+//                [_pushWish execute];
                 
             
             }
@@ -190,8 +226,8 @@
             
             if (item.amount >0 ) {
                 item.amount--;
-                latte.happiness += item.happiness;
-                latte.health += item.health;
+                latte.happiness = [self mapRange:latte.happiness + item.happiness ];
+                latte.health = [self mapRange:latte.health + item.health ];
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ahhhhh"
                                                                 message:@"this should not happen"
@@ -238,6 +274,27 @@
     
     
     
+}
+
+
+- (int) mapRange:(int) val{
+    if (val < 0) {
+        return 0;
+    }else if (val > 100){
+        return 100;
+    }else{
+        return val;
+    }
+}
+
+- (Player*) getPlayer {
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    return [app getPlayer];
+}
+
+- (LAttegotchi*) getLAttegotchi {
+    Player *player = [self getPlayer];
+    return [player.lattegotchies objectAtIndex:0];
 }
 
 

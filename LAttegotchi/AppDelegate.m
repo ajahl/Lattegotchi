@@ -8,12 +8,16 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Player.h"
 #import "LAttegotchi.h"
 #import "Wish.h"
+#import "GPSWish.h"
+#import "MysteryMathWish.h"
+#import "MysteryLetterWish.h"
 #import "Item.h"
 
-#define MAXWISHTIME         60*5     /* SECONDS */
-#define MINWISHTIME         60*1     /* SECONDS */
+#define MAXWISHTIME         10//60*5     /* SECONDS */
+#define MINWISHTIME         5//60*1     /* SECONDS */
 #define MAXWISHHAPPINESS    10
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
@@ -93,20 +97,19 @@
 - (void) loadModel {
     NSString *dataFile = [self getDataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:dataFile]) {
-        NSLog(@"loaded");
         NSData *playerData = [[NSFileManager defaultManager] contentsAtPath:dataFile];
         player = [NSKeyedUnarchiver unarchiveObjectWithData:playerData];
     }
 }
 
 - (void) initModel {
-    NSLog(@"init");
     InitModelAlertViewController *alertView = [[InitModelAlertViewController alloc] initWithDelegate:self];
     [_window.rootViewController presentViewController:alertView animated:YES completion:NULL];
 }
 
 - (void) startGame {
-    NSLog(@"startGame");
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    wishesMemory = [lattegotchi getActiveWishes];
     [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
                                    selector:@selector(wishTick:)
@@ -139,7 +142,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [[Wish alloc] init];
+        MysteryMathWish* wish = [[MysteryMathWish alloc] init];
         wish.name = @"Wish";
         wish.discription = @"Wish Description";
         wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;
@@ -150,23 +153,37 @@
         int deadline = rand() % (MAXWISHDEADLINE - MINWISHDEADLINE) + MINWISHDEADLINE;
         wish.deadline = [wish.starttime dateByAddingTimeInterval:deadline];
         [lattegotchi.wishes addObject:wish];
-        
-        [self updateUI];
         return YES;
     }
     return NO;
 }
 
-- (void) wishTick:(NSTimer *) timer {
+- (NSArray*) getNewActiveWishes {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    if ([self generateNewWish:lattegotchi]) {
-        NSLog(@"new wish");
-    } else {
-        NSLog(@"no new wish");
+    NSArray* activeWishes = [lattegotchi getActiveWishes];
+    NSMutableArray* newActiveWishes = [[NSMutableArray alloc] init];
+    for (Wish *wish in activeWishes) {
+        if (![wishesMemory containsObject:wish]) {
+            [newActiveWishes addObject:wish];
+        }
     }
+    wishesMemory = activeWishes;
+    return newActiveWishes;
 }
 
-- (void)finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
+- (void) wishTick:(NSTimer *) timer {
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    while ([self generateNewWish:lattegotchi]) {
+        // generateWishes until death
+    }
+    NSArray* newActiveWishes = [self getNewActiveWishes];
+    for (Wish *wish in newActiveWishes) {
+        NSLog(@"newActiveWish: %@", wish.name);
+    }
+    [self updateUI];
+}
+
+- (void) finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
     player = [[Player alloc] init];
     player.name = playername;
     player.money = 100;
@@ -196,8 +213,7 @@
     [self startGame];
 }
 
-- (void) createNotifikation{
-    
+- (void) createNotifikation {
     LAttegotchi * latte = [player.lattegotchies objectAtIndex:0];
     
     for (Wish * wish in latte.wishes) {

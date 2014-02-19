@@ -16,6 +16,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate> {
     Player* player;
+    NSArray* wishesMemory;
 }
 //test
 
@@ -23,12 +24,6 @@
 
 - (Player*) getPlayer;
 - (NSString*) getDataFilePath;
-- (void) saveModel;
-- (void) loadModel;
-- (void) initModel;
-- (void) startGame;
 - (void) updateUI;
-- (BOOL) generateNewWish:(LAttegotchi*) lattegotchi;
-- (void) wishTick:(NSTimer *) timer;
 
 @end
