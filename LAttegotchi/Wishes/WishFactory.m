@@ -35,6 +35,7 @@
     [wish setName:name];
     wish.happiness = item.happiness * 2;
     wish.health = item.health *2;
+    [wish.items addObject:item];
     
     
     

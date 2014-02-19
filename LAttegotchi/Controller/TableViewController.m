@@ -217,6 +217,8 @@
                 [wish initWithViewController:app.window.rootViewController];
                 [wish execute];
                 
+            }else if ([wish isKindOfClass:[Wish class]]){
+                [wish execute];
             }
             
             
