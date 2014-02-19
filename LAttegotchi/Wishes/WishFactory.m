@@ -8,6 +8,10 @@
 
 #import "WishFactory.h"
 #import "ItemWish.h"
+#import "GPSWish.h"
+#import "MysteryLetterWish.h"
+#import "MysteryMathWish.h"
+#import "PushWish.h"
 #import "AppDelegate.h"
 #import "Player.h"
 #import "Item.h"
@@ -40,4 +44,47 @@
     
     return wish;
 }
+
++ (GPSWish*) createGPSWish {
+    GPSWish * wish = [[GPSWish alloc]init];
+    [wish setDistance:25];
+    
+    [wish setName:@"WAAHHH ... I want a "];
+    wish.happiness = 30;
+    wish.health = 30;
+    
+    return wish;
+}
+
++ (MysteryMathWish*) createMysteryMathWish {
+    MysteryMathWish * wish = [[MysteryMathWish alloc]init];
+    
+    [wish setName:@"WAAHHH ... I want a "];
+    wish.happiness = 30;
+    wish.health = 30;
+    
+    return wish;
+}
+
++ (MysteryLetterWish*) createMysteryLetterWish {
+    MysteryLetterWish * wish = [[MysteryLetterWish alloc]init];
+    
+    [wish setName:@"WAAHHH ... I want a "];
+    wish.happiness = 30;
+    wish.health = 30;
+    
+    return wish;
+}
+
++ (PushWish*) createPushWish {
+    PushWish * wish = [[PushWish alloc]init];
+    
+    [wish setName:@"WAAHHH ... I want a "];
+    wish.happiness = 30;
+    wish.health = 30;
+    
+    return wish;
+}
+
+
 @end
