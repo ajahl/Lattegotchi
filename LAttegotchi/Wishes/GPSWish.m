@@ -136,8 +136,6 @@
                action: @selector(buttonClicked:)
      forControlEvents: UIControlEventTouchDown];
     [subView addSubview: button];
-    
-    
 }
 
 - (void) buttonClicked: (id)sender
