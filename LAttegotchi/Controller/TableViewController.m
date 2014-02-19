@@ -12,6 +12,9 @@
 #import "WishViewController.h"
 #import "LAttegotchi.h"
 #import "Player.h"
+#import "PushWish.h"
+#import "GPSWish.h"
+#import "Item.h"
 
 
 
