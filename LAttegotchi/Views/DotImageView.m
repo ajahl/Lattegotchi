@@ -14,111 +14,109 @@
 @implementation DotImageView
 
 int DOT_MATRIX = 64;
-int START_X = 2;
-int START_Y = 25;
+int START_X = 0;
+int START_Y = 0;
 
-//- (id)init
-//{
-//    self = [super init];
-//    if (self) {
-//        
-//        
-//    }
-//    return self;
-//}
+float dotSize = 1;
+int padding = 1;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        padding = ([self frame].size.width -10)/ DOT_MATRIX;
+        CGRect rect = [self frame];
+        dotSize =(rect.size.width-(DOT_MATRIX+1) * padding) / (DOT_MATRIX/2);
+        dotSize = dotSize*2.2f;
+        padding = padding+1;
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
-    self.clearsContextBeforeDrawing = YES;
-    int padding = ([self frame].size.width -10)/ DOT_MATRIX;
-    
-    float radius = (rect.size.width-(DOT_MATRIX+1) * padding) / (DOT_MATRIX/2); // radius
-    
-    padding = padding+1;
+-(void) drawDot :(int)x : (int)y :(UIColor *) color {
+    int matrixX = START_X + (padding) * x;
+    int matrixY = START_Y + (padding) * y;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextAddRect(context, CGRectMake( matrixX, matrixY, dotSize, dotSize));
+//  CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
+    CGContextFillPath(context);
+}
+
+- (void)drawRect:(CGRect)rect {
+    self.clearsContextBeforeDrawing = YES;
     
+    CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextClearRect(context, rect);
-    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]); // background
+    
+    // background ----------------------------------------------------------
+    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
     CGContextFillRect(context, rect);
     
     // draw dotmatrix ------------------------------------------------------
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
-    
     for (int y = 0; y<DOT_MATRIX; y++ ) {
-        
         for (int x = 0; x<DOT_MATRIX; x++) {
-            
-            if( [self isPixelSet:x :y]) {
-                CGContextSetFillColorWithColor(context, [[UIColor greenColor] CGColor]);
-                
+            if( [self isPixelSet:image :x :y]) {
+                [self drawDot:x :y :[UIColor greenColor]];
             }
             else {
-                CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
+                [self drawDot:x :y :[UIColor blackColor]];
             }
-            
-            int currentX = START_X + (padding)*x;
-            int currentY = START_Y + (padding)*y;
-            
-//            CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
-            CGContextAddRect(context, CGRectMake( currentX, currentY, radius*2.2f, radius*2.2f));
-            CGContextFillPath(context);
         }
     }
     
     // draw happiness ------------------------------------------------------
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
-    
     int happiness = [[self getLAtte] happiness];
-    happiness = happiness* DOT_MATRIX / 100;
+    happiness = happiness* (DOT_MATRIX) / 100;
     
     for (int y = DOT_MATRIX-1; y>DOT_MATRIX-happiness; y-- ) {
-        
          for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
-             
-             int currentX = START_X + (padding) * x;//(DOT_MATRIX-1);
-             int currentY = START_Y + (padding) * y;
-        
-             //        CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
-             CGContextAddRect(context, CGRectMake( currentX, currentY, radius*2.2f, radius*2.2f));
-             CGContextFillPath(context);
+             [self drawDot:x :y :[UIColor blackColor]];
          }
     }
     
-    // draw health ------------------------------------------------------
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
-    
-    int health = [[self getLAtte] health];
-    
-    health = health* DOT_MATRIX / 100;
-    
-    
-    for (int y = DOT_MATRIX-1; y>DOT_MATRIX-health; y-- ) {
-        
-        for (int x = 0; x<5; x++) {
-            
-            int currentX = START_X + (padding) * x;//(DOT_MATRIX-1);
-            int currentY = START_Y + (padding) * y;
-            
-            //        CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
-            CGContextAddRect(context, CGRectMake( currentX, currentY, radius*2.2f, radius*2.2f));
-            CGContextFillPath(context);
+    // draw smily -------------------------------------------------------
+    CGSize emoSize = emotion.size;
+    for (int y = 0; y<emoSize.height; y++ ) {
+        for (int x = 0; x<emoSize.height; x++) {
+            if( [self isPixelSet:emotion :x :y]) {
+                [self drawDot:x :y + happiness-emoSize.height :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:x :y + happiness-emoSize.height :[UIColor blackColor]];
+            }
         }
     }
     
+    // draw health ------------------------------------------------------
+    int health = [[self getLAtte] health];
+    health = health* DOT_MATRIX / 100;
+    
+    for (int y = DOT_MATRIX-5; y>DOT_MATRIX-health; y-- ) {
+        for (int x = 0; x<5; x++) {
+            [self drawDot:x :y :[UIColor blackColor]];
+        }
+    }
+    
+    // draw heart ------------------------------------------------------
+    CGSize heartSize = heart.size;
+    for (int y = 0; y<heartSize.height; y++ ) {
+        for (int x = 0; x<heartSize.height; x++) {
+            if( [self isPixelSet:heart :x :y]) {
+                [self drawDot:DOT_MATRIX -heartSize.height + x :y + health-heartSize.height :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:DOT_MATRIX -heartSize.height + x :y + health-heartSize.height :[UIColor blackColor]];
+            }
+        }
+    }
 }
 
 
 -(LAttegotchi *) getLAtte {
-    AppDelegate * app = [[UIApplication sharedApplication]delegate];
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     return latte;
 }
@@ -128,20 +126,33 @@ int START_Y = 25;
     [self setNeedsDisplay];
 }
 
-- (BOOL)isPixelSet: (int) x :(int) y {
+-(void) setEmotion : (UIImage *) img {
+    emotion = img;
+    [self setNeedsDisplay];
+}
+
+- (void) setHeart : (UIImage *) img {
+    heart = img;
+    [self setNeedsDisplay];
+}
+
+- (BOOL)isPixelSet:(UIImage *) img : (int) x :(int) y {
     
-    if ( !image )
+    if ( !img )
         return NO;
     
-    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(image.CGImage));
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(img.CGImage));
     const UInt8* data = CFDataGetBytePtr(pixelData);
     
-    int pixelInfo = ((image.size.width  * y) + x ) * 4;
-
+    int pixelInfo = ((img.size.width  * y) + x ) * 4;
+    
+    UInt8 red = data[pixelInfo];
+    UInt8 green = data[(pixelInfo + 1)];
+    UInt8 blue = data[pixelInfo + 2];
     UInt8 alpha = data[pixelInfo + 3];
     CFRelease(pixelData);
 
-    if (alpha)
+    if (alpha && red != 255 && blue != 255 && green != 255)
         return NO;
     else
         return YES;
