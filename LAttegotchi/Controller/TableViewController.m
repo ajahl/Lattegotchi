@@ -204,7 +204,7 @@
             } else if ([wish isKindOfClass:[PushWish class]]) {
                 PushWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish execute];
-                f
+                
 //                PushWish *pushWish = [gotchi.wishes objectAtIndex:selectedCell.tag];
                 
 //                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
