@@ -13,6 +13,9 @@
     IBOutlet UILabel *lblEquation;
     IBOutlet UITextField *txtResult;
     
+    int num1;
+    int num2;
+    
 }
 
 @end

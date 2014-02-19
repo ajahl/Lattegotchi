@@ -7,12 +7,18 @@
 //
 
 #import "MysteryMathWish.h"
+#import "AppDelegate.h"
+#import "LAttegotchi.h"
 
 @implementation MysteryMathWish
 
 
 
 -(void)execute {
+    
+    // Generate equation
+    num1 = arc4random_uniform(50);
+    num2 = arc4random_uniform(50);
     
     // Init GUI
     [self createAndInitUI];
@@ -34,13 +40,13 @@
     
     // Add Text Button
     UILabel *lblDistanceTxt = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 100, 50)];
-    [lblDistanceTxt setText: @"Distance: "];
+    
+    [lblDistanceTxt setText: [NSString stringWithFormat:@" %i + %i = ", num1, num2]];
     [lblDistanceTxt setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDistanceTxt];
     
     // Create and add distance label
     txtResult  = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-    [txtResult setText: @"0.0 m"];
     [txtResult setTextColor: [UIColor orangeColor]];
     
     // Add
@@ -76,13 +82,51 @@
 
 - (void) buttonClicked: (id)sender
 {
-    
     NSLog( @"Button clicked." );
     [[self getSubView] removeFromSuperview];
 }
 
 - (void) buttonInputClicked: (id)sender
 {
+    
+    NSLog(@">>>>> %i", [txtResult.text intValue]);
+    if ([txtResult.text intValue] == num1 + num2) {
+        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+        LAttegotchi *latte = [[app getPlayer].lattegotchies objectAtIndex:0];
+        
+        NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Congratulations :-)"
+                              message: nil
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil
+                              ];
+        NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
+        alert.message = msg;
+        [alert show];
+        
+        [latte.wishes removeObject:self];
+        
+        [app updateUI];
+        
+        [self closeWish];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Sorry :-("
+                              message: nil
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil
+                              ];
+        NSString *msg = [NSString stringWithFormat:@"Wrond. Try again!"];
+        alert.message = msg;
+        [alert show];
+    }
+    
+    
     // Remove responder from text field
     [txtResult resignFirstResponder];
     
@@ -98,8 +142,6 @@
     [self getSubView].frame = CGRectMake(0,-10,320,400);
     [UIView commitAnimations];
     
-    NSLog(@"::::::::: CALLLLLL");
-    /* keyboard is visible, move views */
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -108,8 +150,6 @@
     [UIView setAnimationDuration:0.25];
     [self getSubView].frame = CGRectMake(0, 292,320,400);
     [UIView commitAnimations];
-    NSLog(@"::::::::: ENNNDDDD");
-    /* resign first responder, hide keyboard, move views */
 }
 
 - (void) closeWish

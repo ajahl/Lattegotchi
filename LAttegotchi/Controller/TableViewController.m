@@ -19,6 +19,7 @@
 #import "Player.h"
 #import "PushWish.h"
 #import "GPSWish.h"
+#import "ShakeWish.h"
 #import "Item.h"
 
 
@@ -213,6 +214,11 @@
                 
             } else if ([wish isKindOfClass:[MysteryLetterWish class]]) {
                 MysteryLetterWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish execute];
+                
+            } else if ([wish isKindOfClass:[ShakeWish class]]) {
+                ShakeWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish initWithViewController:app.window.rootViewController];
                 [wish execute];
                 
