@@ -122,7 +122,7 @@
     [viewController.tableView reloadData];
 }
 
-- (BOOL) generateNewWish:(LAttegotchi*) lattegotchi; {
+- (BOOL) generateNewWishFor:(LAttegotchi*) lattegotchi; {
     // TODO: check for happiness to die
     BOOL lattegotchiWouldDie = NO;
     
@@ -173,7 +173,7 @@
 
 - (void) wishTick:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    while ([self generateNewWish:lattegotchi]) {
+    while ([self generateNewWishFor:lattegotchi]) {
         // generateWishes until death
     }
     
@@ -237,7 +237,7 @@
         [player.items addObject:item];
     }
     
-    [self generateNewWish:lattegotchi];
+    [self generateNewWishFor:lattegotchi];
     [self updateUI];
     [self saveModel];
     [self startGame];
