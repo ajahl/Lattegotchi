@@ -14,6 +14,7 @@
 #import "LAttegotchi.h"
 #import "DotImageView.h"
 #import "HappyAnimation.h"
+#import "Wish.h"
 
 
 @implementation ViewController

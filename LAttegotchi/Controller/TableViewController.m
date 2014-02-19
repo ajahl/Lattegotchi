@@ -11,6 +11,8 @@
 #import "ListItem.h"
 #import "WishViewController.h"
 #import "LAttegotchi.h"
+#import "PushWish.h"
+#import "GPSWish.h"
 
 
 
@@ -144,6 +146,7 @@
 
 
 
+
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -153,19 +156,26 @@
     Player *player = [app getPlayer];
     LAttegotchi *gotchi = [player.lattegotchies objectAtIndex:0];
     
+    Wish *wish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
+    
     switch (self.currentTableView) {
         case 0:
         //Whish
         {
-            
-            if ([cellText  isEqual: @"Wish 1"]) {
+            if ([wish isKindOfClass:[GPSWish class]]) {
                 
-                GPSWish *gpsWish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
+//                GPSWish *gpsWish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
+                GPSWish *gpsWish = [[GPSWish alloc] initViewController:app.window.rootViewController];
                 [gpsWish setDistance:25];
                 [gpsWish execute];
+            
+            } else if ([wish isKindOfClass:[Wish class]]) {
+                
+                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
+                [_pushWish execute];
+                
+            
             }
-            
-            
             
             break;
         }
