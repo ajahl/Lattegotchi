@@ -217,8 +217,8 @@
             
             if (item.amount >0 ) {
                 item.amount--;
-                latte.happiness += item.happiness;
-                latte.health += item.health;
+                latte.happiness = [self mapRange:latte.happiness + item.happiness ];
+                latte.health = [self mapRange:latte.health + item.health ];
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ahhhhh"
                                                                 message:@"this should not happen"
@@ -265,6 +265,17 @@
     
     
     
+}
+
+
+- (int) mapRange:(int) val{
+    if (val < 0) {
+        return 0;
+    }else if (val > 100){
+        return 100;
+    }else{
+        return val;
+    }
 }
 
 - (Player*) getPlayer {
