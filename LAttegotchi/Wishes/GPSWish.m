@@ -52,8 +52,20 @@
     
     if ([startLocation distanceFromLocation:newLocation] >= distance) {
         
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Congratulations :-)"
+                              message: nil
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil
+                              ];
         
-        [self locationStop];
+        
+        
+        alert.message = @"You fulfilled gotichies wish. Thanks!";
+        [alert show];
+        
+        [self closeWish];
         
     }
     
@@ -83,24 +95,25 @@
 - (void)createAndInitUI
 {
     
+    
 
     // create and add view
     UIView *subView = [self getSubView];
     
     // Add Text Button
-    UILabel *lblDistanceTxt = [[UILabel alloc] initWithFrame:CGRectMake(20, 150, 100, 50)];
+    UILabel *lblDistanceTxt = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 50)];
     [lblDistanceTxt setText: @"Distance: "];
     [lblDistanceTxt setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDistanceTxt];
     
     // Create and add distance label
-    lblDistance = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 100, 50)];
-    [lblDistance setText: @"My Label"];
+    lblDistance = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 100, 50)];
+    [lblDistance setText: @"0.0 m"];
     [lblDistance setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDistance];
     
     // Add return button
-    CGRect buttonFrame = CGRectMake( 10, 220, 100, 30 );
+    CGRect buttonFrame = CGRectMake( 10, subView.frame.size.height-30, 100, 30 );
     UIButton *button = [[UIButton alloc] initWithFrame: buttonFrame];
     [button setTitle: @"Back" forState: UIControlStateNormal];
     [button setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
