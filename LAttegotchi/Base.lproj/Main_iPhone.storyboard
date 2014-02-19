@@ -28,6 +28,7 @@
                                     <segment title="Backpack"/>
                                     <segment title="Store"/>
                                 </segments>
+                                <color key="tintColor" red="0.0016354445783809918" green="0.79073660714285721" blue="0.002537424319441089" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="menueSelector:" destination="vXZ-lx-hvc" eventType="valueChanged" id="13S-AM-3iG"/>
                                 </connections>

@@ -190,47 +190,53 @@
         if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
             if (lattegotchi.happiness - wish.happiness > 100) {
                 lattegotchi.happiness = 100;
+            } else if (lattegotchi.happiness - wish.happiness < 0) {
+                lattegotchi.happiness = 0;
             } else {
                 lattegotchi.happiness -= wish.happiness;
             }
             if (lattegotchi.health - wish.health > 100) {
                 lattegotchi.health = 100;
+            } else if (lattegotchi.health - wish.health < 0) {
+                lattegotchi.health = 0;
             } else {
                 lattegotchi.health -= wish.health;
             }
             [lattegotchi.wishes removeObject:wish];
-            if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
-                [timer invalidate];
-                
-                NSString *message = [NSString stringWithFormat:@"%@ is ", lattegotchi.name];
-                if (lattegotchi.happiness <= 0) {
-                    message = [message stringByAppendingString:@"too sad"];
-                }
-                if (lattegotchi.happiness <= 0 && lattegotchi.health <= 0) {
-                    message = [message stringByAppendingString:@"and "];
-                }
-                if (lattegotchi.health <= 0) {
-                    message = [message stringByAppendingString:@"dead"];
-                }
-                
-                NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:lattegotchi.birthday];
-                NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateFormat:@"HH:mm:ss"];
-                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-                NSString *formattedDate = [dateFormatter stringFromDate:date];
-                message = [message stringByAppendingFormat:@"!\nHe was alive for %@.", formattedDate];
-                
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle: @"You lost!"
-                                      message: message
-                                      delegate: self
-                                      cancelButtonTitle:@"OK"
-                                      otherButtonTitles:nil
-                                      ];
-                [alert show];
-            }
         }
+    }
+    
+    // Check if lost
+    if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
+        [timer invalidate];
+        
+        NSString *message = [NSString stringWithFormat:@"%@ is ", lattegotchi.name];
+        if (lattegotchi.happiness <= 0) {
+            message = [message stringByAppendingString:@"too sad"];
+        }
+        if (lattegotchi.happiness <= 0 && lattegotchi.health <= 0) {
+            message = [message stringByAppendingString:@"and "];
+        }
+        if (lattegotchi.health <= 0) {
+            message = [message stringByAppendingString:@"dead"];
+        }
+        
+        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:lattegotchi.birthday];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"HH:mm:ss"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        NSString *formattedDate = [dateFormatter stringFromDate:date];
+        message = [message stringByAppendingFormat:@"!\nHe was alive for %@.", formattedDate];
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"You lost!"
+                              message: message
+                              delegate: self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil
+                              ];
+        [alert show];
     }
     
     [self updateUI];
