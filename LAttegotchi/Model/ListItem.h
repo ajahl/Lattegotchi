@@ -11,6 +11,7 @@
 @protocol ListItem
 
 -(NSString *) getName;
--(NSString *) getDiscription;
+-(NSString *) getSubText;
+-(NSString *) getSubText:(int)usage;
 
 @end

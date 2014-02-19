@@ -77,7 +77,7 @@
     
     
     [[cell textLabel] setText:[listItem getName]];
-    [[cell detailTextLabel] setText:[listItem getDiscription]];
+    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
     return cell;
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TableViewController, LAttegotchi, DotImageView;
+@class TableViewController, LAttegotchi, DotImageView, Animation;
 
 
 @interface ViewController : UIViewController {
@@ -20,12 +20,13 @@
 @property IBOutlet UIScrollView * scrollView;
 @property IBOutlet UITableView * tableView;
 @property IBOutlet UIImageView * imageView;
-@property NSArray * images ;
+@property Animation * animation;
 @property int animationIndex;
 
 
 
 -(LAttegotchi *) getLAtte;
+-(DotImageView *) getDotView;
 
 - (IBAction)menueSelector:(id)sender;
 
