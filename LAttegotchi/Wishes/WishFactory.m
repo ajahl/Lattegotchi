@@ -24,8 +24,12 @@
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
     ItemWish * wish = [[ItemWish alloc]init];
-    
-    Item * item = [[player items] objectAtIndex:0];
+    Item * item = nil;
+    do {
+        int random = arc4random_uniform([[player items] count]);
+        item =[[player items] objectAtIndex:random];
+    } while ([item value] > player.money && player.money > 50 );
+   
     
     NSMutableString *description = [[NSMutableString alloc]init];
     
@@ -40,6 +44,7 @@
     [wish setName:name];
     wish.happiness = item.happiness * 2;
     wish.health = item.health *2;
+    wish.value = item.value*1.5;
     [wish.items addObject:item];
     
     

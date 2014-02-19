@@ -24,8 +24,8 @@
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
 #define MINWISHHEALTH        5
-#define MAXWISHDEADLINE     10//60*15    /* SECONDS */
-#define MINWISHDEADLINE     5//60*5     /* SECONDS */
+#define MAXWISHDEADLINE     30//60*15    /* SECONDS */
+#define MINWISHDEADLINE     15//60*5     /* SECONDS */
 
 @implementation AppDelegate
 
@@ -110,6 +110,9 @@
 }
 
 - (void) startGame {
+    ViewController* viewController =  (ViewController*) _window.rootViewController;
+    [viewController.animation startTimer];
+    
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
     wishesMemory = [lattegotchi getActiveWishes];
     [NSTimer scheduledTimerWithTimeInterval:1
@@ -117,9 +120,6 @@
                                    selector:@selector(gameLoop:)
                                    userInfo:nil
                                     repeats:YES];
-    
-    ViewController* viewController =  (ViewController*) _window.rootViewController;
-    [viewController.animation startTimer];
 }
 
 - (void) updateUI {
@@ -147,7 +147,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = (Wish*)[WishFactory createMysteryMathWish];
+        Wish* wish = (Wish*)[WishFactory createItemWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
@@ -188,27 +188,55 @@
     NSArray* wishes = [lattegotchi.wishes copy];
     for (Wish *wish in wishes) {
         if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
-            lattegotchi.happiness -= wish.happiness;
-            lattegotchi.health -= wish.health;
-            [lattegotchi.wishes removeObject:wish];
-            if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle: @"You lost!"
-                                            message: nil
-                                           delegate: self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil
-                                      ];
-                if (lattegotchi.happiness <= 0) {
-                    alert.message = [NSString stringWithFormat:@"%@ ist too sad!", lattegotchi.name];
-                } else if (lattegotchi.health <= 0) {
-                    alert.message = [NSString stringWithFormat:@"%@ ist dead!", lattegotchi.name];
-                }
-                
-                [timer invalidate];
-                [alert show];
+            if (lattegotchi.happiness - wish.happiness > 100) {
+                lattegotchi.happiness = 100;
+            } else if (lattegotchi.happiness - wish.happiness < 0) {
+                lattegotchi.happiness = 0;
+            } else {
+                lattegotchi.happiness -= wish.happiness;
             }
+            if (lattegotchi.health - wish.health > 100) {
+                lattegotchi.health = 100;
+            } else if (lattegotchi.health - wish.health < 0) {
+                lattegotchi.health = 0;
+            } else {
+                lattegotchi.health -= wish.health;
+            }
+            [lattegotchi.wishes removeObject:wish];
         }
+    }
+    
+    // Check if lost
+    if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
+        [timer invalidate];
+        
+        NSString *message = [NSString stringWithFormat:@"%@ is ", lattegotchi.name];
+        if (lattegotchi.happiness <= 0) {
+            message = [message stringByAppendingString:@"too sad"];
+        }
+        if (lattegotchi.happiness <= 0 && lattegotchi.health <= 0) {
+            message = [message stringByAppendingString:@"and "];
+        }
+        if (lattegotchi.health <= 0) {
+            message = [message stringByAppendingString:@"dead"];
+        }
+        
+        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:lattegotchi.birthday];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"HH:mm:ss"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        NSString *formattedDate = [dateFormatter stringFromDate:date];
+        message = [message stringByAppendingFormat:@"!\nHe was alive for %@.", formattedDate];
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"You lost!"
+                              message: message
+                              delegate: self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil
+                              ];
+        [alert show];
     }
     
     [self updateUI];

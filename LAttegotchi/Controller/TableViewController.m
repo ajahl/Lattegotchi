@@ -190,16 +190,18 @@
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
+    
+    
     switch (self.currentTableView) {
         case 0:
         //Whish
         {
             Wish *wish =  [latte.wishes objectAtIndex:selectedCell.tag];
-            
             if ([wish isKindOfClass:[GPSWish class]]) {
                 
                 GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish initWithViewController:app.window.rootViewController];
+                [wish setDistance:25];
                 [wish execute];
             
             } else if ([wish isKindOfClass:[PushWish class]]) {
@@ -289,7 +291,6 @@
     
     
 }
-
 
 - (int) mapRange:(int) val{
     if (val < 0) {
