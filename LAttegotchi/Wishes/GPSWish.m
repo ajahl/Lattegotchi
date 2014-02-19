@@ -60,13 +60,14 @@
                               otherButtonTitles:nil
                               ];
         
+        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+        NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
         
-        
-        alert.message = @"You fulfilled gotichies wish. Thanks!";
+        NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
+        alert.message = msg;
         [alert show];
         
         [self closeWish];
-        
     }
     
 }
@@ -95,8 +96,6 @@
 - (void)createAndInitUI
 {
     
-    
-
     // create and add view
     UIView *subView = [self getSubView];
     
