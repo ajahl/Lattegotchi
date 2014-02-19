@@ -54,7 +54,7 @@
     return _name;
 }
 
--(NSString *)getDiscription {
+-(NSString *)getSubText {
     return _discription;
 }
 

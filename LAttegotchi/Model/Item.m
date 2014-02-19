@@ -50,8 +50,11 @@
     return _name;
 }
 
--(NSString *)getDiscription {
-    return @"";
+-(NSString *)getSubText {
+    NSString *subText = @"";//[@"" UTF8String];
+    subText = [subText stringByAppendingFormat:@"ha: %d", _happiness];
+    
+    return subText;
 }
 
 
