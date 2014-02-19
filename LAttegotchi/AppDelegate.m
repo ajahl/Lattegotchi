@@ -199,15 +199,22 @@
     
     for (Wish * wish in latte.wishes) {
         
-    
+        NSMutableString * text =  [[NSMutableString alloc]init];
+        [text appendString:[wish name]];
+        [text appendString:@"Your LAttegotchi needs you, or will die"];
+        
+        [self createNotifikation:wish.starttime:text];
+    }
+}
+
+- (void) createNotifikation:(NSDate*) date : (NSString * ) text{
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
         return;
-    localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow: 5];
+    localNotif.fireDate = date;
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
-    
 	// Notification details
-    localNotif.alertBody = @"super text";
+    localNotif.alertBody = text;
 	// Set the action button
     localNotif.alertAction = @"View";
     
@@ -220,8 +227,8 @@
     
 	// Schedule the notification
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-        
-    }
 }
+
+
 
 @end
