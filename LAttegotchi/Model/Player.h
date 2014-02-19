@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class Item;
+
 @interface Player : NSObject <NSCoding>
 
 - (NSArray*) getOwnedItems;
+- (BOOL) buyItem:(Item*)item;
 
 @property NSString * name;
 @property int money;

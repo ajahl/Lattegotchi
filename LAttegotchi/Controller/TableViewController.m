@@ -231,14 +231,9 @@
         case 1:
         //Backpack
         {
-            int index = [selectedCell tag];
-            Item * item  = [[player items] objectAtIndex:index];
+            Item * item  = [[player items] objectAtIndex:[selectedCell tag]];
             
-            if (item.amount >0 ) {
-                item.amount--;
-                latte.happiness = [self mapRange:latte.happiness + item.happiness ];
-                latte.health = [self mapRange:latte.health + item.health ];
-            }else{
+            if (![latte useItem:item]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ahhhhh"
                                                                 message:@"this should not happen"
                                                                delegate:nil
@@ -246,7 +241,6 @@
                                                       otherButtonTitles:nil];
                 [alert show];
             }
-           
             
             break;
         }
@@ -255,14 +249,9 @@
         case 2:
         //Store
         {
+            Item * item  = [[player items] objectAtIndex:[selectedCell tag]];
             
-            int index = [selectedCell tag];
-            Item * item  = [[player items] objectAtIndex:index];
-            
-            if (item.value <= player.money) {
-                player.money -= item.value;
-                item.amount++;
-            }else{
+            if (![player buyItem:item]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Out of Money"
                                                                 message:@"shit happens"
                                                                delegate:nil
@@ -270,9 +259,6 @@
                                                       otherButtonTitles:nil];
                 [alert show];
             }
-            
-        
-            
             break;
         }
         
@@ -284,16 +270,6 @@
     
     
     
-}
-
-- (int) mapRange:(int) val{
-    if (val < 0) {
-        return 0;
-    }else if (val > 100){
-        return 100;
-    }else{
-        return val;
-    }
 }
 
 - (Player*) getPlayer {

@@ -7,7 +7,9 @@
 //
 
 #import "Wish.h"
+#import "Item.h"
 #import "AppDelegate.h"
+#import "LAttegotchi.h"
 
 #define ASCWishName @"wishName"
 #define ASCWishDescription @"wishDescription"
@@ -139,6 +141,47 @@
 
 -(void)execute {
     
+}
+
+- (void)success {
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *lattegotchi = [player.lattegotchies objectAtIndex:0];
+    
+    for (Item *item in _items) {
+        [lattegotchi useItem:item];
+    }
+    
+    lattegotchi.happiness = [self mapRange:lattegotchi.happiness + _happiness];
+    lattegotchi.health = [self mapRange:lattegotchi.health + _health];
+    player.money = [self mapRange:player.money + _value];
+    
+    [lattegotchi.wishes removeObject:self];
+    
+    [app updateUI];
+}
+
+- (void)failed {
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *lattegotchi = [player.lattegotchies objectAtIndex:0];
+    
+    lattegotchi.happiness = [self mapRange:lattegotchi.happiness - _happiness];
+    lattegotchi.health = [self mapRange:lattegotchi.health - _health];
+    
+    [lattegotchi.wishes removeObject:self];
+    
+    [app updateUI];
+}
+
+- (int) mapRange:(int) val{
+    if (val < 0) {
+        return 0;
+    }else if (val > 100){
+        return 100;
+    }else{
+        return val;
+    }
 }
 
 @end

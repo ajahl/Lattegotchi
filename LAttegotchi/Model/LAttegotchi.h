@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class Item;
+
 @interface LAttegotchi : NSObject <NSCoding>
 
 - (NSArray*) getActiveWishes;
+- (BOOL) useItem:(Item*)item;
 
 @property NSString * name;
 @property int happiness;

@@ -17,35 +17,20 @@
 
 -(void)execute {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    Player *player = [app getPlayer];
-    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
-    Item * item = [[self items] objectAtIndex:0];
-    if ([item amount] > 0) {
-        item.amount--;
-        latte.happiness = [self mapRange:item.happiness + latte.happiness ];
-        latte.health = [self mapRange:item.health + latte.health ];
-        player.money += self.value;
-        [latte.wishes removeObject:self];
-        [app updateUI];
-        
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
-                                                        message:@"you need to bye the needed item in your store"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+    for (Item *item in self.items) {
+        if ([item amount] == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
+                                                            message:@"you need to bye the needed item in your store"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
     }
-}
-- (int) mapRange:(int) val{
-    if (val < 0) {
-        return 0;
-    }else if (val > 100){
-        return 100;
-    }else{
-        return val;
-    }
+    
+    [self success];
 }
 
 
