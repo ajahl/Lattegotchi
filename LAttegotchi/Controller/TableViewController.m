@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "ListItem.h"
 #import "WishViewController.h"
-#import "GPSWish.h"
+
 
 
 @interface TableViewController ()
@@ -133,11 +133,10 @@
         {
             
             if ([cellText  isEqual: @"Wish 1"]) {
-
+                
                 _activeWish = [[GPSWish alloc] initViewController:self];
+                [_activeWish setDistance:25];
                 [_activeWish execute];
-                
-                
             }
             
             
