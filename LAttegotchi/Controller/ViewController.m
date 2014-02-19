@@ -54,6 +54,9 @@
     UIImage *heart = [UIImage imageNamed: @"heart.png"];
     [dotView setHeart:heart];
     
+    UIImage *abc = [UIImage imageNamed: @"abc.png"];
+    [dotView setABC:abc];
+    
     [self setAnimation];
 }
 
