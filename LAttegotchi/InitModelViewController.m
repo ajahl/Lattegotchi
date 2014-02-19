@@ -58,9 +58,16 @@
         [alert show];
         return;
     }
-    //@"[A-Za-Z0-9]";
+    
     if ([lattegotchiname length] == 0) {
         alert.message = @"No empty LAttegotchiname!";
+        [alert show];
+        return;
+    }
+    
+    NSPredicate *allowedRegex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Za-z0-9]*"];
+    if (![allowedRegex evaluateWithObject:lattegotchiname]) {
+        alert.message = @"Unallowed characters!";
         [alert show];
         return;
     }
