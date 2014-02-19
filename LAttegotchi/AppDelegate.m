@@ -12,6 +12,8 @@
 #import "LAttegotchi.h"
 #import "Wish.h"
 #import "GPSWish.h"
+#import "MysteryMathWish.h"
+#import "MysteryLetterWish.h"
 #import "Item.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
@@ -140,7 +142,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        GPSWish* wish = [[GPSWish alloc] init];
+        MysteryMathWish* wish = [[MysteryMathWish alloc] init];
         wish.name = @"Wish";
         wish.discription = @"Wish Description";
         wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;

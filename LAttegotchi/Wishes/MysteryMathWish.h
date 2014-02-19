@@ -8,6 +8,11 @@
 
 #import "Wish.h"
 
-@interface MysteryMathWish : Wish
+@interface MysteryMathWish : Wish {
+    
+    IBOutlet UILabel *lblEquation;
+    IBOutlet UITextField *txtResult;
+    
+}
 
 @end
