@@ -16,7 +16,6 @@
 		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
 		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
 		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
-		426C23AF18B4E836009125EC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426C23AE18B4E836009125EC /* GameKit.framework */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -76,7 +75,6 @@
 		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
 		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
-		426C23AE18B4E836009125EC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,7 +140,6 @@
 				4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */,
 				4279B5A718B217A300051796 /* UIKit.framework in Frameworks */,
 				4279B5A318B217A300051796 /* Foundation.framework in Frameworks */,
-				426C23AF18B4E836009125EC /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +189,6 @@
 		4279B5A118B217A300051796 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				426C23AE18B4E836009125EC /* GameKit.framework */,
 				4279B5A218B217A300051796 /* Foundation.framework */,
 				4279B5A418B217A300051796 /* CoreGraphics.framework */,
 				4279B5A618B217A300051796 /* UIKit.framework */,
@@ -378,7 +374,7 @@
 					4279B59E18B217A300051796 = {
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -602,10 +598,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LAttegotchi/LAttegotchi-Prefix.pch";
 				INFOPLIST_FILE = "LAttegotchi/LAttegotchi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -617,10 +615,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LAttegotchi/LAttegotchi-Prefix.pch";
 				INFOPLIST_FILE = "LAttegotchi/LAttegotchi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
