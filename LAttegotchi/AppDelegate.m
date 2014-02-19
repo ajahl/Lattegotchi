@@ -175,8 +175,8 @@
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
     [player.lattegotchies addObject: lattegotchi];
     lattegotchi.name = lattegotchiname;
-    lattegotchi.happiness = 50;
-    lattegotchi.health = 50;
+    lattegotchi.happiness = 80;
+    lattegotchi.health = 30;
     lattegotchi.birthday = [NSDate date];
     
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];

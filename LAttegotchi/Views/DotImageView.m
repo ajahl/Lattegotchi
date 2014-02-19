@@ -62,7 +62,10 @@ int padding = 1;
 }
 
 - (void) drawText {
-    NSString * text = @"Supi";
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
+    NSString * text =  [latte name];//[[app getPlayer] name];
+    [latte name];
     
     for (unsigned int i=0; i < [text length]; ++i) {
         NSString *cHar = [NSString stringWithFormat:@"%c" , [text characterAtIndex:i]];
@@ -77,8 +80,6 @@ int padding = 1;
     int rows = 16;
     NSRange range = [aBCString rangeOfString:cHar];
     int abcIndex = range.location;
-    NSLog(@"range.location: %i", abcIndex);
-    
     int abcIndexY =  abcIndex / rows * 8;
     int abcIndexX = abcIndex % rows  * 5;
     
@@ -89,7 +90,6 @@ int padding = 1;
             }
         }
     }
-    
 }
 
 -(void) drawImage {
@@ -110,8 +110,8 @@ int padding = 1;
 -(void) drawHealth {
     
     // draw health ------------------------------------------------------
-    int health = [[self getLAtte] health];
-    health = health* DOT_MATRIX / 100;
+    int healthValue = [[self getLAtte] health];
+    int health = healthValue* DOT_MATRIX / 100;
     
     for (int y = DOT_MATRIX-5; y>DOT_MATRIX-health; y-- ) {
         for (int x = 0; x<5; x++) {
