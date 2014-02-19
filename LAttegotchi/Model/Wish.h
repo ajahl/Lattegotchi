@@ -29,6 +29,8 @@
 
 - (void)initWithViewController:(UIViewController *) controller;
 - (void)execute;
+- (void)success;
+- (void)failed;
 -(UIViewController *)getViewController;
 -(UIView *)getSubView;
 

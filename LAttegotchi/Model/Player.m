@@ -7,7 +7,6 @@
 //
 
 #import "Player.h"
-
 #import "Item.h"
 
 #define ASCPlayerName @"playerName"
@@ -58,6 +57,15 @@
         }
     }
     return items;
+}
+
+- (BOOL) buyItem:(Item*)item {
+    if (_money >= item.value) {
+        _money -= item.value;
+        item.amount++;
+        return YES;
+    }
+    return NO;
 }
 
 @end

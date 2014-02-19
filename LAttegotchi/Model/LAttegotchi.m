@@ -8,6 +8,7 @@
 
 #import "LAttegotchi.h"
 #import "Wish.h"
+#import "Item.h"
 
 #define ASCLAttegotchiName @"lattegotchiName"
 #define ASCLAttegotchiHappiness @"lattegotchiHappiness"
@@ -48,8 +49,6 @@
     return self;
 }
 
-
-
 - (NSArray*) getActiveWishes {
     NSMutableArray *wishes = [[NSMutableArray alloc] init];
     for (Wish* wish in _wishes) {
@@ -58,6 +57,26 @@
         }
     }
     return wishes;
+}
+
+- (BOOL) useItem:(Item*)item {
+    if (item.amount > 0) {
+        _happiness = [self mapRange:_happiness + item.happiness];
+        _health = [self mapRange:_health + item.health];
+        item.amount--;
+        return YES;
+    }
+    return NO;
+}
+
+- (int) mapRange:(int) val{
+    if (val < 0) {
+        return 0;
+    }else if (val > 100){
+        return 100;
+    }else{
+        return val;
+    }
 }
 
 @end

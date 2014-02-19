@@ -188,21 +188,7 @@
     NSArray* wishes = [lattegotchi.wishes copy];
     for (Wish *wish in wishes) {
         if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
-            if (lattegotchi.happiness - wish.happiness > 100) {
-                lattegotchi.happiness = 100;
-            } else if (lattegotchi.happiness - wish.happiness < 0) {
-                lattegotchi.happiness = 0;
-            } else {
-                lattegotchi.happiness -= wish.happiness;
-            }
-            if (lattegotchi.health - wish.health > 100) {
-                lattegotchi.health = 100;
-            } else if (lattegotchi.health - wish.health < 0) {
-                lattegotchi.health = 0;
-            } else {
-                lattegotchi.health -= wish.health;
-            }
-            [lattegotchi.wishes removeObject:wish];
+            [wish failed];
         }
     }
     
