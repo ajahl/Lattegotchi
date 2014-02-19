@@ -58,7 +58,7 @@
         [alert show];
         return;
     }
-    
+    //@"[A-Za-Z0-9]";
     if ([lattegotchiname length] == 0) {
         alert.message = @"No empty LAttegotchiname!";
         [alert show];
