@@ -73,12 +73,33 @@
     
     id <ListItem> listItem = [_data objectAtIndex:[indexPath row]];
     
-
-    
-    
-    
     [[cell textLabel] setText:[listItem getName]];
     [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
+    
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    switch (self.currentTableView) {
+        case 0:
+            //Wish
+        {
+            cell.tag = [latte.wishes indexOfObject:listItem];
+            break;
+        }
+        case 1:
+            //Backpack
+        {
+            cell.tag = [player.items indexOfObject:listItem];
+            break;
+        }
+        case 2:
+            //Store
+        {
+            cell.tag = [player.items indexOfObject:listItem];
+            break;
+        }
+    }
+    
     return cell;
 }
 
