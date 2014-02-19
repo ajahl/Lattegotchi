@@ -65,7 +65,7 @@ int padding = 1;
     [self drawText:text:0:0];
 
 //    [self drawMoney: 9 : 52];
-    [self drawMoney: 5 : 8];
+    [self drawMoney: 6 : 8];
 }
 
 - (void) drawMoney : (int) dX :  (int) dY{
