@@ -24,7 +24,7 @@
 
 @property (nonatomic, retain) NSMutableArray * items;
 
-- (id)initViewController:(UIViewController *) controller;
+- (void)initWithViewController:(UIViewController *) controller;
 - (void)execute;
 -(UIViewController *)getViewController;
 -(UIView *)getSubView;

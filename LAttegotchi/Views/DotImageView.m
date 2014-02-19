@@ -62,17 +62,43 @@ int padding = 1;
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     NSString * text =  [latte name];
-    [self drawText:text];
+    [self drawText:text:0:0];
+
+//    [self drawMoney: 9 : 52];
+    [self drawMoney: 5 : 8];
 }
 
-- (void) drawText: (NSString * ) text{
+- (void) drawMoney : (int) dX :  (int) dY{
+    // draw scull ------------------------------------------------------
+    CGSize scullSize = scull.size;
+    
+    for (int y = 0; y<scullSize.height; y++ ) {
+        for (int x = 0; x<scullSize.height; x++) {
+            int currentY = dY+1+y;
+            int currentX = dX+x;
+            
+            if( [self isPixelSet:scull :x :y]) {
+                [self drawDot:currentX :currentY :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:currentX :currentY :[UIColor blackColor]];
+            }
+        }
+    }
+    
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    NSString * text = [NSString stringWithFormat:@"%d", [[app getPlayer] money]];
+    [self drawText:text :dX+6 :dY];
+}
+
+- (void) drawText: (NSString * ) text : (int) x : (int) y{
     for (unsigned int i=0; i < [text length]; ++i) {
         NSString *cHar = [NSString stringWithFormat:@"%c" , [text characterAtIndex:i]];
-        [self drawChar:cHar:i:0];
+        [self drawChar:cHar:i:0:x:y];
     }
 }
 
--(void) drawChar: (NSString *) cHar : (int) matrixX : (int) matrixY {
+-(void) drawChar: (NSString *) cHar : (int) matrixX : (int) matrixY : (int)dX : (int) dY {
     if(!aBCString)
         return;
     
@@ -85,7 +111,7 @@ int padding = 1;
     for (int y = 0; y < 8; y++ ) {
         for (int x = 0; x < 5 ; x++) {
             if( ![self isPixelSet:aBC :x +abcIndexX :y +abcIndexY]) {
-                [self drawDot:x+ (matrixX*5) :y :[UIColor blackColor]];
+                [self drawDot:x+ (matrixX*5)+dX :y+ (matrixY*8)+dY:[UIColor blackColor]];
             }
         }
     }
@@ -198,6 +224,11 @@ int padding = 1;
 
 - (void) setABCString : (NSString *) string {
     aBCString = string;
+    [self setNeedsDisplay];
+}
+
+- (void) setScull : (UIImage *) img {
+    scull = img;
     [self setNeedsDisplay];
 }
 
