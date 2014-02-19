@@ -48,8 +48,6 @@ int padding = 1;
 - (void)drawRect:(CGRect)rect {
     self.clearsContextBeforeDrawing = YES;
     
-    NSLog(@"%i %f",padding,dotSize);
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextClearRect(context, rect);
     
