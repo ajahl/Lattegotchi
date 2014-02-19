@@ -34,6 +34,11 @@
 		429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A8BD618B3649A00A1DF52 /* DotImageView.m */; };
 		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
 		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
+		42B1CB6C18B529D800851159 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1CB6B18B529D800851159 /* Achievement.m */; };
+		42B1CB6F18B529ED00851159 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1CB6E18B529ED00851159 /* GameCenter.m */; };
+		42B1CB7218B529FC00851159 /* ICloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1CB7118B529FC00851159 /* ICloud.m */; };
+		42B1CB7418B52A5700851159 /* achievements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42B1CB7318B52A5700851159 /* achievements.plist */; };
+		42B1CB7818B52D5B00851159 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1CB7718B52D5B00851159 /* SoundManager.m */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
@@ -102,6 +107,15 @@
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
 		42A7586418B2749F00ECC5ED /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
+		42B1CB6A18B529D800851159 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Achievement.h; path = Achievements/Achievement.h; sourceTree = "<group>"; };
+		42B1CB6B18B529D800851159 /* Achievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Achievement.m; path = Achievements/Achievement.m; sourceTree = "<group>"; };
+		42B1CB6D18B529ED00851159 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenter.h; path = Network/GameCenter.h; sourceTree = "<group>"; };
+		42B1CB6E18B529ED00851159 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenter.m; path = Network/GameCenter.m; sourceTree = "<group>"; };
+		42B1CB7018B529FC00851159 /* ICloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICloud.h; path = Network/ICloud.h; sourceTree = "<group>"; };
+		42B1CB7118B529FC00851159 /* ICloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICloud.m; path = Network/ICloud.m; sourceTree = "<group>"; };
+		42B1CB7318B52A5700851159 /* achievements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = achievements.plist; path = Resources/achievements.plist; sourceTree = "<group>"; };
+		42B1CB7618B52D5B00851159 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = Sound/SoundManager.h; sourceTree = "<group>"; };
+		42B1CB7718B52D5B00851159 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = Sound/SoundManager.m; sourceTree = "<group>"; };
 		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
 		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
 		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
@@ -204,6 +218,9 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				42B1CB7518B52D4500851159 /* Sound */,
+				42B1CB6918B529B700851159 /* Network */,
+				42B1CB6818B529A600851159 /* Achievements */,
 				421D306218B4A2F90093CE28 /* Animation */,
 				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
@@ -252,6 +269,7 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				42B1CB7318B52A5700851159 /* achievements.plist */,
 				421D307518B4AFB50093CE28 /* abc.png */,
 				421D306918B4AF440093CE28 /* a.png */,
 				421D306A18B4AF440093CE28 /* scull.png */,
@@ -275,6 +293,35 @@
 				429A8BD618B3649A00A1DF52 /* DotImageView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		42B1CB6818B529A600851159 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				42B1CB6A18B529D800851159 /* Achievement.h */,
+				42B1CB6B18B529D800851159 /* Achievement.m */,
+			);
+			name = Achievements;
+			sourceTree = "<group>";
+		};
+		42B1CB6918B529B700851159 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				42B1CB6D18B529ED00851159 /* GameCenter.h */,
+				42B1CB6E18B529ED00851159 /* GameCenter.m */,
+				42B1CB7018B529FC00851159 /* ICloud.h */,
+				42B1CB7118B529FC00851159 /* ICloud.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		42B1CB7518B52D4500851159 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				42B1CB7618B52D5B00851159 /* SoundManager.h */,
+				42B1CB7718B52D5B00851159 /* SoundManager.m */,
+			);
+			name = Sound;
 			sourceTree = "<group>";
 		};
 		42F729E318B238C600F15B1F /* Model */ = {
@@ -427,6 +474,7 @@
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
 				421D306F18B4AF440093CE28 /* a.png in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
+				42B1CB7418B52A5700851159 /* achievements.plist in Resources */,
 				421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +501,7 @@
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
+				42B1CB7818B52D5B00851159 /* SoundManager.m in Sources */,
 				96E364D318B4C85A00E65884 /* MysteryLetterWish.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
@@ -463,6 +512,9 @@
 				96E364D618B5004D00E65884 /* ShakeWish.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */,
+				42B1CB7218B529FC00851159 /* ICloud.m in Sources */,
+				42B1CB6F18B529ED00851159 /* GameCenter.m in Sources */,
+				42B1CB6C18B529D800851159 /* Achievement.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
 				9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */,
 			);
