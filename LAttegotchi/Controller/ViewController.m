@@ -46,14 +46,18 @@
     dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
     UIImage *image = [UIImage imageNamed: @"tamatama_normal1.png"];
     [dotView setImage:image ];
-    [_imageView addSubview:dotView];
+    
+    UIImage *emo = [UIImage imageNamed: @"happy_smile.png"];
+    [dotView setEmotion:emo];
+    
+    UIImage *heart = [UIImage imageNamed: @"heart.png"];
+    [dotView setHeart:heart];
+    
+     [_imageView addSubview:dotView];
     
      _images = [NSArray arrayWithObjects:  @"tamatama_nomal1.png",@"tamatama_nomal2.png",@"tamatama_nomal3.png",@"tamatama_nomal4.png",  nil];
     
     [self startTimer];
-    
-
-    
 }
 
 - (void)didReceiveMemoryWarning

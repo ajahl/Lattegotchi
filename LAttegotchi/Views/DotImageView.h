@@ -10,8 +10,12 @@
 
 @interface DotImageView : UIView {
     UIImage * image;
+    UIImage * heart;
+    UIImage * emotion;
 }
 
-- (void) setImage:(UIImage *) img;
+- (void) setImage : (UIImage *) img;
+- (void) setEmotion : (UIImage *) img;
+- (void) setHeart : (UIImage *) img;
 
 @end
