@@ -136,9 +136,9 @@ int padding = 1;
     
     // draw health ------------------------------------------------------
     int healthValue = [[self getLAtte] health];
-    int health = healthValue* DOT_MATRIX / 100;
+    int health = healthValue* (DOT_MATRIX-15) / 100;
     
-    for (int y = DOT_MATRIX; y>DOT_MATRIX-health+5; y-- ) {
+    for (int y = DOT_MATRIX-6; y>DOT_MATRIX-6-health; y-- ) {
         for (int x = 0; x<5; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
         }
@@ -149,7 +149,7 @@ int padding = 1;
     
     for (int y = 0; y<heartSize.height; y++ ) {
         for (int x = 0; x<heartSize.height; x++) {
-            int currentY = DOT_MATRIX-health+y;
+            int currentY = DOT_MATRIX-health+y-11;
             
             if( [self isPixelSet:heart :x :y]) {
                 [self drawDot:x :currentY :[UIColor greenColor]];
@@ -164,9 +164,9 @@ int padding = 1;
 -(void) drawHappiness {
     // draw happiness ------------------------------------------------------
     int happinessValue = [[self getLAtte] happiness];
-    int happiness = happinessValue* (DOT_MATRIX) / 100;
+    int happiness = happinessValue * (DOT_MATRIX-15) / 100;
 
-    for (int y = DOT_MATRIX; y>DOT_MATRIX-happiness+5; y-- ) {
+    for (int y = DOT_MATRIX-6; y>DOT_MATRIX-6-happiness; y-- ) {
         for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
         }
@@ -179,7 +179,7 @@ int padding = 1;
     
     for (int y = 0; y<emoSize.height; y++ ) {
         for (int x = 0; x<emoSize.height; x++) {
-            int currentY = DOT_MATRIX-happiness+y;
+            int currentY = DOT_MATRIX-happiness+y-11;
             int currentX = DOT_MATRIX-eMotion.size.width+x;
             
             if( [self isPixelSet:eMotion :x :y]) {
