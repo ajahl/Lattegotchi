@@ -17,6 +17,7 @@
 #import "MysteryMathWish.h"
 #import "Item.h"
 #import "Player.h"
+#import "PushWish.h"
 #import "GPSWish.h"
 #import "Item.h"
 
