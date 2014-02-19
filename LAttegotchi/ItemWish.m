@@ -16,8 +16,6 @@
 @implementation ItemWish
 
 -(void)execute {
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    
     for (Item *item in self.items) {
         if ([item amount] == 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
