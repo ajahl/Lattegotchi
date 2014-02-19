@@ -195,7 +195,7 @@
         case 0:
         //Whish
         {
-            if ([wish isKindOfClass:[Wish class]]) {
+            if ([wish isKindOfClass:[GPSWish class]]) {
                 
                 GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish initWithViewController:app.window.rootViewController];
@@ -206,13 +206,20 @@
                 PushWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish execute];
                 
-//                PushWish *pushWish = [gotchi.wishes objectAtIndex:selectedCell.tag];
-                
-//                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
-//                [_pushWish execute];
-                
             
+            } else if ([wish isKindOfClass:[MysteryMathWish class]]) {
+                MysteryMathWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish execute];
+                
+            } else if ([wish isKindOfClass:[MysteryLetterWish class]]) {
+                MysteryLetterWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish execute];
+                
             }
+            
+            
             
             break;
         }
