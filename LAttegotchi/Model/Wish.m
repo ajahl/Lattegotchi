@@ -7,6 +7,7 @@
 //
 
 #import "Wish.h"
+#import "AppDelegate.h"
 
 #define ASCWishName @"wishName"
 #define ASCWishDescription @"wishDescription"
@@ -32,6 +33,16 @@
     self = [super init];
     if (self) {
         _viewController = controller;
+        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+        UIView *rootView = app.window.rootViewController.view;
+        
+        
+        int hight =rootView.frame.size.height/2;
+        CGRect bounds = CGRectMake(0, hight, rootView.frame.size.width, hight+100);
+        
+        _subView= [[UIView alloc] initWithFrame:bounds];
+        [_subView setBackgroundColor: [UIColor yellowColor]];
+        [rootView addSubview:_subView];
     }
     return self;
 }
@@ -66,28 +77,17 @@
     return _name;
 }
 
--(NSString *)getSubText {
-    return [self getSubText:-1];
-}
 
--(NSString *) getSubText:(int)usage {
-    unichar heart = 0x2665;
-    unichar smiley = 0x263A;
-    
-    NSString *subText = @"";
-    subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
-    subText = [subText stringByAppendingFormat:@"\t%C ±%d", smiley, _happiness];
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *deadline = [dateFormat stringFromDate:_deadline];
-    subText = [subText stringByAppendingFormat:@"\t%@", deadline];
-    
-    return subText;
+
+-(NSString *)getDiscription {
+    return _discription;
 }
 
 -(UIViewController *)getViewController {
     return _viewController;
+}
+-(UIView *)getSubView {
+    return _subView;
 }
 
 

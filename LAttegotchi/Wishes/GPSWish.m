@@ -7,26 +7,23 @@
 //
 
 #import "GPSWish.h"
+#import "AppDelegate.h"
+
 
 
 @implementation GPSWish
 
+-(void)setDistance:(int)dist {
+    distance = dist;
+}
+
 
 -(void)execute {
     
-    // Init
+    // Init GUI
+    [self createAndInitUI];
     
-//    UIViewController *viewController = [self parentViewController];
-//    int hight =viewController.view.frame.size.height/2;
-//    CGRect bounds = CGRectMake(0, hight, viewController.view.frame.size.width, hight+100);
-    // init location
-    
-    CGRect bounds = self.getViewController.view.bounds;
-    
-    subView= [[UIView alloc] initWithFrame:bounds];
-    [subView setBackgroundColor: [UIColor yellowColor]];
-    [self.getViewController.view addSubview:subView];
-
+    // Init and start GPS
     [self locationInit];
     
 }
@@ -62,7 +59,7 @@
     
 }
 
-//
+// Init location and gps
 - (void)locationInit
 {
     locationManager = [[CLLocationManager alloc] init];
@@ -74,7 +71,7 @@
     NSLog(@"Start gps and get location.");
 }
 
-//
+// 
 - (void)locationStop
 {
     [locationManager stopUpdatingLocation];
@@ -83,45 +80,51 @@
 }
 
 
-- (void)createAndInitLocationUI:(int)dis{
+- (void)createAndInitUI
+{
     
-    // init distance
-    distance = dis;
-    
+
     // create and add view
-//    CGRect bounds = self.view.bounds;
-//    
-//    subView= [[UIView alloc] initWithFrame:bounds];
-//    [subView setBackgroundColor: [UIColor yellowColor]];
-//    [self.view addSubview:subView];
-//    
-//    // create and add distance label
-//    CGRect labelFrame = CGRectMake( 10, 40, 100, 30 );
-//    lblDistance = [[UILabel alloc] initWithFrame: labelFrame];
-//    [lblDistance setText: @"My Label"];
-//    [lblDistance setTextColor: [UIColor orangeColor]];
-//    [subView addSubview: lblDistance];
-//    
-//    CGRect buttonFrame = CGRectMake( 10, 80, 100, 30 );
-//    UIButton *button = [[UIButton alloc] initWithFrame: buttonFrame];
-//    [button setTitle: @"My Button" forState: UIControlStateNormal];
-//    [button setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
-//    [button addTarget: self
-//               action: @selector(buttonClicked:)
-//     forControlEvents: UIControlEventTouchDown];
-//    [subView addSubview: button];
-//    
-//    [self.view.window makeKeyAndVisible];
+    UIView *subView = [self getSubView];
     
-    // Init and start gps and location search
-    [self locationInit];
+    // Add Text Button
+    UILabel *lblDistanceTxt = [[UILabel alloc] initWithFrame:CGRectMake(20, 150, 100, 50)];
+    [lblDistanceTxt setText: @"Distance: "];
+    [lblDistanceTxt setTextColor: [UIColor orangeColor]];
+    [subView addSubview: lblDistanceTxt];
+    
+    // Create and add distance label
+    lblDistance = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 100, 50)];
+    [lblDistance setText: @"My Label"];
+    [lblDistance setTextColor: [UIColor orangeColor]];
+    [subView addSubview: lblDistance];
+    
+    // Add return button
+    CGRect buttonFrame = CGRectMake( 10, 220, 100, 30 );
+    UIButton *button = [[UIButton alloc] initWithFrame: buttonFrame];
+    [button setTitle: @"Back" forState: UIControlStateNormal];
+    [button setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
+    [button addTarget: self
+               action: @selector(buttonClicked:)
+     forControlEvents: UIControlEventTouchDown];
+    [subView addSubview: button];
+    
     
 }
 
 - (void) buttonClicked: (id)sender
 {
+
     NSLog( @"Button clicked." );
-    [subView removeFromSuperview];
+    [[self getSubView] removeFromSuperview];
+}
+
+- (void) closeWish
+{
+    
+    NSLog( @"Close Wish" );
+    [self locationStop];
+    [[self getSubView] removeFromSuperview];
 }
 
 
