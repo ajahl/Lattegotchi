@@ -58,22 +58,21 @@ int padding = 1;
     [self drawImage];
     [self drawHappiness];
     [self drawHealth];
-    [self drawText];
-}
-
-- (void) drawText {
+    
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
-    NSString * text =  [latte name];//[[app getPlayer] name];
-    [latte name];
-    
+    NSString * text =  [latte name];
+    [self drawText:text];
+}
+
+- (void) drawText: (NSString * ) text{
     for (unsigned int i=0; i < [text length]; ++i) {
         NSString *cHar = [NSString stringWithFormat:@"%c" , [text characterAtIndex:i]];
-        [self drawChar:cHar:i];
+        [self drawChar:cHar:i:0];
     }
 }
 
--(void) drawChar: (NSString *) cHar : (int) matrixX {
+-(void) drawChar: (NSString *) cHar : (int) matrixX : (int) matrixY {
     if(!aBCString)
         return;
     
@@ -113,7 +112,7 @@ int padding = 1;
     int healthValue = [[self getLAtte] health];
     int health = healthValue* DOT_MATRIX / 100;
     
-    for (int y = DOT_MATRIX-5; y>DOT_MATRIX-health; y-- ) {
+    for (int y = DOT_MATRIX; y>DOT_MATRIX-health+5; y-- ) {
         for (int x = 0; x<5; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
         }
@@ -121,13 +120,16 @@ int padding = 1;
     
     // draw heart ------------------------------------------------------
     CGSize heartSize = heart.size;
+    
     for (int y = 0; y<heartSize.height; y++ ) {
         for (int x = 0; x<heartSize.height; x++) {
+            int currentY = DOT_MATRIX-health+y;
+            
             if( [self isPixelSet:heart :x :y]) {
-                [self drawDot:DOT_MATRIX -heartSize.height + x :y + health-heartSize.height :[UIColor greenColor]];
+                [self drawDot:x :currentY :[UIColor greenColor]];
             }
             else {
-                [self drawDot:DOT_MATRIX -heartSize.height + x :y + health-heartSize.height :[UIColor blackColor]];
+                [self drawDot:x :currentY :[UIColor blackColor]];
             }
         }
     }
@@ -137,26 +139,28 @@ int padding = 1;
     // draw happiness ------------------------------------------------------
     int happinessValue = [[self getLAtte] happiness];
     int happiness = happinessValue* (DOT_MATRIX) / 100;
-    
-    for (int y = DOT_MATRIX-1; y>DOT_MATRIX-happiness; y-- ) {
+
+    for (int y = DOT_MATRIX; y>DOT_MATRIX-happiness+5; y-- ) {
         for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
         }
     }
     
     // draw smily -------------------------------------------------------
-    int emoIndex =  happinessValue / 33;
-    
+    int emoIndex =  happinessValue / 34;
     UIImage * eMotion = [UIImage imageNamed:[emotions objectAtIndex:emoIndex]];
-    
     CGSize emoSize = eMotion.size;
+    
     for (int y = 0; y<emoSize.height; y++ ) {
         for (int x = 0; x<emoSize.height; x++) {
+            int currentY = DOT_MATRIX-happiness+y;
+            int currentX = DOT_MATRIX-eMotion.size.width+x;
+            
             if( [self isPixelSet:eMotion :x :y]) {
-                [self drawDot:x :y + happiness-emoSize.height :[UIColor greenColor]];
+                [self drawDot:currentX :currentY :[UIColor greenColor]];
             }
             else {
-                [self drawDot:x :y + happiness-emoSize.height :[UIColor blackColor]];
+                [self drawDot:currentX :currentY :[UIColor blackColor]];
             }
         }
     }
