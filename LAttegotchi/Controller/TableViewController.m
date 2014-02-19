@@ -13,6 +13,7 @@
 #import "LAttegotchi.h"
 #import "PushWish.h"
 #import "GPSWish.h"
+#import "Item.h"
 
 
 
@@ -151,15 +152,12 @@
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
+    
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    Player *player = [app getPlayer];
-    LAttegotchi *gotchi = [player.lattegotchies objectAtIndex:0];
-    
-    Wish *wish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
+    Wish *wish =  [latte.wishes objectAtIndex:selectedCell.tag];
     
     switch (self.currentTableView) {
         case 0:
