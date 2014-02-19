@@ -38,6 +38,8 @@
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
+		5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83A18B4EBA300401ED0 /* WishFactory.m */; };
+		5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83D18B4EBB900401ED0 /* ItemWish.m */; };
 		59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */; };
 		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
 		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
@@ -107,6 +109,10 @@
 		42F729EB18B2398F00F15B1F /* Wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wish.m; path = Model/Wish.m; sourceTree = "<group>"; };
 		42F729ED18B239A700F15B1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
 		42F729EE18B239A700F15B1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		5917D83918B4EBA300401ED0 /* WishFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishFactory.h; path = Wishes/WishFactory.h; sourceTree = "<group>"; };
+		5917D83A18B4EBA300401ED0 /* WishFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishFactory.m; path = Wishes/WishFactory.m; sourceTree = "<group>"; };
+		5917D83C18B4EBB900401ED0 /* ItemWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemWish.h; sourceTree = "<group>"; };
+		5917D83D18B4EBB900401ED0 /* ItemWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemWish.m; sourceTree = "<group>"; };
 		59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1.png; path = Resources/tamatama_nomal1.png; sourceTree = "<group>"; };
 		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
 		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
@@ -301,6 +307,10 @@
 		9661654D18B39C0E0018B3C1 /* Wishes */ = {
 			isa = PBXGroup;
 			children = (
+				5917D83C18B4EBB900401ED0 /* ItemWish.h */,
+				5917D83D18B4EBB900401ED0 /* ItemWish.m */,
+				5917D83918B4EBA300401ED0 /* WishFactory.h */,
+				5917D83A18B4EBA300401ED0 /* WishFactory.m */,
 				9661654A18B39BA70018B3C1 /* GPSWish.h */,
 				96E364CE18B4C82A00E65884 /* MysteryMathWish.h */,
 				96E364CF18B4C82A00E65884 /* MysteryMathWish.m */,
@@ -434,6 +444,7 @@
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
 				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
+				5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */,
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
@@ -445,6 +456,7 @@
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
+				5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
 				9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */,
 			);
