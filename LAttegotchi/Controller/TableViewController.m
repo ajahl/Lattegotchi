@@ -183,7 +183,6 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = selectedCell.textLabel.text;
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
@@ -197,12 +196,15 @@
         {
             if ([wish isKindOfClass:[Wish class]]) {
                 
-                GPSWish *gpsWish = [latte.wishes objectAtIndex:selectedCell.tag];
-                [gpsWish initWithViewController:app.window.rootViewController];
-                [gpsWish setDistance:25];
-                [gpsWish execute];
+                GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish setDistance:25];
+                [wish execute];
             
-            } else if ([wish isKindOfClass:[Wish class]]) {
+            } else if ([wish isKindOfClass:[PushWish class]]) {
+                PushWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish execute];
+                f
 //                PushWish *pushWish = [gotchi.wishes objectAtIndex:selectedCell.tag];
                 
 //                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
