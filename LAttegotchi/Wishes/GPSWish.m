@@ -111,7 +111,7 @@
     UIView *subView = [self getSubView];
     
     // Add Text Button
-    UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 50)];
+    UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, subView.frame.size.width, 50)];
     [lblDecription setText: self.description];
     [lblDecription setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDecription];

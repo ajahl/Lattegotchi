@@ -14,8 +14,8 @@
 #import "GPSWish.h"
 #import "Item.h"
 
-#define MAXWISHTIME         20//60*5     /* SECONDS */
-#define MINWISHTIME         10//60*1     /* SECONDS */
+#define MAXWISHTIME         10//60*5     /* SECONDS */
+#define MINWISHTIME         5//60*1     /* SECONDS */
 #define MAXWISHHAPPINESS    10
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
