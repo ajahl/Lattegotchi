@@ -113,10 +113,18 @@
     else
         subText = [subText stringByAppendingFormat:@"%C %d", skull, _value];
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *deadline = [dateFormat stringFromDate:_deadline];
-    subText = [subText stringByAppendingFormat:@"\t%@", deadline];
+//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSString *deadline = [dateFormat stringFromDate:_deadline];
+//    subText = [subText stringByAppendingFormat:@"\t%@", deadline];
+    
+    NSTimeInterval interval = [_deadline timeIntervalSinceNow];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSString *formattedDate = [dateFormatter stringFromDate:date];
+    subText = [subText stringByAppendingFormat:@"\t%@ left", formattedDate];
     
     return subText;
 }
