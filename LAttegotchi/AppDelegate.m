@@ -16,6 +16,7 @@
 #import "MysteryLetterWish.h"
 #import "Item.h"
 #import "WishFactory.h"
+#import "Animation.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
 #define MINWISHTIME         5//60*1     /* SECONDS */
@@ -113,9 +114,12 @@
     wishesMemory = [lattegotchi getActiveWishes];
     [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
-                                   selector:@selector(wishTick:)
+                                   selector:@selector(gameLoop:)
                                    userInfo:nil
                                     repeats:YES];
+    
+    ViewController* viewController =  (ViewController*) _window.rootViewController;
+    [viewController.animation startTimer];
 }
 
 - (void) updateUI {
@@ -143,7 +147,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = (Wish*)[WishFactory createItemWish];
+        Wish* wish = (Wish*)[WishFactory createMysteryMathWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
@@ -168,7 +172,7 @@
     return newActiveWishes;
 }
 
-- (void) wishTick:(NSTimer *) timer {
+- (void) gameLoop:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
     while ([self generateNewWishFor:lattegotchi]) {
         // generateWishes until death
@@ -276,6 +280,8 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    ViewController* viewController =  (ViewController*) _window.rootViewController;
+    [viewController.animation stopTimer];
     player = nil;
     [self initModel];
 }

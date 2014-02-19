@@ -75,7 +75,7 @@
         
     [_imageView addSubview:dotView];
     _animation = [[HappyAnimation alloc] init];
-    [_animation startTimer];
+//    [_animation startTimer];
 }
 
 - (void)didReceiveMemoryWarning
