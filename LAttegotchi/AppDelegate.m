@@ -93,20 +93,17 @@
 - (void) loadModel {
     NSString *dataFile = [self getDataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:dataFile]) {
-        NSLog(@"loaded");
         NSData *playerData = [[NSFileManager defaultManager] contentsAtPath:dataFile];
         player = [NSKeyedUnarchiver unarchiveObjectWithData:playerData];
     }
 }
 
 - (void) initModel {
-    NSLog(@"init");
     InitModelAlertViewController *alertView = [[InitModelAlertViewController alloc] initWithDelegate:self];
     [_window.rootViewController presentViewController:alertView animated:YES completion:NULL];
 }
 
 - (void) startGame {
-    NSLog(@"startGame");
     [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
                                    selector:@selector(wishTick:)
@@ -150,20 +147,21 @@
         int deadline = rand() % (MAXWISHDEADLINE - MINWISHDEADLINE) + MINWISHDEADLINE;
         wish.deadline = [wish.starttime dateByAddingTimeInterval:deadline];
         [lattegotchi.wishes addObject:wish];
-        
-        [self updateUI];
         return YES;
     }
     return NO;
 }
 
+- (BOOL) isNewWishActive {
+    return NO;
+}
+
 - (void) wishTick:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    if ([self generateNewWish:lattegotchi]) {
-        NSLog(@"new wish");
-    } else {
-        NSLog(@"no new wish");
+    while ([self generateNewWish:lattegotchi]) {
+        // generateWishes until death
     }
+    [self updateUI];
 }
 
 - (void)finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
@@ -196,8 +194,7 @@
     [self startGame];
 }
 
-- (void) createNotifikation{
-    
+- (void) createNotifikation {
     LAttegotchi * latte = [player.lattegotchies objectAtIndex:0];
     
     for (Wish * wish in latte.wishes) {

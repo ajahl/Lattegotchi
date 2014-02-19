@@ -11,6 +11,7 @@
 #import "ListItem.h"
 #import "WishViewController.h"
 #import "LAttegotchi.h"
+#import "Player.h"
 
 
 
@@ -25,7 +26,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _data = [[NSMutableArray alloc] init];
+        data = [[NSArray alloc] init];
     }
     return self;
 }
@@ -58,7 +59,35 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_data count];
+    switch (self.currentTableView) {
+        case 0:
+            //Wish
+        {
+            LAttegotchi *latte = [self getLAttegotchi];
+            data = [latte getActiveWishes];
+            break;
+        }
+        case 1:
+            //Backpack
+        {
+            Player *player = [self getPlayer];
+            data = [player getOwnedItems];
+            break;
+        }
+        case 2:
+            //Store
+        {
+            Player *player = [self getPlayer];
+            data = player.items;
+            break;
+        }
+        default:
+        {
+            data = [[NSArray alloc] init];
+            break;
+        }
+    }
+    return [data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,34 +100,33 @@
     
     // Configure the cell...
     
-    id <ListItem> listItem = [_data objectAtIndex:[indexPath row]];
+    id <ListItem> listItem = [data objectAtIndex:[indexPath row]];
     
-    [[cell textLabel] setText:[listItem getName]];
-    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
-    
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    Player *player = [app getPlayer];
-    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     switch (self.currentTableView) {
         case 0:
             //Wish
         {
+            LAttegotchi *latte = [self getLAttegotchi];
             cell.tag = [latte.wishes indexOfObject:listItem];
             break;
         }
         case 1:
             //Backpack
         {
+            Player *player = [self getPlayer];
             cell.tag = [player.items indexOfObject:listItem];
             break;
         }
         case 2:
             //Store
         {
+            Player *player = [self getPlayer];
             cell.tag = [player.items indexOfObject:listItem];
             break;
         }
     }
+    [[cell textLabel] setText:[listItem getName]];
+    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
     
     return cell;
 }
@@ -193,6 +221,16 @@
     
     
     
+}
+
+- (Player*) getPlayer {
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    return [app getPlayer];
+}
+
+- (LAttegotchi*) getLAttegotchi {
+    Player *player = [self getPlayer];
+    return [player.lattegotchies objectAtIndex:0];
 }
 
 
