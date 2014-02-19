@@ -107,10 +107,7 @@
         alert.message = msg;
         [alert show];
         
-        [latte.wishes removeObject:self];
-        
-        [app updateUI];
-        
+        [self success];
         [self closeWish];
         
     } else {
