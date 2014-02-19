@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421D306518B4A3D80093CE28 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306418B4A3D80093CE28 /* Animation.m */; };
+		421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306718B4A9070093CE28 /* HappyAnimation.m */; };
+		421D306F18B4AF440093CE28 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306918B4AF440093CE28 /* a.png */; };
+		421D307018B4AF440093CE28 /* scull.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306A18B4AF440093CE28 /* scull.png */; };
+		421D307118B4AF440093CE28 /* happy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306B18B4AF440093CE28 /* happy_smile.png */; };
+		421D307218B4AF440093CE28 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306C18B4AF440093CE28 /* heart.png */; };
+		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
+		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
+		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -52,6 +61,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421D306318B4A3D80093CE28 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = Animations/Animation.h; sourceTree = "<group>"; };
+		421D306418B4A3D80093CE28 /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = Animations/Animation.m; sourceTree = "<group>"; };
+		421D306618B4A9070093CE28 /* HappyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimation.h; path = Animations/HappyAnimation.h; sourceTree = "<group>"; };
+		421D306718B4A9070093CE28 /* HappyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimation.m; path = Animations/HappyAnimation.m; sourceTree = "<group>"; };
+		421D306918B4AF440093CE28 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a.png; path = Resources/a.png; sourceTree = "<group>"; };
+		421D306A18B4AF440093CE28 /* scull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scull.png; path = Resources/scull.png; sourceTree = "<group>"; };
+		421D306B18B4AF440093CE28 /* happy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = happy_smile.png; path = Resources/happy_smile.png; sourceTree = "<group>"; };
+		421D306C18B4AF440093CE28 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = Resources/heart.png; sourceTree = "<group>"; };
+		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
+		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
+		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +146,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421D306218B4A2F90093CE28 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				421D306318B4A3D80093CE28 /* Animation.h */,
+				421D306418B4A3D80093CE28 /* Animation.m */,
+				421D306618B4A9070093CE28 /* HappyAnimation.h */,
+				421D306718B4A9070093CE28 /* HappyAnimation.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		4279B59618B217A300051796 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +190,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				421D306218B4A2F90093CE28 /* Animation */,
 				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
 				59EFA44318B2589200343C13 /* Controller */,
@@ -206,6 +238,13 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				421D307518B4AFB50093CE28 /* abc.png */,
+				421D306918B4AF440093CE28 /* a.png */,
+				421D306A18B4AF440093CE28 /* scull.png */,
+				421D306B18B4AF440093CE28 /* happy_smile.png */,
+				421D306C18B4AF440093CE28 /* heart.png */,
+				421D306D18B4AF440093CE28 /* neutral_smile.png */,
+				421D306E18B4AF440093CE28 /* unhappy_smile.png */,
 				59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */,
 				59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */,
 				59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */,
@@ -350,10 +389,17 @@
 				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
+				421D307018B4AF440093CE28 /* scull.png in Resources */,
+				421D307218B4AF440093CE28 /* heart.png in Resources */,
+				421D307318B4AF440093CE28 /* neutral_smile.png in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
 				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
+				421D307118B4AF440093CE28 /* happy_smile.png in Resources */,
+				421D307618B4AFB50093CE28 /* abc.png in Resources */,
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
+				421D306F18B4AF440093CE28 /* a.png in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
+				421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */,
 				9661655718B3A1FE0018B3C1 /* WishViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +420,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
+				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
+				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				9661655618B3A1FE0018B3C1 /* WishViewController.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,

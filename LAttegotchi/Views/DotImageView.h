@@ -12,10 +12,12 @@
     UIImage * image;
     UIImage * heart;
     UIImage * emotion;
+    UIImage * aBC;
 }
 
 - (void) setImage : (UIImage *) img;
 - (void) setEmotion : (UIImage *) img;
 - (void) setHeart : (UIImage *) img;
+- (void) setABC : (UIImage *) img;
 
 @end
