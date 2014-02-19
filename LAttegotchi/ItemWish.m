@@ -20,25 +20,22 @@
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
-    for (Item * item in [player items]) {
-        if (item == [[self items] objectAtIndex:0]) {
-            if ([item amount] > 0) {
-                item.amount--;
-                latte.happiness = [self mapRange:item.happiness + latte.happiness ];
-                latte.health = [self mapRange:item.health + latte.health ];
-                
-                [latte.wishes removeObject:self];
-                [app updateUI];
-                
-            }else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
-                                                                message:@"you need to bye the needed item in your store"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            }
-        }
+    Item * item = [[self items] objectAtIndex:0];
+    if ([item amount] > 0) {
+        item.amount--;
+        latte.happiness = [self mapRange:item.happiness + latte.happiness ];
+        latte.health = [self mapRange:item.health + latte.health ];
+        player.money += self.value;
+        [latte.wishes removeObject:self];
+        [app updateUI];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
+                                                        message:@"you need to bye the needed item in your store"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
 }
 - (int) mapRange:(int) val{

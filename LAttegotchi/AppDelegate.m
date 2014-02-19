@@ -24,8 +24,8 @@
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
 #define MINWISHHEALTH        5
-#define MAXWISHDEADLINE     10//60*15    /* SECONDS */
-#define MINWISHDEADLINE     5//60*5     /* SECONDS */
+#define MAXWISHDEADLINE     30//60*15    /* SECONDS */
+#define MINWISHDEADLINE     15//60*5     /* SECONDS */
 
 @implementation AppDelegate
 
@@ -147,7 +147,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = (Wish*)[WishFactory createMysteryMathWish];
+        Wish* wish = (Wish*)[WishFactory createItemWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
