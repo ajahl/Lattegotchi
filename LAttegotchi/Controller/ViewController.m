@@ -99,8 +99,14 @@
         case 0:
             //Whish
         {
-            
-            tableViewController.data = [latte wishes];
+            NSMutableArray *wishes = [[NSMutableArray alloc] init];
+            for (Wish* wish in [latte wishes]) {
+                if ([wish.starttime compare:[NSDate date]]
+                        == NSOrderedAscending) {
+                    [wishes addObject:wish];
+                }
+            }
+            tableViewController.data = wishes;
             tableViewController.currentTableView = 0;
 
             break;

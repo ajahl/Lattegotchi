@@ -10,7 +10,9 @@
 #import "AppDelegate.h"
 #import "ListItem.h"
 #import "WishViewController.h"
-#import "GPSWish.h"
+#import "LAttegotchi.h"
+#import "Item.h"
+
 
 
 @interface TableViewController ()
@@ -72,12 +74,33 @@
     
     id <ListItem> listItem = [_data objectAtIndex:[indexPath row]];
     
-
-    
-    
-    
     [[cell textLabel] setText:[listItem getName]];
     [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
+    
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    switch (self.currentTableView) {
+        case 0:
+            //Wish
+        {
+            cell.tag = [latte.wishes indexOfObject:listItem];
+            break;
+        }
+        case 1:
+            //Backpack
+        {
+            cell.tag = [player.items indexOfObject:listItem];
+            break;
+        }
+        case 2:
+            //Store
+        {
+            cell.tag = [player.items indexOfObject:listItem];
+            break;
+        }
+    }
+    
     return cell;
 }
 
@@ -126,18 +149,20 @@
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
     switch (self.currentTableView) {
         case 0:
         //Whish
         {
             
-            if ([cellText  isEqual: @"Wish"]) {
+            if ([cellText  isEqual: @"Wish 1"]) {
 
                 _activeWish = [[GPSWish alloc] initViewController:self];
+                [_activeWish setDistance:25];
                 [_activeWish execute];
-                
-                
             }
             
             
@@ -149,7 +174,21 @@
         case 1:
         //Backpack
         {
+            int index = [selectedCell tag];
+            Item * item  = [[player items] objectAtIndex:index];
             
+            if (item.amount >0 ) {
+                item.amount--;
+                latte.happiness += item.happiness;
+                latte.health += item.health;
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ahhhhh"
+                                                                message:@"this should not happen"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
            
             
             break;
@@ -160,6 +199,22 @@
         //Store
         {
             
+            int index = [selectedCell tag];
+            Item * item  = [[player items] objectAtIndex:index];
+            
+            if (item.value <= player.money) {
+                player.money -= item.value;
+                item.amount++;
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Out of Money"
+                                                                message:@"shit happens"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            
+        
             
             break;
         }
@@ -173,8 +228,6 @@
     
     
 }
-
-
 
 
 /*

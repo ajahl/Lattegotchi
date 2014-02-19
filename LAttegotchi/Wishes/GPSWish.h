@@ -19,10 +19,10 @@
     int distance;
     
     // View
-    UIView *subView;
     IBOutlet UILabel *lblDistance;
 }
 
-
+- (void)createAndInitUI;
+- (void)setDistance:(int)dist;
 
 @end
