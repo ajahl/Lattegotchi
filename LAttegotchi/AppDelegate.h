@@ -24,5 +24,6 @@
 
 - (Player*) getPlayer;
 - (NSString*) getDataFilePath;
+- (void) updateUI;
 
 @end

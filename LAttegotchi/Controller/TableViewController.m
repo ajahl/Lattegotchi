@@ -16,6 +16,7 @@
 #import "MysteryLetterWish.h"
 #import "MysteryMathWish.h"
 #import "Item.h"
+#import "Player.h"
 
 
 

@@ -76,6 +76,7 @@
         [self closeWish];
         
         [latte.wishes removeObject:self];
+        
         [app updateUI];
 
     }
