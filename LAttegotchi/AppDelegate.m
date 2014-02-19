@@ -13,14 +13,14 @@
 #import "Wish.h"
 #import "Item.h"
 
-#define MAXWISHTIME         20//60*5     /* SECONDS */
-#define MINWISHTIME         10//60*1     /* SECONDS */
+#define MAXWISHTIME         10//60*5     /* SECONDS */
+#define MINWISHTIME         5//60*1     /* SECONDS */
 #define MAXWISHHAPPINESS    10
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
 #define MINWISHHEALTH        5
-#define MAXWISHDEADLINE     60*15    /* SECONDS */
-#define MINWISHDEADLINE     60*5     /* SECONDS */
+#define MAXWISHDEADLINE     10//60*15    /* SECONDS */
+#define MINWISHDEADLINE     5//60*5     /* SECONDS */
 
 @implementation AppDelegate
 
@@ -173,10 +173,40 @@
     while ([self generateNewWish:lattegotchi]) {
         // generateWishes until death
     }
+    
+    // Check for new active Wishes
     NSArray* newActiveWishes = [self getNewActiveWishes];
     for (Wish *wish in newActiveWishes) {
-        NSLog(@"newActiveWish: %@", wish.name);
+        //NSLog(@"newActiveWish: %@", wish.name);
     }
+    
+    // Check for deadline
+    NSArray* wishes = [lattegotchi.wishes copy];
+    for (Wish *wish in wishes) {
+        if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
+            lattegotchi.happiness -= wish.happiness;
+            lattegotchi.health -= wish.health;
+            [lattegotchi.wishes removeObject:wish];
+            if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
+                UIAlertView *alert = [[UIAlertView alloc]
+                                      initWithTitle: @"You lost!"
+                                            message: nil
+                                           delegate: self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil
+                                      ];
+                if (lattegotchi.happiness <= 0) {
+                    alert.message = [NSString stringWithFormat:@"%@ ist too sad!", lattegotchi.name];
+                } else if (lattegotchi.health <= 0) {
+                    alert.message = [NSString stringWithFormat:@"%@ ist dead!", lattegotchi.name];
+                }
+                
+                [timer invalidate];
+                [alert show];
+            }
+        }
+    }
+    
     [self updateUI];
 }
 
@@ -245,6 +275,9 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
 
-
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    player = nil;
+    [self initModel];
+}
 
 @end
