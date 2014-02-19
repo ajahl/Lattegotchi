@@ -15,6 +15,7 @@
 @property NSString * discription;
 @property int happiness;
 @property int health;
+@property NSDate * starttime;
 @property NSDate * deadline;
 
 @property UIViewController * viewController;

@@ -77,7 +77,7 @@
     
     
     [[cell textLabel] setText:[listItem getName]];
-    [[cell detailTextLabel] setText:[listItem getDiscription]];
+    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
     return cell;
 }
 
@@ -132,7 +132,7 @@
         //Whish
         {
             
-            if ([cellText  isEqual: @"Wish 1"]) {
+            if ([cellText  isEqual: @"Wish"]) {
 
                 _activeWish = [[GPSWish alloc] initViewController:self];
                 [_activeWish execute];

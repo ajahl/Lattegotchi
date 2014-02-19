@@ -50,8 +50,30 @@
     return _name;
 }
 
--(NSString *)getDiscription {
-    return @"";
+-(NSString *)getSubText {
+    return [self getSubText:-1];
+}
+
+-(NSString *) getSubText:(int)usage {
+    unichar heart = 0x2665;
+    unichar smiley = 0x263A;
+    unichar skull = 0x2620;
+    unichar bag = 0xF4B0;
+    
+    NSString *subText = @"";
+    subText = [subText stringByAppendingFormat:@"%C +%d", heart, _health];
+    subText = [subText stringByAppendingFormat:@"\t%C +%d", smiley, _happiness];
+    
+    switch (usage) {
+        case 1:
+            subText = [subText stringByAppendingFormat:@"\t%C %d", bag, _amount];
+            break;
+        case 2:
+            subText = [subText stringByAppendingFormat:@"\t%C %d", skull, _value];
+            break;
+    }
+    
+    return subText;
 }
 
 
