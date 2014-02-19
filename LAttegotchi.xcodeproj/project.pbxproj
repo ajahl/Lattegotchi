@@ -51,6 +51,7 @@
 		96CF23FB18B3B586005D3CEB /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23FA18B3B586005D3CEB /* data.plist */; };
 		96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364CF18B4C82A00E65884 /* MysteryMathWish.m */; };
 		96E364D318B4C85A00E65884 /* MysteryLetterWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364D218B4C85A00E65884 /* MysteryLetterWish.m */; };
+		96E364D618B5004D00E65884 /* ShakeWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364D518B5004D00E65884 /* ShakeWish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,8 @@
 		96E364CF18B4C82A00E65884 /* MysteryMathWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MysteryMathWish.m; path = Wishes/MysteryMathWish.m; sourceTree = "<group>"; };
 		96E364D118B4C85A00E65884 /* MysteryLetterWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MysteryLetterWish.h; path = Wishes/MysteryLetterWish.h; sourceTree = "<group>"; };
 		96E364D218B4C85A00E65884 /* MysteryLetterWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MysteryLetterWish.m; path = Wishes/MysteryLetterWish.m; sourceTree = "<group>"; };
+		96E364D418B5004D00E65884 /* ShakeWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakeWish.h; path = Wishes/ShakeWish.h; sourceTree = "<group>"; };
+		96E364D518B5004D00E65884 /* ShakeWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakeWish.m; path = Wishes/ShakeWish.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 				96679CD118B3B649004C2E51 /* PushWish.m */,
 				96E364D118B4C85A00E65884 /* MysteryLetterWish.h */,
 				96E364D218B4C85A00E65884 /* MysteryLetterWish.m */,
+				96E364D418B5004D00E65884 /* ShakeWish.h */,
+				96E364D518B5004D00E65884 /* ShakeWish.m */,
 			);
 			name = Wishes;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
+				96E364D618B5004D00E65884 /* ShakeWish.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,

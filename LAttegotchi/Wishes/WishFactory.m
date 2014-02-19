@@ -14,6 +14,7 @@
 #import "PushWish.h"
 #import "AppDelegate.h"
 #import "Player.h"
+#import "ShakeWish.h"
 #import "Item.h"
 
 @implementation WishFactory
@@ -84,6 +85,16 @@
 
 + (PushWish*) createPushWish {
     PushWish * wish = [[PushWish alloc]init];
+    
+    [wish setName:@"WAAHHH ... I want a "];
+    wish.happiness = 30;
+    wish.health = 30;
+    
+    return wish;
+}
+
++ (ShakeWish*) createShakeWish {
+    ShakeWish * wish = [[ShakeWish alloc]init];
     
     [wish setName:@"WAAHHH ... I want a "];
     wish.happiness = 30;
