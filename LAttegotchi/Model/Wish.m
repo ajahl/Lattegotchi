@@ -37,11 +37,11 @@
         UIView *rootView = app.window.rootViewController.view;
         
         
-        int hight =rootView.frame.size.height/2;
-        CGRect bounds = CGRectMake(0, hight, rootView.frame.size.width, hight+100);
+        int hight =rootView.frame.size.height-292;
+        CGRect bounds = CGRectMake(0, 292, rootView.frame.size.width, hight);
         
         _subView= [[UIView alloc] initWithFrame:bounds];
-        [_subView setBackgroundColor: [UIColor yellowColor]];
+        [_subView setBackgroundColor: [UIColor whiteColor]];
         [rootView addSubview:_subView];
     }
     return self;
@@ -74,7 +74,11 @@
 }
 
 -(NSString *)getName {
-    return _name;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *starttime = [dateFormat stringFromDate:_starttime];
+    
+    return [_name stringByAppendingFormat:@"\t%@", starttime];;
 }
 
 -(NSString *)getSubText {
