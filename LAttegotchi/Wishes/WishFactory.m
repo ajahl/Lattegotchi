@@ -7,6 +7,7 @@
 //
 
 #import "WishFactory.h"
+#import "Wish.h"
 #import "ItemWish.h"
 #import "GPSWish.h"
 #import "MysteryLetterWish.h"
@@ -46,8 +47,6 @@
     wish.health = item.health *2;
     wish.value = item.value*1.5;
     [wish.items addObject:item];
-    
-    
     
     return wish;
 }
@@ -103,5 +102,15 @@
     return wish;
 }
 
++ (Wish*) createWish {
+    NSArray *wishes = [NSArray arrayWithObjects:
+                       [self createItemWish],
+                       [self createGPSWish],
+                       [self createMysteryMathWish],
+                    nil];
+    
+    int random = arc4random_uniform([wishes count]);
+    return [wishes objectAtIndex:random];
+}
 
 @end

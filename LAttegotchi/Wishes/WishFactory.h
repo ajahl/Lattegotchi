@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ItemWish, GPSWish, PushWish,MysteryLetterWish,MysteryMathWish, ShakeWish;
+@class ItemWish, GPSWish, PushWish,MysteryLetterWish,MysteryMathWish, ShakeWish, Wish;
 @interface WishFactory : NSObject
 
 + (ItemWish*) createItemWish;
@@ -16,5 +16,6 @@
 + (MysteryLetterWish*) createMysteryLetterWish;
 + (PushWish*) createPushWish;
 + (ShakeWish*) createShakeWish;
++ (Wish*) createWish;
 
 @end
