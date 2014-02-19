@@ -74,7 +74,11 @@
 }
 
 -(NSString *)getName {
-    return _name;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *starttime = [dateFormat stringFromDate:_starttime];
+    
+    return [_name stringByAppendingFormat:@"\t%@", starttime];;
 }
 
 -(NSString *)getSubText {
