@@ -55,6 +55,18 @@ int padding = 1;
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
     CGContextFillRect(context, rect);
     
+    [self drawImage];
+    [self drawHappiness];
+    [self drawHealth];
+    [self drawText];
+}
+
+- (void) drawText {
+    
+}
+
+-(void) drawImage {
+    
     // draw dotmatrix ------------------------------------------------------
     for (int y = 0; y<DOT_MATRIX; y++ ) {
         for (int x = 0; x<DOT_MATRIX; x++) {
@@ -66,29 +78,9 @@ int padding = 1;
             }
         }
     }
-    
-    // draw happiness ------------------------------------------------------
-    int happiness = [[self getLAtte] happiness];
-    happiness = happiness* (DOT_MATRIX) / 100;
-    
-    for (int y = DOT_MATRIX-1; y>DOT_MATRIX-happiness; y-- ) {
-         for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
-             [self drawDot:x :y :[UIColor blackColor]];
-         }
-    }
-    
-    // draw smily -------------------------------------------------------
-    CGSize emoSize = emotion.size;
-    for (int y = 0; y<emoSize.height; y++ ) {
-        for (int x = 0; x<emoSize.height; x++) {
-            if( [self isPixelSet:emotion :x :y]) {
-                [self drawDot:x :y + happiness-emoSize.height :[UIColor greenColor]];
-            }
-            else {
-                [self drawDot:x :y + happiness-emoSize.height :[UIColor blackColor]];
-            }
-        }
-    }
+}
+
+-(void) drawHealth {
     
     // draw health ------------------------------------------------------
     int health = [[self getLAtte] health];
@@ -109,6 +101,31 @@ int padding = 1;
             }
             else {
                 [self drawDot:DOT_MATRIX -heartSize.height + x :y + health-heartSize.height :[UIColor blackColor]];
+            }
+        }
+    }
+}
+
+-(void) drawHappiness {
+    // draw happiness ------------------------------------------------------
+    int happiness = [[self getLAtte] happiness];
+    happiness = happiness* (DOT_MATRIX) / 100;
+    
+    for (int y = DOT_MATRIX-1; y>DOT_MATRIX-happiness; y-- ) {
+        for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
+            [self drawDot:x :y :[UIColor blackColor]];
+        }
+    }
+    
+    // draw smily -------------------------------------------------------
+    CGSize emoSize = emotion.size;
+    for (int y = 0; y<emoSize.height; y++ ) {
+        for (int x = 0; x<emoSize.height; x++) {
+            if( [self isPixelSet:emotion :x :y]) {
+                [self drawDot:x :y + happiness-emoSize.height :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:x :y + happiness-emoSize.height :[UIColor blackColor]];
             }
         }
     }
@@ -135,6 +152,12 @@ int padding = 1;
     heart = img;
     [self setNeedsDisplay];
 }
+
+- (void) setABC : (UIImage *) img {
+    aBC = img;
+    [self setNeedsDisplay];
+}
+
 
 - (BOOL)isPixelSet:(UIImage *) img : (int) x :(int) y {
     
