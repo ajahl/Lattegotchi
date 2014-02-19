@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421D306518B4A3D80093CE28 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306418B4A3D80093CE28 /* Animation.m */; };
+		421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306718B4A9070093CE28 /* HappyAnimation.m */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -52,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421D306318B4A3D80093CE28 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = Animations/Animation.h; sourceTree = "<group>"; };
+		421D306418B4A3D80093CE28 /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = Animations/Animation.m; sourceTree = "<group>"; };
+		421D306618B4A9070093CE28 /* HappyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimation.h; path = Animations/HappyAnimation.h; sourceTree = "<group>"; };
+		421D306718B4A9070093CE28 /* HappyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimation.m; path = Animations/HappyAnimation.m; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +132,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421D306218B4A2F90093CE28 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				421D306318B4A3D80093CE28 /* Animation.h */,
+				421D306418B4A3D80093CE28 /* Animation.m */,
+				421D306618B4A9070093CE28 /* HappyAnimation.h */,
+				421D306718B4A9070093CE28 /* HappyAnimation.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		4279B59618B217A300051796 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +176,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				421D306218B4A2F90093CE28 /* Animation */,
 				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
 				59EFA44318B2589200343C13 /* Controller */,
@@ -374,7 +392,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
+				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
+				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				9661655618B3A1FE0018B3C1 /* WishViewController.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,

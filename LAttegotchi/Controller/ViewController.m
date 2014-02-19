@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 
+#import "Animation.h"
 #import "TableViewController.h"
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
 #import "DotImageView.h"
+#import "HappyAnimation.h"
 
 
 @implementation ViewController
@@ -29,8 +31,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    
     
     UITableView *tv =  self.tableView;
     tableViewController = [[TableViewController alloc] init];
@@ -54,11 +54,19 @@
     UIImage *heart = [UIImage imageNamed: @"heart.png"];
     [dotView setHeart:heart];
     
-     [_imageView addSubview:dotView];
-    
-     _images = [NSArray arrayWithObjects:  @"tamatama_nomal1.png",@"tamatama_nomal2.png",@"tamatama_nomal3.png",@"tamatama_nomal4.png",  nil];
-    
-    [self startTimer];
+    [self setAnimation];
+}
+
+
+-(void) setAnimation {
+    if (_animation) {
+        [_animation stopTimer];
+        _animation = nil;
+    }
+        
+    [_imageView addSubview:dotView];
+    _animation = [[HappyAnimation alloc] init];
+    [_animation startTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,31 +126,31 @@
 }
 
 
-- (void) startTimer {
-    [NSTimer scheduledTimerWithTimeInterval:1
-                                     target:self
-                                   selector:@selector(tick:)
-                                   userInfo:nil
-                                    repeats:YES];
+//- (void) startTimer {
+//    [NSTimer scheduledTimerWithTimeInterval:1
+//                                     target:self
+//                                   selector:@selector(tick:)
+//                                   userInfo:nil
+//                                    repeats:YES];
+//}
+//
+//- (void) tick:(NSTimer *) timer {
+//    
+//        UIImage *image = [UIImage imageNamed:[image objectAtIndex:_animationIndex]];
+//        
+//        [dotView setImage:image ];
+////        [dotView removeFromSuperview];
+//    
+//    _animationIndex++;
+//    if ([_images count]-1 < _animationIndex) {
+//        _animationIndex = 0;
+//    }
+//}
+
+
+-(DotImageView *) getDotView {
+    return dotView;
 }
-
-- (void) tick:(NSTimer *) timer {
-    
-        UIImage *image = [UIImage imageNamed:[_images objectAtIndex:_animationIndex]];
-        
-        [dotView setImage:image ];
-//        [dotView removeFromSuperview];
-    
-    _animationIndex++;
-    if ([_images count]-1 < _animationIndex) {
-        _animationIndex = 0;
-    }
-}
-
-
-
-
-
 
 
 
