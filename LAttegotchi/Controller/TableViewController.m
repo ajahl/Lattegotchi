@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ListItem.h"
 #import "WishViewController.h"
+#import "LAttegotchi.h"
 
 
 
@@ -127,16 +128,20 @@
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
     
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *gotchi = [player.lattegotchies objectAtIndex:0];
+    
     switch (self.currentTableView) {
         case 0:
         //Whish
         {
             
             if ([cellText  isEqual: @"Wish 1"]) {
-
-                _activeWish = [[GPSWish alloc] initViewController:self];
-                [_activeWish setDistance:25];
-                [_activeWish execute];
+                
+                GPSWish *gpsWish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
+                [gpsWish setDistance:25];
+                [gpsWish execute];
             }
             
             
