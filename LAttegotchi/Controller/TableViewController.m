@@ -151,6 +151,9 @@
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
@@ -184,7 +187,21 @@
         case 1:
         //Backpack
         {
+            int index = [selectedCell tag];
+            Item * item  = [[player items] objectAtIndex:index];
             
+            if (item.amount >0 ) {
+                item.amount--;
+                latte.happiness += item.happiness;
+                latte.health += item.health;
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ahhhhh"
+                                                                message:@"this should not happen"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
            
             
             break;
@@ -195,6 +212,22 @@
         //Store
         {
             
+            int index = [selectedCell tag];
+            Item * item  = [[player items] objectAtIndex:index];
+            
+            if (item.value <= player.money) {
+                player.money -= item.value;
+                item.amount++;
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Out of Money"
+                                                                message:@"shit happens"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            
+        
             
             break;
         }
