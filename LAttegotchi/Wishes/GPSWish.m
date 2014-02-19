@@ -8,6 +8,7 @@
 
 #import "GPSWish.h"
 #import "AppDelegate.h"
+#import "LAttegotchi.h"
 
 
 
@@ -61,13 +62,22 @@
                               ];
         
         AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+        LAttegotchi *latte = [[app getPlayer].lattegotchies objectAtIndex:0];
+        
         NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
+        
+        
         
         NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
         alert.message = msg;
         [alert show];
         
+        
         [self closeWish];
+        
+        [latte.wishes removeObject:self];
+        [app updateUI];
+
     }
     
 }
@@ -100,13 +110,19 @@
     UIView *subView = [self getSubView];
     
     // Add Text Button
-    UILabel *lblDistanceTxt = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 50)];
+    UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 50)];
+    [lblDecription setText: self.description];
+    [lblDecription setTextColor: [UIColor orangeColor]];
+    [subView addSubview: lblDecription];
+    
+    // Add Text Button
+    UILabel *lblDistanceTxt = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 100, 50)];
     [lblDistanceTxt setText: @"Distance: "];
     [lblDistanceTxt setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDistanceTxt];
     
     // Create and add distance label
-    lblDistance = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 100, 50)];
+    lblDistance = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [lblDistance setText: @"0.0 m"];
     [lblDistance setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDistance];

@@ -13,6 +13,8 @@
 #import "LAttegotchi.h"
 #import "PushWish.h"
 #import "GPSWish.h"
+#import "MysteryLetterWish.h"
+#import "MysteryMathWish.h"
 #import "Item.h"
 
 
@@ -163,17 +165,18 @@
         case 0:
         //Whish
         {
-            if ([wish isKindOfClass:[GPSWish class]]) {
+            if ([wish isKindOfClass:[Wish class]]) {
                 
-//                GPSWish *gpsWish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
-                GPSWish *gpsWish = [[GPSWish alloc] initViewController:app.window.rootViewController];
+                GPSWish *gpsWish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [gpsWish initWithViewController:app.window.rootViewController];
                 [gpsWish setDistance:25];
                 [gpsWish execute];
             
             } else if ([wish isKindOfClass:[Wish class]]) {
+//                PushWish *pushWish = [gotchi.wishes objectAtIndex:selectedCell.tag];
                 
-                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
-                [_pushWish execute];
+//                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
+//                [_pushWish execute];
                 
             
             }

@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "LAttegotchi.h"
 #import "Wish.h"
+#import "GPSWish.h"
 #import "Item.h"
 
 #define MAXWISHTIME         60*5     /* SECONDS */
@@ -139,7 +140,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [[Wish alloc] init];
+        GPSWish* wish = [[GPSWish alloc] init];
         wish.name = @"Wish";
         wish.discription = @"Wish Description";
         wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;
