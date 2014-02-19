@@ -17,6 +17,12 @@
 @property int health;
 @property NSDate * deadline;
 
+@property UIViewController * viewController;
+
 @property (nonatomic, retain) NSMutableArray * items;
+
+- (id)initViewController:(UIViewController *) controller;
+- (void)execute;
+-(UIViewController *)getViewController;
 
 @end

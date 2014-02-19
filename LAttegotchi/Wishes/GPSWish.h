@@ -23,8 +23,6 @@
     IBOutlet UILabel *lblDistance;
 }
 
--(void) execute;
-- (id)init;
 
 
 @end
