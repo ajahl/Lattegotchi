@@ -14,7 +14,7 @@
 
 @class LAttegotchi;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, InitModelAlertViewControllerDelegate, UIAlertViewDelegate> {
     Player* player;
     NSArray* wishesMemory;
 }

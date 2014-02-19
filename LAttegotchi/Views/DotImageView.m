@@ -62,17 +62,43 @@ int padding = 1;
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     NSString * text =  [latte name];
-    [self drawText:text];
+    [self drawText:text:0:0];
+
+//    [self drawMoney: 9 : 52];
+    [self drawMoney: 6 : 8];
 }
 
-- (void) drawText: (NSString * ) text{
+- (void) drawMoney : (int) dX :  (int) dY{
+    // draw scull ------------------------------------------------------
+    CGSize scullSize = scull.size;
+    
+    for (int y = 0; y<scullSize.height; y++ ) {
+        for (int x = 0; x<scullSize.height; x++) {
+            int currentY = dY+1+y;
+            int currentX = dX+x;
+            
+            if( [self isPixelSet:scull :x :y]) {
+                [self drawDot:currentX :currentY :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:currentX :currentY :[UIColor blackColor]];
+            }
+        }
+    }
+    
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    NSString * text = [NSString stringWithFormat:@"%d", [[app getPlayer] money]];
+    [self drawText:text :dX+6 :dY];
+}
+
+- (void) drawText: (NSString * ) text : (int) x : (int) y{
     for (unsigned int i=0; i < [text length]; ++i) {
         NSString *cHar = [NSString stringWithFormat:@"%c" , [text characterAtIndex:i]];
-        [self drawChar:cHar:i:0];
+        [self drawChar:cHar:i:0:x:y];
     }
 }
 
--(void) drawChar: (NSString *) cHar : (int) matrixX : (int) matrixY {
+-(void) drawChar: (NSString *) cHar : (int) matrixX : (int) matrixY : (int)dX : (int) dY {
     if(!aBCString)
         return;
     
@@ -85,7 +111,7 @@ int padding = 1;
     for (int y = 0; y < 8; y++ ) {
         for (int x = 0; x < 5 ; x++) {
             if( ![self isPixelSet:aBC :x +abcIndexX :y +abcIndexY]) {
-                [self drawDot:x+ (matrixX*5) :y :[UIColor blackColor]];
+                [self drawDot:x+ (matrixX*5)+dX :y+ (matrixY*8)+dY:[UIColor blackColor]];
             }
         }
     }
@@ -110,9 +136,9 @@ int padding = 1;
     
     // draw health ------------------------------------------------------
     int healthValue = [[self getLAtte] health];
-    int health = healthValue* DOT_MATRIX / 100;
+    int health = healthValue* (DOT_MATRIX-15) / 100;
     
-    for (int y = DOT_MATRIX; y>DOT_MATRIX-health+5; y-- ) {
+    for (int y = DOT_MATRIX-6; y>DOT_MATRIX-6-health; y-- ) {
         for (int x = 0; x<5; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
         }
@@ -123,7 +149,7 @@ int padding = 1;
     
     for (int y = 0; y<heartSize.height; y++ ) {
         for (int x = 0; x<heartSize.height; x++) {
-            int currentY = DOT_MATRIX-health+y;
+            int currentY = DOT_MATRIX-health+y-11;
             
             if( [self isPixelSet:heart :x :y]) {
                 [self drawDot:x :currentY :[UIColor greenColor]];
@@ -138,9 +164,9 @@ int padding = 1;
 -(void) drawHappiness {
     // draw happiness ------------------------------------------------------
     int happinessValue = [[self getLAtte] happiness];
-    int happiness = happinessValue* (DOT_MATRIX) / 100;
+    int happiness = happinessValue * (DOT_MATRIX-15) / 100;
 
-    for (int y = DOT_MATRIX; y>DOT_MATRIX-happiness+5; y-- ) {
+    for (int y = DOT_MATRIX-6; y>DOT_MATRIX-6-happiness; y-- ) {
         for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
         }
@@ -153,7 +179,7 @@ int padding = 1;
     
     for (int y = 0; y<emoSize.height; y++ ) {
         for (int x = 0; x<emoSize.height; x++) {
-            int currentY = DOT_MATRIX-happiness+y;
+            int currentY = DOT_MATRIX-happiness+y-11;
             int currentX = DOT_MATRIX-eMotion.size.width+x;
             
             if( [self isPixelSet:eMotion :x :y]) {
@@ -198,6 +224,11 @@ int padding = 1;
 
 - (void) setABCString : (NSString *) string {
     aBCString = string;
+    [self setNeedsDisplay];
+}
+
+- (void) setScull : (UIImage *) img {
+    scull = img;
     [self setNeedsDisplay];
 }
 

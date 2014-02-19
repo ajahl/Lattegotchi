@@ -22,8 +22,8 @@
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
 #define MINWISHHEALTH        5
-#define MAXWISHDEADLINE     60*15    /* SECONDS */
-#define MINWISHDEADLINE     60*5     /* SECONDS */
+#define MAXWISHDEADLINE     10//60*15    /* SECONDS */
+#define MINWISHDEADLINE     5//60*5     /* SECONDS */
 
 @implementation AppDelegate
 
@@ -122,7 +122,7 @@
     [viewController.tableView reloadData];
 }
 
-- (BOOL) generateNewWish:(LAttegotchi*) lattegotchi; {
+- (BOOL) generateNewWishFor:(LAttegotchi*) lattegotchi; {
     // TODO: check for happiness to die
     BOOL lattegotchiWouldDie = NO;
     
@@ -173,13 +173,43 @@
 
 - (void) wishTick:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    while ([self generateNewWish:lattegotchi]) {
+    while ([self generateNewWishFor:lattegotchi]) {
         // generateWishes until death
     }
+    
+    // Check for new active Wishes
     NSArray* newActiveWishes = [self getNewActiveWishes];
     for (Wish *wish in newActiveWishes) {
-        NSLog(@"newActiveWish: %@", wish.name);
+        //NSLog(@"newActiveWish: %@", wish.name);
     }
+    
+    // Check for deadline
+    NSArray* wishes = [lattegotchi.wishes copy];
+    for (Wish *wish in wishes) {
+        if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
+            lattegotchi.happiness -= wish.happiness;
+            lattegotchi.health -= wish.health;
+            [lattegotchi.wishes removeObject:wish];
+            if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
+                UIAlertView *alert = [[UIAlertView alloc]
+                                      initWithTitle: @"You lost!"
+                                            message: nil
+                                           delegate: self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil
+                                      ];
+                if (lattegotchi.happiness <= 0) {
+                    alert.message = [NSString stringWithFormat:@"%@ ist too sad!", lattegotchi.name];
+                } else if (lattegotchi.health <= 0) {
+                    alert.message = [NSString stringWithFormat:@"%@ ist dead!", lattegotchi.name];
+                }
+                
+                [timer invalidate];
+                [alert show];
+            }
+        }
+    }
+    
     [self updateUI];
 }
 
@@ -187,7 +217,7 @@
     player = [[Player alloc] init];
     player.name = playername;
     player.money = 100;
-    player.level = 0;
+    player.level = 20;
     
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
     [player.lattegotchies addObject: lattegotchi];
@@ -207,7 +237,7 @@
         [player.items addObject:item];
     }
     
-    [self generateNewWish:lattegotchi];
+    [self generateNewWishFor:lattegotchi];
     [self updateUI];
     [self saveModel];
     [self startGame];
@@ -248,6 +278,9 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
 
-
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    player = nil;
+    [self initModel];
+}
 
 @end

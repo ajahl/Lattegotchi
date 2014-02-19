@@ -13,6 +13,7 @@
 #define ASCWishDescription @"wishDescription"
 #define ASCWishHappiness @"wishHappiness"
 #define ASCWishHealth @"wishHealth"
+#define ASCWishValue @"wishValue"
 #define ASCWishStarttime @"wishStarttime"
 #define ASCWishDeadline @"wishDeadline"
 #define ASCWishItems @"wishItems"
@@ -50,6 +51,7 @@
     [aCoder encodeObject:self.discription forKey:ASCWishDescription];
     [aCoder encodeInt:self.happiness forKey:ASCWishHappiness];
     [aCoder encodeInt:self.health forKey:ASCWishHealth];
+    [aCoder encodeInt:self.value forKey:ASCWishValue];
     [aCoder encodeObject:self.starttime forKey:ASCWishStarttime];
     [aCoder encodeObject:self.deadline forKey:ASCWishDeadline];
     [aCoder encodeObject:self.items forKey:ASCWishItems];
@@ -63,6 +65,7 @@
         _discription = [aDecoder decodeObjectForKey:ASCWishDescription];
         _happiness = [aDecoder decodeIntForKey:ASCWishHappiness];
         _health = [aDecoder decodeIntForKey:ASCWishHealth];
+        _value = [aDecoder decodeIntForKey:ASCWishValue];
         _starttime = [aDecoder decodeObjectForKey:ASCWishStarttime];
         _deadline = [aDecoder decodeObjectForKey:ASCWishDeadline];
         _items = [aDecoder decodeObjectForKey:ASCWishItems];
@@ -71,11 +74,7 @@
 }
 
 -(NSString *)getName {
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *starttime = [dateFormat stringFromDate:_starttime];
-    
-    return [_name stringByAppendingFormat:@"\t%@", starttime];;
+    return _name;
 }
 
 -(NSString *)getSubText {
@@ -85,10 +84,34 @@
 -(NSString *) getSubText:(int)usage {
     unichar heart = 0x2665;
     unichar smiley = 0x263A;
+    unichar skull = 0x2620;
     
     NSString *subText = @"";
-    subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
-    subText = [subText stringByAppendingFormat:@"\t%C ±%d", smiley, _happiness];
+    
+    if (_health == 0)
+        subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
+    else if (_health > 0)
+        subText = [subText stringByAppendingFormat:@"%C +%d", heart, _health];
+    else
+        subText = [subText stringByAppendingFormat:@"%C %d", heart, _health];
+    
+    subText = [subText stringByAppendingString:@"\t"];
+    
+    if (_happiness == 0)
+        subText = [subText stringByAppendingFormat:@"%C ±%d", smiley, _happiness];
+    else if (_happiness > 0)
+        subText = [subText stringByAppendingFormat:@"%C +%d", smiley, _happiness];
+    else
+        subText = [subText stringByAppendingFormat:@"%C %d", smiley, _happiness];
+    
+    subText = [subText stringByAppendingString:@"\t"];
+    
+    if (_value == 0)
+        subText = [subText stringByAppendingFormat:@"%C ±%d", skull, _value];
+    else if (_value > 0)
+        subText = [subText stringByAppendingFormat:@"%C +%d", skull, _value];
+    else
+        subText = [subText stringByAppendingFormat:@"%C %d", skull, _value];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
