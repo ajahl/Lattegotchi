@@ -77,19 +77,33 @@
     return _name;
 }
 
+-(NSString *)getSubText {
+    return [self getSubText:-1];
+}
 
-
--(NSString *)getDiscription {
-    return _discription;
+-(NSString *) getSubText:(int)usage {
+    unichar heart = 0x2665;
+    unichar smiley = 0x263A;
+    
+    NSString *subText = @"";
+    subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
+    subText = [subText stringByAppendingFormat:@"\t%C ±%d", smiley, _happiness];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *deadline = [dateFormat stringFromDate:_deadline];
+    subText = [subText stringByAppendingFormat:@"\t%@", deadline];
+    
+    return subText;
 }
 
 -(UIViewController *)getViewController {
     return _viewController;
 }
+
 -(UIView *)getSubView {
     return _subView;
 }
-
 
 -(void)execute {
     
