@@ -201,11 +201,11 @@
                 
                 GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish initWithViewController:app.window.rootViewController];
-                [wish setDistance:25];
                 [wish execute];
             
             } else if ([wish isKindOfClass:[PushWish class]]) {
                 PushWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
                 [wish execute];
                 
             

@@ -8,6 +8,11 @@
 
 #import "Wish.h"
 
-@interface PushWish : Wish
+@interface PushWish : Wish {
+    
+    int x;
+    int y;
+    
+}
 
 @end
