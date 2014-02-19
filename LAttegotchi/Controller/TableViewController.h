@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wish.h"
 
 
 @interface TableViewController : UITableViewController
@@ -14,5 +15,7 @@
 @property NSMutableArray * data;
 
 @property int currentTableView;
+
+@property Wish *activeWish;
 
 @end

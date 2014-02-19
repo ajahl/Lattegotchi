@@ -26,6 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.view.alpha = 0.0f;
+
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 

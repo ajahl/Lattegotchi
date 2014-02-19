@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ListItem.h"
 #import "WishViewController.h"
+#import "GPSWish.h"
 
 
 @interface TableViewController ()
@@ -119,6 +120,8 @@
 }
 
 
+
+
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -130,11 +133,9 @@
         {
             
             if ([cellText  isEqual: @"Wish 1"]) {
-                
-                AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-                WishViewController *wishViewController = [[WishViewController alloc] initWithNibName:@"WishViewController" bundle:nil];
-                
-                [app.window.rootViewController presentViewController:wishViewController animated:YES completion:NULL];
+
+                _activeWish = [[GPSWish alloc] initViewController:self];
+                [_activeWish execute];
                 
                 
             }

@@ -11,19 +11,24 @@
 
 @implementation GPSWish
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-        
-    }
-    return self;
-}
 
--(void) execute {
+-(void)execute {
+    
+    // Init
+    
+//    UIViewController *viewController = [self parentViewController];
+//    int hight =viewController.view.frame.size.height/2;
+//    CGRect bounds = CGRectMake(0, hight, viewController.view.frame.size.width, hight+100);
+    // init location
+    
+    CGRect bounds = self.getViewController.view.bounds;
+    
+    subView= [[UIView alloc] initWithFrame:bounds];
+    [subView setBackgroundColor: [UIColor yellowColor]];
+    [self.getViewController.view addSubview:subView];
 
-
+    [self locationInit];
+    
 }
 
 
@@ -65,6 +70,7 @@
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
+    
     NSLog(@"Start gps and get location.");
 }
 
