@@ -48,14 +48,19 @@
     UIImage *image = [UIImage imageNamed: @"tamatama_normal1.png"];
     [dotView setImage:image ];
     
-    UIImage *emo = [UIImage imageNamed: @"happy_smile.png"];
-    [dotView setEmotion:emo];
+//    UIImage *emo = [UIImage imageNamed: @"happy_smile.png"];
+//    [dotView setEmotion:emo];
+
+    [dotView setEmotions: [NSArray arrayWithObjects:
+                           @"unhappy_smile.png",@"neutral_smile.png",@"happy_smile.png",nil]];
     
     UIImage *heart = [UIImage imageNamed: @"heart.png"];
     [dotView setHeart:heart];
     
     UIImage *abc = [UIImage imageNamed: @"abc.png"];
     [dotView setABC:abc];
+    NSString * aBCString = @"                                                0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[/]^_´abcdefghijklmnopqrstuvwxyz(|)";
+    [dotView setABCString:aBCString];
     
     [self setAnimation];
 }
