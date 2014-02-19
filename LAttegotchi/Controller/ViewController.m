@@ -55,6 +55,9 @@
     UIImage *heart = [UIImage imageNamed: @"heart.png"];
     [dotView setHeart:heart];
     
+    UIImage *scull = [UIImage imageNamed: @"scull.png"];
+    [dotView setScull:scull];
+    
     UIImage *abc = [UIImage imageNamed: @"abc.png"];
     [dotView setABC:abc];
     NSString * aBCString = @"                                                0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[/]^_´abcdefghijklmnopqrstuvwxyz(|)";

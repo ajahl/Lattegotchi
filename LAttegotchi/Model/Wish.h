@@ -15,6 +15,7 @@
 @property NSString * discription;
 @property int happiness;
 @property int health;
+@property int value;
 @property NSDate * starttime;
 @property NSDate * deadline;
 @property (nonatomic, retain) NSMutableArray * items;

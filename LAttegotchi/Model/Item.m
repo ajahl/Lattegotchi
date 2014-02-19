@@ -61,15 +61,41 @@
     unichar bag = 0xF4B0;
     
     NSString *subText = @"";
-    subText = [subText stringByAppendingFormat:@"%C +%d", heart, _health];
-    subText = [subText stringByAppendingFormat:@"\t%C +%d", smiley, _happiness];
+    
+    if (_health == 0)
+        subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
+    else if (_health > 0)
+        subText = [subText stringByAppendingFormat:@"%C +%d", heart, _health];
+    else
+        subText = [subText stringByAppendingFormat:@"%C %d", heart, _health];
+    
+    subText = [subText stringByAppendingString:@"\t"];
+    
+    if (_happiness == 0)
+        subText = [subText stringByAppendingFormat:@"%C ±%d", smiley, _happiness];
+    else if (_happiness > 0)
+        subText = [subText stringByAppendingFormat:@"%C +%d", smiley, _happiness];
+    else
+        subText = [subText stringByAppendingFormat:@"%C %d", smiley, _happiness];
     
     switch (usage) {
         case 1:
-            subText = [subText stringByAppendingFormat:@"\t%C %d", bag, _amount];
+            subText = [subText stringByAppendingString:@"\t"];
+            if (_amount == 0)
+                subText = [subText stringByAppendingFormat:@"%C ±%d", bag, _amount];
+            else if (_amount > 0)
+                subText = [subText stringByAppendingFormat:@"%C +%d", bag, _amount];
+            else
+                subText = [subText stringByAppendingFormat:@"%C %d", bag, _amount];
             break;
         case 2:
-            subText = [subText stringByAppendingFormat:@"\t%C %d", skull, _value];
+            subText = [subText stringByAppendingString:@"\t"];
+            if (_value == 0)
+                subText = [subText stringByAppendingFormat:@"%C ±%d", skull, _value];
+            else if (_value > 0)
+                subText = [subText stringByAppendingFormat:@"%C +%d", skull, _value];
+            else
+                subText = [subText stringByAppendingFormat:@"%C %d", skull, _value];
             break;
     }
     

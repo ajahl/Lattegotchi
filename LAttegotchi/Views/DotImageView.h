@@ -12,6 +12,7 @@
     UIImage * image;
     UIImage * heart;
     UIImage * emotion;
+    UIImage * scull;
     UIImage * aBC;
     NSString * aBCString;
     NSArray * emotions;
@@ -23,5 +24,6 @@
 - (void) setHeart : (UIImage *) img;
 - (void) setABC : (UIImage *) img;
 - (void) setABCString : (NSString *) string;
+- (void) setScull : (UIImage *) img;
 
 @end
