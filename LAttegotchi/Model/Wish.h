@@ -18,12 +18,14 @@
 @property int value;
 @property NSDate * starttime;
 @property NSDate * deadline;
+@property (nonatomic, retain) NSMutableArray * items;
+
 
 @property UIViewController * viewController;
 @property UIView * subView;
 
 
-@property (nonatomic, retain) NSMutableArray * items;
+
 
 - (void)initWithViewController:(UIViewController *) controller;
 - (void)execute;
