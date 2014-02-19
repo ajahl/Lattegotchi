@@ -15,6 +15,7 @@
 #import "MysteryMathWish.h"
 #import "MysteryLetterWish.h"
 #import "Item.h"
+#import "WishFactory.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
 #define MINWISHTIME         5//60*1     /* SECONDS */
@@ -142,11 +143,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        MysteryMathWish* wish = [[MysteryMathWish alloc] init];
-        wish.name = @"Wish";
-        wish.discription = @"Wish Description";
-        wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;
-        wish.health = rand() % (MAXWISHHEALTH - MINWISHHEALTH) + MINWISHHEALTH;
+        Wish* wish = (Wish*)[WishFactory createItemWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
