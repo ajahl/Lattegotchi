@@ -19,11 +19,15 @@
 @property NSDate * deadline;
 
 @property UIViewController * viewController;
+@property UIView * subView;
+
 
 @property (nonatomic, retain) NSMutableArray * items;
 
 - (id)initViewController:(UIViewController *) controller;
 - (void)execute;
 -(UIViewController *)getViewController;
+-(UIView *)getSubView;
+
 
 @end

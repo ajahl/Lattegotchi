@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Wish.h"
+#import "GPSWish.h"
 
 
 @interface TableViewController : UITableViewController
@@ -16,6 +17,6 @@
 
 @property int currentTableView;
 
-@property Wish *activeWish;
+@property GPSWish *activeWish;
 
 @end

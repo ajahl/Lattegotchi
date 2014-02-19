@@ -7,6 +7,7 @@
 //
 
 #import "Wish.h"
+#import "AppDelegate.h"
 
 #define ASCWishName @"wishName"
 #define ASCWishDescription @"wishDescription"
@@ -32,6 +33,16 @@
     self = [super init];
     if (self) {
         _viewController = controller;
+        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+        UIView *rootView = app.window.rootViewController.view;
+        
+        
+        int hight =rootView.frame.size.height-292;
+        CGRect bounds = CGRectMake(0, 292, rootView.frame.size.width, hight);
+        
+        _subView= [[UIView alloc] initWithFrame:bounds];
+        [_subView setBackgroundColor: [UIColor whiteColor]];
+        [rootView addSubview:_subView];
     }
     return self;
 }
@@ -63,7 +74,11 @@
 }
 
 -(NSString *)getName {
-    return _name;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *starttime = [dateFormat stringFromDate:_starttime];
+    
+    return [_name stringByAppendingFormat:@"\t%@", starttime];;
 }
 
 -(NSString *)getSubText {
@@ -90,6 +105,9 @@
     return _viewController;
 }
 
+-(UIView *)getSubView {
+    return _subView;
+}
 
 -(void)execute {
     
