@@ -42,21 +42,23 @@
     tableViewController.view = tv;
     tableViewController.tableView = tv;
     
-    tableViewController.data = [[self getLAtte] wishes];
-    [(UITableView*)[tableViewController view] reloadData];
-    
     dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
     UIImage *image = [UIImage imageNamed: @"tamatama_normal1.png"];
     [dotView setImage:image ];
     
-    UIImage *emo = [UIImage imageNamed: @"happy_smile.png"];
-    [dotView setEmotion:emo];
+//    UIImage *emo = [UIImage imageNamed: @"happy_smile.png"];
+//    [dotView setEmotion:emo];
+
+    [dotView setEmotions: [NSArray arrayWithObjects:
+                           @"unhappy_smile.png",@"neutral_smile.png",@"happy_smile.png",nil]];
     
     UIImage *heart = [UIImage imageNamed: @"heart.png"];
     [dotView setHeart:heart];
     
     UIImage *abc = [UIImage imageNamed: @"abc.png"];
     [dotView setABC:abc];
+    NSString * aBCString = @"                                                0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[/]^_´abcdefghijklmnopqrstuvwxyz(|)";
+    [dotView setABCString:aBCString];
     
     [self setAnimation];
 }
@@ -89,50 +91,31 @@
 - (IBAction)menueSelector:(id)sender{
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    LAttegotchi * latte  = [self getLAtte];
     switch (selectedSegment) {
         case 0:
-            //Whish
+            //Wish
         {
-            NSMutableArray *wishes = [[NSMutableArray alloc] init];
-            for (Wish* wish in [latte wishes]) {
-                if ([wish.starttime compare:[NSDate date]]
-                        == NSOrderedAscending) {
-                    [wishes addObject:wish];
-                }
-            }
-            tableViewController.data = wishes;
             tableViewController.currentTableView = 0;
-
             break;
         }
         case 1:
             //Backpack
         {
-            
-            tableViewController.data = [[app getPlayer] items];
             tableViewController.currentTableView = 1;
-            
             break;
         }
         case 2:
             //Store
             
         {
-            tableViewController.data = [[app getPlayer] items];
             tableViewController.currentTableView = 2;
-            
             break;
         }
         default:
             // bloed
             break;
     }
-    
-    UITableView * t = (UITableView*)[tableViewController view];
-    [t reloadData];
-    
+    [_tableView reloadData];
 }
 
 
@@ -161,10 +144,5 @@
 -(DotImageView *) getDotView {
     return dotView;
 }
-
-
-
-
-
 
 @end

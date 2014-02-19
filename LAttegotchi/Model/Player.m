@@ -50,4 +50,14 @@
     return self;
 }
 
+- (NSArray*) getOwnedItems {
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    for (Item* item in _items) {
+        if (item.amount > 0) {
+            [items addObject:item];
+        }
+    }
+    return items;
+}
+
 @end

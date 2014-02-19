@@ -13,11 +13,15 @@
     UIImage * heart;
     UIImage * emotion;
     UIImage * aBC;
+    NSString * aBCString;
+    NSArray * emotions;
 }
 
 - (void) setImage : (UIImage *) img;
 - (void) setEmotion : (UIImage *) img;
+- (void) setEmotions : (NSArray *) emos;
 - (void) setHeart : (UIImage *) img;
 - (void) setABC : (UIImage *) img;
+- (void) setABCString : (NSString *) string;
 
 @end

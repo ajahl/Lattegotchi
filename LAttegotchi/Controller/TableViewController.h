@@ -10,9 +10,9 @@
 #import "PushWish.h"
 
 
-@interface TableViewController : UITableViewController
-
-@property NSMutableArray * data;
+@interface TableViewController : UITableViewController {
+    NSArray *data;
+}
 
 @property int currentTableView;
 

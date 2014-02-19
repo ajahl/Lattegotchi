@@ -10,6 +10,8 @@
 
 @interface LAttegotchi : NSObject <NSCoding>
 
+- (NSArray*) getActiveWishes;
+
 @property NSString * name;
 @property int happiness;
 @property int health;

@@ -65,6 +65,12 @@
         return;
     }
     
+    if ([lattegotchiname length] > 13) {
+        alert.message = @"Max. 13 chars for LAttegotchiname!";
+        [alert show];
+        return;
+    }
+    
     NSPredicate *allowedRegex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[A-Za-z0-9]*"];
     if (![allowedRegex evaluateWithObject:lattegotchiname]) {
         alert.message = @"Unallowed characters!";

@@ -7,6 +7,7 @@
 //
 
 #import "LAttegotchi.h"
+#import "Wish.h"
 
 #define ASCLAttegotchiName @"lattegotchiName"
 #define ASCLAttegotchiHappiness @"lattegotchiHappiness"
@@ -45,6 +46,18 @@
         _wishes = [aDecoder decodeObjectForKey:ASCLAttegotchiWishes];
     }
     return self;
+}
+
+
+
+- (NSArray*) getActiveWishes {
+    NSMutableArray *wishes = [[NSMutableArray alloc] init];
+    for (Wish* wish in _wishes) {
+        if ([wish.starttime compare:[NSDate date]] == NSOrderedAscending) {
+            [wishes addObject:wish];
+        }
+    }
+    return wishes;
 }
 
 @end

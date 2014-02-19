@@ -10,6 +10,8 @@
 
 @interface Player : NSObject <NSCoding>
 
+- (NSArray*) getOwnedItems;
+
 @property NSString * name;
 @property int money;
 @property int level;
