@@ -11,7 +11,13 @@
 #import "ListItem.h"
 #import "WishViewController.h"
 #import "LAttegotchi.h"
+#import "PushWish.h"
+#import "GPSWish.h"
+#import "MysteryLetterWish.h"
+#import "MysteryMathWish.h"
+#import "Item.h"
 #import "Player.h"
+#import "PushWish.h"
 #import "GPSWish.h"
 #import "Item.h"
 
@@ -178,7 +184,6 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = selectedCell.textLabel.text;
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
@@ -190,17 +195,21 @@
         case 0:
         //Whish
         {
-            if ([wish isKindOfClass:[GPSWish class]]) {
+            if ([wish isKindOfClass:[Wish class]]) {
                 
-//                GPSWish *gpsWish =  [gotchi.wishes objectAtIndex:selectedCell.tag];
-                GPSWish *gpsWish = [[GPSWish alloc] initViewController:app.window.rootViewController];
-                [gpsWish setDistance:25];
-                [gpsWish execute];
+                GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish setDistance:25];
+                [wish execute];
             
-            } else if ([wish isKindOfClass:[Wish class]]) {
+            } else if ([wish isKindOfClass:[PushWish class]]) {
+                PushWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish execute];
                 
-                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
-                [_pushWish execute];
+//                PushWish *pushWish = [gotchi.wishes objectAtIndex:selectedCell.tag];
+                
+//                _pushWish = [[PushWish alloc] initViewController:app.window.rootViewController];
+//                [_pushWish execute];
                 
             
             }

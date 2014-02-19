@@ -28,23 +28,20 @@
     return self;
 }
 
-- (id)initViewController:(UIViewController *) controller
+- (void)initWithViewController:(UIViewController *) controller;
 {
-    self = [super init];
-    if (self) {
-        _viewController = controller;
-        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-        UIView *rootView = app.window.rootViewController.view;
+    _viewController = controller;
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    UIView *rootView = app.window.rootViewController.view;
         
         
-        int hight =rootView.frame.size.height-292;
-        CGRect bounds = CGRectMake(0, 292, rootView.frame.size.width, hight);
+    int hight =rootView.frame.size.height-292;
+    CGRect bounds = CGRectMake(0, 292, rootView.frame.size.width, hight);
         
-        _subView= [[UIView alloc] initWithFrame:bounds];
-        [_subView setBackgroundColor: [UIColor whiteColor]];
-        [rootView addSubview:_subView];
-    }
-    return self;
+    _subView= [[UIView alloc] initWithFrame:bounds];
+    [_subView setBackgroundColor: [UIColor whiteColor]];
+    [rootView addSubview:_subView];
+
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

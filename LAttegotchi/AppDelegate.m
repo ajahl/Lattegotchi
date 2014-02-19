@@ -8,12 +8,16 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Player.h"
 #import "LAttegotchi.h"
 #import "Wish.h"
+#import "GPSWish.h"
+#import "MysteryMathWish.h"
+#import "MysteryLetterWish.h"
 #import "Item.h"
 
-#define MAXWISHTIME         60*5     /* SECONDS */
-#define MINWISHTIME         60*1     /* SECONDS */
+#define MAXWISHTIME         10//60*5     /* SECONDS */
+#define MINWISHTIME         5//60*1     /* SECONDS */
 #define MAXWISHHAPPINESS    10
 #define MINWISHHAPPINESS     5
 #define MAXWISHHEALTH       10
@@ -104,6 +108,8 @@
 }
 
 - (void) startGame {
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    wishesMemory = [lattegotchi getActiveWishes];
     [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
                                    selector:@selector(wishTick:)
@@ -136,7 +142,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [[Wish alloc] init];
+        MysteryMathWish* wish = [[MysteryMathWish alloc] init];
         wish.name = @"Wish";
         wish.discription = @"Wish Description";
         wish.happiness = rand() % (MAXWISHHAPPINESS - MINWISHHAPPINESS) + MINWISHHAPPINESS;
@@ -152,8 +158,17 @@
     return NO;
 }
 
-- (BOOL) isNewWishActive {
-    return NO;
+- (NSArray*) getNewActiveWishes {
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    NSArray* activeWishes = [lattegotchi getActiveWishes];
+    NSMutableArray* newActiveWishes = [[NSMutableArray alloc] init];
+    for (Wish *wish in activeWishes) {
+        if (![wishesMemory containsObject:wish]) {
+            [newActiveWishes addObject:wish];
+        }
+    }
+    wishesMemory = activeWishes;
+    return newActiveWishes;
 }
 
 - (void) wishTick:(NSTimer *) timer {
@@ -161,10 +176,14 @@
     while ([self generateNewWish:lattegotchi]) {
         // generateWishes until death
     }
+    NSArray* newActiveWishes = [self getNewActiveWishes];
+    for (Wish *wish in newActiveWishes) {
+        NSLog(@"newActiveWish: %@", wish.name);
+    }
     [self updateUI];
 }
 
-- (void)finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
+- (void) finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
     player = [[Player alloc] init];
     player.name = playername;
     player.money = 100;
