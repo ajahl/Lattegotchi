@@ -26,6 +26,9 @@
                 item.amount--;
                 latte.happiness = [self mapRange:item.happiness + latte.happiness ];
                 latte.health = [self mapRange:item.health + latte.health ];
+                
+                [latte.wishes removeObject:self];
+                [app updateUI];
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
                                                                 message:@"you need to bye the needed item in your store"

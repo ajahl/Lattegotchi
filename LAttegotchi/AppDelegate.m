@@ -110,6 +110,9 @@
 }
 
 - (void) startGame {
+    ViewController* viewController =  (ViewController*) _window.rootViewController;
+    [viewController.animation startTimer];
+    
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
     wishesMemory = [lattegotchi getActiveWishes];
     [NSTimer scheduledTimerWithTimeInterval:1
@@ -117,9 +120,6 @@
                                    selector:@selector(gameLoop:)
                                    userInfo:nil
                                     repeats:YES];
-    
-    ViewController* viewController =  (ViewController*) _window.rootViewController;
-    [viewController.animation startTimer];
 }
 
 - (void) updateUI {
@@ -188,24 +188,46 @@
     NSArray* wishes = [lattegotchi.wishes copy];
     for (Wish *wish in wishes) {
         if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
-            lattegotchi.happiness -= wish.happiness;
-            lattegotchi.health -= wish.health;
+            if (lattegotchi.happiness - wish.happiness > 100) {
+                lattegotchi.happiness = 100;
+            } else {
+                lattegotchi.happiness -= wish.happiness;
+            }
+            if (lattegotchi.health - wish.health > 100) {
+                lattegotchi.health = 100;
+            } else {
+                lattegotchi.health -= wish.health;
+            }
             [lattegotchi.wishes removeObject:wish];
             if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle: @"You lost!"
-                                            message: nil
-                                           delegate: self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil
-                                      ];
+                [timer invalidate];
+                
+                NSString *message = [NSString stringWithFormat:@"%@ is ", lattegotchi.name];
                 if (lattegotchi.happiness <= 0) {
-                    alert.message = [NSString stringWithFormat:@"%@ ist too sad!", lattegotchi.name];
-                } else if (lattegotchi.health <= 0) {
-                    alert.message = [NSString stringWithFormat:@"%@ ist dead!", lattegotchi.name];
+                    message = [message stringByAppendingString:@"too sad"];
+                }
+                if (lattegotchi.happiness <= 0 && lattegotchi.health <= 0) {
+                    message = [message stringByAppendingString:@"and "];
+                }
+                if (lattegotchi.health <= 0) {
+                    message = [message stringByAppendingString:@"dead"];
                 }
                 
-                [timer invalidate];
+                NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:lattegotchi.birthday];
+                NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:@"HH:mm:ss"];
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+                NSString *formattedDate = [dateFormatter stringFromDate:date];
+                message = [message stringByAppendingFormat:@"!\nHe was alive for %@.", formattedDate];
+                
+                UIAlertView *alert = [[UIAlertView alloc]
+                                      initWithTitle: @"You lost!"
+                                      message: message
+                                      delegate: self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil
+                                      ];
                 [alert show];
             }
         }
