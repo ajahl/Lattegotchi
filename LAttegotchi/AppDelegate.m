@@ -177,7 +177,6 @@
 
 - (void) gameLoop:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    NSLog(@"%d",(int)_debugMode);
     if (!_debugMode) {
         while ([self generateNewWishFor:lattegotchi]) {
             // generateWishes until death

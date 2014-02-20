@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DebugViewController">
             <connections>
+                <outlet property="debugsw" destination="Aza-5d-gkR" id="RrQ-7q-HBR"/>
                 <outlet property="levelLabel" destination="6wj-O7-Rw9" id="70i-dy-eNa"/>
                 <outlet property="levelstepper" destination="GrH-zV-VFO" id="uj2-U2-iOC"/>
                 <outlet property="view" destination="1" id="RTL-Mq-dYZ"/>
@@ -106,7 +107,6 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="buttonShake:" destination="-1" eventType="touchDown" id="YC8-6x-Mh3"/>
                         <action selector="buttonStroke:" destination="-1" eventType="touchDown" id="2Le-9j-S54"/>
                     </connections>
                 </button>

@@ -45,6 +45,9 @@
     Player *player = [app getPlayer];
     [_levelstepper setValue:player.level];
     [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
+    
+    [_debugsw setOn:app.debugMode];
+   
 }
 
 - (void)didReceiveMemoryWarning

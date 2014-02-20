@@ -12,6 +12,7 @@
 
 @property IBOutlet UILabel * levelLabel;
 @property IBOutlet UIStepper * levelstepper;
+@property IBOutlet UISwitch * debugsw;
 
 - (IBAction)buttonItem:(id)sender;
 - (IBAction)buttonGPS:(id)sender;
