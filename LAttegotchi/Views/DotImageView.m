@@ -70,6 +70,12 @@ int padding = 1;
 
 - (void) drawMoney : (int) dX :  (int) dY{
     // draw scull ------------------------------------------------------
+    if (!scull)
+        return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(scull.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
+    
     CGSize scullSize = scull.size;
     
     for (int y = 0; y<scullSize.height; y++ ) {
@@ -77,7 +83,7 @@ int padding = 1;
             int currentY = dY+1+y;
             int currentX = dX+x;
             
-            if( [self isPixelSet:scull :x :y]) {
+            if( [self isPixelSetAt:data :x :y :scull.size]) {
                 [self drawDot:currentX :currentY :[UIColor greenColor]];
             }
             else {
@@ -99,8 +105,11 @@ int padding = 1;
 }
 
 -(void) drawChar: (NSString *) cHar : (int) matrixX : (int) matrixY : (int)dX : (int) dY {
-    if(!aBCString)
+    if(!aBCString||!aBC)
         return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(aBC.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
     
     int rows = 16;
     NSRange range = [aBCString rangeOfString:cHar];
@@ -110,7 +119,7 @@ int padding = 1;
     
     for (int y = 0; y < 8; y++ ) {
         for (int x = 0; x < 5 ; x++) {
-            if( ![self isPixelSet:aBC :x +abcIndexX :y +abcIndexY]) {
+            if( ![self isPixelSetAt:data :x +abcIndexX :y +abcIndexY: aBC.size]) {
                 [self drawDot:x+ (matrixX*5)+dX :y+ (matrixY*8)+dY:[UIColor blackColor]];
             }
         }
@@ -118,11 +127,16 @@ int padding = 1;
 }
 
 -(void) drawImage {
+    if (!image)
+        return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(image.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
     
     // draw dotmatrix ------------------------------------------------------
     for (int y = 0; y<DOT_MATRIX; y++ ) {
         for (int x = 0; x<DOT_MATRIX; x++) {
-            if( [self isPixelSet:image :x :y]) {
+            if( [self isPixelSetAt:data :x :y : image.size]) {
                 [self drawDot:x :y :[UIColor greenColor]];
             }
             else {
@@ -130,9 +144,17 @@ int padding = 1;
             }
         }
     }
+    
+    CFRelease(pixelData);
 }
 
 -(void) drawHealth {
+    if(!heart)
+        return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(heart.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
+    
     
     // draw health ------------------------------------------------------
     int healthValue = [[self getLAtte] health];
@@ -151,7 +173,7 @@ int padding = 1;
         for (int x = 0; x<heartSize.height; x++) {
             int currentY = DOT_MATRIX-health+y-11;
             
-            if( [self isPixelSet:heart :x :y]) {
+            if( [self isPixelSetAt:data :x :y :heart.size]) {
                 [self drawDot:x :currentY :[UIColor greenColor]];
             }
             else {
@@ -162,6 +184,8 @@ int padding = 1;
 }
 
 -(void) drawHappiness {
+    
+    
     // draw happiness ------------------------------------------------------
     int happinessValue = [[self getLAtte] happiness];
     int happiness = happinessValue * (DOT_MATRIX-15) / 100;
@@ -176,13 +200,18 @@ int padding = 1;
     int emoIndex =  happinessValue / 34;
     UIImage * eMotion = [UIImage imageNamed:[emotions objectAtIndex:emoIndex]];
     CGSize emoSize = eMotion.size;
+    if(!eMotion)
+        return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(eMotion.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
     
     for (int y = 0; y<emoSize.height; y++ ) {
         for (int x = 0; x<emoSize.height; x++) {
             int currentY = DOT_MATRIX-happiness+y-11;
             int currentX = DOT_MATRIX-eMotion.size.width+x;
             
-            if( [self isPixelSet:eMotion :x :y]) {
+            if( [self isPixelSetAt:data :x :y :eMotion.size]) {
                 [self drawDot:currentX :currentY :[UIColor greenColor]];
             }
             else {
@@ -232,22 +261,16 @@ int padding = 1;
     [self setNeedsDisplay];
 }
 
-- (BOOL)isPixelSet:(UIImage *) img : (int) x :(int) y {
+
+- (BOOL)isPixelSetAt: (const UInt8 * ) data : (int) x : (int) y : (CGSize) size  {
     
-    if ( !img )
-        return NO;
-    
-    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(img.CGImage));
-    const UInt8* data = CFDataGetBytePtr(pixelData);
-    
-    int pixelInfo = ((img.size.width  * y) + x ) * 4;
+    int pixelInfo = ((size.width  * y) + x ) * 4;
     
     UInt8 red = data[pixelInfo];
     UInt8 green = data[(pixelInfo + 1)];
     UInt8 blue = data[pixelInfo + 2];
     UInt8 alpha = data[pixelInfo + 3];
-    CFRelease(pixelData);
-
+    
     if (alpha && red != 255 && blue != 255 && green != 255)
         return NO;
     else
