@@ -64,19 +64,58 @@
     [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonGPS:(id)sender{
-    
+    Wish * wish =  [WishFactory createGPSWish];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
+    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
+    [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonMath:(id)sender{
-    
+    Wish * wish =  [WishFactory createMysteryMathWish];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
+    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
+    [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonPush:(id)sender{
-    
+    Wish * wish =  [WishFactory createPushWish];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
+    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
+    [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonLetter:(id)sender{
-    
+    Wish * wish =  [WishFactory createItemWish];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
+    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
+    [[latte wishes] addObject:wish];
+}
+- (IBAction)buttonStroke:(id)sender{
+    Wish * wish =  (Wish*)[WishFactory createStrokeWish];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
+    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
+    [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonShake:(id)sender{
-    
+    Wish * wish =  [WishFactory createShakeWish];
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
+    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
+    [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonBack:(id)sender{
      [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
