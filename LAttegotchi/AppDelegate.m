@@ -17,8 +17,7 @@
 #import "Item.h"
 #import "WishFactory.h"
 #import "Animation.h"
-#import "NotificationFactory.h"
-#import "DotImageView.h"
+#import "Weather.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
 #define MINWISHTIME         5//60*1     /* SECONDS */
@@ -35,6 +34,7 @@
 {
     // Override point for customization after application launch.
     [self loadModel];
+    [Weather startUpdate];
     return YES;
 }
 							
