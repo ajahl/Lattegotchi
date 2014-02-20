@@ -32,8 +32,8 @@
 - (void)success;
 - (void)deadlineReached;
 - (void)successAlert;
-
 - (void)failedAlert;
+
 -(UIViewController *)getViewController;
 -(UIView *)getSubView;
 

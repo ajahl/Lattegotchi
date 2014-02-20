@@ -231,14 +231,14 @@
 - (void) finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
     player = [[Player alloc] init];
     player.name = playername;
-    player.money = 100;
-    player.level = 20;
+    player.money = 200;
+    player.level = 1;
     
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
     [player.lattegotchies addObject: lattegotchi];
     lattegotchi.name = lattegotchiname;
-    lattegotchi.happiness = 50;
-    lattegotchi.health = 50;
+    lattegotchi.happiness = 80;
+    lattegotchi.health = 80;
     lattegotchi.birthday = [NSDate date];
     
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];

@@ -1,35 +1,32 @@
-//
-//  PushWish.m
-//  LAttegotchi
-//
-//  Created by Codecamp on 18.02.14.
-//  Copyright (c) 2014 Alex Jahl. All rights reserved.
-//
 
 #import "PushWish.h"
 #import "AppDelegate.h"
 
-int timeCounter = 0;
-int clickCounter = 0;
+#define TIME_TIMER_TRIGGER   1  /* seconds */
 
 @implementation PushWish
 @synthesize lblSucceed;
 
-
+// start methode of this wish
 -(void)execute {
     
-    // Init timer
-    [NSTimer scheduledTimerWithTimeInterval:1
+    // init counter variables
+    timeCounter = 0;
+    clickCounter = 0;
+    
+    // init timer
+    [NSTimer scheduledTimerWithTimeInterval:TIME_TIMER_TRIGGER
                     target:self
                     selector:@selector(gameLoop:)
                     userInfo:nil
                     repeats:YES];
     
-    // Init GUI
+    // init gui
     [self createAndInitUI];
     
 }
 
+// called from timer every TIME_TIMER_TRIGGER seconds
 - (void) gameLoop:(NSTimer *) timer {
     
     if (timeCounter == 0) {
@@ -44,7 +41,7 @@ int clickCounter = 0;
     timeCounter++;
 }
 
-
+// create and init gui
 - (void)createAndInitUI
 {
     
@@ -58,7 +55,7 @@ int clickCounter = 0;
     [subView addSubview: lblDecription];
     
     // Add Text Button
-    lblSucceed = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, subView.frame.size.width, 50)];
+    lblSucceed = [[UILabel alloc] initWithFrame:CGRectMake(subView.frame.size.width - 50, 50, subView.frame.size.width, 50)];
     [lblSucceed setText: [NSString stringWithFormat:@"%i", clickCounter]];
     [lblSucceed setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblSucceed];
@@ -107,7 +104,7 @@ int clickCounter = 0;
     [self removeField];
     timeCounter = 0;
     
-    if (clickCounter == 5) {
+    if (clickCounter >= self.numOfpush) {
         AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
         
         NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];

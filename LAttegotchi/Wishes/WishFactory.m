@@ -18,6 +18,9 @@
 #import "ShakeWish.h"
 #import "Item.h"
 
+#define PUSH_PER_WISH             10   /* REAL PUSH = PUSH_PER_WISH * RANDOM NUMBER */
+#define HEALTH_HAPPY_PER_PUSH     2    /*  */
+
 @implementation WishFactory
 
 
@@ -82,13 +85,21 @@
     return wish;
 }
 
+//
 + (PushWish*) createPushWish {
-    PushWish * wish = [[PushWish alloc]init];
     
-    [wish setName:@"WAAHHH ... I want a "];
-    wish.discription = @"Push 5 times on the circules: ";
-    wish.happiness = 30;
-    wish.health = 30;
+    // get delegate and level information
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    int level = [app getPlayer].level;
+    
+    // create new wish and init with parameters
+    PushWish * wish = [[PushWish alloc]init];
+    wish.numOfpush = (arc4random_uniform(PUSH_PER_WISH*level) + 1);
+    wish.name = [NSString stringWithFormat:@"Push %i times", wish.numOfpush];
+    wish.discription = [NSString stringWithFormat:@"Push %i times on the circules: ", wish.numOfpush];
+
+    wish.happiness = wish.numOfpush * HEALTH_HAPPY_PER_PUSH;
+    wish.health = wish.numOfpush * HEALTH_HAPPY_PER_PUSH;
     
     return wish;
 }
@@ -108,6 +119,7 @@
                        [self createItemWish],
                        [self createGPSWish],
                        [self createMysteryMathWish],
+                       [self createPushWish],
                     nil];
     
     int random = arc4random_uniform([wishes count]);
