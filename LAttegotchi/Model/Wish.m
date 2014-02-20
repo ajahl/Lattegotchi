@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
 
+#import <AudioToolbox/AudioToolbox.h>
+
 #define ASCWishName @"wishName"
 #define ASCWishDescription @"wishDescription"
 #define ASCWishHappiness @"wishHappiness"
@@ -161,29 +163,13 @@
     
     lattegotchi.happiness = [self mapRange:lattegotchi.happiness + _happiness];
     lattegotchi.health = [self mapRange:lattegotchi.health + _health];
-    player.money = [self mapRange:player.money + _value];
+    player.money += _value;
     
     [lattegotchi.wishes removeObject:self];
     
     [app updateUI];
-}
-
-// show this alert if wish was successfully
-- (void)successAlert {
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     
-    NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
-    
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"Congratulations :-)"
-                          message: nil
-                          delegate: nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil
-                          ];
-    NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
-    alert.message = msg;
-    [alert show];
+    AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 }
 
 - (void)failedAlert {
