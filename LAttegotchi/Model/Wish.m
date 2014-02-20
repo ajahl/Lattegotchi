@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
 
+#import <AudioToolbox/AudioToolbox.h>
+
 #define ASCWishName @"wishName"
 #define ASCWishDescription @"wishDescription"
 #define ASCWishHappiness @"wishHappiness"
@@ -36,7 +38,7 @@
     _viewController = controller;
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     UIView *rootView = app.window.rootViewController.view;
-        
+    
         
     int hight =rootView.frame.size.height-292;
     CGRect bounds = CGRectMake(0, 292, rootView.frame.size.width, hight);
@@ -44,6 +46,13 @@
     _subView= [[UIView alloc] initWithFrame:bounds];
     [_subView setBackgroundColor: [UIColor whiteColor]];
     [rootView addSubview:_subView];
+    
+    // add animation
+    _subView.frame = CGRectMake(0, 500, rootView.frame.size.width, hight);
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         _subView.frame = bounds;
+                     }];
 
 }
 
@@ -154,14 +163,17 @@
     
     lattegotchi.happiness = [self mapRange:lattegotchi.happiness + _happiness];
     lattegotchi.health = [self mapRange:lattegotchi.health + _health];
-    player.money = [self mapRange:player.money + _value];
+    player.money += _value;
     
     [lattegotchi.wishes removeObject:self];
     
     [app updateUI];
+    
+    AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 }
 
-- (void)failed {
+
+- (void)deadlineReached {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     Player *player = [app getPlayer];
     LAttegotchi *lattegotchi = [player.lattegotchies objectAtIndex:0];
@@ -172,6 +184,10 @@
     [lattegotchi.wishes removeObject:self];
     
     [app updateUI];
+}
+
+- (BOOL) isAvailable {
+    return YES;
 }
 
 - (int) mapRange:(int) val{

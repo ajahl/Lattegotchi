@@ -16,13 +16,14 @@
     CLLocationManager *locationManager;
     CLLocation *startLocation;
     
-    int distance;
+    
     
     // View
     IBOutlet UILabel *lblDistance;
 }
 
+@property unsigned int const distance;;
+
 - (void)createAndInitUI;
-- (void)setDistance:(int)dist;
 
 @end

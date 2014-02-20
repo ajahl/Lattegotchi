@@ -17,6 +17,8 @@
 #import "Item.h"
 #import "WishFactory.h"
 #import "Animation.h"
+#import "NotificationFactory.h"
+#import "DotImageView.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
 #define MINWISHTIME         5//60*1     /* SECONDS */
@@ -47,7 +49,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [self saveModel];
-    [self createNotifikation];
+    [NotificationFactory createNotifikation];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -110,8 +112,10 @@
 }
 
 - (void) startGame {
-    ViewController* viewController =  (ViewController*) _window.rootViewController;
-    [viewController.animation startTimer];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    ViewController *viewController = [storyboard instantiateInitialViewController];
+    [_window setRootViewController:viewController];
+//    [viewController.animation startTimer];
     
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
     wishesMemory = [lattegotchi getActiveWishes];
@@ -124,7 +128,9 @@
 
 - (void) updateUI {
     ViewController* viewController = (ViewController*) _window.rootViewController;
+    [viewController updateUI];
     [viewController.tableView reloadData];
+    [[viewController animation] updateAnimation];
 }
 
 - (BOOL) generateNewWishFor:(LAttegotchi*) lattegotchi; {
@@ -147,7 +153,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [WishFactory createWish];
+        Wish* wish = (Wish*)[WishFactory createPushWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
@@ -192,7 +198,7 @@
     NSArray* wishes = [lattegotchi.wishes copy];
     for (Wish *wish in wishes) {
         if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
-            [wish failed];
+            [wish deadlineReached];
         }
     }
     
@@ -205,7 +211,7 @@
             message = [message stringByAppendingString:@"too sad"];
         }
         if (lattegotchi.happiness <= 0 && lattegotchi.health <= 0) {
-            message = [message stringByAppendingString:@"and "];
+            message = [message stringByAppendingString:@" and "];
         }
         if (lattegotchi.health <= 0) {
             message = [message stringByAppendingString:@"dead"];
@@ -235,25 +241,36 @@
 - (void) finishedWithPlayername:(NSString *)playername withLAttegotchiName:(NSString *)lattegotchiname {
     player = [[Player alloc] init];
     player.name = playername;
-    player.money = 100;
-    player.level = 20;
+    player.money = 200;
+    player.level = 1;
     
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
     [player.lattegotchies addObject: lattegotchi];
     lattegotchi.name = lattegotchiname;
-    lattegotchi.happiness = 50;
-    lattegotchi.health = 50;
+    lattegotchi.happiness = 80;
+    lattegotchi.health = 80;
     lattegotchi.birthday = [NSDate date];
     
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
-    for (NSDictionary *itemDict in [dict objectForKey:@"items"]) {
-        Item* item = [[Item alloc] init];
-        item.name = [itemDict objectForKey:@"name"];
-        item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
-        item.health = [[itemDict objectForKey:@"health"] intValue];
-        item.value = [[itemDict objectForKey:@"value"] intValue];
-        [player.items addObject:item];
+    NSDictionary* itemsDict = [dict objectForKey:@"items"];
+    NSArray* keys = [itemsDict allKeys];
+    for (NSString* key in keys) {
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *itemDict in [itemsDict objectForKey:key]) {
+            
+            
+            Item* item = [[Item alloc] init];
+            item.name = [itemDict objectForKey:@"name"];
+            item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
+            item.health = [[itemDict objectForKey:@"health"] intValue];
+            item.value = [[itemDict objectForKey:@"value"] intValue];
+            
+            [items addObject:item];
+        }
+        
+        [player.items setObject:items forKey:key];
     }
     
     [self generateNewWishFor:lattegotchi];
@@ -262,44 +279,102 @@
     [self startGame];
 }
 
-- (void) createNotifikation {
-    LAttegotchi * latte = [player.lattegotchies objectAtIndex:0];
-    
-    for (Wish * wish in latte.wishes) {
-        
-        NSMutableString * text =  [[NSMutableString alloc]init];
-        [text appendString:[wish name]];
-        [text appendString:@"Your LAttegotchi needs you, or will die"];
-        
-        [self createNotifikation:wish.starttime:text];
-    }
-}
+//- (void) createNotifikation {
+//    LAttegotchi * latte = [player.lattegotchies objectAtIndex:0];
+//    
+//    for (Wish * wish in latte.wishes) {
+//        
+//        if ([wish.starttime compare:[NSDate date]] == NSOrderedAscending) {
+//            continue;
+//        }
+//        
+//        NSMutableString * text =  [[NSMutableString alloc]init];
+//        [text appendString:[wish name]];
+//        [text appendString:@"Your LAttegotchi needs you, or will die"];
+//        
+//        [self createNotifikation:wish.starttime:text];
+//    }
+//    
+//    
+//    // dead notifier
+//    NSDate * deadTime = [self deadTime];
+//    if (!deadTime)
+//        return;
+//    
+//    NSDate * now = [NSDate date];
+//    
+//    NSTimeInterval interval = [deadTime timeIntervalSinceDate:now];
+//    
+//    for (int i = 1; i < 5; i++ ){
+//        NSDate *sinceNow = [NSDate dateWithTimeIntervalSinceNow:interval/i];
+//        NSMutableString * text =  [[NSMutableString alloc]init];
+//        int next =(int)(interval -interval/i);
+//        NSString * string = nil;
+//        if (next > 0)
+//             string = [NSString stringWithFormat:@"dead in %is", next];
+//        else {
+//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//            formatter.dateFormat = @"yyyy-MM-dd - HH:mm:ss";
+//            
+//            NSDate * birthday = [self getLAttegotchi].birthday;
+//            NSTimeInterval lifeTime = [deadTime timeIntervalSinceDate:birthday];
+//            NSDate *date = [NSDate dateWithTimeIntervalSince1970:lifeTime];
+//            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//            [dateFormatter setDateFormat:@"HH:mm:ss"];
+//            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+//            NSString *formattedDate = [dateFormatter stringFromDate:date];
+//            
+//             string = [NSString stringWithFormat:@"is DEAD after %@", formattedDate ];
+//        }
+//        [text appendString:string];
+//        
+//        [self createNotifikation:sinceNow :text];
+//    }
+//}
+//
+//-(NSDate * ) deadTime {
+//    NSDate * deadTime = nil;
+//    
+//    for (Wish* wish in [self getLAttegotchi ].wishes) {
+//        if ([wish.deadline compare:deadTime] == NSOrderedDescending || deadTime == nil) {
+//            deadTime = wish.deadline;
+//        }
+//    }
+//    
+//    return deadTime;
+//}
+//
+//- (LAttegotchi*) getLAttegotchi {
+//    return [player.lattegotchies objectAtIndex:0];
+//}
 
-- (void) createNotifikation:(NSDate*) date : (NSString * ) text{
-    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-    if (localNotif == nil)
-        return;
-    localNotif.fireDate = date;
-    localNotif.timeZone = [NSTimeZone defaultTimeZone];
-	// Notification details
-    localNotif.alertBody = text;
-	// Set the action button
-    localNotif.alertAction = @"View";
-    
-    localNotif.soundName = UILocalNotificationDefaultSoundName;
-    localNotif.applicationIconBadgeNumber = 1;
-    
-	// Specify custom data for the notification
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"someValue" forKey:@"someKey"];
-    localNotif.userInfo = infoDict;
-    
-	// Schedule the notification
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-}
+
+//- (void) createNotifikation:(NSDate*) date : (NSString * ) text{
+//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+//    if (localNotif == nil)
+//        return;
+//    localNotif.fireDate = date;
+//    localNotif.timeZone = [NSTimeZone defaultTimeZone];
+//	// Notification details
+//    localNotif.alertBody = text;
+//	// Set the action button
+//    localNotif.alertAction = @"View";
+//    
+//    localNotif.soundName = UILocalNotificationDefaultSoundName;
+//    
+//    localNotif.applicationIconBadgeNumber = 1;
+//    
+//	// Specify custom data for the notification
+//    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"someValue" forKey:@"someKey"];
+//    localNotif.userInfo = infoDict;
+//    
+//	// Schedule the notification
+//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+//}
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     ViewController* viewController =  (ViewController*) _window.rootViewController;
-    [viewController.animation stopTimer];
+//    [viewController.animation stopTimer];
     player = nil;
     [self initModel];
 }

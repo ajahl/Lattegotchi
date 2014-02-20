@@ -29,7 +29,7 @@
 {
     
     // create and add view
-    UIView *subView = [self getSubView];
+    UIView *subView = [self subView];
     
     
     
@@ -96,7 +96,7 @@
 - (void) buttonClicked: (id)sender
 {
     NSLog( @"Button clicked." );
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
 
 
@@ -107,7 +107,7 @@
 {
     
     NSLog( @"Close Wish" );
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
 
 

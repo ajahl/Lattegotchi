@@ -12,7 +12,7 @@
 
 @interface Player : NSObject <NSCoding>
 
-- (NSArray*) getOwnedItems;
+- (NSDictionary*) getOwnedItems;
 - (BOOL) buyItem:(Item*)item;
 
 @property NSString * name;
@@ -20,6 +20,6 @@
 @property int level;
 
 @property (nonatomic, retain) NSMutableArray * lattegotchies;
-@property (nonatomic, retain) NSMutableArray * items;
+@property (nonatomic, retain) NSMutableDictionary * items;
 
 @end

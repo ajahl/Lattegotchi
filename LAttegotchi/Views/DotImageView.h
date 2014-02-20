@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DotImageView : UIView {
+@interface DotImageView : UIView <UIGestureRecognizerDelegate>{
     UIImage * image;
     UIImage * heart;
     UIImage * emotion;

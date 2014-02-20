@@ -15,7 +15,7 @@
 
 @implementation ItemWish
 
--(void)execute {
+- (void) execute {
     for (Item *item in self.items) {
         if ([item amount] == 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Needed Item not found"
@@ -30,6 +30,5 @@
     
     [self success];
 }
-
 
 @end

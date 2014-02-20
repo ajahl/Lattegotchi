@@ -11,8 +11,10 @@
 
 
 @interface TableViewController : UITableViewController {
-    NSArray *data;
+    NSDictionary *data;
 }
+
+- (void) reload;
 
 @property int currentTableView;
 

@@ -16,7 +16,7 @@
 		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
 		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
 		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
-		426C23AF18B4E836009125EC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426C23AE18B4E836009125EC /* GameKit.framework */; };
+		4229347918B62F3300A56906 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229347818B62F3300A56906 /* NotificationFactory.m */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -51,6 +51,7 @@
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
 		96CF23FB18B3B586005D3CEB /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23FA18B3B586005D3CEB /* data.plist */; };
+		96D6FB9218B60174002F0A60 /* LabyrithWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D6FB9118B60174002F0A60 /* LabyrithWish.m */; };
 		96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364CF18B4C82A00E65884 /* MysteryMathWish.m */; };
 		96E364D318B4C85A00E65884 /* MysteryLetterWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364D218B4C85A00E65884 /* MysteryLetterWish.m */; };
 		96E364D618B5004D00E65884 /* ShakeWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364D518B5004D00E65884 /* ShakeWish.m */; };
@@ -78,7 +79,8 @@
 		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
 		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
-		426C23AE18B4E836009125EC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4229347718B62F3300A56906 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationFactory.h; path = Factories/NotificationFactory.h; sourceTree = "<group>"; };
+		4229347818B62F3300A56906 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationFactory.m; path = Factories/NotificationFactory.m; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,6 +133,8 @@
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
 		96CF23FA18B3B586005D3CEB /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		96D6FB9018B60174002F0A60 /* LabyrithWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabyrithWish.h; path = Wishes/LabyrithWish.h; sourceTree = "<group>"; };
+		96D6FB9118B60174002F0A60 /* LabyrithWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabyrithWish.m; path = Wishes/LabyrithWish.m; sourceTree = "<group>"; };
 		96E364CE18B4C82A00E65884 /* MysteryMathWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MysteryMathWish.h; path = Wishes/MysteryMathWish.h; sourceTree = "<group>"; };
 		96E364CF18B4C82A00E65884 /* MysteryMathWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MysteryMathWish.m; path = Wishes/MysteryMathWish.m; sourceTree = "<group>"; };
 		96E364D118B4C85A00E65884 /* MysteryLetterWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MysteryLetterWish.h; path = Wishes/MysteryLetterWish.h; sourceTree = "<group>"; };
@@ -147,7 +151,6 @@
 				4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */,
 				4279B5A718B217A300051796 /* UIKit.framework in Frameworks */,
 				4279B5A318B217A300051796 /* Foundation.framework in Frameworks */,
-				426C23AF18B4E836009125EC /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +178,15 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		4229347618B62EB100A56906 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				4229347718B62F3300A56906 /* NotificationFactory.h */,
+				4229347818B62F3300A56906 /* NotificationFactory.m */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		4279B59618B217A300051796 = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +209,6 @@
 		4279B5A118B217A300051796 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				426C23AE18B4E836009125EC /* GameKit.framework */,
 				4279B5A218B217A300051796 /* Foundation.framework */,
 				4279B5A418B217A300051796 /* CoreGraphics.framework */,
 				4279B5A618B217A300051796 /* UIKit.framework */,
@@ -209,6 +220,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				4229347618B62EB100A56906 /* Factories */,
 				421D306218B4A2F90093CE28 /* Animation */,
 				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
@@ -326,6 +338,8 @@
 				9661654B18B39BA70018B3C1 /* GPSWish.m */,
 				96E364CE18B4C82A00E65884 /* MysteryMathWish.h */,
 				96E364CF18B4C82A00E65884 /* MysteryMathWish.m */,
+				96D6FB9018B60174002F0A60 /* LabyrithWish.h */,
+				96D6FB9118B60174002F0A60 /* LabyrithWish.m */,
 				96679CD018B3B649004C2E51 /* PushWish.h */,
 				96679CD118B3B649004C2E51 /* PushWish.m */,
 				96E364D118B4C85A00E65884 /* MysteryLetterWish.h */,
@@ -386,7 +400,7 @@
 					4279B59E18B217A300051796 = {
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -467,6 +481,7 @@
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
 				429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */,
+				96D6FB9218B60174002F0A60 /* LabyrithWish.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
@@ -612,10 +627,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LAttegotchi/LAttegotchi-Prefix.pch";
 				INFOPLIST_FILE = "LAttegotchi/LAttegotchi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -627,10 +644,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LAttegotchi/LAttegotchi-Prefix.pch";
 				INFOPLIST_FILE = "LAttegotchi/LAttegotchi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
