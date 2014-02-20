@@ -161,7 +161,15 @@
     [app updateUI];
 }
 
-- (void)failed {
+- (void)successAlert {
+    
+}
+
+- (void)failedAlert {
+    
+}
+
+- (void)deadlineReached {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     Player *player = [app getPlayer];
     LAttegotchi *lattegotchi = [player.lattegotchies objectAtIndex:0];

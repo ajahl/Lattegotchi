@@ -92,7 +92,6 @@
     NSLog(@">>>>> %i", [txtResult.text intValue]);
     if ([txtResult.text intValue] == num1 + num2) {
         AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-        LAttegotchi *latte = [[app getPlayer].lattegotchies objectAtIndex:0];
         
         NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
         

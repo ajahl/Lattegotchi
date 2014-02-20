@@ -86,6 +86,7 @@
     PushWish * wish = [[PushWish alloc]init];
     
     [wish setName:@"WAAHHH ... I want a "];
+    wish.discription = @"Push 5 times on the circules: ";
     wish.happiness = 30;
     wish.health = 30;
     

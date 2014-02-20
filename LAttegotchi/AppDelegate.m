@@ -147,7 +147,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [WishFactory createWish];
+        Wish* wish = [WishFactory createPushWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
@@ -188,7 +188,7 @@
     NSArray* wishes = [lattegotchi.wishes copy];
     for (Wish *wish in wishes) {
         if ([wish.deadline compare:[NSDate date]] == NSOrderedAscending) {
-            [wish failed];
+            [wish deadlineReached];
         }
     }
     

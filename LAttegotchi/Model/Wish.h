@@ -30,7 +30,10 @@
 - (void)initWithViewController:(UIViewController *) controller;
 - (void)execute;
 - (void)success;
-- (void)failed;
+- (void)deadlineReached;
+- (void)successAlert;
+
+- (void)failedAlert;
 -(UIViewController *)getViewController;
 -(UIView *)getSubView;
 

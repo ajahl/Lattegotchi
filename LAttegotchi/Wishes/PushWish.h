@@ -9,11 +9,11 @@
 #import "Wish.h"
 
 @interface PushWish : Wish {
-    
-    int x;
-    int y;
-    IBOutlet UIButton *btn;
-    
+   IBOutlet UIButton *btn;
 }
+
+
+@property (nonatomic, retain) IBOutlet UILabel *lblSucceed;
+
 
 @end
