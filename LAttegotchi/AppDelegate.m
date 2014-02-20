@@ -56,7 +56,7 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [self loadModel];
-    
+    _debugMode = false;
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
@@ -180,9 +180,13 @@
 
 - (void) gameLoop:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    while ([self generateNewWishFor:lattegotchi]) {
-        // generateWishes until death
+    NSLog(@"%d",(int)_debugMode);
+    if (!_debugMode) {
+        while ([self generateNewWishFor:lattegotchi]) {
+            // generateWishes until death
+        }
     }
+   
     
     // Check for new active Wishes
     NSArray* newActiveWishes = [self getNewActiveWishes];

@@ -20,6 +20,8 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property bool debugMode;
+
 
 - (Player*) getPlayer;
 - (NSString*) getDataFilePath;

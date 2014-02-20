@@ -72,6 +72,34 @@
     return [[self getDataKeys] objectAtIndex:section];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (_currentTableView == 0) {
+        return [super tableView:tableView heightForHeaderInSection:section];
+    }
+    return 22.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (_currentTableView == 0) {
+        return [super tableView:tableView viewForHeaderInSection:section];
+    }
+    
+    CGFloat headerHeight = [self tableView:tableView heightForHeaderInSection:section];
+    
+    UIView* customView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, tableView.bounds.size.width, headerHeight)];
+//    customView.backgroundColor = [UIColor colorWithRed:0 green:232.0f/255.0f blue:1.0f/255.0f alpha:1];
+    customView.backgroundColor = [UIColor lightGrayColor];
+    
+    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, headerHeight)];
+    headerLabel.textColor = [UIColor blackColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:16];
+    
+    headerLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    
+    [customView addSubview:headerLabel];
+    return customView;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.

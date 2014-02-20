@@ -27,8 +27,6 @@
 - (void)execute;
 - (void)success;
 - (void)deadlineReached;
-- (void)successAlert;
-- (void)failedAlert;
 - (BOOL) isAvailable;
 
 

@@ -17,6 +17,7 @@
     NSString * aBCString;
     NSArray * emotions;
     UIImage * wishLamp;
+    int debugTouchCount;
 }
 
 - (void) setImage : (UIImage *) img;
