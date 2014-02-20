@@ -49,15 +49,15 @@
     UIView *subView = [self subView];
     
     // Add Text Button
-    UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, subView.frame.size.width, 50)];
+    UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, subView.frame.size.width, 50)];
     [lblDecription setText: self.discription];
-    [lblDecription setTextColor: [UIColor orangeColor]];
+    [lblDecription setTextColor: [UIColor colorWithRed:0 green:202.0f/255.0f blue:1.0f/255.0f alpha:1.0f]];
     [subView addSubview: lblDecription];
     
     // Add Text Button
-    lblSucceed = [[UILabel alloc] initWithFrame:CGRectMake(subView.frame.size.width - 50, 50, subView.frame.size.width, 50)];
+    lblSucceed = [[UILabel alloc] initWithFrame:CGRectMake(subView.frame.size.width - 50, 20, subView.frame.size.width, 50)];
     [lblSucceed setText: [NSString stringWithFormat:@"%i", clickCounter]];
-    [lblSucceed setTextColor: [UIColor orangeColor]];
+    [lblSucceed setTextColor: [UIColor colorWithRed:0 green:202.0f/255.0f blue:1.0f/255.0f alpha:1.0f]];
     [subView addSubview: lblSucceed];
 
     
@@ -113,6 +113,7 @@
     }
 }
 
+//
 - (void) clickedReturn: (id)sender
 {
     [[self subView] removeFromSuperview];
