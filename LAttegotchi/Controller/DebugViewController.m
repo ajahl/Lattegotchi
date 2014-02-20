@@ -40,6 +40,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
+    
+    [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
 }
 
 - (void)didReceiveMemoryWarning

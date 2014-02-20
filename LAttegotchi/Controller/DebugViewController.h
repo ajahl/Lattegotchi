@@ -8,6 +8,11 @@
 
 
 @interface DebugViewController : UIViewController
+
+
+@property IBOutlet UILabel * levelLabel;
+
+
 - (IBAction)buttonItem:(id)sender;
 - (IBAction)buttonGPS:(id)sender;
 - (IBAction)buttonMath:(id)sender;
@@ -18,5 +23,8 @@
 - (IBAction)buttonMoney:(id)sender;
 - (IBAction)buttonHappyHealth:(id)sender;
 - (IBAction)switchDebugMode:(id)sender;
+- (IBAction)stepperLevel:(id)sender;
+
+
 
 @end
