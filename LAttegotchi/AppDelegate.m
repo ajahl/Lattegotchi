@@ -110,7 +110,9 @@
 }
 
 - (void) startGame {
-    ViewController* viewController =  (ViewController*) _window.rootViewController;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    ViewController *viewController = [storyboard instantiateInitialViewController];
+    [_window setRootViewController:viewController];
     [viewController.animation startTimer];
     
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
@@ -202,7 +204,7 @@
             message = [message stringByAppendingString:@"too sad"];
         }
         if (lattegotchi.happiness <= 0 && lattegotchi.health <= 0) {
-            message = [message stringByAppendingString:@"and "];
+            message = [message stringByAppendingString:@" and "];
         }
         if (lattegotchi.health <= 0) {
             message = [message stringByAppendingString:@"dead"];
