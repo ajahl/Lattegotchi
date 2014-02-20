@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420523D318B6580000B5C411 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523D118B6580000B5C411 /* sun.png */; };
+		420523D418B6580000B5C411 /* sun2.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523D218B6580000B5C411 /* sun2.png */; };
+		420523D618B6591A00B5C411 /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523D518B6591A00B5C411 /* cloud.png */; };
 		421D306518B4A3D80093CE28 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306418B4A3D80093CE28 /* Animation.m */; };
 		421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306718B4A9070093CE28 /* HappyAnimation.m */; };
 		421D306F18B4AF440093CE28 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306918B4AF440093CE28 /* a.png */; };
@@ -72,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420523D118B6580000B5C411 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
+		420523D218B6580000B5C411 /* sun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun2.png; path = Resources/sun2.png; sourceTree = "<group>"; };
+		420523D518B6591A00B5C411 /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud.png; path = Resources/cloud.png; sourceTree = "<group>"; };
 		421D306318B4A3D80093CE28 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = Animations/Animation.h; sourceTree = "<group>"; };
 		421D306418B4A3D80093CE28 /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = Animations/Animation.m; sourceTree = "<group>"; };
 		421D306618B4A9070093CE28 /* HappyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimation.h; path = Animations/HappyAnimation.h; sourceTree = "<group>"; };
@@ -283,6 +289,9 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				420523D518B6591A00B5C411 /* cloud.png */,
+				420523D118B6580000B5C411 /* sun.png */,
+				420523D218B6580000B5C411 /* sun2.png */,
 				42B9346418B64622002E6B58 /* wish_lamp.png */,
 				42B9346518B64622002E6B58 /* icon.png */,
 				421D307518B4AFB50093CE28 /* abc.png */,
@@ -464,6 +473,9 @@
 				421D307118B4AF440093CE28 /* happy_smile.png in Resources */,
 				42B9346718B64622002E6B58 /* icon.png in Resources */,
 				421D307618B4AFB50093CE28 /* abc.png in Resources */,
+				420523D618B6591A00B5C411 /* cloud.png in Resources */,
+				420523D418B6580000B5C411 /* sun2.png in Resources */,
+				420523D318B6580000B5C411 /* sun.png in Resources */,
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
 				42B9346618B64622002E6B58 /* wish_lamp.png in Resources */,
 				421D306F18B4AF440093CE28 /* a.png in Resources */,
