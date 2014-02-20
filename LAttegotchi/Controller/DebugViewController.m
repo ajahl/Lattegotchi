@@ -91,7 +91,7 @@
     [[latte wishes] addObject:wish];
 }
 - (IBAction)buttonLetter:(id)sender{
-    Wish * wish =  [WishFactory createItemWish];
+    Wish * wish =  [WishFactory createMysteryLetterWish];
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
