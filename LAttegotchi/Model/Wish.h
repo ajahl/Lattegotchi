@@ -29,6 +29,7 @@
 - (void)deadlineReached;
 - (void)successAlert;
 - (void)failedAlert;
+- (BOOL) isAvailable;
 
 
 @end
