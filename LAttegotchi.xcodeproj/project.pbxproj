@@ -16,6 +16,7 @@
 		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
 		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
 		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
+		4229347918B62F3300A56906 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229347818B62F3300A56906 /* NotificationFactory.m */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -76,6 +77,8 @@
 		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
 		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
+		4229347718B62F3300A56906 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationFactory.h; path = Factories/NotificationFactory.h; sourceTree = "<group>"; };
+		4229347818B62F3300A56906 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationFactory.m; path = Factories/NotificationFactory.m; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,6 +173,15 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		4229347618B62EB100A56906 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				4229347718B62F3300A56906 /* NotificationFactory.h */,
+				4229347818B62F3300A56906 /* NotificationFactory.m */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		4279B59618B217A300051796 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +215,7 @@
 		4279B5A818B217A300051796 /* LAttegotchi */ = {
 			isa = PBXGroup;
 			children = (
+				4229347618B62EB100A56906 /* Factories */,
 				421D306218B4A2F90093CE28 /* Animation */,
 				9661654D18B39C0E0018B3C1 /* Wishes */,
 				429A8BD418B3642D00A1DF52 /* Views */,
@@ -449,6 +462,7 @@
 			files = (
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
 				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
+				4229347918B62F3300A56906 /* NotificationFactory.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */,
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
