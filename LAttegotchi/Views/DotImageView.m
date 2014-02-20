@@ -14,11 +14,11 @@
 @implementation DotImageView
 
 #define DOT_MATRIX  64
-#define START_X  0
-#define START_Y  0
+#define START_X     0
+#define START_Y     0
 
 float dotSize = 1;
-int padding = 1;
+int padding     = 1;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -66,6 +66,14 @@ int padding = 1;
 
 //    [self drawMoney: 9 : 52];
     [self drawMoney: 6 : 8];
+    [self drawWiches];
+}
+
+- (void) drawWiches {
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
+    NSString * text =  [NSString stringWithFormat:@"%d", [latte getActiveWishes].count];
+    [self drawText:text:6:52];
 }
 
 - (void) drawMoney : (int) dX :  (int) dY{

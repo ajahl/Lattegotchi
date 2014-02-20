@@ -40,14 +40,15 @@
 }
 
 - (void) tick:(NSTimer *) timer {
-    
+    [self updateAnimation];
+}
+
+-(void) updateAnimation {
     UIImage *image = [UIImage imageNamed:[sprites objectAtIndex:_animationIndex]];
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     ViewController * controller = (ViewController *) app.window.rootViewController;
     
     [[controller getDotView] setImage:image];
-    //        [dotView removeFromSuperview];
-    
     _animationIndex++;
     if ([sprites count]-1 < _animationIndex) {
         _animationIndex = 0;
