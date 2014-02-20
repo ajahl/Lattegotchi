@@ -48,31 +48,15 @@
     
     if ([startLocation distanceFromLocation:newLocation] >= _distance) {
         
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Congratulations :-)"
-                              message: nil
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil
-                              ];
+        [self successAlert];
+        [self success];
         
-        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-        LAttegotchi *latte = [[app getPlayer].lattegotchies objectAtIndex:0];
+        [self locationStop];
+        [[self subView] removeFromSuperview];
         
-        NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
-        
-        
-        
-        NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
-        alert.message = msg;
-        [alert show];
-        
-        
-        [self closeWish];
-        
-        [latte.wishes removeObject:self];
-        
-        [app updateUI];
+//        [latte.wishes removeObject:self];
+//        
+//        [app updateUI];
 
     }
     
@@ -137,15 +121,6 @@
 - (void) buttonClicked: (id)sender
 {
 
-    NSLog( @"Button clicked." );
-    [[self subView] removeFromSuperview];
-}
-
-- (void) closeWish
-{
-    
-    NSLog( @"Close Wish" );
-    [self locationStop];
     [[self subView] removeFromSuperview];
 }
 
