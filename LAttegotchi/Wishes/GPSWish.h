@@ -22,7 +22,7 @@
     IBOutlet UILabel *lblDistance;
 }
 
-@property unsigned int const distance;;
+@property unsigned int const distance;
 
 - (void)createAndInitUI;
 

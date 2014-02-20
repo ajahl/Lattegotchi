@@ -15,10 +15,6 @@
 
 -(void)execute {
     
-    // Generate equation
-//    num1 = arc4random_uniform(50);
-//    num2 = arc4random_uniform(50);
-    
     // Init GUI
     [self createAndInitUI];
     
@@ -30,16 +26,6 @@
     
     // create and add view
     UIView *subView = [self subView];
-    
-    
-    
-    
-    threadProgressView.progress = 0.0;
-    [self performSelectorOnMainThread:
-                            @selector(makeMyProgressBarMoving)
-                            withObject:nil
-                            waitUntilDone:NO];
-    
     
     
     

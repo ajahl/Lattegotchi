@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 #import "Player.h"
 #import "ShakeWish.h"
+#import "StrokeWish.h"
 #import "Item.h"
 
 #define LEVEL_FACTOR             10    /*  */
@@ -131,6 +132,24 @@
     return wish;
 }
 
+//
++ (StrokeWish  *) createStrokeWish {
+    
+    // get delegate and level information
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    int level = [app getPlayer].level;
+    
+    // create new wish and init with parameters
+    StrokeWish * wish = [[StrokeWish alloc]init];
+    wish.strokeNumber = (arc4random_uniform(LEVEL_FACTOR * level) + 1);
+    wish.name = [NSString stringWithFormat:@"Stroke me %i times!", wish.strokeNumber];
+    wish.discription = [NSString stringWithFormat:@"Stroke %i times from left to right: ", wish.strokeNumber];
+    wish.happiness = wish.strokeNumber * HEALTH_HAPPY_PER_PUSH;
+    wish.health = wish.strokeNumber * HEALTH_HAPPY_PER_PUSH;
+    
+    return wish;
+}
+
 + (ShakeWish*) createShakeWish {
     ShakeWish * wish = [[ShakeWish alloc]init];
     
@@ -147,6 +166,7 @@
                        [self createGPSWish],
                        [self createMysteryMathWish],
                        [self createPushWish],
+                       [self createStrokeWish],
                     nil];
     
     NSMutableArray *availableWishes = [[NSMutableArray alloc] init];

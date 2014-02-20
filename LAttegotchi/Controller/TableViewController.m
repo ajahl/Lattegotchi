@@ -20,6 +20,7 @@
 #import "PushWish.h"
 #import "GPSWish.h"
 #import "ShakeWish.h"
+#import "StrokeWish.h"
 #import "Item.h"
 
 
@@ -236,6 +237,11 @@
                 
             } else if ([wish isKindOfClass:[MysteryLetterWish class]]) {
                 MysteryLetterWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [wish initWithViewController:app.window.rootViewController];
+                [wish execute];
+                
+            } else if ([wish isKindOfClass:[StrokeWish class]]) {
+                StrokeWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish initWithViewController:app.window.rootViewController];
                 [wish execute];
                 

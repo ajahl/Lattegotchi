@@ -48,6 +48,7 @@
 		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
 		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
 		59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */; };
+		9614244618B63D8700EAAFB4 /* StrokeWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9614244518B63D8700EAAFB4 /* StrokeWish.m */; };
 		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
 		96679CD218B3B649004C2E51 /* PushWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96679CD118B3B649004C2E51 /* PushWish.m */; };
 		96B9768118B638F90061322D /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B9768018B638F90061322D /* Weather.m */; };
@@ -130,6 +131,8 @@
 		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
 		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
 		59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4.png; path = Resources/tamatama_nomal4.png; sourceTree = "<group>"; };
+		9614244418B63D8700EAAFB4 /* StrokeWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StrokeWish.h; path = Wishes/StrokeWish.h; sourceTree = "<group>"; };
+		9614244518B63D8700EAAFB4 /* StrokeWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StrokeWish.m; path = Wishes/StrokeWish.m; sourceTree = "<group>"; };
 		9661654A18B39BA70018B3C1 /* GPSWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPSWish.h; path = Wishes/GPSWish.h; sourceTree = "<group>"; };
 		9661654B18B39BA70018B3C1 /* GPSWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPSWish.m; path = Wishes/GPSWish.m; sourceTree = "<group>"; };
 		96679CD018B3B649004C2E51 /* PushWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushWish.h; path = Wishes/PushWish.h; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				96E364D218B4C85A00E65884 /* MysteryLetterWish.m */,
 				96E364D418B5004D00E65884 /* ShakeWish.h */,
 				96E364D518B5004D00E65884 /* ShakeWish.m */,
+				9614244418B63D8700EAAFB4 /* StrokeWish.h */,
+				9614244518B63D8700EAAFB4 /* StrokeWish.m */,
 			);
 			name = Wishes;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
+				9614244618B63D8700EAAFB4 /* StrokeWish.m in Sources */,
 				96E364D318B4C85A00E65884 /* MysteryLetterWish.m in Sources */,
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
