@@ -40,6 +40,8 @@
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
 		5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83A18B4EBA300401ED0 /* WishFactory.m */; };
 		5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83D18B4EBB900401ED0 /* ItemWish.m */; };
+		5961520D18B62D4500786D7C /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5961520B18B62D4500786D7C /* DebugViewController.m */; };
+		5961520E18B62D4500786D7C /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5961520C18B62D4500786D7C /* DebugViewController.xib */; };
 		59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */; };
 		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
 		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
@@ -114,6 +116,9 @@
 		5917D83A18B4EBA300401ED0 /* WishFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishFactory.m; path = Wishes/WishFactory.m; sourceTree = "<group>"; };
 		5917D83C18B4EBB900401ED0 /* ItemWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemWish.h; sourceTree = "<group>"; };
 		5917D83D18B4EBB900401ED0 /* ItemWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemWish.m; sourceTree = "<group>"; };
+		5961520A18B62D4500786D7C /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugViewController.h; path = Controller/DebugViewController.h; sourceTree = "<group>"; };
+		5961520B18B62D4500786D7C /* DebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugViewController.m; path = Controller/DebugViewController.m; sourceTree = "<group>"; };
+		5961520C18B62D4500786D7C /* DebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugViewController.xib; path = Controller/DebugViewController.xib; sourceTree = "<group>"; };
 		59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1.png; path = Resources/tamatama_nomal1.png; sourceTree = "<group>"; };
 		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
 		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
@@ -303,6 +308,9 @@
 				96CF23F518B35644005D3CEB /* InitModelViewController.h */,
 				96CF23F618B35644005D3CEB /* InitModelViewController.m */,
 				96CF23F718B35644005D3CEB /* InitModelViewController.xib */,
+				5961520A18B62D4500786D7C /* DebugViewController.h */,
+				5961520B18B62D4500786D7C /* DebugViewController.m */,
+				5961520C18B62D4500786D7C /* DebugViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -417,6 +425,7 @@
 				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
+				5961520E18B62D4500786D7C /* DebugViewController.xib in Resources */,
 				421D307018B4AF440093CE28 /* scull.png in Resources */,
 				421D307218B4AF440093CE28 /* heart.png in Resources */,
 				421D307318B4AF440093CE28 /* neutral_smile.png in Resources */,
@@ -448,6 +457,7 @@
 			files = (
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
 				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
+				5961520D18B62D4500786D7C /* DebugViewController.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */,
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
