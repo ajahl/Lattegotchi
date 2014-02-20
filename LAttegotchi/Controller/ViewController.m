@@ -43,6 +43,7 @@
     tableViewController.tableView = tv;
     
     dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
+    
     UIImage *image = [UIImage imageNamed: @"tamatama_normal1.png"];
     [dotView setImage:image ];
     
@@ -84,6 +85,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) updateUI {
+    [tableViewController reload];
+    [_tableView reloadData];
+}
 
 -(LAttegotchi *) getLAtte {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
@@ -118,7 +123,7 @@
             // bloed
             break;
     }
-    [_tableView reloadData];
+    [self updateUI];
 }
 
 

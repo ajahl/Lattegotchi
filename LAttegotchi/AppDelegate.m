@@ -124,6 +124,7 @@
 
 - (void) updateUI {
     ViewController* viewController = (ViewController*) _window.rootViewController;
+    [viewController updateUI];
     [viewController.tableView reloadData];
 }
 
@@ -243,13 +244,24 @@
     
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
-    for (NSDictionary *itemDict in [dict objectForKey:@"items"]) {
-        Item* item = [[Item alloc] init];
-        item.name = [itemDict objectForKey:@"name"];
-        item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
-        item.health = [[itemDict objectForKey:@"health"] intValue];
-        item.value = [[itemDict objectForKey:@"value"] intValue];
-        [player.items addObject:item];
+    NSDictionary* itemsDict = [dict objectForKey:@"items"];
+    NSArray* keys = [itemsDict allKeys];
+    for (NSString* key in keys) {
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *itemDict in [itemsDict objectForKey:key]) {
+            
+            
+            Item* item = [[Item alloc] init];
+            item.name = [itemDict objectForKey:@"name"];
+            item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
+            item.health = [[itemDict objectForKey:@"health"] intValue];
+            item.value = [[itemDict objectForKey:@"value"] intValue];
+            
+            [items addObject:item];
+        }
+        
+        [player.items setObject:items forKey:key];
     }
     
     [self generateNewWishFor:lattegotchi];
@@ -263,13 +275,70 @@
     
     for (Wish * wish in latte.wishes) {
         
+        if ([wish.starttime compare:[NSDate date]] == NSOrderedAscending) {
+            continue;
+        }
+        
         NSMutableString * text =  [[NSMutableString alloc]init];
         [text appendString:[wish name]];
         [text appendString:@"Your LAttegotchi needs you, or will die"];
         
         [self createNotifikation:wish.starttime:text];
     }
+    
+    
+    // dead notifier
+    NSDate * deadTime = [self deadTime];
+    if (!deadTime)
+        return;
+    
+    NSDate * now = [NSDate date];
+    
+    NSTimeInterval interval = [deadTime timeIntervalSinceDate:now];
+    
+    for (int i = 1; i < 5; i++ ){
+        NSDate *sinceNow = [NSDate dateWithTimeIntervalSinceNow:interval/i];
+        NSMutableString * text =  [[NSMutableString alloc]init];
+        int next =(int)(interval -interval/i);
+        NSString * string = nil;
+        if (next > 0)
+             string = [NSString stringWithFormat:@"dead in %is", next];
+        else {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyy-MM-dd - HH:mm:ss";
+            
+            NSDate * birthday = [self getLAttegotchi].birthday;
+            NSTimeInterval lifeTime = [deadTime timeIntervalSinceDate:birthday];
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:lifeTime];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"HH:mm:ss"];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+            NSString *formattedDate = [dateFormatter stringFromDate:date];
+            
+             string = [NSString stringWithFormat:@"is DEAD after %@", formattedDate ];
+        }
+        [text appendString:string];
+        
+        [self createNotifikation:sinceNow :text];
+    }
 }
+
+-(NSDate * ) deadTime {
+    NSDate * deadTime = nil;
+    
+    for (Wish* wish in [self getLAttegotchi ].wishes) {
+        if ([wish.deadline compare:deadTime] == NSOrderedDescending || deadTime == nil) {
+            deadTime = wish.deadline;
+        }
+    }
+    
+    return deadTime;
+}
+
+- (LAttegotchi*) getLAttegotchi {
+    return [player.lattegotchies objectAtIndex:0];
+}
+
 
 - (void) createNotifikation:(NSDate*) date : (NSString * ) text{
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
@@ -283,6 +352,7 @@
     localNotif.alertAction = @"View";
     
     localNotif.soundName = UILocalNotificationDefaultSoundName;
+    
     localNotif.applicationIconBadgeNumber = 1;
     
 	// Specify custom data for the notification
