@@ -43,6 +43,7 @@
     tableViewController.tableView = tv;
     
     dotView = [[DotImageView alloc] initWithFrame:[_imageView frame]];
+    
     UIImage *image = [UIImage imageNamed: @"tamatama_normal1.png"];
     [dotView setImage:image ];
     

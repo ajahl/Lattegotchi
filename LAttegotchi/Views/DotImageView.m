@@ -275,7 +275,6 @@ int padding = 1;
         return NO;
     else
         return YES;
-    
 }
 
 @end
