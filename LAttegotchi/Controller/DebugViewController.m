@@ -43,8 +43,7 @@
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
-    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
-    
+    [_levelstepper setValue:player.level];
     [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
 }
 
@@ -109,6 +108,12 @@
     ViewController* viewController = (ViewController*) [app window].rootViewController;
     [viewController.tableView reloadData];
     
+}
+- (IBAction)stepperLevel:(id)sender{
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    Player *player = [app getPlayer];
+    player.level = (int)_levelstepper.value;
+    [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
 }
 
 @end

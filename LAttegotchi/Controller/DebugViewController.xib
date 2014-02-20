@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DebugViewController">
             <connections>
                 <outlet property="levelLabel" destination="6wj-O7-Rw9" id="70i-dy-eNa"/>
+                <outlet property="levelstepper" destination="GrH-zV-VFO" id="uj2-U2-iOC"/>
                 <outlet property="view" destination="1" id="RTL-Mq-dYZ"/>
             </connections>
         </placeholder>
