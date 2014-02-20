@@ -12,6 +12,7 @@
     
     int x;
     int y;
+    IBOutlet UIButton *btn;
     
 }
 

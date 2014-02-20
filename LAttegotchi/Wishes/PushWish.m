@@ -26,6 +26,8 @@
 
 - (void) gameLoop:(NSTimer *) timer {
     
+    
+    
 //    x = arc4random_uniform();
 //    y  = arc4random_uniform(50);
 //    
@@ -45,6 +47,11 @@
 
 - (void)createAndInitUI
 {
+//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+//    [tapRecognizer setNumberOfTapsRequired:1];
+//    [tapRecognizer setDelegate:self];
+//    [self.view addGestureRecognizer:tapRecognizer];
+    
     
     // create and add view
     UIView *subView = [self getSubView];
