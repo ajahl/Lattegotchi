@@ -193,6 +193,8 @@
 			children = (
 				42B9346818B64D0E002E6B58 /* NotificationFactory.m */,
 				42B9346918B64D0E002E6B58 /* NotificationFactory.h */,
+				5917D83918B4EBA300401ED0 /* WishFactory.h */,
+				5917D83A18B4EBA300401ED0 /* WishFactory.m */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -346,8 +348,6 @@
 			children = (
 				5917D83C18B4EBB900401ED0 /* ItemWish.h */,
 				5917D83D18B4EBB900401ED0 /* ItemWish.m */,
-				5917D83918B4EBA300401ED0 /* WishFactory.h */,
-				5917D83A18B4EBA300401ED0 /* WishFactory.m */,
 				9661654A18B39BA70018B3C1 /* GPSWish.h */,
 				9661654B18B39BA70018B3C1 /* GPSWish.m */,
 				96E364CE18B4C82A00E65884 /* MysteryMathWish.h */,
