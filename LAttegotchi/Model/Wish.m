@@ -154,7 +154,7 @@
     
     lattegotchi.happiness = [self mapRange:lattegotchi.happiness + _happiness];
     lattegotchi.health = [self mapRange:lattegotchi.health + _health];
-    player.money = [self mapRange:player.money + _value];
+    player.money += _value;
     
     [lattegotchi.wishes removeObject:self];
     
