@@ -31,6 +31,7 @@
 - (void)execute;
 - (void)success;
 - (void)failed;
+- (BOOL) isAvailable;
 -(UIViewController *)getViewController;
 -(UIView *)getSubView;
 

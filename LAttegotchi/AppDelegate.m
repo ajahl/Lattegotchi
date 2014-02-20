@@ -124,6 +124,7 @@
 
 - (void) updateUI {
     ViewController* viewController = (ViewController*) _window.rootViewController;
+    [viewController updateUI];
     [viewController.tableView reloadData];
 }
 
@@ -243,13 +244,24 @@
     
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:dataPath];
-    for (NSDictionary *itemDict in [dict objectForKey:@"items"]) {
-        Item* item = [[Item alloc] init];
-        item.name = [itemDict objectForKey:@"name"];
-        item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
-        item.health = [[itemDict objectForKey:@"health"] intValue];
-        item.value = [[itemDict objectForKey:@"value"] intValue];
-        [player.items addObject:item];
+    NSDictionary* itemsDict = [dict objectForKey:@"items"];
+    NSArray* keys = [itemsDict allKeys];
+    for (NSString* key in keys) {
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *itemDict in [itemsDict objectForKey:key]) {
+            
+            
+            Item* item = [[Item alloc] init];
+            item.name = [itemDict objectForKey:@"name"];
+            item.happiness = [[itemDict objectForKey:@"happiness"] intValue];
+            item.health = [[itemDict objectForKey:@"health"] intValue];
+            item.value = [[itemDict objectForKey:@"value"] intValue];
+            
+            [items addObject:item];
+        }
+        
+        [player.items setObject:items forKey:key];
     }
     
     [self generateNewWishFor:lattegotchi];

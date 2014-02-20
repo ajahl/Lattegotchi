@@ -35,7 +35,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        data = [[NSArray alloc] init];
+        data = [[NSDictionary alloc] init];
     }
     return self;
 }
@@ -62,41 +62,22 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [data count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (_currentTableView == 0) {
+        return [super tableView:tableView titleForHeaderInSection:section];
+    }
+    return [[self getDataKeys] objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    switch (self.currentTableView) {
-        case 0:
-            //Wish
-        {
-            LAttegotchi *latte = [self getLAttegotchi];
-            data = [latte getActiveWishes];
-            break;
-        }
-        case 1:
-            //Backpack
-        {
-            Player *player = [self getPlayer];
-            data = [player getOwnedItems];
-            break;
-        }
-        case 2:
-            //Store
-        {
-            Player *player = [self getPlayer];
-            data = player.items;
-            break;
-        }
-        default:
-        {
-            data = [[NSArray alloc] init];
-            break;
-        }
-    }
-    return [data count];
+    NSArray *keys = [self getDataKeys];
+    NSArray *listItems = [data objectForKey:[keys objectAtIndex:section]];
+    return [listItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,34 +89,44 @@
     }
     
     // Configure the cell...
-    
-    id <ListItem> listItem = [data objectAtIndex:[indexPath row]];
-    
+    NSString *text = @"";
+    NSString *detailText = @"";
     switch (self.currentTableView) {
         case 0:
             //Wish
         {
-            LAttegotchi *latte = [self getLAttegotchi];
-            cell.tag = [latte.wishes indexOfObject:listItem];
+            Wish *wish = [self getItem:indexPath];
+            
+            text = [wish getName];
+            detailText = [wish getSubText];
+            
+//            LAttegotchi *latte = [self getLAttegotchi];
+//            cell.tag = [latte.wishes indexOfObject:wish];
             break;
         }
         case 1:
             //Backpack
         {
-            Player *player = [self getPlayer];
-            cell.tag = [player.items indexOfObject:listItem];
-            break;
+            // fall through
         }
         case 2:
             //Store
         {
-            Player *player = [self getPlayer];
-            cell.tag = [player.items indexOfObject:listItem];
+            Item *item =  [self getItem:indexPath];
+            
+            text = [item getName];
+            detailText = [item getSubText:_currentTableView];
+            
+//            Player *player = [self getPlayer];
+//            NSArray* keys = [player.items allKeys];
+            
+//            cell.tag = [player.items indexOfObject:item];
             break;
         }
     }
-    [[cell textLabel] setText:[listItem getName]];
-    [[cell detailTextLabel] setText:[listItem getSubText:_currentTableView]];
+    
+    [[cell textLabel] setText:text];
+    [[cell detailTextLabel] setText:detailText];
     
     return cell;
 }
@@ -190,13 +181,14 @@
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
     
-    
+    NSString* key = [[self getDataKeys] objectAtIndex:indexPath.section];
+    NSArray* currentArray = [data objectForKey:key];
     
     switch (self.currentTableView) {
         case 0:
         //Whish
         {
-            Wish *wish =  [latte.wishes objectAtIndex:selectedCell.tag];
+            Wish *wish =  [currentArray objectAtIndex:indexPath.row];
             if ([wish isKindOfClass:[GPSWish class]]) {
                 
                 GPSWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
@@ -237,7 +229,7 @@
         case 1:
         //Backpack
         {
-            Item * item  = [[player items] objectAtIndex:[selectedCell tag]];
+            Item * item  = [currentArray objectAtIndex:indexPath.row];
             
             if (![latte useItem:item]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ahhhhh"
@@ -255,7 +247,7 @@
         case 2:
         //Store
         {
-            Item * item  = [[player items] objectAtIndex:[selectedCell tag]];
+            Item * item  = [currentArray objectAtIndex:indexPath.row];
             
             if (![player buyItem:item]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Out of Money"
@@ -276,6 +268,53 @@
     
     
     
+}
+
+- (void) reload {
+    switch (self.currentTableView) {
+        case 0:
+            //Wish
+        {
+            LAttegotchi *latte = [self getLAttegotchi];
+            NSMutableDictionary *tmpData = [[NSMutableDictionary alloc] init];
+            if (latte != nil) {
+                [tmpData setObject:[latte getActiveWishes] forKey:@"asd"];
+            } else {
+                [tmpData setObject:[[NSArray alloc] init] forKey:@"asd"];
+            }
+            data = tmpData;
+            break;
+        }
+        case 1:
+            //Backpack
+        {
+            Player *player = [self getPlayer];
+            data = [player getOwnedItems];
+            break;
+        }
+        case 2:
+            //Store
+        {
+            Player *player = [self getPlayer];
+            data = player.items;
+            break;
+        }
+        default:
+        {
+            data = [[NSDictionary alloc] init];
+            break;
+        }
+    }
+}
+
+- (NSArray*) getDataKeys {
+    return [data allKeys];
+}
+
+- (id) getItem:(NSIndexPath*)indexPath {
+    NSArray *keys = [self getDataKeys];
+    NSArray *dataArray = [data objectForKey:[keys objectAtIndex:indexPath.section]];
+    return [dataArray objectAtIndex:indexPath.row];
 }
 
 - (Player*) getPlayer {

@@ -21,14 +21,17 @@
 @implementation WishFactory
 
 
-+ (ItemWish*) createItemWish{
++ (ItemWish*) createItemWish {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
     ItemWish * wish = [[ItemWish alloc]init];
     Item * item = nil;
     do {
-        int random = arc4random_uniform([[player items] count]);
-        item =[[player items] objectAtIndex:random];
+        NSArray* keys = [player.items allKeys];
+        int random = arc4random_uniform([keys count]);
+        NSArray* items = [player.items objectForKey:[keys objectAtIndex:random]];
+        random = arc4random_uniform([items count]);
+        item = [items objectAtIndex:random];
     } while ([item value] > player.money && player.money > 50 );
    
     
@@ -103,14 +106,21 @@
 }
 
 + (Wish*) createWish {
-    NSArray *wishes = [NSArray arrayWithObjects:
+    NSArray *allWishes = [NSArray arrayWithObjects:
                        [self createItemWish],
                        [self createGPSWish],
                        [self createMysteryMathWish],
                     nil];
     
-    int random = arc4random_uniform([wishes count]);
-    return [wishes objectAtIndex:random];
+    NSMutableArray *availableWishes = [[NSMutableArray alloc] init];
+    for (Wish *wish in allWishes) {
+        if ([wish isAvailable]) {
+            [availableWishes addObject:wish];
+        }
+    }
+    
+    int index = arc4random_uniform([availableWishes count]);
+    return [availableWishes objectAtIndex:index];
 }
 
 @end

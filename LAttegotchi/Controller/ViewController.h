@@ -23,6 +23,7 @@
 @property Animation * animation;
 @property int animationIndex;
 
+- (void) updateUI;
 -(LAttegotchi *) getLAtte;
 -(DotImageView *) getDotView;
 

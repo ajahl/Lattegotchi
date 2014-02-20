@@ -21,7 +21,8 @@
 {
     self = [super init];
     if (self) {
-        _items = [[NSMutableArray alloc] init];
+        _level = 1;
+        _items = [[NSMutableDictionary alloc] init];
         _lattegotchies = [[NSMutableArray alloc] init];
     }
     return self;
@@ -49,14 +50,22 @@
     return self;
 }
 
-- (NSArray*) getOwnedItems {
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    for (Item* item in _items) {
-        if (item.amount > 0) {
-            [items addObject:item];
+- (NSDictionary*) getOwnedItems {
+    NSMutableDictionary *ownedItems = [[NSMutableDictionary alloc] initWithDictionary:_items];
+    
+    NSArray* keys = [_items allKeys];
+    for (NSString *key in keys) {
+        NSMutableArray *items = [[NSMutableArray alloc] initWithArray:[_items objectForKey:key]];
+        for (int i = [items count] - 1; i >= 0; i--) {
+            Item *item = [items objectAtIndex:i];
+            if (item.amount == 0) {
+                [items removeObject:item];
+            }
         }
+        [ownedItems setObject:items forKey:key];
     }
-    return items;
+    
+    return ownedItems;
 }
 
 - (BOOL) buyItem:(Item*)item {

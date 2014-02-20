@@ -84,6 +84,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) updateUI {
+    [tableViewController reload];
+    [_tableView reloadData];
+}
 
 -(LAttegotchi *) getLAtte {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
@@ -118,7 +122,7 @@
             // bloed
             break;
     }
-    [_tableView reloadData];
+    [self updateUI];
 }
 
 

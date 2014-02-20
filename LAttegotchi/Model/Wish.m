@@ -174,6 +174,10 @@
     [app updateUI];
 }
 
+- (BOOL) isAvailable {
+    return YES;
+}
+
 - (int) mapRange:(int) val{
     if (val < 0) {
         return 0;
