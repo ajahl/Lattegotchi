@@ -62,6 +62,12 @@
     UIImage *wishLamp = [UIImage imageNamed: @"wish_lamp.png"];
     [dotView setWishLamp:wishLamp];
     
+    UIImage *sun = [UIImage imageNamed: @"sun.png"];
+    [dotView setSun:sun];
+    
+    UIImage *cloud = [UIImage imageNamed: @"cloud.png"];
+    [dotView setCloud:cloud];
+    
     UIImage *abc = [UIImage imageNamed: @"abc.png"];
     [dotView setABC:abc];
     NSString * aBCString = @"                                                0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[/]^_´abcdefghijklmnopqrstuvwxyz(|)";

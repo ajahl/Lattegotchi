@@ -22,6 +22,11 @@
 #define LEVEL_FACTOR             10    /*  */
 #define HEALTH_HAPPY_PER_PUSH     2    /*  */
 
+#define MAXWISHHAPPINESS    10
+#define MINWISHHAPPINESS     5
+#define MAXWISHHEALTH       10
+#define MINWISHHEALTH        5
+
 @implementation WishFactory
 
 
@@ -68,8 +73,8 @@
     
     wish.distance = arc4random_uniform(LEVEL_FACTOR * level);
     
-    wish.name = [NSString stringWithFormat:@"Go %im?", wish.distance];
-    wish.discription = [NSString stringWithFormat:@"Pleae go %im",  wish.distance];
+    wish.name = @"Walking";
+    wish.discription = [NSString stringWithFormat:@"Please go %im",  wish.distance];
     
     wish.happiness = LEVEL_FACTOR * level;
     wish.health = LEVEL_FACTOR * level;
@@ -89,7 +94,7 @@
     wish.num1 = arc4random_uniform(LEVEL_FACTOR * level);
     wish.num2 = arc4random_uniform(LEVEL_FACTOR * level);
     
-    wish.name = [NSString stringWithFormat:@"What is %i + %i?", wish.num1, wish.num2];
+    wish.name = @"Study Math";
     wish.discription = [NSString stringWithFormat:@"Add %i to %i: ",  wish.num1, wish.num2];
     
     wish.happiness = LEVEL_FACTOR * level;
@@ -118,7 +123,7 @@
     // create new wish and init with parameters
     PushWish * wish = [[PushWish alloc]init];
     wish.numOfpush = (arc4random_uniform(LEVEL_FACTOR * level) + 1);
-    wish.name = [NSString stringWithFormat:@"Push %i times", wish.numOfpush];
+    wish.name = @"Playing";
     wish.discription = [NSString stringWithFormat:@"Push %i times on the circules: ", wish.numOfpush];
 
     wish.happiness = wish.numOfpush * HEALTH_HAPPY_PER_PUSH;
