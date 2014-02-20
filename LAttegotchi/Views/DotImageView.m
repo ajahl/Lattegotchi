@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
 #import "DebugViewController.h"
+#import "Weather.h"
 
 
 @implementation DotImageView
@@ -69,7 +70,58 @@ int padding     = 1;
 
 //    [self drawMoney: 9 : 52];
     [self drawMoney: 6 : 8];
-    [self drawWishes: 8 : 52];
+    [self drawWishes: 6 : 52];
+    [self drawWeather: 34: 3];
+}
+
+- (void) drawWeather : (int) dX :  (int) dY {
+    if (!cloud || !sun)
+        return;
+    
+    enum WeatherType weather = [Weather getWeather];
+    
+    switch (weather) {
+        case SKYISCLEAR:
+        {
+            CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(sun.CGImage));
+            const UInt8* data = CFDataGetBytePtr(pixelData);
+            
+            CGSize sunSize = sun.size;
+            for (int y = 0; y<sunSize.height; y++ ) {
+                for (int x = 0; x<sunSize.width; x++) {
+                    int currentY = dY+1+y;
+                    int currentX = dX+x;
+                    
+                    if( ![self isPixelSetAt:data :x :y :sun.size])  {
+                        [self drawDot:currentX :currentY :[UIColor blackColor]];
+                    }
+                }
+            }
+        }
+        break;
+            
+        default:
+        {
+            CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(sun.CGImage));
+            const UInt8* data = CFDataGetBytePtr(pixelData);
+            
+            CGSize sunSize = sun.size;
+            for (int y = 0; y<sunSize.height; y++ ) {
+                for (int x = 0; x<sunSize.width; x++) {
+                    int currentY = dY+1+y;
+                    int currentX = dX+x;
+                    
+                    if( ![self isPixelSetAt:data :x :y :sun.size])  {
+                        [self drawDot:currentX :currentY :[UIColor blackColor]];
+                    }
+                }
+            }
+        }
+            break;
+    }
+    
+    
+
 }
 
 - (void) drawWishes : (int) dX :  (int) dY{
@@ -99,8 +151,8 @@ int padding     = 1;
     
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
-    NSString * text =  [NSString stringWithFormat:@"%d", [latte getActiveWishes].count];
-    [self drawText:text:dX+wishLamp.size.width :dY];
+    NSString * text =  [NSString stringWithFormat:@"%lu", (unsigned long)[latte getActiveWishes].count];
+    [self drawText:text:dX+wishLamp.size.width+2 :dY];
 }
 
 - (void) drawMoney : (int) dX :  (int) dY{
@@ -148,7 +200,7 @@ int padding     = 1;
     
     int rows = 16;
     NSRange range = [aBCString rangeOfString:cHar];
-    int abcIndex = range.location;
+    int abcIndex = (int) range.location;
     int abcIndexY =  abcIndex / rows * 8;
     int abcIndexX = abcIndex % rows  * 5;
     
@@ -301,6 +353,15 @@ int padding     = 1;
     [self setNeedsDisplay];
 }
 
+- (void) setSun : (UIImage *) img {
+    sun = img;
+    [self setNeedsDisplay];
+}
+
+- (void) setCloud : (UIImage *) img {
+    cloud = img;
+    [self setNeedsDisplay];
+}
 
 
 - (BOOL)isPixelSetAt: (const UInt8 * ) data : (int) x : (int) y : (CGSize) size  {
