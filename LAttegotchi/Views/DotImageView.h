@@ -17,6 +17,8 @@
     NSString * aBCString;
     NSArray * emotions;
     UIImage * wishLamp;
+    UIImage * sun;
+    UIImage * cloud;
     int debugTouchCount;
 }
 
@@ -28,6 +30,7 @@
 - (void) setABCString : (NSString *) string;
 - (void) setScull : (UIImage *) img;
 - (void) setWishLamp : (UIImage *) img;
-    
+- (void) setSun : (UIImage *) img;
+- (void) setCloud : (UIImage *) img;
 
 @end
