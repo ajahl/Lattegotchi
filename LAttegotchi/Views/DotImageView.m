@@ -10,15 +10,17 @@
 
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
+#import "DebugViewController.h"
+
 
 @implementation DotImageView
 
 #define DOT_MATRIX  64
-#define START_X  0
-#define START_Y  0
+#define START_X     0
+#define START_Y     0
 
 float dotSize = 1;
-int padding = 1;
+int padding     = 1;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,6 +35,7 @@ int padding = 1;
     }
     return self;
 }
+
 
 -(void) drawDot :(int)x : (int)y :(UIColor *) color {
     int matrixX = START_X + (padding) * x;
@@ -66,6 +69,38 @@ int padding = 1;
 
 //    [self drawMoney: 9 : 52];
     [self drawMoney: 6 : 8];
+    [self drawWishes: 8 : 52];
+}
+
+- (void) drawWishes : (int) dX :  (int) dY{
+    // draw wish ------------------------------------------------------
+    if (!wishLamp)
+        return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(wishLamp.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
+    
+    CGSize wishSize = wishLamp.size;
+    
+    for (int y = 0; y<wishSize.height; y++ ) {
+        for (int x = 0; x<wishSize.width; x++) {
+            int currentY = dY+1+y;
+            int currentX = dX+x;
+            
+            if( [self isPixelSetAt:data :x :y :wishLamp.size]) {
+                [self drawDot:currentX :currentY :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:currentX :currentY :[UIColor blackColor]];
+            }
+        }
+    }
+
+    
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
+    NSString * text =  [NSString stringWithFormat:@"%d", [latte getActiveWishes].count];
+    [self drawText:text:dX+wishLamp.size.width :dY];
 }
 
 - (void) drawMoney : (int) dX :  (int) dY{
@@ -261,6 +296,12 @@ int padding = 1;
     [self setNeedsDisplay];
 }
 
+- (void) setWishLamp : (UIImage *) img {
+    wishLamp = img;
+    [self setNeedsDisplay];
+}
+
+
 
 - (BOOL)isPixelSetAt: (const UInt8 * ) data : (int) x : (int) y : (CGSize) size  {
     
@@ -277,4 +318,63 @@ int padding = 1;
         return YES;
 }
 
+-(BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch * touch = [[event allTouches] anyObject];
+    CGPoint point = [touch locationInView:self];
+    int x = point.x;
+    int y = point.y;
+    switch (debugTouchCount) {
+        case 0:{
+            if (x>200&&y < 100) {
+                debugTouchCount++;
+            }
+            break;
+        }
+        case 1:{
+            if (x>200&&y > 100) {
+                debugTouchCount++;
+            }
+            break;
+        }
+        case 2:{
+            if (x<200&&y > 100) {
+                NSLog(@"%f , %f" , point.x,point.y);
+                debugTouchCount = 0;
+
+                DebugViewController *debug = [[DebugViewController alloc] initWithNibName: @"DebugViewController" bundle:nil];
+                 AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+                [[app window].rootViewController presentViewController:debug animated:YES completion:NULL];
+                
+            }
+            break;
+        }
+            
+        default:{
+            debugTouchCount = 0;
+            break;
+        }
+            
+    }
+    
+    
+}
+
+- (UIViewController*)viewController
+{
+    for (UIView* next = [self superview]; next; next = next.superview)
+    {
+        UIResponder* nextResponder = [next nextResponder];
+        
+        if ([nextResponder isKindOfClass:[UIViewController class]])
+        {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    
+    return nil;
+}
 @end

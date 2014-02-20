@@ -9,7 +9,7 @@
 #import "NotificationFactory.h"
 
 #import "AppDelegate.h"
-#import "LabyrithWish.h"
+#import "Wish.h"
 #import "LAttegotchi.h"
 #import "Player.h"
 

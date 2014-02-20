@@ -16,7 +16,6 @@
 		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
 		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
 		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
-		4229347918B62F3300A56906 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229347818B62F3300A56906 /* NotificationFactory.m */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -34,12 +33,17 @@
 		429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A8BD618B3649A00A1DF52 /* DotImageView.m */; };
 		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
 		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
+		42B9346618B64622002E6B58 /* wish_lamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B9346418B64622002E6B58 /* wish_lamp.png */; };
+		42B9346718B64622002E6B58 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B9346518B64622002E6B58 /* icon.png */; };
+		42B9346A18B64D0E002E6B58 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B9346818B64D0E002E6B58 /* NotificationFactory.m */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
 		42F729EF18B239A700F15B1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EE18B239A700F15B1F /* Item.m */; };
 		5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83A18B4EBA300401ED0 /* WishFactory.m */; };
 		5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83D18B4EBB900401ED0 /* ItemWish.m */; };
+		5961520D18B62D4500786D7C /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5961520B18B62D4500786D7C /* DebugViewController.m */; };
+		5961520E18B62D4500786D7C /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5961520C18B62D4500786D7C /* DebugViewController.xib */; };
 		59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */; };
 		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
 		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
@@ -47,6 +51,7 @@
 		9614244618B63D8700EAAFB4 /* StrokeWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9614244518B63D8700EAAFB4 /* StrokeWish.m */; };
 		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
 		96679CD218B3B649004C2E51 /* PushWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96679CD118B3B649004C2E51 /* PushWish.m */; };
+		96B9768118B638F90061322D /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B9768018B638F90061322D /* Weather.m */; };
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
 		96CF23FB18B3B586005D3CEB /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23FA18B3B586005D3CEB /* data.plist */; };
@@ -78,8 +83,6 @@
 		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
 		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
-		4229347718B62F3300A56906 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationFactory.h; path = Factories/NotificationFactory.h; sourceTree = "<group>"; };
-		4229347818B62F3300A56906 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationFactory.m; path = Factories/NotificationFactory.m; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +108,10 @@
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
 		42A7586418B2749F00ECC5ED /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
+		42B9346418B64622002E6B58 /* wish_lamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wish_lamp.png; path = Resources/wish_lamp.png; sourceTree = "<group>"; };
+		42B9346518B64622002E6B58 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
+		42B9346818B64D0E002E6B58 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationFactory.m; path = Factories/NotificationFactory.m; sourceTree = "<group>"; };
+		42B9346918B64D0E002E6B58 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationFactory.h; path = Factories/NotificationFactory.h; sourceTree = "<group>"; };
 		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
 		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
 		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
@@ -117,6 +124,9 @@
 		5917D83A18B4EBA300401ED0 /* WishFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishFactory.m; path = Wishes/WishFactory.m; sourceTree = "<group>"; };
 		5917D83C18B4EBB900401ED0 /* ItemWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemWish.h; sourceTree = "<group>"; };
 		5917D83D18B4EBB900401ED0 /* ItemWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemWish.m; sourceTree = "<group>"; };
+		5961520A18B62D4500786D7C /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugViewController.h; path = Controller/DebugViewController.h; sourceTree = "<group>"; };
+		5961520B18B62D4500786D7C /* DebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugViewController.m; path = Controller/DebugViewController.m; sourceTree = "<group>"; };
+		5961520C18B62D4500786D7C /* DebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugViewController.xib; path = Controller/DebugViewController.xib; sourceTree = "<group>"; };
 		59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1.png; path = Resources/tamatama_nomal1.png; sourceTree = "<group>"; };
 		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
 		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
@@ -127,6 +137,8 @@
 		9661654B18B39BA70018B3C1 /* GPSWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPSWish.m; path = Wishes/GPSWish.m; sourceTree = "<group>"; };
 		96679CD018B3B649004C2E51 /* PushWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushWish.h; path = Wishes/PushWish.h; sourceTree = "<group>"; };
 		96679CD118B3B649004C2E51 /* PushWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushWish.m; path = Wishes/PushWish.m; sourceTree = "<group>"; };
+		96B9767F18B638F90061322D /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		96B9768018B638F90061322D /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		96CF23F518B35644005D3CEB /* InitModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModelViewController.h; sourceTree = "<group>"; };
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
@@ -179,8 +191,8 @@
 		4229347618B62EB100A56906 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				4229347718B62F3300A56906 /* NotificationFactory.h */,
-				4229347818B62F3300A56906 /* NotificationFactory.m */,
+				42B9346818B64D0E002E6B58 /* NotificationFactory.m */,
+				42B9346918B64D0E002E6B58 /* NotificationFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -226,6 +238,8 @@
 				42F729E318B238C600F15B1F /* Model */,
 				4279B5B118B217A300051796 /* AppDelegate.h */,
 				4279B5B218B217A300051796 /* AppDelegate.m */,
+				96B9767F18B638F90061322D /* Weather.h */,
+				96B9768018B638F90061322D /* Weather.m */,
 				4279B5B418B217A300051796 /* Main_iPhone.storyboard */,
 				4279B5B718B217A300051796 /* Main_iPad.storyboard */,
 				4279B5BD18B217A300051796 /* Images.xcassets */,
@@ -267,6 +281,8 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				42B9346418B64622002E6B58 /* wish_lamp.png */,
+				42B9346518B64622002E6B58 /* icon.png */,
 				421D307518B4AFB50093CE28 /* abc.png */,
 				421D306918B4AF440093CE28 /* a.png */,
 				421D306A18B4AF440093CE28 /* scull.png */,
@@ -318,6 +334,9 @@
 				96CF23F518B35644005D3CEB /* InitModelViewController.h */,
 				96CF23F618B35644005D3CEB /* InitModelViewController.m */,
 				96CF23F718B35644005D3CEB /* InitModelViewController.xib */,
+				5961520A18B62D4500786D7C /* DebugViewController.h */,
+				5961520B18B62D4500786D7C /* DebugViewController.m */,
+				5961520C18B62D4500786D7C /* DebugViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -436,14 +455,17 @@
 				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
+				5961520E18B62D4500786D7C /* DebugViewController.xib in Resources */,
 				421D307018B4AF440093CE28 /* scull.png in Resources */,
 				421D307218B4AF440093CE28 /* heart.png in Resources */,
 				421D307318B4AF440093CE28 /* neutral_smile.png in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
 				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
 				421D307118B4AF440093CE28 /* happy_smile.png in Resources */,
+				42B9346718B64622002E6B58 /* icon.png in Resources */,
 				421D307618B4AFB50093CE28 /* abc.png in Resources */,
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
+				42B9346618B64622002E6B58 /* wish_lamp.png in Resources */,
 				421D306F18B4AF440093CE28 /* a.png in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 				421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */,
@@ -467,9 +489,10 @@
 			files = (
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
 				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
-				4229347918B62F3300A56906 /* NotificationFactory.m in Sources */,
+				5961520D18B62D4500786D7C /* DebugViewController.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */,
+				96B9768118B638F90061322D /* Weather.m in Sources */,
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
@@ -483,6 +506,7 @@
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				96E364D618B5004D00E65884 /* ShakeWish.m in Sources */,
+				42B9346A18B64D0E002E6B58 /* NotificationFactory.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,

@@ -14,10 +14,11 @@
 #import "GPSWish.h"
 #import "MysteryMathWish.h"
 #import "MysteryLetterWish.h"
+#import "NotificationFactory.h"
 #import "Item.h"
 #import "WishFactory.h"
 #import "Animation.h"
-#import "NotificationFactory.h"
+#import "Weather.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
 #define MINWISHTIME         5//60*1     /* SECONDS */
@@ -34,6 +35,7 @@
 {
     // Override point for customization after application launch.
     [self loadModel];
+    [Weather startUpdate];
     return YES;
 }
 							
@@ -55,7 +57,7 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [self loadModel];
-    
+    _debugMode = false;
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
@@ -114,7 +116,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ViewController *viewController = [storyboard instantiateInitialViewController];
     [_window setRootViewController:viewController];
-    [viewController.animation startTimer];
+//    [viewController.animation startTimer];
     
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
     wishesMemory = [lattegotchi getActiveWishes];
@@ -129,6 +131,7 @@
     ViewController* viewController = (ViewController*) _window.rootViewController;
     [viewController updateUI];
     [viewController.tableView reloadData];
+    [[viewController animation] updateAnimation];
 }
 
 - (BOOL) generateNewWishFor:(LAttegotchi*) lattegotchi; {
@@ -151,7 +154,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [WishFactory createWish];
+        Wish* wish = (Wish*)[WishFactory createPushWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
@@ -178,9 +181,13 @@
 
 - (void) gameLoop:(NSTimer *) timer {
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
-    while ([self generateNewWishFor:lattegotchi]) {
-        // generateWishes until death
+    NSLog(@"%d",(int)_debugMode);
+    if (!_debugMode) {
+        while ([self generateNewWishFor:lattegotchi]) {
+            // generateWishes until death
+        }
     }
+   
     
     // Check for new active Wishes
     NSArray* newActiveWishes = [self getNewActiveWishes];
@@ -368,7 +375,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     ViewController* viewController =  (ViewController*) _window.rootViewController;
-    [viewController.animation stopTimer];
+//    [viewController.animation stopTimer];
     player = nil;
     [self initModel];
 }
