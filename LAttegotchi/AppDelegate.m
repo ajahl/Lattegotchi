@@ -14,6 +14,7 @@
 #import "GPSWish.h"
 #import "MysteryMathWish.h"
 #import "MysteryLetterWish.h"
+#import "NotificationFactory.h"
 #import "Item.h"
 #import "WishFactory.h"
 #import "Animation.h"
