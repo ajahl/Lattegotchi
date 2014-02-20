@@ -48,6 +48,7 @@
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
 		96CF23FB18B3B586005D3CEB /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23FA18B3B586005D3CEB /* data.plist */; };
+		96D6FB9218B60174002F0A60 /* LabyrithWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D6FB9118B60174002F0A60 /* LabyrithWish.m */; };
 		96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364CF18B4C82A00E65884 /* MysteryMathWish.m */; };
 		96E364D318B4C85A00E65884 /* MysteryLetterWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364D218B4C85A00E65884 /* MysteryLetterWish.m */; };
 		96E364D618B5004D00E65884 /* ShakeWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E364D518B5004D00E65884 /* ShakeWish.m */; };
@@ -124,6 +125,8 @@
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
 		96CF23FA18B3B586005D3CEB /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		96D6FB9018B60174002F0A60 /* LabyrithWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabyrithWish.h; path = Wishes/LabyrithWish.h; sourceTree = "<group>"; };
+		96D6FB9118B60174002F0A60 /* LabyrithWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabyrithWish.m; path = Wishes/LabyrithWish.m; sourceTree = "<group>"; };
 		96E364CE18B4C82A00E65884 /* MysteryMathWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MysteryMathWish.h; path = Wishes/MysteryMathWish.h; sourceTree = "<group>"; };
 		96E364CF18B4C82A00E65884 /* MysteryMathWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MysteryMathWish.m; path = Wishes/MysteryMathWish.m; sourceTree = "<group>"; };
 		96E364D118B4C85A00E65884 /* MysteryLetterWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MysteryLetterWish.h; path = Wishes/MysteryLetterWish.h; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 				9661654B18B39BA70018B3C1 /* GPSWish.m */,
 				96E364CE18B4C82A00E65884 /* MysteryMathWish.h */,
 				96E364CF18B4C82A00E65884 /* MysteryMathWish.m */,
+				96D6FB9018B60174002F0A60 /* LabyrithWish.h */,
+				96D6FB9118B60174002F0A60 /* LabyrithWish.m */,
 				96679CD018B3B649004C2E51 /* PushWish.h */,
 				96679CD118B3B649004C2E51 /* PushWish.m */,
 				96E364D118B4C85A00E65884 /* MysteryLetterWish.h */,
@@ -453,6 +458,7 @@
 				42F729EC18B2398F00F15B1F /* Wish.m in Sources */,
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
 				429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */,
+				96D6FB9218B60174002F0A60 /* LabyrithWish.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,

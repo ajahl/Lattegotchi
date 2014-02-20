@@ -19,21 +19,16 @@
 @property NSDate * starttime;
 @property NSDate * deadline;
 @property (nonatomic, retain) NSMutableArray * items;
-
-
 @property UIViewController * viewController;
 @property UIView * subView;
-
-
 
 
 - (void)initWithViewController:(UIViewController *) controller;
 - (void)execute;
 - (void)success;
-- (void)failed;
-- (BOOL) isAvailable;
--(UIViewController *)getViewController;
--(UIView *)getSubView;
+- (void)deadlineReached;
+- (void)successAlert;
+- (void)failedAlert;
 
 
 @end
