@@ -16,7 +16,6 @@
 		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
 		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
 		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
-		4229347918B62F3300A56906 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229347818B62F3300A56906 /* NotificationFactory.m */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -34,6 +33,7 @@
 		429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A8BD618B3649A00A1DF52 /* DotImageView.m */; };
 		42A7586218B2748A00ECC5ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586018B2748A00ECC5ED /* ViewController.m */; };
 		42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7586418B2749F00ECC5ED /* TableViewController.m */; };
+		42B9346A18B64D0E002E6B58 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B9346818B64D0E002E6B58 /* NotificationFactory.m */; };
 		42F729E618B2395300F15B1F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E518B2395300F15B1F /* Player.m */; };
 		42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729E818B2397500F15B1F /* LAttegotchi.m */; };
 		42F729EC18B2398F00F15B1F /* Wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F729EB18B2398F00F15B1F /* Wish.m */; };
@@ -79,8 +79,6 @@
 		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
 		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
-		4229347718B62F3300A56906 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationFactory.h; path = Factories/NotificationFactory.h; sourceTree = "<group>"; };
-		4229347818B62F3300A56906 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationFactory.m; path = Factories/NotificationFactory.m; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,6 +104,8 @@
 		42A7586118B2748A00ECC5ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		42A7586318B2749F00ECC5ED /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Controller/TableViewController.h; sourceTree = "<group>"; };
 		42A7586418B2749F00ECC5ED /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Controller/TableViewController.m; sourceTree = "<group>"; };
+		42B9346818B64D0E002E6B58 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationFactory.m; path = Factories/NotificationFactory.m; sourceTree = "<group>"; };
+		42B9346918B64D0E002E6B58 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationFactory.h; path = Factories/NotificationFactory.h; sourceTree = "<group>"; };
 		42F729E418B2395300F15B1F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
 		42F729E518B2395300F15B1F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
 		42F729E718B2397500F15B1F /* LAttegotchi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAttegotchi.h; path = Model/LAttegotchi.h; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		4229347618B62EB100A56906 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				4229347718B62F3300A56906 /* NotificationFactory.h */,
-				4229347818B62F3300A56906 /* NotificationFactory.m */,
+				42B9346818B64D0E002E6B58 /* NotificationFactory.m */,
+				42B9346918B64D0E002E6B58 /* NotificationFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -486,6 +486,7 @@
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				96E364D618B5004D00E65884 /* ShakeWish.m in Sources */,
+				42B9346A18B64D0E002E6B58 /* NotificationFactory.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
