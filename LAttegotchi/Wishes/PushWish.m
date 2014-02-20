@@ -106,7 +106,6 @@
     
     if (clickCounter >= self.numOfpush) {
         
-        [self successAlert];
         [self success];
         
         [[self subView] removeFromSuperview];
