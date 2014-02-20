@@ -89,13 +89,7 @@
                 subText = [subText stringByAppendingFormat:@"%C %d", bag, _amount];
             break;
         case 2:
-            subText = [subText stringByAppendingString:@"\t"];
-            if (_value == 0)
-                subText = [subText stringByAppendingFormat:@"%C ±%d", skull, _value];
-            else if (_value > 0)
-                subText = [subText stringByAppendingFormat:@"%C +%d", skull, _value];
-            else
-                subText = [subText stringByAppendingFormat:@"%C %d", skull, _value];
+            subText = [subText stringByAppendingFormat:@"\t%C %d", skull, _value];
             break;
     }
     
