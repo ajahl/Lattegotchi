@@ -58,12 +58,20 @@
 }
 
 + (GPSWish*) createGPSWish {
-    GPSWish * wish = [[GPSWish alloc]init];
-    wish.distance = 25;
     
-    [wish setName:@"WAAHHH ... I want a "];
-    wish.happiness = 30;
-    wish.health = 30;
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    int level = [app getPlayer].level;
+    
+    // create new wish and init with parameters
+    GPSWish * wish = [[GPSWish alloc]init];
+    
+    wish.distance = arc4random_uniform(LEVEL_FACTOR * level);
+    
+    wish.name = [NSString stringWithFormat:@"Go %im?", wish.distance];
+    wish.discription = [NSString stringWithFormat:@"Pleae go %im",  wish.distance];
+    
+    wish.happiness = LEVEL_FACTOR * level;
+    wish.health = LEVEL_FACTOR * level;
     
     return wish;
 }
@@ -80,7 +88,7 @@
     wish.num1 = arc4random_uniform(LEVEL_FACTOR * level);
     wish.num2 = arc4random_uniform(LEVEL_FACTOR * level);
     
-    wish.name = [NSString stringWithFormat:@"What is %i + %i ?", wish.num1, wish.num2];
+    wish.name = [NSString stringWithFormat:@"What is %i + %i?", wish.num1, wish.num2];
     wish.discription = [NSString stringWithFormat:@"Add %i to %i: ",  wish.num1, wish.num2];
     
     wish.happiness = LEVEL_FACTOR * level;

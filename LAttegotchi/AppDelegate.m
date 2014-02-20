@@ -151,7 +151,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [WishFactory createMysteryMathWish];
+        Wish* wish = [WishFactory createGPSWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
