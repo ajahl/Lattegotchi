@@ -42,11 +42,11 @@
 #endif
     
     if ([startLocation distanceFromLocation:newLocation] >= _distance) {
-        
+        [[self subView] removeFromSuperview];
         [self success];
         
         [self locationStop];
-        [[self subView] removeFromSuperview];
+        
     }
     
 }

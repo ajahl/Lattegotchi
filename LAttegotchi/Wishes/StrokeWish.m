@@ -1,7 +1,7 @@
 
 #import "StrokeWish.h"
 
-#define DEBUG_STROKEWISH
+//#define DEBUG_STROKEWISH
 
 @implementation StrokeWish
 @synthesize progressView = _progressView;
@@ -51,11 +51,12 @@
 
 - (void) tapped: (id)sender {
     self.progressView.progress =  self.progressView.progress + (1/(float) self.strokeNumber);
+#ifdef DEBUG_STROKEWISH
     NSLog(@"Strokeprogress: %f", self.progressView.progress);
-    
-    if (self.progressView.progress >= 1) {
-        [self success];
+#endif
+    if (self.progressView.progress == 1) {
         [[self subView] removeFromSuperview];
+        [self success];
     }
 }
 

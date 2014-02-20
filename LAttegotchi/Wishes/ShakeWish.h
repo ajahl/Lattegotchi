@@ -8,7 +8,7 @@
 
 #import "Wish.h"
 
-@interface ShakeWish : Wish {
+@interface ShakeWish : Wish <UIAccelerometerDelegate> {
     IBOutlet UILabel *lblShakeProgress;
     IBOutlet UIProgressView * threadProgressView;
 

@@ -76,9 +76,8 @@
 - (void) buttonInputClicked: (id)sender
 {
     if ([txtResult.text intValue] == _num1 + _num2) {
-                
-        [self success];
         [[self subView] removeFromSuperview];
+        [self success];
         
     } else {
         UIAlertView *alert = [[UIAlertView alloc]
