@@ -70,29 +70,13 @@
 
 - (void) buttonClicked: (id)sender
 {
-    NSLog( @"Button clicked." );
     [[self subView] removeFromSuperview];
 }
 
 - (void) buttonInputClicked: (id)sender
 {
-    
     if ([txtResult.text intValue] == _num1 + _num2) {
-        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-        
-        NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
-        
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Congratulations :-)"
-                              message: nil
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil
-                              ];
-        NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
-        alert.message = msg;
-        [alert show];
-        
+                
         [self success];
         [[self subView] removeFromSuperview];
         
@@ -112,10 +96,6 @@
     
     // Remove responder from text field
     [txtResult resignFirstResponder];
-    
-    // Start calulation
-    
-    NSLog( @"Button clicked." );
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField

@@ -48,16 +48,10 @@
     
     if ([startLocation distanceFromLocation:newLocation] >= _distance) {
         
-        [self successAlert];
         [self success];
         
         [self locationStop];
         [[self subView] removeFromSuperview];
-        
-//        [latte.wishes removeObject:self];
-//        
-//        [app updateUI];
-
     }
     
 }

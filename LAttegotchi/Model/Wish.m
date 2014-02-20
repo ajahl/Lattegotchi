@@ -172,9 +172,6 @@
     AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 }
 
-- (void)failedAlert {
-    
-}
 
 - (void)deadlineReached {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication] delegate];

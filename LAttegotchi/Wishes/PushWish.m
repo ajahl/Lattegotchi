@@ -44,7 +44,6 @@
 // create and init gui
 - (void)createAndInitUI
 {
-    
     // create and add view
     UIView *subView = [self subView];
     
