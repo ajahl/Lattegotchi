@@ -18,9 +18,10 @@
     Player* player;
     NSArray* wishesMemory;
 }
-//test
 
 @property (strong, nonatomic) UIWindow *window;
+@property bool debugMode;
+
 
 - (Player*) getPlayer;
 - (NSString*) getDataFilePath;

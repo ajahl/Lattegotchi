@@ -18,7 +18,7 @@
 #import "ShakeWish.h"
 #import "Item.h"
 
-#define PUSH_PER_WISH             10   /* REAL PUSH = PUSH_PER_WISH * RANDOM NUMBER */
+#define LEVEL_FACTOR             10    /*  */
 #define HEALTH_HAPPY_PER_PUSH     2    /*  */
 
 @implementation WishFactory
@@ -58,22 +58,41 @@
 }
 
 + (GPSWish*) createGPSWish {
-    GPSWish * wish = [[GPSWish alloc]init];
-    wish.distance = 25;
     
-    [wish setName:@"WAAHHH ... I want a "];
-    wish.happiness = 30;
-    wish.health = 30;
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    int level = [app getPlayer].level;
+    
+    // create new wish and init with parameters
+    GPSWish * wish = [[GPSWish alloc]init];
+    
+    wish.distance = arc4random_uniform(LEVEL_FACTOR * level);
+    
+    wish.name = [NSString stringWithFormat:@"Go %im?", wish.distance];
+    wish.discription = [NSString stringWithFormat:@"Pleae go %im",  wish.distance];
+    
+    wish.happiness = LEVEL_FACTOR * level;
+    wish.health = LEVEL_FACTOR * level;
     
     return wish;
 }
 
 + (MysteryMathWish*) createMysteryMathWish {
+    
+    // get delegate and level information
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    int level = [app getPlayer].level;
+    
+    // create new wish and init with parameters
     MysteryMathWish * wish = [[MysteryMathWish alloc]init];
     
-    [wish setName:@"WAAHHH ... I want a "];
-    wish.happiness = 30;
-    wish.health = 30;
+    wish.num1 = arc4random_uniform(LEVEL_FACTOR * level);
+    wish.num2 = arc4random_uniform(LEVEL_FACTOR * level);
+    
+    wish.name = [NSString stringWithFormat:@"What is %i + %i?", wish.num1, wish.num2];
+    wish.discription = [NSString stringWithFormat:@"Add %i to %i: ",  wish.num1, wish.num2];
+    
+    wish.happiness = LEVEL_FACTOR * level;
+    wish.health = LEVEL_FACTOR * level;
     
     return wish;
 }
@@ -97,7 +116,7 @@
     
     // create new wish and init with parameters
     PushWish * wish = [[PushWish alloc]init];
-    wish.numOfpush = (arc4random_uniform(PUSH_PER_WISH*level) + 1);
+    wish.numOfpush = (arc4random_uniform(LEVEL_FACTOR * level) + 1);
     wish.name = [NSString stringWithFormat:@"Push %i times", wish.numOfpush];
     wish.discription = [NSString stringWithFormat:@"Push %i times on the circules: ", wish.numOfpush];
 
