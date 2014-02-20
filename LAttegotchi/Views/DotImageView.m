@@ -66,14 +66,38 @@ int padding     = 1;
 
 //    [self drawMoney: 9 : 52];
     [self drawMoney: 6 : 8];
-    [self drawWiches];
+    [self drawWishes: 8 : 52];
 }
 
-- (void) drawWiches {
+- (void) drawWishes : (int) dX :  (int) dY{
+    // draw wish ------------------------------------------------------
+    if (!wishLamp)
+        return;
+    
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(wishLamp.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
+    
+    CGSize wishSize = wishLamp.size;
+    
+    for (int y = 0; y<wishSize.height; y++ ) {
+        for (int x = 0; x<wishSize.width; x++) {
+            int currentY = dY+1+y;
+            int currentX = dX+x;
+            
+            if( [self isPixelSetAt:data :x :y :wishLamp.size]) {
+                [self drawDot:currentX :currentY :[UIColor greenColor]];
+            }
+            else {
+                [self drawDot:currentX :currentY :[UIColor blackColor]];
+            }
+        }
+    }
+
+    
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     NSString * text =  [NSString stringWithFormat:@"%d", [latte getActiveWishes].count];
-    [self drawText:text:6:52];
+    [self drawText:text:dX+wishLamp.size.width :dY];
 }
 
 - (void) drawMoney : (int) dX :  (int) dY{
@@ -268,6 +292,12 @@ int padding     = 1;
     scull = img;
     [self setNeedsDisplay];
 }
+
+- (void) setWishLamp : (UIImage *) img {
+    wishLamp = img;
+    [self setNeedsDisplay];
+}
+
 
 
 - (BOOL)isPixelSetAt: (const UInt8 * ) data : (int) x : (int) y : (CGSize) size  {

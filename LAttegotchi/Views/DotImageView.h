@@ -16,6 +16,7 @@
     UIImage * aBC;
     NSString * aBCString;
     NSArray * emotions;
+    UIImage * wishLamp;
 }
 
 - (void) setImage : (UIImage *) img;
@@ -25,5 +26,7 @@
 - (void) setABC : (UIImage *) img;
 - (void) setABCString : (NSString *) string;
 - (void) setScull : (UIImage *) img;
+- (void) setWishLamp : (UIImage *) img;
+    
 
 @end

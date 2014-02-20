@@ -58,6 +58,9 @@
     
     UIImage *scull = [UIImage imageNamed: @"scull.png"];
     [dotView setScull:scull];
+
+    UIImage *wishLamp = [UIImage imageNamed: @"wish_lamp.png"];
+    [dotView setWishLamp:wishLamp];
     
     UIImage *abc = [UIImage imageNamed: @"abc.png"];
     [dotView setABC:abc];
