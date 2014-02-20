@@ -161,6 +161,7 @@
                        [self createGPSWish],
                        [self createMysteryMathWish],
                        [self createPushWish],
+                       [self createStrokeWish],
                     nil];
     
     NSMutableArray *availableWishes = [[NSMutableArray alloc] init];
