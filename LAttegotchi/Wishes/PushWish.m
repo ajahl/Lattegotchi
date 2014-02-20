@@ -46,7 +46,7 @@
 {
     
     // create and add view
-    UIView *subView = [self getSubView];
+    UIView *subView = [self subView];
     
     // Add Text Button
     UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, subView.frame.size.width, 50)];
@@ -72,11 +72,10 @@
     [subView addSubview: button];
 }
 
-
-
+//
 - (void) createNewField {
     
-    UIView *subView = [self getSubView];
+    UIView *subView = [self subView];
     
     int x = (arc4random_uniform(subView.frame.size.width - 60) + 30);
     int y = (arc4random_uniform(subView.frame.size.height - 60) + 30);
@@ -91,11 +90,12 @@
     [subView addSubview: btn];
 }
 
+//
 - (void) removeField {
     [btn removeFromSuperview];
 }
 
-
+//
 - (void) clickedField: (id)sender
 {
     clickCounter++;
@@ -105,40 +105,17 @@
     timeCounter = 0;
     
     if (clickCounter >= self.numOfpush) {
-        AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
         
-        NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
-        
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Congratulations :-)"
-                              message: nil
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil
-                              ];
-        NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
-        alert.message = msg;
-        [alert show];
-        
+        [self successAlert];
         [self success];
-        [self closeWish];
+        
+        [[self subView] removeFromSuperview];
     }
-    
-    NSLog( @"Button field clicked." );
 }
 
 - (void) clickedReturn: (id)sender
 {
-    NSLog( @"Button clicked." );
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
-
-- (void) closeWish
-{
-    
-    NSLog( @"Close Wish" );
-    [[self getSubView] removeFromSuperview];
-}
-
 
 @end

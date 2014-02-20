@@ -30,7 +30,7 @@
 {
     
     // create and add view
-    UIView *subView = [self getSubView];
+    UIView *subView = [self subView];
     
     // Add Text Button
     UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, subView.frame.size.width, 50)];
@@ -83,7 +83,7 @@
 - (void) buttonClicked: (id)sender
 {
     NSLog( @"Button clicked." );
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
 
 - (void) buttonInputClicked: (id)sender
@@ -135,7 +135,7 @@
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
-    [self getSubView].frame = CGRectMake(0,-10,320,400);
+    [self subView].frame = CGRectMake(0,-10,320,400);
     [UIView commitAnimations];
     
 }
@@ -144,7 +144,7 @@
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
-    [self getSubView].frame = CGRectMake(0, 292,320,400);
+    [self subView].frame = CGRectMake(0, 292,320,400);
     [UIView commitAnimations];
 }
 
@@ -152,7 +152,7 @@
 {
     
     NSLog( @"Close Wish" );
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
 
 

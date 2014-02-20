@@ -14,11 +14,6 @@
 
 @implementation GPSWish
 
--(void)setDistance:(int)dist {
-    distance = dist;
-}
-
-
 -(void)execute {
     
     // Init GUI
@@ -51,7 +46,7 @@
     NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
     NSLog(@"Distance i meters: %f", [startLocation distanceFromLocation:newLocation]);
     
-    if ([startLocation distanceFromLocation:newLocation] >= distance) {
+    if ([startLocation distanceFromLocation:newLocation] >= _distance) {
         
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Congratulations :-)"
@@ -108,7 +103,7 @@
 {
     
     // create and add view
-    UIView *subView = [self getSubView];
+    UIView *subView = [self subView];
     
     // Add Text Button
     UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, subView.frame.size.width, 50)];
@@ -143,7 +138,7 @@
 {
 
     NSLog( @"Button clicked." );
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
 
 - (void) closeWish
@@ -151,7 +146,7 @@
     
     NSLog( @"Close Wish" );
     [self locationStop];
-    [[self getSubView] removeFromSuperview];
+    [[self subView] removeFromSuperview];
 }
 
 

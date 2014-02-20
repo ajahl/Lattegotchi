@@ -161,8 +161,22 @@
     [app updateUI];
 }
 
+// show this alert if wish was successfully
 - (void)successAlert {
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     
+    NSString *name = [[app.getPlayer.lattegotchies objectAtIndex:0] name];
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"Congratulations :-)"
+                          message: nil
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil
+                          ];
+    NSString *msg = [NSString stringWithFormat:@"You fulfilled %@ wish. Thanks!", name];
+    alert.message = msg;
+    [alert show];
 }
 
 - (void)failedAlert {

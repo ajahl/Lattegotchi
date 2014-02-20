@@ -56,7 +56,7 @@
 
 + (GPSWish*) createGPSWish {
     GPSWish * wish = [[GPSWish alloc]init];
-    [wish setDistance:25];
+    wish.distance = 25;
     
     [wish setName:@"WAAHHH ... I want a "];
     wish.happiness = 30;
