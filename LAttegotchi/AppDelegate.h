@@ -18,7 +18,6 @@
     Player* player;
     NSArray* wishesMemory;
 }
-//test
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -18,6 +18,7 @@
 #import "WishFactory.h"
 #import "Animation.h"
 #import "NotificationFactory.h"
+#import "DotImageView.h"
 
 #define MAXWISHTIME         10//60*5     /* SECONDS */
 #define MINWISHTIME         5//60*1     /* SECONDS */
@@ -114,7 +115,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ViewController *viewController = [storyboard instantiateInitialViewController];
     [_window setRootViewController:viewController];
-    [viewController.animation startTimer];
+//    [viewController.animation startTimer];
     
     LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
     wishesMemory = [lattegotchi getActiveWishes];
@@ -129,6 +130,7 @@
     ViewController* viewController = (ViewController*) _window.rootViewController;
     [viewController updateUI];
     [viewController.tableView reloadData];
+    [[viewController animation] updateAnimation];
 }
 
 - (BOOL) generateNewWishFor:(LAttegotchi*) lattegotchi; {
@@ -151,7 +153,7 @@
     }
     
     if (!lattegotchiWouldDie) {
-        Wish* wish = [WishFactory createPushWish];
+        Wish* wish = (Wish*)[WishFactory createPushWish];
         
         int starttime = rand() % (MAXWISHTIME - MINWISHTIME) + MINWISHTIME;
         wish.starttime = [latestBegin dateByAddingTimeInterval:starttime];
@@ -368,7 +370,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     ViewController* viewController =  (ViewController*) _window.rootViewController;
-    [viewController.animation stopTimer];
+//    [viewController.animation stopTimer];
     player = nil;
     [self initModel];
 }

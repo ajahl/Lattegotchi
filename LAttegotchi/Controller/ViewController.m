@@ -70,7 +70,7 @@
 
 -(void) setAnimation {
     if (_animation) {
-        [_animation stopTimer];
+//        [_animation stopTimer];
         _animation = nil;
     }
         

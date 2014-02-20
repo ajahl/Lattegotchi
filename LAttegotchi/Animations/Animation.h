@@ -16,7 +16,9 @@
 @property NSArray * sprites;
 @property int animationIndex;
 
-- (void) startTimer;
--(void) stopTimer;
+//- (void) startTimer;
+//-(void) stopTimer;
+
+-(void) updateAnimation;
 
 @end
