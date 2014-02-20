@@ -45,6 +45,7 @@
 		59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */; };
 		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
 		96679CD218B3B649004C2E51 /* PushWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96679CD118B3B649004C2E51 /* PushWish.m */; };
+		96B9768118B638F90061322D /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B9768018B638F90061322D /* Weather.m */; };
 		96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF23F618B35644005D3CEB /* InitModelViewController.m */; };
 		96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23F718B35644005D3CEB /* InitModelViewController.xib */; };
 		96CF23FB18B3B586005D3CEB /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CF23FA18B3B586005D3CEB /* data.plist */; };
@@ -121,6 +122,8 @@
 		9661654B18B39BA70018B3C1 /* GPSWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPSWish.m; path = Wishes/GPSWish.m; sourceTree = "<group>"; };
 		96679CD018B3B649004C2E51 /* PushWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushWish.h; path = Wishes/PushWish.h; sourceTree = "<group>"; };
 		96679CD118B3B649004C2E51 /* PushWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushWish.m; path = Wishes/PushWish.m; sourceTree = "<group>"; };
+		96B9767F18B638F90061322D /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		96B9768018B638F90061322D /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		96CF23F518B35644005D3CEB /* InitModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModelViewController.h; sourceTree = "<group>"; };
 		96CF23F618B35644005D3CEB /* InitModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModelViewController.m; sourceTree = "<group>"; };
 		96CF23F718B35644005D3CEB /* InitModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitModelViewController.xib; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				42F729E318B238C600F15B1F /* Model */,
 				4279B5B118B217A300051796 /* AppDelegate.h */,
 				4279B5B218B217A300051796 /* AppDelegate.m */,
+				96B9767F18B638F90061322D /* Weather.h */,
+				96B9768018B638F90061322D /* Weather.m */,
 				4279B5B418B217A300051796 /* Main_iPhone.storyboard */,
 				4279B5B718B217A300051796 /* Main_iPad.storyboard */,
 				4279B5BD18B217A300051796 /* Images.xcassets */,
@@ -451,6 +456,7 @@
 				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */,
+				96B9768118B638F90061322D /* Weather.m in Sources */,
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
