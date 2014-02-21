@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4202F4D818B74E8C001250C6 /* HappyAnimationLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4202F4D318B74E8C001250C6 /* HappyAnimationLevel2.m */; };
+		4202F4D918B74E8C001250C6 /* HappyAnimationLevel3.m in Sources */ = {isa = PBXBuildFile; fileRef = 4202F4D518B74E8C001250C6 /* HappyAnimationLevel3.m */; };
+		4202F4DA18B74E8C001250C6 /* HappyAnimationLevel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 4202F4D718B74E8C001250C6 /* HappyAnimationLevel4.m */; };
+		4202F4DD18B74FD2001250C6 /* HappyAnimationLevel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4202F4DC18B74FD2001250C6 /* HappyAnimationLevel1.m */; };
+		4202F4F318B75495001250C6 /* tamatama_nomal1L5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4DF18B75495001250C6 /* tamatama_nomal1L5.png */; };
+		4202F4F418B75495001250C6 /* tamatama_nomal4L5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E018B75495001250C6 /* tamatama_nomal4L5.png */; };
+		4202F4F518B75495001250C6 /* tamatama_nomal3L5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E118B75495001250C6 /* tamatama_nomal3L5.png */; };
+		4202F4F618B75495001250C6 /* tamatama_nomal2L5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E218B75495001250C6 /* tamatama_nomal2L5.png */; };
+		4202F4F718B75495001250C6 /* tamatama_nomal1L4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E318B75495001250C6 /* tamatama_nomal1L4.png */; };
+		4202F4F818B75495001250C6 /* tamatama_nomal4L4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E418B75495001250C6 /* tamatama_nomal4L4.png */; };
+		4202F4F918B75495001250C6 /* tamatama_nomal3L4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E518B75495001250C6 /* tamatama_nomal3L4.png */; };
+		4202F4FA18B75495001250C6 /* tamatama_nomal2L4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E618B75495001250C6 /* tamatama_nomal2L4.png */; };
+		4202F4FB18B75495001250C6 /* tamatama_nomal1L3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E718B75495001250C6 /* tamatama_nomal1L3.png */; };
+		4202F4FC18B75495001250C6 /* tamatama_nomal4L3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E818B75495001250C6 /* tamatama_nomal4L3.png */; };
+		4202F4FD18B75495001250C6 /* tamatama_nomal3L3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4E918B75495001250C6 /* tamatama_nomal3L3.png */; };
+		4202F4FE18B75495001250C6 /* tamatama_nomal2L3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4EA18B75495001250C6 /* tamatama_nomal2L3.png */; };
+		4202F4FF18B75495001250C6 /* tamatama_nomal1L2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4EB18B75495001250C6 /* tamatama_nomal1L2.png */; };
+		4202F50018B75495001250C6 /* tamatama_nomal4L2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4EC18B75495001250C6 /* tamatama_nomal4L2.png */; };
+		4202F50118B75495001250C6 /* tamatama_nomal3L2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4ED18B75495001250C6 /* tamatama_nomal3L2.png */; };
+		4202F50218B75495001250C6 /* tamatama_nomal2L2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4EE18B75495001250C6 /* tamatama_nomal2L2.png */; };
+		4202F50318B75495001250C6 /* tamatama_nomal3L1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4EF18B75495001250C6 /* tamatama_nomal3L1.png */; };
+		4202F50418B75495001250C6 /* tamatama_nomal4L1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4F018B75495001250C6 /* tamatama_nomal4L1.png */; };
+		4202F50518B75495001250C6 /* tamatama_nomal1L1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4F118B75495001250C6 /* tamatama_nomal1L1.png */; };
+		4202F50618B75495001250C6 /* tamatama_nomal2L1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F4F218B75495001250C6 /* tamatama_nomal2L1.png */; };
+		4202F50918B75576001250C6 /* HappyAnimationLevel5.m in Sources */ = {isa = PBXBuildFile; fileRef = 4202F50718B75576001250C6 /* HappyAnimationLevel5.m */; };
+		4202F50D18B75D80001250C6 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F50A18B75D80001250C6 /* rain.png */; };
+		4202F50E18B75D80001250C6 /* cloudsun.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F50B18B75D80001250C6 /* cloudsun.png */; };
+		4202F50F18B75D80001250C6 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4202F50C18B75D80001250C6 /* cloud2.png */; };
 		420523D318B6580000B5C411 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523D118B6580000B5C411 /* sun.png */; };
 		420523D418B6580000B5C411 /* sun2.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523D218B6580000B5C411 /* sun2.png */; };
 		420523D618B6591A00B5C411 /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523D518B6591A00B5C411 /* cloud.png */; };
@@ -20,7 +48,6 @@
 		420523E718B6603100B5C411 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523E518B6603100B5C411 /* icon58.png */; };
 		420523E818B6603100B5C411 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 420523E618B6603100B5C411 /* icon80.png */; };
 		421D306518B4A3D80093CE28 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306418B4A3D80093CE28 /* Animation.m */; };
-		421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D306718B4A9070093CE28 /* HappyAnimation.m */; };
 		421D306F18B4AF440093CE28 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306918B4AF440093CE28 /* a.png */; };
 		421D307018B4AF440093CE28 /* scull.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306A18B4AF440093CE28 /* scull.png */; };
 		421D307118B4AF440093CE28 /* happy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306B18B4AF440093CE28 /* happy_smile.png */; };
@@ -56,10 +83,6 @@
 		5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5917D83D18B4EBB900401ED0 /* ItemWish.m */; };
 		5961520D18B62D4500786D7C /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5961520B18B62D4500786D7C /* DebugViewController.m */; };
 		5961520E18B62D4500786D7C /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5961520C18B62D4500786D7C /* DebugViewController.xib */; };
-		59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */; };
-		59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */; };
-		59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */; };
-		59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */; };
 		9614244618B63D8700EAAFB4 /* StrokeWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9614244518B63D8700EAAFB4 /* StrokeWish.m */; };
 		9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661654B18B39BA70018B3C1 /* GPSWish.m */; };
 		96679CD218B3B649004C2E51 /* PushWish.m in Sources */ = {isa = PBXBuildFile; fileRef = 96679CD118B3B649004C2E51 /* PushWish.m */; };
@@ -84,6 +107,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4202F4D218B74E8C001250C6 /* HappyAnimationLevel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimationLevel2.h; path = Animations/HappyAnimationLevel2.h; sourceTree = "<group>"; };
+		4202F4D318B74E8C001250C6 /* HappyAnimationLevel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimationLevel2.m; path = Animations/HappyAnimationLevel2.m; sourceTree = "<group>"; };
+		4202F4D418B74E8C001250C6 /* HappyAnimationLevel3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimationLevel3.h; path = Animations/HappyAnimationLevel3.h; sourceTree = "<group>"; };
+		4202F4D518B74E8C001250C6 /* HappyAnimationLevel3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimationLevel3.m; path = Animations/HappyAnimationLevel3.m; sourceTree = "<group>"; };
+		4202F4D618B74E8C001250C6 /* HappyAnimationLevel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimationLevel4.h; path = Animations/HappyAnimationLevel4.h; sourceTree = "<group>"; };
+		4202F4D718B74E8C001250C6 /* HappyAnimationLevel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimationLevel4.m; path = Animations/HappyAnimationLevel4.m; sourceTree = "<group>"; };
+		4202F4DB18B74FD2001250C6 /* HappyAnimationLevel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimationLevel1.h; path = Animations/HappyAnimationLevel1.h; sourceTree = "<group>"; };
+		4202F4DC18B74FD2001250C6 /* HappyAnimationLevel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimationLevel1.m; path = Animations/HappyAnimationLevel1.m; sourceTree = "<group>"; };
+		4202F4DF18B75495001250C6 /* tamatama_nomal1L5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1L5.png; path = Resources/Level/tamatama_nomal1L5.png; sourceTree = "<group>"; };
+		4202F4E018B75495001250C6 /* tamatama_nomal4L5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4L5.png; path = Resources/Level/tamatama_nomal4L5.png; sourceTree = "<group>"; };
+		4202F4E118B75495001250C6 /* tamatama_nomal3L5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3L5.png; path = Resources/Level/tamatama_nomal3L5.png; sourceTree = "<group>"; };
+		4202F4E218B75495001250C6 /* tamatama_nomal2L5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2L5.png; path = Resources/Level/tamatama_nomal2L5.png; sourceTree = "<group>"; };
+		4202F4E318B75495001250C6 /* tamatama_nomal1L4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1L4.png; path = Resources/Level/tamatama_nomal1L4.png; sourceTree = "<group>"; };
+		4202F4E418B75495001250C6 /* tamatama_nomal4L4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4L4.png; path = Resources/Level/tamatama_nomal4L4.png; sourceTree = "<group>"; };
+		4202F4E518B75495001250C6 /* tamatama_nomal3L4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3L4.png; path = Resources/Level/tamatama_nomal3L4.png; sourceTree = "<group>"; };
+		4202F4E618B75495001250C6 /* tamatama_nomal2L4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2L4.png; path = Resources/Level/tamatama_nomal2L4.png; sourceTree = "<group>"; };
+		4202F4E718B75495001250C6 /* tamatama_nomal1L3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1L3.png; path = Resources/Level/tamatama_nomal1L3.png; sourceTree = "<group>"; };
+		4202F4E818B75495001250C6 /* tamatama_nomal4L3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4L3.png; path = Resources/Level/tamatama_nomal4L3.png; sourceTree = "<group>"; };
+		4202F4E918B75495001250C6 /* tamatama_nomal3L3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3L3.png; path = Resources/Level/tamatama_nomal3L3.png; sourceTree = "<group>"; };
+		4202F4EA18B75495001250C6 /* tamatama_nomal2L3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2L3.png; path = Resources/Level/tamatama_nomal2L3.png; sourceTree = "<group>"; };
+		4202F4EB18B75495001250C6 /* tamatama_nomal1L2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1L2.png; path = Resources/Level/tamatama_nomal1L2.png; sourceTree = "<group>"; };
+		4202F4EC18B75495001250C6 /* tamatama_nomal4L2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4L2.png; path = Resources/Level/tamatama_nomal4L2.png; sourceTree = "<group>"; };
+		4202F4ED18B75495001250C6 /* tamatama_nomal3L2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3L2.png; path = Resources/Level/tamatama_nomal3L2.png; sourceTree = "<group>"; };
+		4202F4EE18B75495001250C6 /* tamatama_nomal2L2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2L2.png; path = Resources/Level/tamatama_nomal2L2.png; sourceTree = "<group>"; };
+		4202F4EF18B75495001250C6 /* tamatama_nomal3L1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3L1.png; path = Resources/Level/tamatama_nomal3L1.png; sourceTree = "<group>"; };
+		4202F4F018B75495001250C6 /* tamatama_nomal4L1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4L1.png; path = Resources/Level/tamatama_nomal4L1.png; sourceTree = "<group>"; };
+		4202F4F118B75495001250C6 /* tamatama_nomal1L1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1L1.png; path = Resources/Level/tamatama_nomal1L1.png; sourceTree = "<group>"; };
+		4202F4F218B75495001250C6 /* tamatama_nomal2L1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2L1.png; path = Resources/Level/tamatama_nomal2L1.png; sourceTree = "<group>"; };
+		4202F50718B75576001250C6 /* HappyAnimationLevel5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimationLevel5.m; path = Animations/HappyAnimationLevel5.m; sourceTree = "<group>"; };
+		4202F50818B75576001250C6 /* HappyAnimationLevel5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimationLevel5.h; path = Animations/HappyAnimationLevel5.h; sourceTree = "<group>"; };
+		4202F50A18B75D80001250C6 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rain.png; path = Resources/rain.png; sourceTree = "<group>"; };
+		4202F50B18B75D80001250C6 /* cloudsun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudsun.png; path = Resources/cloudsun.png; sourceTree = "<group>"; };
+		4202F50C18B75D80001250C6 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/cloud2.png; sourceTree = "<group>"; };
 		420523D118B6580000B5C411 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
 		420523D218B6580000B5C411 /* sun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun2.png; path = Resources/sun2.png; sourceTree = "<group>"; };
 		420523D518B6591A00B5C411 /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud.png; path = Resources/cloud.png; sourceTree = "<group>"; };
@@ -98,8 +154,6 @@
 		420523E618B6603100B5C411 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon80.png; path = Resources/icon80.png; sourceTree = "<group>"; };
 		421D306318B4A3D80093CE28 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = Animations/Animation.h; sourceTree = "<group>"; };
 		421D306418B4A3D80093CE28 /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = Animations/Animation.m; sourceTree = "<group>"; };
-		421D306618B4A9070093CE28 /* HappyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyAnimation.h; path = Animations/HappyAnimation.h; sourceTree = "<group>"; };
-		421D306718B4A9070093CE28 /* HappyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyAnimation.m; path = Animations/HappyAnimation.m; sourceTree = "<group>"; };
 		421D306918B4AF440093CE28 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a.png; path = Resources/a.png; sourceTree = "<group>"; };
 		421D306A18B4AF440093CE28 /* scull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scull.png; path = Resources/scull.png; sourceTree = "<group>"; };
 		421D306B18B4AF440093CE28 /* happy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = happy_smile.png; path = Resources/happy_smile.png; sourceTree = "<group>"; };
@@ -151,10 +205,6 @@
 		5961520A18B62D4500786D7C /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugViewController.h; path = Controller/DebugViewController.h; sourceTree = "<group>"; };
 		5961520B18B62D4500786D7C /* DebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugViewController.m; path = Controller/DebugViewController.m; sourceTree = "<group>"; };
 		5961520C18B62D4500786D7C /* DebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugViewController.xib; path = Controller/DebugViewController.xib; sourceTree = "<group>"; };
-		59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal1.png; path = Resources/tamatama_nomal1.png; sourceTree = "<group>"; };
-		59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal2.png; path = Resources/tamatama_nomal2.png; sourceTree = "<group>"; };
-		59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal3.png; path = Resources/tamatama_nomal3.png; sourceTree = "<group>"; };
-		59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tamatama_nomal4.png; path = Resources/tamatama_nomal4.png; sourceTree = "<group>"; };
 		9614244418B63D8700EAAFB4 /* StrokeWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StrokeWish.h; path = Wishes/StrokeWish.h; sourceTree = "<group>"; };
 		9614244518B63D8700EAAFB4 /* StrokeWish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StrokeWish.m; path = Wishes/StrokeWish.m; sourceTree = "<group>"; };
 		9661654A18B39BA70018B3C1 /* GPSWish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPSWish.h; path = Wishes/GPSWish.h; sourceTree = "<group>"; };
@@ -201,13 +251,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4202F4DE18B75475001250C6 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				4202F4DF18B75495001250C6 /* tamatama_nomal1L5.png */,
+				4202F4E018B75495001250C6 /* tamatama_nomal4L5.png */,
+				4202F4E118B75495001250C6 /* tamatama_nomal3L5.png */,
+				4202F4E218B75495001250C6 /* tamatama_nomal2L5.png */,
+				4202F4E318B75495001250C6 /* tamatama_nomal1L4.png */,
+				4202F4E418B75495001250C6 /* tamatama_nomal4L4.png */,
+				4202F4E518B75495001250C6 /* tamatama_nomal3L4.png */,
+				4202F4E618B75495001250C6 /* tamatama_nomal2L4.png */,
+				4202F4E718B75495001250C6 /* tamatama_nomal1L3.png */,
+				4202F4E818B75495001250C6 /* tamatama_nomal4L3.png */,
+				4202F4E918B75495001250C6 /* tamatama_nomal3L3.png */,
+				4202F4EA18B75495001250C6 /* tamatama_nomal2L3.png */,
+				4202F4EB18B75495001250C6 /* tamatama_nomal1L2.png */,
+				4202F4EC18B75495001250C6 /* tamatama_nomal4L2.png */,
+				4202F4ED18B75495001250C6 /* tamatama_nomal3L2.png */,
+				4202F4EE18B75495001250C6 /* tamatama_nomal2L2.png */,
+				4202F4EF18B75495001250C6 /* tamatama_nomal3L1.png */,
+				4202F4F018B75495001250C6 /* tamatama_nomal4L1.png */,
+				4202F4F118B75495001250C6 /* tamatama_nomal1L1.png */,
+				4202F4F218B75495001250C6 /* tamatama_nomal2L1.png */,
+			);
+			name = Level;
+			sourceTree = "<group>";
+		};
 		421D306218B4A2F90093CE28 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				4202F50718B75576001250C6 /* HappyAnimationLevel5.m */,
+				4202F50818B75576001250C6 /* HappyAnimationLevel5.h */,
+				4202F4DB18B74FD2001250C6 /* HappyAnimationLevel1.h */,
+				4202F4DC18B74FD2001250C6 /* HappyAnimationLevel1.m */,
+				4202F4D218B74E8C001250C6 /* HappyAnimationLevel2.h */,
+				4202F4D318B74E8C001250C6 /* HappyAnimationLevel2.m */,
+				4202F4D418B74E8C001250C6 /* HappyAnimationLevel3.h */,
+				4202F4D518B74E8C001250C6 /* HappyAnimationLevel3.m */,
+				4202F4D618B74E8C001250C6 /* HappyAnimationLevel4.h */,
+				4202F4D718B74E8C001250C6 /* HappyAnimationLevel4.m */,
 				421D306318B4A3D80093CE28 /* Animation.h */,
 				421D306418B4A3D80093CE28 /* Animation.m */,
-				421D306618B4A9070093CE28 /* HappyAnimation.h */,
-				421D306718B4A9070093CE28 /* HappyAnimation.m */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -307,6 +392,10 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4202F50A18B75D80001250C6 /* rain.png */,
+				4202F50B18B75D80001250C6 /* cloudsun.png */,
+				4202F50C18B75D80001250C6 /* cloud2.png */,
+				4202F4DE18B75475001250C6 /* Level */,
 				420523E518B6603100B5C411 /* icon58.png */,
 				420523E618B6603100B5C411 /* icon80.png */,
 				420523DD18B65F2A00B5C411 /* icon57.png */,
@@ -328,10 +417,6 @@
 				421D306C18B4AF440093CE28 /* heart.png */,
 				421D306D18B4AF440093CE28 /* neutral_smile.png */,
 				421D306E18B4AF440093CE28 /* unhappy_smile.png */,
-				59EFA44A18B36D4B00343C13 /* tamatama_nomal1.png */,
-				59EFA44B18B36D4B00343C13 /* tamatama_nomal2.png */,
-				59EFA44C18B36D4B00343C13 /* tamatama_nomal3.png */,
-				59EFA44D18B36D4B00343C13 /* tamatama_nomal4.png */,
 				96CF23FA18B3B586005D3CEB /* data.plist */,
 			);
 			name = Resources;
@@ -485,36 +570,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59EFA45018B36D4B00343C13 /* tamatama_nomal3.png in Resources */,
+				4202F50518B75495001250C6 /* tamatama_nomal1L1.png in Resources */,
 				96CF23FB18B3B586005D3CEB /* data.plist in Resources */,
-				59EFA44F18B36D4B00343C13 /* tamatama_nomal2.png in Resources */,
-				59EFA44E18B36D4B00343C13 /* tamatama_nomal1.png in Resources */,
+				4202F4FD18B75495001250C6 /* tamatama_nomal3L3.png in Resources */,
 				420523E418B65F2A00B5C411 /* icon57.png in Resources */,
+				4202F4FA18B75495001250C6 /* tamatama_nomal2L4.png in Resources */,
+				4202F4F718B75495001250C6 /* tamatama_nomal1L4.png in Resources */,
 				420523E018B65F2A00B5C411 /* icon144.png in Resources */,
+				4202F50118B75495001250C6 /* tamatama_nomal3L2.png in Resources */,
 				4279B5B918B217A300051796 /* Main_iPad.storyboard in Resources */,
 				4279B5BE18B217A300051796 /* Images.xcassets in Resources */,
+				4202F4FF18B75495001250C6 /* tamatama_nomal1L2.png in Resources */,
+				4202F4F318B75495001250C6 /* tamatama_nomal1L5.png in Resources */,
 				5961520E18B62D4500786D7C /* DebugViewController.xib in Resources */,
+				4202F4F418B75495001250C6 /* tamatama_nomal4L5.png in Resources */,
+				4202F50418B75495001250C6 /* tamatama_nomal4L1.png in Resources */,
+				4202F50F18B75D80001250C6 /* cloud2.png in Resources */,
 				421D307018B4AF440093CE28 /* scull.png in Resources */,
+				4202F50D18B75D80001250C6 /* rain.png in Resources */,
 				420523DF18B65F2A00B5C411 /* icon152.png in Resources */,
+				4202F50E18B75D80001250C6 /* cloudsun.png in Resources */,
 				420523E218B65F2A00B5C411 /* icon120.png in Resources */,
+				4202F4FC18B75495001250C6 /* tamatama_nomal4L3.png in Resources */,
 				421D307218B4AF440093CE28 /* heart.png in Resources */,
 				421D307318B4AF440093CE28 /* neutral_smile.png in Resources */,
 				420523E818B6603100B5C411 /* icon80.png in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
-				59EFA45118B36D4B00343C13 /* tamatama_nomal4.png in Resources */,
 				420523E718B6603100B5C411 /* icon58.png in Resources */,
 				421D307118B4AF440093CE28 /* happy_smile.png in Resources */,
 				42B9346718B64622002E6B58 /* icon.png in Resources */,
+				4202F50218B75495001250C6 /* tamatama_nomal2L2.png in Resources */,
 				421D307618B4AFB50093CE28 /* abc.png in Resources */,
 				420523E118B65F2A00B5C411 /* icon72.png in Resources */,
 				420523D618B6591A00B5C411 /* cloud.png in Resources */,
 				420523D418B6580000B5C411 /* sun2.png in Resources */,
+				4202F4F518B75495001250C6 /* tamatama_nomal3L5.png in Resources */,
+				4202F50018B75495001250C6 /* tamatama_nomal4L2.png in Resources */,
+				4202F4F918B75495001250C6 /* tamatama_nomal3L4.png in Resources */,
+				4202F4F618B75495001250C6 /* tamatama_nomal2L5.png in Resources */,
+				4202F50618B75495001250C6 /* tamatama_nomal2L1.png in Resources */,
 				420523D318B6580000B5C411 /* sun.png in Resources */,
+				4202F4FB18B75495001250C6 /* tamatama_nomal1L3.png in Resources */,
 				96CF23F918B35644005D3CEB /* InitModelViewController.xib in Resources */,
 				420523DE18B65F2A00B5C411 /* icon76.png in Resources */,
 				42B9346618B64622002E6B58 /* wish_lamp.png in Resources */,
 				421D306F18B4AF440093CE28 /* a.png in Resources */,
+				4202F4F818B75495001250C6 /* tamatama_nomal4L4.png in Resources */,
+				4202F50318B75495001250C6 /* tamatama_nomal3L1.png in Resources */,
 				420523E318B65F2A00B5C411 /* icon114.png in Resources */,
+				4202F4FE18B75495001250C6 /* tamatama_nomal2L3.png in Resources */,
 				4279B5AD18B217A300051796 /* InfoPlist.strings in Resources */,
 				421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */,
 			);
@@ -536,11 +640,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				96679CD218B3B649004C2E51 /* PushWish.m in Sources */,
-				421D306818B4A9070093CE28 /* HappyAnimation.m in Sources */,
 				5961520D18B62D4500786D7C /* DebugViewController.m in Sources */,
 				96CF23F818B35644005D3CEB /* InitModelViewController.m in Sources */,
 				5917D83B18B4EBA300401ED0 /* WishFactory.m in Sources */,
+				4202F50918B75576001250C6 /* HappyAnimationLevel5.m in Sources */,
 				96B9768118B638F90061322D /* Weather.m in Sources */,
+				4202F4D918B74E8C001250C6 /* HappyAnimationLevel3.m in Sources */,
 				421D306518B4A3D80093CE28 /* Animation.m in Sources */,
 				42A7586218B2748A00ECC5ED /* ViewController.m in Sources */,
 				42F729E618B2395300F15B1F /* Player.m in Sources */,
@@ -550,15 +655,18 @@
 				42F729E918B2397500F15B1F /* LAttegotchi.m in Sources */,
 				429A8BD718B3649A00A1DF52 /* DotImageView.m in Sources */,
 				96D6FB9218B60174002F0A60 /* LabyrithWish.m in Sources */,
+				4202F4DD18B74FD2001250C6 /* HappyAnimationLevel1.m in Sources */,
 				4279B5B318B217A300051796 /* AppDelegate.m in Sources */,
 				96E364D018B4C82A00E65884 /* MysteryMathWish.m in Sources */,
 				42F729EF18B239A700F15B1F /* Item.m in Sources */,
 				96E364D618B5004D00E65884 /* ShakeWish.m in Sources */,
 				42B9346A18B64D0E002E6B58 /* NotificationFactory.m in Sources */,
+				4202F4DA18B74E8C001250C6 /* HappyAnimationLevel4.m in Sources */,
 				4279B5AF18B217A300051796 /* main.m in Sources */,
 				5917D83E18B4EBB900401ED0 /* ItemWish.m in Sources */,
 				42A7586618B2749F00ECC5ED /* TableViewController.m in Sources */,
 				9661654C18B39BA70018B3C1 /* GPSWish.m in Sources */,
+				4202F4D818B74E8C001250C6 /* HappyAnimationLevel2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
