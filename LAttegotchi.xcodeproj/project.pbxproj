@@ -284,18 +284,18 @@
 		421D306218B4A2F90093CE28 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				4202F4DC18B74FD2001250C6 /* HappyAnimationLevel1.m */,
+				4202F4DB18B74FD2001250C6 /* HappyAnimationLevel1.h */,
+				4202F4D318B74E8C001250C6 /* HappyAnimationLevel2.m */,
+				4202F4D218B74E8C001250C6 /* HappyAnimationLevel2.h */,
+				4202F4D518B74E8C001250C6 /* HappyAnimationLevel3.m */,
+				4202F4D418B74E8C001250C6 /* HappyAnimationLevel3.h */,
+				4202F4D718B74E8C001250C6 /* HappyAnimationLevel4.m */,
+				4202F4D618B74E8C001250C6 /* HappyAnimationLevel4.h */,
 				4202F50718B75576001250C6 /* HappyAnimationLevel5.m */,
 				4202F50818B75576001250C6 /* HappyAnimationLevel5.h */,
-				4202F4DB18B74FD2001250C6 /* HappyAnimationLevel1.h */,
-				4202F4DC18B74FD2001250C6 /* HappyAnimationLevel1.m */,
-				4202F4D218B74E8C001250C6 /* HappyAnimationLevel2.h */,
-				4202F4D318B74E8C001250C6 /* HappyAnimationLevel2.m */,
-				4202F4D418B74E8C001250C6 /* HappyAnimationLevel3.h */,
-				4202F4D518B74E8C001250C6 /* HappyAnimationLevel3.m */,
-				4202F4D618B74E8C001250C6 /* HappyAnimationLevel4.h */,
-				4202F4D718B74E8C001250C6 /* HappyAnimationLevel4.m */,
-				421D306318B4A3D80093CE28 /* Animation.h */,
 				421D306418B4A3D80093CE28 /* Animation.m */,
+				421D306318B4A3D80093CE28 /* Animation.h */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -305,8 +305,8 @@
 			children = (
 				42B9346818B64D0E002E6B58 /* NotificationFactory.m */,
 				42B9346918B64D0E002E6B58 /* NotificationFactory.h */,
-				5917D83918B4EBA300401ED0 /* WishFactory.h */,
 				5917D83A18B4EBA300401ED0 /* WishFactory.m */,
+				5917D83918B4EBA300401ED0 /* WishFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";

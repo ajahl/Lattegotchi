@@ -180,6 +180,9 @@
     return wish;
 }
 
+/**
+ *  Creates random available Wish
+ */
 + (Wish*) createWish {
     NSArray *allWishes = [NSArray arrayWithObjects:
                        [self createItemWish],

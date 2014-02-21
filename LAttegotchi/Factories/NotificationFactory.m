@@ -15,7 +15,9 @@
 
 @implementation NotificationFactory
 
-
+/**
+ *  Creates all Notifications for each Wish and deathwarnings
+ */
 + (void) createNotifikation {
     LAttegotchi * latte = [self getLAttegotchi];
     
@@ -27,7 +29,7 @@
         
         NSMutableString * text =  [[NSMutableString alloc]init];
         [text appendString:[wish name]];
-        [text appendString:@"Your LAttegotchi needs you, or will die"];
+        [text appendString:@" Your LAttegotchi needs you, or will die"];
         
         [self createNotifikation:wish.starttime:text];
     }
@@ -74,8 +76,9 @@
     }
 }
 
-
-
+/**
+ *  Creates a single Notification with given date and text
+ */
 + (void) createNotifikation:(NSDate*) date : (NSString * ) text{
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
