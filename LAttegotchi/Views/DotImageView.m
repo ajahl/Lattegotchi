@@ -395,12 +395,17 @@ int padding     = 1;
         case 0:{
             if (x>200&&y < 100) {
                 debugTouchCount++;
+            }else{
+                debugTouchCount = 0;
             }
+            
             break;
         }
         case 1:{
             if (x>200&&y > 100) {
                 debugTouchCount++;
+            }else{
+                debugTouchCount = 0;
             }
             break;
         }
@@ -412,6 +417,8 @@ int padding     = 1;
                  AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
                 [[app window].rootViewController presentViewController:debug animated:YES completion:NULL];
                 
+            }else{
+                debugTouchCount = 0;
             }
             break;
         }
