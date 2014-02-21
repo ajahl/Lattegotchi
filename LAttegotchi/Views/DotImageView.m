@@ -20,7 +20,7 @@
 #define START_X     0
 #define START_Y     0
 
-float dotSize = 1;
+float dotSize   = 1;
 int padding     = 1;
 
 
@@ -38,6 +38,12 @@ int padding     = 1;
 }
 
 
+-(Player *) getPlayer {
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    return [app getPlayer];
+}
+
+
 -(void) drawDot :(int)x : (int)y :(UIColor *) color {
     int matrixX = START_X + (padding) * x;
     int matrixY = START_Y + (padding) * y;
@@ -45,11 +51,12 @@ int padding     = 1;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextAddRect(context, CGRectMake( matrixX, matrixY, dotSize, dotSize));
-//  CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
+    //  CGContextAddArc(context, currentX, currentY, radius, 0, M_PI*2, 0);
     CGContextFillPath(context);
 }
 
 - (void)drawRect:(CGRect)rect {
+    
     self.clearsContextBeforeDrawing = YES;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -59,6 +66,7 @@ int padding     = 1;
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
     CGContextFillRect(context, rect);
     
+    [self drawMatrix];
     [self drawImage];
     [self drawHappiness];
     [self drawHealth];
@@ -67,87 +75,72 @@ int padding     = 1;
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
     NSString * text =  [latte name];
     [self drawText:text:0:0];
-
-//    [self drawMoney: 9 : 52];
+    
+    //    [self drawMoney: 9 : 52];
     [self drawMoney: 6 : 8];
     [self drawWishes: 6 : 52];
     [self drawWeather: 34: 3];
 }
 
-- (void) drawWeather : (int) dX :  (int) dY {
-    if (!cloud || !sun)
+- (void) drawImageAt : (UIImage * ) img : (int) dX : (int) dY {
+    if (!img)
         return;
     
+    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(img.CGImage));
+    const UInt8* data = CFDataGetBytePtr(pixelData);
+    
+    CGSize imgSize = img.size;
+    for (int y = 0; y<imgSize.height; y++ ) {
+        for (int x = 0; x<imgSize.width; x++) {
+            int currentY = dY+y;
+            int currentX = dX+x;
+            
+            if( ![self isPixelSetAt:data :x :y :img.size])  {
+                [self drawDot:currentX :currentY :[UIColor blackColor]];
+            }
+        }
+    }
+}
+
+- (void) drawWeather : (int) dX :  (int) dY {
     enum WeatherType weather = [Weather getWeather];
     
     switch (weather) {
         case SKYISCLEAR:
         {
-            CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(sun.CGImage));
-            const UInt8* data = CFDataGetBytePtr(pixelData);
-            
-            CGSize sunSize = sun.size;
-            for (int y = 0; y<sunSize.height; y++ ) {
-                for (int x = 0; x<sunSize.width; x++) {
-                    int currentY = dY+1+y;
-                    int currentX = dX+x;
-                    
-                    if( ![self isPixelSetAt:data :x :y :sun.size])  {
-                        [self drawDot:currentX :currentY :[UIColor blackColor]];
-                    }
-                }
-            }
-        }
-        break;
-            
-        default:
-        {
-            CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(sun.CGImage));
-            const UInt8* data = CFDataGetBytePtr(pixelData);
-            
-            CGSize sunSize = sun.size;
-            for (int y = 0; y<sunSize.height; y++ ) {
-                for (int x = 0; x<sunSize.width; x++) {
-                    int currentY = dY+1+y;
-                    int currentX = dX+x;
-                    
-                    if( ![self isPixelSetAt:data :x :y :sun.size])  {
-                        [self drawDot:currentX :currentY :[UIColor blackColor]];
-                    }
-                }
-            }
+            [self drawImageAt:sun : dX : dY ];
         }
             break;
+        case SCATTEREDCLOUDS:
+        case BROKENCLOUDS:
+        {
+            [self drawImageAt:cloud : dX : dY ];
+        }
+            break;
+        case FEWCLOUDS:
+        {
+            [self drawImageAt:cloudsun : dX : dY ];
+        }
+            break;
+        case RAIN:
+        {
+            [self drawImageAt:rain : dX : dY ];
+        }
+            break;
+            
+        default:
+
+        break;
     }
     
     
-
+    
 }
 
 - (void) drawWishes : (int) dX :  (int) dY{
     // draw wish ------------------------------------------------------
-    if (!wishLamp)
-        return;
+    [self drawImageAt:wishLamp : dX : dY ];
     
-    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(wishLamp.CGImage));
-    const UInt8* data = CFDataGetBytePtr(pixelData);
-    
-    CGSize wishSize = wishLamp.size;
-    
-    for (int y = 0; y<wishSize.height; y++ ) {
-        for (int x = 0; x<wishSize.width; x++) {
-            int currentY = dY+1+y;
-            int currentX = dX+x;
-            
-            if( [self isPixelSetAt:data :x :y :wishLamp.size]) {
-                [self drawDot:currentX :currentY :[UIColor greenColor]];
-            }
-            else {
-                [self drawDot:currentX :currentY :[UIColor blackColor]];
-            }
-        }
-    }
-
     
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     LAttegotchi * latte  = [[[app getPlayer] lattegotchies ] objectAtIndex:0];
@@ -157,27 +150,8 @@ int padding     = 1;
 
 - (void) drawMoney : (int) dX :  (int) dY{
     // draw scull ------------------------------------------------------
-    if (!scull)
-        return;
+    [self drawImageAt:scull : dX : dY ];
     
-    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(scull.CGImage));
-    const UInt8* data = CFDataGetBytePtr(pixelData);
-    
-    CGSize scullSize = scull.size;
-    
-    for (int y = 0; y<scullSize.height; y++ ) {
-        for (int x = 0; x<scullSize.height; x++) {
-            int currentY = dY+1+y;
-            int currentX = dX+x;
-            
-            if( [self isPixelSetAt:data :x :y :scull.size]) {
-                [self drawDot:currentX :currentY :[UIColor greenColor]];
-            }
-            else {
-                [self drawDot:currentX :currentY :[UIColor blackColor]];
-            }
-        }
-    }
     
     AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     NSString * text = [NSString stringWithFormat:@"%d", [[app getPlayer] money]];
@@ -213,6 +187,15 @@ int padding     = 1;
     }
 }
 
+-(void) drawMatrix {
+    // draw dotmatrix ------------------------------------------------------
+    for (int y = 0; y<DOT_MATRIX; y++ ) {
+        for (int x = 0; x<DOT_MATRIX; x++) {
+            [self drawDot:x :y :[UIColor greenColor]];
+        }
+    }
+}
+
 -(void) drawImage {
     if (!image)
         return;
@@ -223,12 +206,9 @@ int padding     = 1;
     // draw dotmatrix ------------------------------------------------------
     for (int y = 0; y<DOT_MATRIX; y++ ) {
         for (int x = 0; x<DOT_MATRIX; x++) {
-            if( [self isPixelSetAt:data :x :y : image.size]) {
-                [self drawDot:x :y :[UIColor greenColor]];
-            }
-            else {
+            if( ![self isPixelSetAt:data :x :y : image.size])
                 [self drawDot:x :y :[UIColor blackColor]];
-            }
+            
         }
     }
     
@@ -236,7 +216,8 @@ int padding     = 1;
 }
 
 -(void) drawHealth {
-    if(!heart)
+    
+    if (!heart)
         return;
     
     CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(heart.CGImage));
@@ -254,16 +235,14 @@ int padding     = 1;
     }
     
     // draw heart ------------------------------------------------------
+    
     CGSize heartSize = heart.size;
     
     for (int y = 0; y<heartSize.height; y++ ) {
         for (int x = 0; x<heartSize.height; x++) {
             int currentY = DOT_MATRIX-health+y-11;
             
-            if( [self isPixelSetAt:data :x :y :heart.size]) {
-                [self drawDot:x :currentY :[UIColor greenColor]];
-            }
-            else {
+            if( ![self isPixelSetAt:data :x :y :heart.size]) {
                 [self drawDot:x :currentY :[UIColor blackColor]];
             }
         }
@@ -276,7 +255,7 @@ int padding     = 1;
     // draw happiness ------------------------------------------------------
     int happinessValue = [[self getLAtte] happiness];
     int happiness = happinessValue * (DOT_MATRIX-15) / 100;
-
+    
     for (int y = DOT_MATRIX-6; y>DOT_MATRIX-6-happiness; y-- ) {
         for (int x = DOT_MATRIX-5; x<DOT_MATRIX; x++) {
             [self drawDot:x :y :[UIColor blackColor]];
@@ -298,10 +277,7 @@ int padding     = 1;
             int currentY = DOT_MATRIX-happiness+y-11;
             int currentX = DOT_MATRIX-eMotion.size.width+x;
             
-            if( [self isPixelSetAt:data :x :y :eMotion.size]) {
-                [self drawDot:currentX :currentY :[UIColor greenColor]];
-            }
-            else {
+            if(! [self isPixelSetAt:data :x :y :eMotion.size]) {
                 [self drawDot:currentX :currentY :[UIColor blackColor]];
             }
         }
@@ -363,6 +339,16 @@ int padding     = 1;
     [self setNeedsDisplay];
 }
 
+- (void) setCloudSun : (UIImage *) img {
+    cloudsun = img;
+    [self setNeedsDisplay];
+}
+
+- (void) setRain : (UIImage *) img {
+    rain = img;
+    [self setNeedsDisplay];
+}
+
 
 - (BOOL)isPixelSetAt: (const UInt8 * ) data : (int) x : (int) y : (CGSize) size  {
     
@@ -395,23 +381,30 @@ int padding     = 1;
         case 0:{
             if (x>200&&y < 100) {
                 debugTouchCount++;
+            }else{
+                debugTouchCount = 0;
             }
+            
             break;
         }
         case 1:{
             if (x>200&&y > 100) {
                 debugTouchCount++;
+            }else{
+                debugTouchCount = 0;
             }
             break;
         }
         case 2:{
             if (x<200&&y > 100) {
                 debugTouchCount = 0;
-
+                
                 DebugViewController *debug = [[DebugViewController alloc] initWithNibName: @"DebugViewController" bundle:nil];
-                 AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+                AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
                 [[app window].rootViewController presentViewController:debug animated:YES completion:NULL];
                 
+            }else{
+                debugTouchCount = 0;
             }
             break;
         }
