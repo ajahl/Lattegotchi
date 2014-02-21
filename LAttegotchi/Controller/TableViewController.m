@@ -13,7 +13,6 @@
 #import "LAttegotchi.h"
 #import "PushWish.h"
 #import "GPSWish.h"
-#import "MysteryLetterWish.h"
 #import "MysteryMathWish.h"
 #import "Item.h"
 #import "Player.h"
@@ -233,7 +232,7 @@
     
     switch (self.currentTableView) {
         case 0:
-        //Whish
+        //Wish
         {
             Wish *wish =  [currentArray objectAtIndex:indexPath.row];
             if ([wish isKindOfClass:[GPSWish class]]) {
@@ -250,11 +249,6 @@
             
             } else if ([wish isKindOfClass:[MysteryMathWish class]]) {
                 MysteryMathWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
-                [wish initWithViewController:app.window.rootViewController];
-                [wish execute];
-                
-            } else if ([wish isKindOfClass:[MysteryLetterWish class]]) {
-                MysteryLetterWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
                 [wish initWithViewController:app.window.rootViewController];
                 [wish execute];
                 

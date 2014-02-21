@@ -10,7 +10,6 @@
 #import "Wish.h"
 #import "ItemWish.h"
 #import "GPSWish.h"
-#import "MysteryLetterWish.h"
 #import "MysteryMathWish.h"
 #import "PushWish.h"
 #import "AppDelegate.h"
@@ -54,9 +53,17 @@
     [name appendString:@"WAAHHH ... I want a "];
     [name appendString:item.name];
     [wish setName:name];
-    wish.happiness = item.happiness * 2;
-    wish.health = item.health *2;
-    wish.value = item.value*1.5;
+    
+    int happiness = arc4random_uniform(MAXWISHHAPPINESS - MINWISHHAPPINESS);
+    happiness += arc4random_uniform(MINWISHHAPPINESS);
+    wish.happiness = item.happiness + happiness;
+    
+    int health = arc4random_uniform(MAXWISHHEALTH - MINWISHHEALTH);
+    health += arc4random_uniform(MINWISHHEALTH);
+    wish.health = item.health + health;
+    
+    double valueMultiplier = 1 + rand() * 0.5;
+    wish.value = item.value * valueMultiplier;
     [wish.items addObject:item];
     
     return wish;
@@ -102,16 +109,6 @@
     return wish;
 }
 
-+ (MysteryLetterWish*) createMysteryLetterWish {
-    MysteryLetterWish * wish = [[MysteryLetterWish alloc]init];
-    
-    [wish setName:@"WAAHHH ... I want a "];
-    wish.happiness = 30;
-    wish.health = 30;
-    
-    return wish;
-}
-
 //
 + (PushWish*) createPushWish {
     
@@ -141,7 +138,7 @@
     // create new wish and init with parameters
     StrokeWish * wish = [[StrokeWish alloc]init];
     wish.strokeNumber = (arc4random_uniform(LEVEL_FACTOR * level) + 1);
-    wish.name = [NSString stringWithFormat:@"Stroke me %i times!", wish.strokeNumber];
+    wish.name = @"Stroke me!";
     wish.discription = [NSString stringWithFormat:@"Stroke %i times from left to right: ", wish.strokeNumber];
     wish.happiness = wish.strokeNumber * HEALTH_HAPPY_PER_PUSH;
     wish.health = wish.strokeNumber * HEALTH_HAPPY_PER_PUSH;
