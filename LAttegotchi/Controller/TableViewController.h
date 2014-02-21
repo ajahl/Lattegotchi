@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PushWish.h"
+#import "ShakeWish.h"
 
 
 @interface TableViewController : UITableViewController {
@@ -18,7 +18,7 @@
 
 @property int currentTableView;
 
-@property PushWish *pushWish;
+@property ShakeWish *shakeWish;
 
 
 @end

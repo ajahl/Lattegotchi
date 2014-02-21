@@ -8,12 +8,12 @@
 
 #import "Wish.h"
 
-@interface ShakeWish : Wish <UIAccelerometerDelegate> {
+@interface ShakeWish : Wish {
     IBOutlet UILabel *lblShakeProgress;
-    IBOutlet UIProgressView * threadProgressView;
+    UIProgressView *_progressView;
 
 }
-
+@property (nonatomic, strong) UIProgressView *progressView;
 @property unsigned int const shakeNumber;
 
 @end

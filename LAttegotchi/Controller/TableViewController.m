@@ -199,6 +199,24 @@
 }
 
 
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    
+    
+    if (event.type == UIEventSubtypeMotionShake) {
+        if (_shakeWish != nil) {
+
+            _shakeWish.progressView.progress =  _shakeWish.progressView.progress + (1/(float) _shakeWish.shakeNumber);
+            
+            if (_shakeWish.progressView.progress == 1) {
+                [_shakeWish.subView removeFromSuperview];
+                [_shakeWish success];
+            }
+        }
+    }
+        
+        
+}
 
 
 
@@ -246,9 +264,9 @@
                 [wish execute];
                 
             } else if ([wish isKindOfClass:[ShakeWish class]]) {
-                ShakeWish *wish = [latte.wishes objectAtIndex:selectedCell.tag];
-                [wish initWithViewController:app.window.rootViewController];
-                [wish execute];
+                _shakeWish = [latte.wishes objectAtIndex:selectedCell.tag];
+                [_shakeWish initWithViewController:app.window.rootViewController];
+                [_shakeWish execute];
                 
             }else if ([wish isKindOfClass:[Wish class]]){
                 [wish execute];

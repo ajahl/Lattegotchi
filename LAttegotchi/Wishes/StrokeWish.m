@@ -51,9 +51,11 @@
 
 - (void) tapped: (id)sender {
     self.progressView.progress =  self.progressView.progress + (1/(float) self.strokeNumber);
+    
 #ifdef DEBUG_STROKEWISH
     NSLog(@"Strokeprogress: %f", self.progressView.progress);
 #endif
+    
     if (self.progressView.progress == 1) {
         [[self subView] removeFromSuperview];
         [self success];
