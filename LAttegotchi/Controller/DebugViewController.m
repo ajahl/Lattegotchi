@@ -32,12 +32,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [_switchWeather setOn:[Weather isUpdating]];
-        [_buttonWeatherSkyisclear setEnabled:![Weather isUpdating]];
-        [_buttonWeatherFewCloud setEnabled:![Weather isUpdating]];
-        [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
-        [_buttonWeatherRain setEnabled:![Weather isUpdating]];
-        [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
+        
     }
     return self;
 }
@@ -53,6 +48,13 @@
     [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
     
     [_debugsw setOn:app.debugMode];
+    
+    [_switchWeather setOn:[Weather isUpdating]];
+    [_buttonWeatherSkyisclear setEnabled:![Weather isUpdating]];
+    [_buttonWeatherFewCloud setEnabled:![Weather isUpdating]];
+    [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
+    [_buttonWeatherRain setEnabled:![Weather isUpdating]];
+    [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
    
 }
 
