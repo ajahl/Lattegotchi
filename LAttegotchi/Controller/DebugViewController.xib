@@ -7,12 +7,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DebugViewController">
             <connections>
                 <outlet property="buttonWeatherCloud" destination="Fdh-Sd-idT" id="M8x-cT-WVM"/>
+                <outlet property="buttonWeatherFewCloud" destination="bQ8-yM-nq3" id="Mhp-N1-XHb"/>
                 <outlet property="buttonWeatherRain" destination="sq5-eY-qaL" id="Wc3-hW-VoJ"/>
                 <outlet property="buttonWeatherSkyisclear" destination="cWh-Y0-bC6" id="kJL-vh-k0B"/>
                 <outlet property="buttonWeatherUnknown" destination="Ox3-xK-heL" id="Hjy-Af-R4V"/>
                 <outlet property="debugsw" destination="Aza-5d-gkR" id="RrQ-7q-HBR"/>
                 <outlet property="levelLabel" destination="6wj-O7-Rw9" id="70i-dy-eNa"/>
                 <outlet property="levelstepper" destination="GrH-zV-VFO" id="uj2-U2-iOC"/>
+                <outlet property="switchWeather" destination="pbh-CZ-hQS" id="Rcj-MB-CJl"/>
                 <outlet property="view" destination="1" id="RTL-Mq-dYZ"/>
             </connections>
         </placeholder>
@@ -174,14 +176,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbh-CZ-hQS">
-                    <rect key="frame" x="12" y="383" width="51" height="31"/>
+                    <rect key="frame" x="36" y="383" width="51" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <connections>
                         <action selector="switchWeather:" destination="-1" eventType="valueChanged" id="UFq-Zw-JfE"/>
                     </connections>
                 </switch>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-Y0-bC6">
-                    <rect key="frame" x="105" y="386" width="96" height="28"/>
+                    <rect key="frame" x="112" y="386" width="96" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -193,7 +195,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdh-Sd-idT">
-                    <rect key="frame" x="212" y="386" width="96" height="28"/>
+                    <rect key="frame" x="112" y="422" width="96" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -205,7 +207,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sq5-eY-qaL">
-                    <rect key="frame" x="105" y="422" width="96" height="28"/>
+                    <rect key="frame" x="212" y="386" width="96" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -226,6 +228,18 @@
                     </state>
                     <connections>
                         <action selector="buttonWeatherUnknown:" destination="-1" eventType="touchUpInside" id="qHO-mn-9ZI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQ8-yM-nq3">
+                    <rect key="frame" x="12" y="422" width="96" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="few cloud">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonWeatherFewCloud:" destination="-1" eventType="touchUpInside" id="ThD-Tt-pVm"/>
                     </connections>
                 </button>
             </subviews>

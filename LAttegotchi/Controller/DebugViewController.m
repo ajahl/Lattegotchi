@@ -34,6 +34,7 @@
     if (self) {
         [_switchWeather setOn:[Weather isUpdating]];
         [_buttonWeatherSkyisclear setEnabled:![Weather isUpdating]];
+        [_buttonWeatherFewCloud setEnabled:![Weather isUpdating]];
         [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
         [_buttonWeatherRain setEnabled:![Weather isUpdating]];
         [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
@@ -172,6 +173,7 @@
     }
     
     [_buttonWeatherSkyisclear setEnabled:![Weather isUpdating]];
+    [_buttonWeatherFewCloud setEnabled:![Weather isUpdating]];
     [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
     [_buttonWeatherRain setEnabled:![Weather isUpdating]];
     [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
@@ -181,8 +183,12 @@
     [Weather setWeather:SKYISCLEAR];
 }
 
-- (IBAction)buttonWeatherCloud:(id)sender {
+- (IBAction)buttonWeatherFewCloud:(id)sender {
     [Weather setWeather:FEWCLOUDS];
+}
+
+- (IBAction)buttonWeatherCloud:(id)sender {
+    [Weather setWeather:SCATTEREDCLOUDS];
 }
 
 - (IBAction)buttonWeatherRain:(id)sender {
