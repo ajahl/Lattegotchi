@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+/**
+*   animation interface
+*/
 @interface Animation : NSObject {
     NSArray * sprites;
     NSTimer * timer;
@@ -16,8 +20,8 @@
 @property NSArray * sprites;
 @property int animationIndex;
 
-//- (void) startTimer;
-//-(void) stopTimer;
+- (void) startTimer;
+-(void) stopTimer;
 
 -(void) updateAnimation;
 

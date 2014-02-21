@@ -78,9 +78,9 @@
     UIImage *rain = [UIImage imageNamed: @"rain.png"];
     [dotView setRain:rain];
     
-    UIImage *abc = [UIImage imageNamed: @"abc.png"];
+    UIImage *abc = [UIImage imageNamed: @"abc .png"];
     [dotView setABC:abc];
-    NSString * aBCString = @"                                                0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[/]^_´abcdefghijklmnopqrstuvwxyz(|)";
+    NSString * aBCString = @"0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[/]^_´abcdefghijklmnopqrstuvwxyz(|)";
     [dotView setABCString:aBCString];
     
     [self setAnimation];

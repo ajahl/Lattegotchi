@@ -16,6 +16,9 @@
 
 @synthesize sprites;
 
+/**
+ *  Default init
+ */
 - (id)init
 {
     self = [super init];
@@ -26,6 +29,9 @@
     return self;
 }
 
+/**
+ *  start animation loop
+ */
 - (void) startTimer {
     timer = [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
@@ -34,15 +40,24 @@
                                     repeats:YES];
 }
 
+/**
+ *  stop animation loop
+ */
 -(void) stopTimer {
     [timer invalidate];
     timer = nil;
 }
 
+/**
+ *  update current image
+ */
 - (void) tick:(NSTimer *) timer {
     [self updateAnimation];
 }
 
+/**
+ *  set current image
+ */
 -(void) updateAnimation {
     UIImage *image = [UIImage imageNamed:[sprites objectAtIndex:_animationIndex]];
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
