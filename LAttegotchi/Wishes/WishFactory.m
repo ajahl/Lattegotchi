@@ -17,6 +17,7 @@
 #import "ShakeWish.h"
 #import "StrokeWish.h"
 #import "Item.h"
+#import "LAttegotchi.h"
 
 #define LEVEL_FACTOR             10    /*  */
 #define HEALTH_HAPPY_PER_PUSH     2    /*  */
@@ -62,8 +63,13 @@
     health += arc4random_uniform(MINWISHHEALTH);
     wish.health = item.health + health;
     
-    double valueMultiplier = 1 + rand() * 0.5;
-    wish.value = item.value * valueMultiplier;
+    float multiplier = arc4random_uniform(50) / 100.0f;
+    int value = item.value * multiplier;
+    if (value == 0) {
+        value = 1;
+    }
+    wish.value = item.value + value;
+    
     [wish.items addObject:item];
     
     return wish;
@@ -72,7 +78,9 @@
 + (GPSWish*) createGPSWish {
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    int level = [app getPlayer].level;
+    Player *player = [app getPlayer];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    int level = lattegotchi.level;
     
     // create new wish and init with parameters
     GPSWish * wish = [[GPSWish alloc]init];
@@ -92,7 +100,9 @@
     
     // get delegate and level information
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    int level = [app getPlayer].level;
+    Player *player = [app getPlayer];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    int level = lattegotchi.level;
     
     // create new wish and init with parameters
     MysteryMathWish * wish = [[MysteryMathWish alloc]init];
@@ -114,7 +124,9 @@
     
     // get delegate and level information
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    int level = [app getPlayer].level;
+    Player *player = [app getPlayer];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    int level = lattegotchi.level;
     
     // create new wish and init with parameters
     PushWish * wish = [[PushWish alloc]init];
@@ -133,7 +145,9 @@
     
     // get delegate and level information
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    int level = [app getPlayer].level;
+    Player *player = [app getPlayer];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    int level = lattegotchi.level;
     
     // create new wish and init with parameters
     StrokeWish * wish = [[StrokeWish alloc]init];
@@ -151,7 +165,9 @@
     
     // get delegate and level information
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    int level = [app getPlayer].level;
+    Player *player = [app getPlayer];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    int level = lattegotchi.level;
     
     // create new wish and init with parameters
     ShakeWish * wish = [[ShakeWish alloc]init];

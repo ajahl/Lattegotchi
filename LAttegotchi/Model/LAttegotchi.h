@@ -16,6 +16,7 @@
 - (BOOL) useItem:(Item*)item;
 
 @property NSString * name;
+@property int level;
 @property int happiness;
 @property int health;
 @property NSDate * birthday;

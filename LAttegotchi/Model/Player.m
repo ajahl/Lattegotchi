@@ -11,7 +11,6 @@
 
 #define ASCPlayerName @"playerName"
 #define ASCPlayerMoney @"playerMoney"
-#define ASCPlayerLevel @"playerLevel"
 #define ASCPlayerLAttegotchies @"playerLattegotchies"
 #define ASCPlayerItems @"playerItems"
 
@@ -21,7 +20,6 @@
 {
     self = [super init];
     if (self) {
-        _level = 1;
         _items = [[NSMutableDictionary alloc] init];
         _lattegotchies = [[NSMutableArray alloc] init];
     }
@@ -32,7 +30,6 @@
 {
     [aCoder encodeObject:self.name forKey:ASCPlayerName];
     [aCoder encodeInt:self.money forKey:ASCPlayerMoney];
-    [aCoder encodeInt:self.level forKey:ASCPlayerLevel];
     [aCoder encodeObject:self.lattegotchies forKey:ASCPlayerLAttegotchies];
     [aCoder encodeObject:self.items forKey:ASCPlayerItems];
 }
@@ -43,7 +40,6 @@
     if (self) {
         _name = [aDecoder decodeObjectForKey:ASCPlayerName];
         _money = [aDecoder decodeIntForKey:ASCPlayerMoney];
-        _level = [aDecoder decodeIntForKey:ASCPlayerLevel];
         _lattegotchies = [aDecoder decodeObjectForKey:ASCPlayerLAttegotchies];
         _items = [aDecoder decodeObjectForKey:ASCPlayerItems];
     }

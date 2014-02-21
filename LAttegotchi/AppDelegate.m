@@ -237,11 +237,11 @@
     player = [[Player alloc] init];
     player.name = playername;
     player.money = 200;
-    player.level = 1;
     
     LAttegotchi* lattegotchi = [[LAttegotchi alloc] init];
     [player.lattegotchies addObject: lattegotchi];
     lattegotchi.name = lattegotchiname;
+    lattegotchi.level = 1;
     lattegotchi.happiness = 80;
     lattegotchi.health = 80;
     lattegotchi.wishesCompleted = 0;

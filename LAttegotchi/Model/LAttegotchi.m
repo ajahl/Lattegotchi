@@ -11,6 +11,7 @@
 #import "Item.h"
 
 #define ASCLAttegotchiName @"lattegotchiName"
+#define ASCLAttegotchiLevel @"lattegotchiLevel"
 #define ASCLAttegotchiHappiness @"lattegotchiHappiness"
 #define ASCLAttegotchiHealth @"lattegotchiHealth"
 #define ASCLAttegotchiBirthday @"lattegotchiBirthday"
@@ -23,6 +24,7 @@
 {
     self = [super init];
     if (self) {
+        _level = 1;
         _wishes = [[NSMutableArray alloc] init];
     }
     return self;
@@ -31,6 +33,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.name forKey:ASCLAttegotchiName];
+    [aCoder encodeInt:self.level forKey:ASCLAttegotchiLevel];
     [aCoder encodeInt:self.happiness forKey:ASCLAttegotchiHappiness];
     [aCoder encodeInt:self.health forKey:ASCLAttegotchiHealth];
     [aCoder encodeObject:self.birthday forKey:ASCLAttegotchiBirthday];
@@ -43,6 +46,7 @@
     self = [super init];
     if (self) {
         _name = [aDecoder decodeObjectForKey:ASCLAttegotchiName];
+        _level = [aDecoder decodeIntForKey:ASCLAttegotchiLevel];
         _happiness = [aDecoder decodeIntForKey:ASCLAttegotchiHappiness];
         _health = [aDecoder decodeIntForKey:ASCLAttegotchiHealth];
         _birthday = [aDecoder decodeObjectForKey:ASCLAttegotchiBirthday];

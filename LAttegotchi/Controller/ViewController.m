@@ -118,7 +118,9 @@
 
 int currentLevel = 1;
 -(void) updateAnimation  {
-    int level = [self getPlayer].level;
+    Player *player = [self getPlayer];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    int level = lattegotchi.level;
     
     if(currentLevel == level) {
         return;

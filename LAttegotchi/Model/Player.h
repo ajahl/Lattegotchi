@@ -17,7 +17,6 @@
 
 @property NSString * name;
 @property int money;
-@property int level;
 
 @property (nonatomic, retain) NSMutableArray * lattegotchies;
 @property (nonatomic, retain) NSMutableDictionary * items;

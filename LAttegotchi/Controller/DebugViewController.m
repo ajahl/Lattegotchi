@@ -43,8 +43,9 @@
     
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
-    [_levelstepper setValue:player.level];
-    [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    [_levelstepper setValue:lattegotchi.level];
+    [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,lattegotchi.level ]];
     
     [_debugsw setOn:app.debugMode];
     
@@ -152,8 +153,9 @@
 - (IBAction)stepperLevel:(id)sender{
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
-    player.level = (int)_levelstepper.value;
-    [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
+    LAttegotchi* lattegotchi = [player.lattegotchies objectAtIndex:0];
+    lattegotchi.level = (int)_levelstepper.value;
+    [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,lattegotchi.level ]];
 }
 
 - (IBAction)switchWeather:(id)sender {

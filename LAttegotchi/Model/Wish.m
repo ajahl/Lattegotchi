@@ -170,7 +170,8 @@
     
     lattegotchi.wishesCompleted++;
     if (lattegotchi.wishesCompleted % 10 == 0) {
-        player.level = player.level < 5 ? player.level + 1 : 5;
+        int level = lattegotchi.level;
+        lattegotchi.level = level < 5 ? level + 1 : 5;
     }
     
     [app updateUI];
