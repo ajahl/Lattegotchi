@@ -118,8 +118,8 @@
     }
     
     // Configure the cell...
-    NSString *text = @"";
-    NSString *detailText = @"";
+    NSString *text = [[NSString alloc] init];
+    NSString *detailText = [[NSString alloc] init];
     switch (self.currentTableView) {
         case 0:
             //Wish

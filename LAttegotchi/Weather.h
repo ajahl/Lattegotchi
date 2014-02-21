@@ -21,9 +21,11 @@ enum WeatherType {
     UNKNOWN
 };
 
++ (void) setWeather:(int)newWeather;
 + (int) getWeather;
 
 + (void) startUpdate;
 + (void) stopUpdate;
++ (BOOL) isUpdating;
 
 @end

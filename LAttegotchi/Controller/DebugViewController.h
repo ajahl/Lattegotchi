@@ -13,6 +13,11 @@
 @property IBOutlet UILabel * levelLabel;
 @property IBOutlet UIStepper * levelstepper;
 @property IBOutlet UISwitch * debugsw;
+@property IBOutlet UISwitch * switchWeather;
+@property IBOutlet UIButton * buttonWeatherSkyisclear;
+@property IBOutlet UIButton * buttonWeatherCloud;
+@property IBOutlet UIButton * buttonWeatherRain;
+@property IBOutlet UIButton * buttonWeatherUnknown;
 
 - (IBAction)buttonItem:(id)sender;
 - (IBAction)buttonGPS:(id)sender;
@@ -26,7 +31,10 @@
 - (IBAction)buttonHappyHealth:(id)sender;
 - (IBAction)switchDebugMode:(id)sender;
 - (IBAction)stepperLevel:(id)sender;
-
-
+- (IBAction)switchWeather:(id)sender;
+- (IBAction)buttonWeatherSkyisclear:(id)sender;
+- (IBAction)buttonWeatherCloud:(id)sender;
+- (IBAction)buttonWeatherRain:(id)sender;
+- (IBAction)buttonWeatherUnknown:(id)sender;
 
 @end

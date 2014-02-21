@@ -20,6 +20,7 @@
 #import "Item.h"
 #import "ViewController.h"
 #import "LAttegotchi.h"
+#import "Weather.h"
 
 @interface DebugViewController ()
 
@@ -31,7 +32,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [_switchWeather setOn:[Weather isUpdating]];
+        [_buttonWeatherSkyisclear setEnabled:![Weather isUpdating]];
+        [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
+        [_buttonWeatherRain setEnabled:![Weather isUpdating]];
+        [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
     }
     return self;
 }
@@ -156,6 +161,37 @@
     Player *player = [app getPlayer];
     player.level = (int)_levelstepper.value;
     [ _levelLabel setText: [NSString stringWithFormat:@"%d" ,player.level ]];
+}
+
+- (IBAction)switchWeather:(id)sender {
+    NSLog(@"switchWeather");
+    UISwitch * sw = (UISwitch*) sender;
+    if ([sw isOn]) {
+        [Weather startUpdate];
+    } else {
+        [Weather stopUpdate];
+    }
+    
+    [_buttonWeatherSkyisclear setEnabled:![Weather isUpdating]];
+    [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
+    [_buttonWeatherRain setEnabled:![Weather isUpdating]];
+    [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
+}
+
+- (IBAction)buttonWeatherSkyisclear:(id)sender {
+    [Weather setWeather:SKYISCLEAR];
+}
+
+- (IBAction)buttonWeatherCloud:(id)sender {
+    [Weather setWeather:FEWCLOUDS];
+}
+
+- (IBAction)buttonWeatherRain:(id)sender {
+    [Weather setWeather:RAIN];
+}
+
+- (IBAction)buttonWeatherUnknown:(id)sender {
+    [Weather setWeather:UNKNOWN];
 }
 
 @end

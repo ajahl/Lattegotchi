@@ -19,6 +19,7 @@
 @property int happiness;
 @property int health;
 @property NSDate * birthday;
+@property int wishesCompleted;
 
 @property (nonatomic, retain) NSMutableArray * wishes;
 
