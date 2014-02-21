@@ -104,10 +104,8 @@
     timeCounter = 0;
     
     if (clickCounter >= self.numOfpush) {
-        
-        [self success];
-        
         [[self subView] removeFromSuperview];
+        [self success]; 
     }
 }
 

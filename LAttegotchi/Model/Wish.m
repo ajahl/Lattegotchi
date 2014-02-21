@@ -97,7 +97,7 @@
     unichar smiley = 0x263A;
     unichar skull = 0x2620;
     
-    NSString *subText = @"";
+    NSString *subText = [[NSString alloc] init];
     
     if (_health == 0)
         subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];
@@ -166,6 +166,11 @@
     player.money += _value;
     
     [lattegotchi.wishes removeObject:self];
+    
+    lattegotchi.wishesCompleted++;
+    if (lattegotchi.wishesCompleted % 10 == 0) {
+        player.level = player.level < 5 ? player.level + 1 : 5;
+    }
     
     [app updateUI];
     

@@ -15,6 +15,7 @@
 #define ASCLAttegotchiHealth @"lattegotchiHealth"
 #define ASCLAttegotchiBirthday @"lattegotchiBirthday"
 #define ASCLAttegotchiWishes @"lattegotchiWishes"
+#define ASCLAttegotchiWishesCompleted @"lattegotchiWishesCompleted"
 
 @implementation LAttegotchi
 
@@ -34,6 +35,7 @@
     [aCoder encodeInt:self.health forKey:ASCLAttegotchiHealth];
     [aCoder encodeObject:self.birthday forKey:ASCLAttegotchiBirthday];
     [aCoder encodeObject:self.wishes forKey:ASCLAttegotchiWishes];
+    [aCoder encodeInt:self.wishesCompleted forKey:ASCLAttegotchiWishesCompleted];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -45,6 +47,7 @@
         _health = [aDecoder decodeIntForKey:ASCLAttegotchiHealth];
         _birthday = [aDecoder decodeObjectForKey:ASCLAttegotchiBirthday];
         _wishes = [aDecoder decodeObjectForKey:ASCLAttegotchiWishes];
+        _wishesCompleted = [aDecoder decodeIntForKey:ASCLAttegotchiWishesCompleted];
     }
     return self;
 }

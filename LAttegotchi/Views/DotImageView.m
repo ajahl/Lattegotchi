@@ -370,6 +370,9 @@ int padding     = 1;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    //opens with mystic touches the debugview
+    
     UITouch * touch = [[event allTouches] anyObject];
     CGPoint point = [touch locationInView:self];
     int x = point.x;
@@ -378,24 +381,30 @@ int padding     = 1;
         case 0:{
             if (x>200&&y < 100) {
                 debugTouchCount++;
+            }else{
+                debugTouchCount = 0;
             }
+            
             break;
         }
         case 1:{
             if (x>200&&y > 100) {
                 debugTouchCount++;
+            }else{
+                debugTouchCount = 0;
             }
             break;
         }
         case 2:{
             if (x<200&&y > 100) {
-                NSLog(@"%f , %f" , point.x,point.y);
                 debugTouchCount = 0;
                 
                 DebugViewController *debug = [[DebugViewController alloc] initWithNibName: @"DebugViewController" bundle:nil];
                 AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
                 [[app window].rootViewController presentViewController:debug animated:YES completion:NULL];
                 
+            }else{
+                debugTouchCount = 0;
             }
             break;
         }

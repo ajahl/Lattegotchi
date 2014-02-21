@@ -1,10 +1,3 @@
-//
-//  ShakeWish.m
-//  LAttegotchi
-//
-//  Created by Codecamp on 19.02.14.
-//  Copyright (c) 2014 Alex Jahl. All rights reserved.
-//
 
 #import "ShakeWish.h"
 #import "AppDelegate.h"
@@ -15,19 +8,27 @@
 
 -(void)execute {
     
+//    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+//    accelerometer.delegate = self;
+//    accelerometer.updateInterval = 1.0;
+    
     // Init GUI
     [self createAndInitUI];
     
 }
 
+// Daten auswerten (Protokoll: UIAccelerometerDelegate)!
+-(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+    NSLog(@"SHAKKKKKKKKKEE");
+    
+// acceleration.x, acceleration.y, acceleration.z;!
+}
+
 
 - (void)createAndInitUI
 {
-    
     // create and add view
     UIView *subView = [self subView];
-    
-    
     
     // Add Text Button
     UILabel *lblDecription = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, subView.frame.size.width, 50)];
@@ -41,20 +42,6 @@
     [lblDistanceTxt setText: [NSString stringWithFormat:@" "]];
     [lblDistanceTxt setTextColor: [UIColor orangeColor]];
     [subView addSubview: lblDistanceTxt];
-    
-//    // Create and add distance label
-//    txtResult  = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-//    [txtResult setTextColor: [UIColor orangeColor]];
-//    
-//    // Add
-//    [txtResult addTarget: self
-//                  action: @selector(textFieldDidBeginEditing:)
-//        forControlEvents: UIControlEventEditingDidBegin];
-//    
-//    [txtResult addTarget: self
-//                  action: @selector(textFieldDidEndEditing:)
-//        forControlEvents: UIControlEventEditingDidEnd];
-//    [subView addSubview: txtResult];
     
     // Add return button
     CGRect buttonFrame = CGRectMake( 10, subView.frame.size.height-30, 100, 30 );
@@ -78,7 +65,6 @@
 }
 
 
-
 - (void) buttonClicked: (id)sender
 {
     NSLog( @"Button clicked." );
@@ -86,12 +72,8 @@
 }
 
 
-
-
-
 - (void) closeWish
 {
-    
     NSLog( @"Close Wish" );
     [[self subView] removeFromSuperview];
 }

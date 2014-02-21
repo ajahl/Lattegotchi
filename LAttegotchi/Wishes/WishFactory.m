@@ -151,11 +151,19 @@
 }
 
 + (ShakeWish*) createShakeWish {
-    ShakeWish * wish = [[ShakeWish alloc]init];
     
-    [wish setName:@"WAAHHH ... I want a "];
-    wish.happiness = 30;
-    wish.health = 30;
+    
+    // get delegate and level information
+    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
+    int level = [app getPlayer].level;
+    
+    // create new wish and init with parameters
+    ShakeWish * wish = [[ShakeWish alloc]init];
+    wish.shakeNumber = (arc4random_uniform(LEVEL_FACTOR * level) + 1);
+    wish.name = [NSString stringWithFormat:@"Shake meee!"];
+    wish.discription = [NSString stringWithFormat:@"Shake me %i times: ", wish.shakeNumber];
+    wish.happiness = wish.shakeNumber * HEALTH_HAPPY_PER_PUSH;
+    wish.health = wish.shakeNumber * HEALTH_HAPPY_PER_PUSH;
     
     return wish;
 }
