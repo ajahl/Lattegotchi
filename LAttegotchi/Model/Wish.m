@@ -12,6 +12,7 @@
 #import "LAttegotchi.h"
 
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define ASCWishName @"wishName"
 #define ASCWishDescription @"wishDescription"
@@ -175,6 +176,26 @@
     [app updateUI];
     
     AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
+    
+    
+    
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                         pathForResource:@"SoundEffect"
+                                         ofType:@"wav"]];
+    NSError *error = nil;
+    AVAudioPlayer * audioPlayer = [[AVAudioPlayer alloc]
+                                   initWithContentsOfURL:url
+                                   error:&error];
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@",[error localizedDescription]);
+    }
+    else
+    {
+         audioPlayer.delegate = self;
+        [audioPlayer play];
+//        [audioPlayer setNumberOfLoops:INT32_MAX]; // for continuous play
+    }
 }
 
 

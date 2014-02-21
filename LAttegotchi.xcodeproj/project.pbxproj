@@ -55,6 +55,9 @@
 		421D307318B4AF440093CE28 /* neutral_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306D18B4AF440093CE28 /* neutral_smile.png */; };
 		421D307418B4AF440093CE28 /* unhappy_smile.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D306E18B4AF440093CE28 /* unhappy_smile.png */; };
 		421D307618B4AFB50093CE28 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = 421D307518B4AFB50093CE28 /* abc.png */; };
+		4256DFDC18B76D72006788BC /* SoundEffect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4256DFDB18B76D72006788BC /* SoundEffect.wav */; };
+		4256DFDE18B7756A006788BC /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 4256DFDD18B7756A006788BC /* Loading.png */; };
+		4256DFE018B775A5006788BC /* Loading4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4256DFDF18B775A5006788BC /* Loading4.png */; };
 		4279B5A318B217A300051796 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A218B217A300051796 /* Foundation.framework */; };
 		4279B5A518B217A300051796 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A418B217A300051796 /* CoreGraphics.framework */; };
 		4279B5A718B217A300051796 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279B5A618B217A300051796 /* UIKit.framework */; };
@@ -160,6 +163,9 @@
 		421D306D18B4AF440093CE28 /* neutral_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neutral_smile.png; path = Resources/neutral_smile.png; sourceTree = "<group>"; };
 		421D306E18B4AF440093CE28 /* unhappy_smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unhappy_smile.png; path = Resources/unhappy_smile.png; sourceTree = "<group>"; };
 		421D307518B4AFB50093CE28 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = abc.png; path = Resources/abc.png; sourceTree = "<group>"; };
+		4256DFDB18B76D72006788BC /* SoundEffect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SoundEffect.wav; path = Resources/Sound/SoundEffect.wav; sourceTree = "<group>"; };
+		4256DFDD18B7756A006788BC /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loading.png; path = Resources/Loading.png; sourceTree = "<group>"; };
+		4256DFDF18B775A5006788BC /* Loading4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loading4.png; path = Resources/Loading4.png; sourceTree = "<group>"; };
 		4279B59F18B217A300051796 /* LAttegotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAttegotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4279B5A218B217A300051796 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4279B5A418B217A300051796 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -305,6 +311,14 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
+		4256DFDA18B76D62006788BC /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				4256DFDB18B76D72006788BC /* SoundEffect.wav */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		4279B59618B217A300051796 = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +403,9 @@
 		429A8BD218B35EED00A1DF52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4256DFDF18B775A5006788BC /* Loading4.png */,
+				4256DFDD18B7756A006788BC /* Loading.png */,
+				4256DFDA18B76D62006788BC /* Sound */,
 				4202F50A18B75D80001250C6 /* rain.png */,
 				4202F50B18B75D80001250C6 /* cloudsun.png */,
 				4202F50C18B75D80001250C6 /* cloud2.png */,
@@ -590,10 +607,12 @@
 				421D307218B4AF440093CE28 /* heart.png in Resources */,
 				421D307318B4AF440093CE28 /* neutral_smile.png in Resources */,
 				420523E818B6603100B5C411 /* icon80.png in Resources */,
+				4256DFDC18B76D72006788BC /* SoundEffect.wav in Resources */,
 				4279B5B618B217A300051796 /* Main_iPhone.storyboard in Resources */,
 				420523E718B6603100B5C411 /* icon58.png in Resources */,
 				421D307118B4AF440093CE28 /* happy_smile.png in Resources */,
 				42B9346718B64622002E6B58 /* icon.png in Resources */,
+				4256DFDE18B7756A006788BC /* Loading.png in Resources */,
 				4202F50218B75495001250C6 /* tamatama_nomal2L2.png in Resources */,
 				421D307618B4AFB50093CE28 /* abc.png in Resources */,
 				420523E118B65F2A00B5C411 /* icon72.png in Resources */,
@@ -610,6 +629,7 @@
 				420523DE18B65F2A00B5C411 /* icon76.png in Resources */,
 				42B9346618B64622002E6B58 /* wish_lamp.png in Resources */,
 				421D306F18B4AF440093CE28 /* a.png in Resources */,
+				4256DFE018B775A5006788BC /* Loading4.png in Resources */,
 				4202F4F818B75495001250C6 /* tamatama_nomal4L4.png in Resources */,
 				4202F50318B75495001250C6 /* tamatama_nomal3L1.png in Resources */,
 				420523E318B65F2A00B5C411 /* icon114.png in Resources */,

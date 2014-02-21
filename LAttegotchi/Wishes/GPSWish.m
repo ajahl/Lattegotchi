@@ -17,7 +17,7 @@
     
 }
 
-//
+// Call if location is updated
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
     // Init start point if not init
@@ -66,7 +66,7 @@
 
 }
 
-// 
+// stop location
 - (void)locationStop
 {
     [locationManager stopUpdatingLocation];
@@ -75,7 +75,7 @@
 #endif
 }
 
-
+// create and init gui with objects
 - (void)createAndInitUI
 {
     

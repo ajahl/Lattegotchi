@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "ListItem.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface Wish : NSObject <NSCoding, ListItem>
+@interface Wish : NSObject <NSCoding, ListItem, AVAudioPlayerDelegate>
 
 @property NSString * name;
 @property NSString * discription;
