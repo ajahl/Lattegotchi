@@ -13,7 +13,6 @@
 #import "Wish.h"
 #import "GPSWish.h"
 #import "MysteryMathWish.h"
-#import "MysteryLetterWish.h"
 #import "NotificationFactory.h"
 #import "Item.h"
 #import "WishFactory.h"
@@ -200,6 +199,7 @@
     // Check if lost
     if (lattegotchi.happiness <= 0 || lattegotchi.health <= 0) {
         [timer invalidate];
+        timer = nil;
         
         NSString *message = [NSString stringWithFormat:@"%@ is ", lattegotchi.name];
         if (lattegotchi.happiness <= 0) {

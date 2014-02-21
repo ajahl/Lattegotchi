@@ -11,7 +11,6 @@
 #import "Wish.h"
 #import "ItemWish.h"
 #import "GPSWish.h"
-#import "MysteryLetterWish.h"
 #import "MysteryMathWish.h"
 #import "PushWish.h"
 #import "AppDelegate.h"
@@ -94,15 +93,6 @@
 }
 - (IBAction)buttonPush:(id)sender{
     Wish * wish =  [WishFactory createPushWish];
-    AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    Player *player = [app getPlayer];
-    LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];
-    wish.starttime = [NSDate dateWithTimeIntervalSinceNow:0];
-    wish.deadline = [wish.starttime dateByAddingTimeInterval:40];
-    [[latte wishes] addObject:wish];
-}
-- (IBAction)buttonLetter:(id)sender{
-    Wish * wish =  [WishFactory createMysteryLetterWish];
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     Player *player = [app getPlayer];
     LAttegotchi *latte = [player.lattegotchies objectAtIndex:0];

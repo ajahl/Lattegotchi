@@ -24,7 +24,6 @@
 - (IBAction)buttonGPS:(id)sender;
 - (IBAction)buttonMath:(id)sender;
 - (IBAction)buttonPush:(id)sender;
-- (IBAction)buttonLetter:(id)sender;
 - (IBAction)buttonShake:(id)sender;
 - (IBAction)buttonBack:(id)sender;
 - (IBAction)buttonStroke:(id)sender;
