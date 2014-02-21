@@ -22,9 +22,9 @@
 #define LEVEL_FACTOR             10    /*  */
 #define HEALTH_HAPPY_PER_PUSH     2    /*  */
 
-#define MAXWISHHAPPINESS    10
+#define MAXWISHHAPPINESS    35
 #define MINWISHHAPPINESS     5
-#define MAXWISHHEALTH       10
+#define MAXWISHHEALTH       35
 #define MINWISHHEALTH        5
 
 @implementation WishFactory
@@ -57,11 +57,11 @@
     
     int happiness = arc4random_uniform(MAXWISHHAPPINESS - MINWISHHAPPINESS);
     happiness += arc4random_uniform(MINWISHHAPPINESS);
-    wish.happiness = item.happiness + happiness;
+    wish.happiness = happiness;
     
     int health = arc4random_uniform(MAXWISHHEALTH - MINWISHHEALTH);
     health += arc4random_uniform(MINWISHHEALTH);
-    wish.health = item.health + health;
+    wish.health = health;
     
     float multiplier = arc4random_uniform(50) / 100.0f;
     int value = item.value * multiplier;
