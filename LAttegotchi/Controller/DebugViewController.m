@@ -54,7 +54,7 @@
     [_buttonWeatherFewCloud setEnabled:![Weather isUpdating]];
     [_buttonWeatherCloud setEnabled:![Weather isUpdating]];
     [_buttonWeatherRain setEnabled:![Weather isUpdating]];
-    [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];
+    [_buttonWeatherUnknown setEnabled:![Weather isUpdating]];	
    
 }
 
