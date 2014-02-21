@@ -8,6 +8,6 @@
 
 #import "Animation.h"
 
-@interface HappyAnimation : Animation
+@interface HappyAnimationLevel5 : Animation
 
 @end

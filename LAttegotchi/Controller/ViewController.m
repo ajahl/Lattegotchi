@@ -13,7 +13,11 @@
 #import "AppDelegate.h"
 #import "LAttegotchi.h"
 #import "DotImageView.h"
-#import "HappyAnimation.h"
+#import "HappyAnimationLevel1.h"
+#import "HappyAnimationLevel2.h"
+#import "HappyAnimationLevel3.h"
+#import "HappyAnimationLevel4.h"
+#import "HappyAnimationLevel5.h"
 #import "Wish.h"
 
 
@@ -65,8 +69,14 @@
     UIImage *sun = [UIImage imageNamed: @"sun.png"];
     [dotView setSun:sun];
     
-    UIImage *cloud = [UIImage imageNamed: @"cloud.png"];
+    UIImage *cloud = [UIImage imageNamed: @"cloud2.png"];
     [dotView setCloud:cloud];
+    
+    UIImage *cloudsun = [UIImage imageNamed: @"cloudsun.png"];
+    [dotView setCloudSun:cloudsun];
+    
+    UIImage *rain = [UIImage imageNamed: @"rain.png"];
+    [dotView setRain:rain];
     
     UIImage *abc = [UIImage imageNamed: @"abc.png"];
     [dotView setABC:abc];
@@ -84,7 +94,7 @@
     }
         
     [_imageView addSubview:dotView];
-    _animation = [[HappyAnimation alloc] init];
+    _animation = [[HappyAnimationLevel1 alloc] init];
 //    [_animation startTimer];
 }
 
@@ -94,10 +104,64 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(Player *) getPlayer {
+    AppDelegate * app = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    return [app getPlayer];
+}
+
 - (void) updateUI {
     [tableViewController reload];
     [_tableView reloadData];
+    
+    [self updateAnimation ];
 }
+
+int currentLevel = 1;
+-(void) updateAnimation  {
+    int level = [self getPlayer].level;
+    
+    if(currentLevel == level) {
+        return;
+    }
+    
+    currentLevel = level;
+    
+    switch (level) {
+        case 1:
+        {
+            _animation = [[HappyAnimationLevel1 alloc] init];
+        }
+            break;
+        case 2:
+        {
+            _animation = [[HappyAnimationLevel2 alloc] init];
+        }
+            break;
+        case 3:
+        {
+            _animation = [[HappyAnimationLevel3 alloc] init];
+        }
+            break;
+        case 4:
+        {
+            _animation = [[HappyAnimationLevel4 alloc] init];
+        }
+            break;
+        case 5:
+        {
+            _animation = [[HappyAnimationLevel5 alloc] init];
+        }
+            break;
+            
+        default: {
+            _animation = [[HappyAnimationLevel1 alloc] init];
+        }
+            break;
+    }
+    
+    
+}
+
 
 -(LAttegotchi *) getLAtte {
     AppDelegate * app = (AppDelegate*) [[UIApplication sharedApplication]delegate];

@@ -78,8 +78,8 @@
         return;
     }
     
-    [_delegate finishedWithPlayername:playername withLAttegotchiName:lattegotchiname];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
+    [_delegate finishedWithPlayername:playername withLAttegotchiName:lattegotchiname];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

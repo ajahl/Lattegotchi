@@ -19,6 +19,8 @@
     UIImage * wishLamp;
     UIImage * sun;
     UIImage * cloud;
+    UIImage * cloudsun;
+    UIImage * rain;
     int debugTouchCount;
 }
 
@@ -32,5 +34,8 @@
 - (void) setWishLamp : (UIImage *) img;
 - (void) setSun : (UIImage *) img;
 - (void) setCloud : (UIImage *) img;
+- (void) setCloudSun : (UIImage *) img;
+- (void) setRain : (UIImage *) img;
+
 
 @end

@@ -42,7 +42,6 @@
         random = arc4random_uniform([items count]);
         item = [items objectAtIndex:random];
     } while ([item value] > player.money && player.money > 50 );
-   
     
     NSMutableString *description = [[NSMutableString alloc]init];
     
