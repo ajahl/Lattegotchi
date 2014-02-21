@@ -60,7 +60,7 @@
     unichar skull = 0x2620;
     unichar bag = 0xF4B0;
     
-    NSString *subText = @"";
+    NSString *subText = [[NSString alloc] init];
     
     if (_health == 0)
         subText = [subText stringByAppendingFormat:@"%C ±%d", heart, _health];

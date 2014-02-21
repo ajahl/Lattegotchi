@@ -131,7 +131,7 @@
 }
 
 - (BOOL) generateNewWishFor:(LAttegotchi*) lattegotchi; {
-    // TODO: check for happiness to die
+    // check for happiness to die
     BOOL lattegotchiWouldDie = NO;
     
     int maxHappinessLost = 0;
@@ -187,7 +187,6 @@
     // Check for new active Wishes
     NSArray* newActiveWishes = [self getNewActiveWishes];
     for (Wish *wish in newActiveWishes) {
-        //NSLog(@"newActiveWish: %@", wish.name);
     }
     
     // Check for deadline
@@ -245,6 +244,7 @@
     lattegotchi.name = lattegotchiname;
     lattegotchi.happiness = 80;
     lattegotchi.health = 80;
+    lattegotchi.wishesCompleted = 0;
     lattegotchi.birthday = [NSDate date];
     
     NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];

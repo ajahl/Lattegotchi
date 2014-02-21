@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 Alex Jahl. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
+
 #import "Weather.h"
 
 @implementation Weather
+static CLLocationManager *locationManager;
 static NSTimer* timer;
 static enum WeatherType weather = UNKNOWN;
 
@@ -17,6 +20,10 @@ static enum WeatherType weather = UNKNOWN;
 }
 
 + (void) startUpdate {
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [locationManager startUpdatingLocation];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [Weather updateWeather:timer];
     });
@@ -27,7 +34,16 @@ static enum WeatherType weather = UNKNOWN;
                                             repeats:YES];
 }
 
+
++ (void) setWeather:(int)newWeather {
+    if (newWeather < 0 || newWeather > 9) {
+        newWeather = 0;
+    }
+    weather = newWeather;
+}
+
 + (void) stopUpdate {
+    [locationManager stopUpdatingLocation];
     if (timer != nil) {
         [timer invalidate];
     }
@@ -35,10 +51,17 @@ static enum WeatherType weather = UNKNOWN;
 }
 
 + (void) updateWeather:(NSTimer *) timer {
-    NSURL *url = [NSURL URLWithString:
-                  @"http://api.openweathermap.org/data/2.5/weather?lat=51.312711400000000000&lon=9.479746100000057000"];
-    NSData* data = [NSData dataWithContentsOfURL:
-                    url];
+    NSString *latitude = @"51.312711400000000000";
+    NSString *longitude = @"9.479746100000057000";
+    
+    if([CLLocationManager locationServicesEnabled]) {
+        CLLocation *curPos = locationManager.location;
+        latitude = [[NSNumber numberWithDouble:curPos.coordinate.latitude] stringValue];
+        longitude = [[NSNumber numberWithDouble:curPos.coordinate.longitude] stringValue];
+    }
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?lat=%@&lon=%@", latitude, longitude]];
+    NSData* data = [NSData dataWithContentsOfURL: url];
     
     NSError *e = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
@@ -163,6 +186,13 @@ static enum WeatherType weather = UNKNOWN;
         }
         break;
     }
+}
+
++ (BOOL) isUpdating {
+    if (timer != nil) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
