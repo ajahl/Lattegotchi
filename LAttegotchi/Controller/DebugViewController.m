@@ -164,7 +164,6 @@
 }
 
 - (IBAction)switchWeather:(id)sender {
-    NSLog(@"switchWeather");
     UISwitch * sw = (UISwitch*) sender;
     if ([sw isOn]) {
         [Weather startUpdate];

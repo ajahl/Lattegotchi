@@ -116,5 +116,8 @@
     [[self subView] removeFromSuperview];
 }
 
+- (BOOL)isAvailable {
+    return [CLLocationManager locationServicesEnabled];
+}
 
 @end
