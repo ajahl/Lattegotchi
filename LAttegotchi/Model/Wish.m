@@ -177,24 +177,19 @@
     
     AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
     
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"SoundEffect" ofType:@"wav"];
     
-    
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                         pathForResource:@"SoundEffect"
-                                         ofType:@"wav"]];
-    NSError *error = nil;
-    AVAudioPlayer * audioPlayer = [[AVAudioPlayer alloc]
-                                   initWithContentsOfURL:url
-                                   error:&error];
-    if (error)
+    if (!filePath)
     {
-        NSLog(@"Error in audioPlayer: %@",[error localizedDescription]);
+        NSLog(@"Error in audioPlayer");
     }
     else
     {
-         audioPlayer.delegate = self;
-        [audioPlayer play];
-//        [audioPlayer setNumberOfLoops:INT32_MAX]; // for continuous play
+        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+        
+        SystemSoundID bell;
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &bell);
+        AudioServicesPlaySystemSound (bell);
     }
 }
 
