@@ -14,4 +14,6 @@
 
 }
 
+@property unsigned int const shakeNumber;
+
 @end
